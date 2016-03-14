@@ -1,8 +1,14 @@
 parameters:
+    support_tools.info_collectors.doctrine_database.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
     support_tools.info_collectors.ezc_hardware.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
     support_tools.info_collectors.php.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector
 
 services:
+    support_tools.info_collectors.doctrine_database:
+        class: %support_tools.info_collectors.doctrine_database.class%
+        arguments:
+            - @database_connection
+
     support_tools.info_collectors.ezc_hardware:
         class: %support_tools.info_collectors.ezc_hardware.class%
         arguments:
