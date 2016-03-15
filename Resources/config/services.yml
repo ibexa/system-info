@@ -25,7 +25,10 @@ services:
 
     support_tools.view.system_info_view_builder:
         class: EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder
-        arguments: [@support_tools.info_collectors.ezc_hardware]
+        arguments:
+            -
+                hardware: @support_tools.info_collectors.ezc_hardware
+                php: @support_tools.info_collectors.php
 
     support_tools.view.controller:
         class: EzSystems\EzSupportToolsBundle\Controller\SystemInfoController

@@ -5,19 +5,20 @@
 namespace EzSystems\EzSupportToolsBundle\View;
 
 use Doctrine\Common\Inflector\Inflector;
+use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
+     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[]
      */
-    private $infoCollector;
+    private $infoCollectors;
 
-    public function __construct(SystemInfoCollector $infoCollector)
+    public function __construct(array $infoCollectors)
     {
-        $this->infoCollector = $infoCollector;
+        $this->infoCollectors = $infoCollectors;
     }
 
     public function matches($argument)
@@ -27,8 +28,9 @@ class SystemInfoViewBuilder implements ViewBuilder
 
     public function buildView(array $parameters)
     {
+        $collector = $this->getCollector($parameters['systemInfoIdentifier']);
         $view = new SystemInfoView();
-        $view->setInfo($this->infoCollector->build());
+        $view->setInfo($collector->build());
         $view->setTemplateIdentifier(
             $this->toTemplateIdentifier($view->getInfo())
         );
@@ -38,9 +40,27 @@ class SystemInfoViewBuilder implements ViewBuilder
 
     private function toTemplateIdentifier($object)
     {
+        return 'ez-support-tools/info/' . $this->toIdentifier($object) . ".html.twig";
+    }
+
+    private function toIdentifier($object)
+    {
         $className = get_class($object);
         $className = substr($className, strrpos($className, '\\') + 1);
+        $className = str_replace('SystemInfo', '', $className);
 
-        return Inflector::tableize($className) . ".html.twig";
+        return Inflector::tableize($className);
+    }
+
+    /**
+     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
+     */
+    private function getCollector($identifier)
+    {
+        if (!isset($this->infoCollectors[$identifier])) {
+            throw new NotFoundException("A SystemInfo collector could not be found.", $identifier);
+        }
+
+        return $this->infoCollectors[$identifier];
     }
 }
