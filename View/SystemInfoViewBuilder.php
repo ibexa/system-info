@@ -7,6 +7,7 @@ namespace EzSystems\EzSupportToolsBundle\View;
 use Doctrine\Common\Inflector\Inflector;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
+use eZ\Publish\Core\MVC\Symfony\View\Configurator;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector;
 
 class SystemInfoViewBuilder implements ViewBuilder
@@ -15,10 +16,15 @@ class SystemInfoViewBuilder implements ViewBuilder
      * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[]
      */
     private $infoCollectors;
+    /**
+     * @var \eZ\Publish\Core\MVC\Symfony\View\Configurator
+     */
+    private $viewConfigurator;
 
-    public function __construct(array $infoCollectors)
+    public function __construct(Configurator $viewConfigurator, array $infoCollectors)
     {
         $this->infoCollectors = $infoCollectors;
+        $this->viewConfigurator = $viewConfigurator;
     }
 
     public function matches($argument)
@@ -31,29 +37,17 @@ class SystemInfoViewBuilder implements ViewBuilder
         $collector = $this->getCollector($parameters['systemInfoIdentifier']);
         $view = new SystemInfoView();
         $view->setInfo($collector->build());
-        $view->setTemplateIdentifier(
-            $this->toTemplateIdentifier($view->getInfo())
-        );
+
+        $this->viewConfigurator->configure($view);
 
         return $view;
     }
 
-    private function toTemplateIdentifier($object)
-    {
-        return 'ez-support-tools/info/' . $this->toIdentifier($object) . ".html.twig";
-    }
-
-    private function toIdentifier($object)
-    {
-        $className = get_class($object);
-        $className = substr($className, strrpos($className, '\\') + 1);
-        $className = str_replace('SystemInfo', '', $className);
-
-        return Inflector::tableize($className);
-    }
-
     /**
+     * @param string $identifier A SystemInfo collector identifier (php, hardware...)
+     *
      * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
+     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
      */
     private function getCollector($identifier)
     {

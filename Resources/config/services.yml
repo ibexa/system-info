@@ -1,3 +1,6 @@
+imports:
+    - { resource: view.yml }
+
 parameters:
     support_tools.info_collectors.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
     support_tools.info_collectors.hardware.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
@@ -22,13 +25,3 @@ services:
         class: %support_tools.info_collectors.php.ezc.class%
         arguments:
             - @support_tools.info_collector.system_info.ezc
-
-    support_tools.view.system_info_view_builder:
-        class: EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder
-        arguments:
-            -
-                hardware: @support_tools.info_collectors.ezc_hardware
-                php: @support_tools.info_collectors.php
-
-    support_tools.view.controller:
-        class: EzSystems\EzSupportToolsBundle\Controller\SystemInfoController
