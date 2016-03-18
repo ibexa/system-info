@@ -6,6 +6,7 @@ parameters:
     support_tools.info_collectors.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
     support_tools.info_collectors.hardware.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
     support_tools.info_collectors.php.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector
+    support_tools.info_collectors.symfony.kernel.config.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector
 
 services:
     support_tools.info_collector.system_info.ezc:
@@ -31,3 +32,9 @@ services:
         class: %support_tools.info_collectors.php.ezc.class%
         arguments:
             - @support_tools.info_collector.system_info.ezc
+
+    support_tools.info_collectors.symfony.kernel.config:
+        class: %support_tools.info_collectors.symfony.kernel.config.class%
+        arguments:
+            - @kernel
+            - %kernel.bundles%
