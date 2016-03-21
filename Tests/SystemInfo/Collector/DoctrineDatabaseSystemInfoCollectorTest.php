@@ -39,7 +39,10 @@ class DoctrineDatabaseSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
         $this->databaseCollector = new DoctrineDatabaseSystemInfoCollector($this->dbalConnectionMock);
     }
 
-    public function testBuild()
+    /**
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector::collect()
+     */
+    public function testCollect()
     {
         $expected = new DatabaseSystemInfo([
             'type' => 'mysql',
@@ -73,7 +76,7 @@ class DoctrineDatabaseSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
             ->method('getUsername')
             ->will($this->returnValue($expected->username));
 
-        $value = $this->databaseCollector->build();
+        $value = $this->databaseCollector->collect();
 
         self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\DatabaseSystemInfo', $value);
 

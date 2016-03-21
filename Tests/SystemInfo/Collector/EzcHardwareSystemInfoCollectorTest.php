@@ -36,9 +36,12 @@ class EzcHardwareSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
         $this->ezcHardware = new EzcHardwareSystemInfoCollector($this->ezcSystemInfoMock);
     }
 
-    public function testBuild()
+    /**
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector::collect()
+     */
+    public function testCollect()
     {
-        $value = $this->ezcHardware->build();
+        $value = $this->ezcHardware->collect();
 
         self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo', $value);
 

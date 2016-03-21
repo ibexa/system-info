@@ -40,7 +40,7 @@ class SystemInfoDumpCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $infoCollector = $this->getContainer()->get($input->getArgument('info-collector'));
-        $infoValue = $infoCollector->build();
+        $infoValue = $infoCollector->collect();
 
         $outputArray = [];
         // attributes() is deprecated, and getProperties() is protected. Smeg it, this is very temporary anyway.
