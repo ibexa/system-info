@@ -16,9 +16,9 @@ use EzSystems\EzSupportToolsBundle\SystemInfo\Value;
 interface SystemInfoCollector
 {
     /**
-     * Builds system information.
+     * Collects system information.
      *
      * @return Value\SystemInfo
      */
-    public function build();
+    public function collect();
 }

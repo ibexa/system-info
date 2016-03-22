@@ -16,9 +16,9 @@ use PHPUnit_Framework_TestCase;
 class JsonComposerLockSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::build()
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
-    public function testBuild()
+    public function testCollect()
     {
         $expected = new ComposerSystemInfo([
             'packages' => [
@@ -57,7 +57,7 @@ class JsonComposerLockSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
 
         $composerCollector = new JsonComposerLockSystemInfoCollector(__DIR__ . '/_fixtures/composer.lock');
 
-        $value = $composerCollector->build();
+        $value = $composerCollector->collect();
 
         self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo', $value);
 
@@ -65,14 +65,14 @@ class JsonComposerLockSystemInfoCollectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::build()
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      *
      * @expectedException \EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException
      */
-    public function testBuildFileNotFound()
+    public function testCollectFileNotFound()
     {
         $composerCollectorNotFound = new JsonComposerLockSystemInfoCollector(__DIR__ . '/_fixtures/snafu.lock');
 
-        $composerCollectorNotFound->build();
+        $composerCollectorNotFound->collect();
     }
 }

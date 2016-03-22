@@ -29,13 +29,13 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Builds information about the PHP installation eZ Platform is using.
+     * Collects information about the PHP installation eZ Platform is using.
      *  - php version
      *  - php accelerator info
      *
      * @return Value\PhpSystemInfo
      */
-    public function build()
+    public function collect()
     {
         $properties = [
             'version' => phpversion(),

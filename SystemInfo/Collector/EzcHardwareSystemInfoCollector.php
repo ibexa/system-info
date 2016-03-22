@@ -29,13 +29,13 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Builds information about the hardware eZ Platform is installed on.
+     * Collects information about the hardware eZ Platform is installed on.
      *  - cpu information
      *  - memory size
      *
      * @return Value\HardwareSystemInfo
      */
-    public function build()
+    public function collect()
     {
         return new Value\HardwareSystemInfo([
             'cpuType' => $this->ezcSystemInfo->cpuType,

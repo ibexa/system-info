@@ -40,13 +40,13 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Builds information about installed composer packages.
+     * Collects information about installed composer packages.
      *
      * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
      *
      * @return Value\ComposerSystemInfo
      */
-    public function build()
+    public function collect()
     {
         if (!file_exists($this->lockFile)) {
             throw new Exception\ComposerLockFileNotFoundException($this->lockFile);

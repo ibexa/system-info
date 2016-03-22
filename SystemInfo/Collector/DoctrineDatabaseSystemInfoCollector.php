@@ -29,7 +29,7 @@ class DoctrineDatabaseSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Builds information about the database eZ Platform is using.
+     * Collects information about the database eZ Platform is using.
      *  - type
      *  - name
      *  - host
@@ -37,7 +37,7 @@ class DoctrineDatabaseSystemInfoCollector implements SystemInfoCollector
      *
      * @return Value\DatabaseSystemInfo
      */
-    public function build()
+    public function collect()
     {
         return new Value\DatabaseSystemInfo([
             'type' => $this->connection->getDatabasePlatform()->getName(),
