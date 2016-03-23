@@ -1,3 +1,6 @@
+imports:
+    - { resource: view.yml }
+
 parameters:
     support_tools.info_collectors.composer.lock_file.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector
     support_tools.info_collectors.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
