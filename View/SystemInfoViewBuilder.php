@@ -36,7 +36,7 @@ class SystemInfoViewBuilder implements ViewBuilder
     {
         $collector = $this->getCollector($parameters['systemInfoIdentifier']);
         $view = new SystemInfoView();
-        $view->setInfo($collector->build());
+        $view->setInfo($collector->collect());
 
         $this->viewConfigurator->configure($view);
 
