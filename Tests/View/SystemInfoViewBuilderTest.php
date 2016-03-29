@@ -35,7 +35,7 @@ class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
         $systemInfo = $this->getMock('SystemInfo');
 
         $this->getCollectorMock()
-            ->method('build')
+            ->method('collect')
             ->will($this->returnValue($systemInfo));
 
         $view = $builder->buildView(['systemInfoIdentifier' => 'test']);
