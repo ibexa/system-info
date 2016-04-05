@@ -4,27 +4,29 @@
  */
 namespace EzSystems\EzSupportToolsBundle\View;
 
-use Doctrine\Common\Inflector\Inflector;
-use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use eZ\Publish\Core\MVC\Symfony\View\Configurator;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector;
+use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {
-    /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[]
-     */
-    private $infoCollectors;
     /**
      * @var \eZ\Publish\Core\MVC\Symfony\View\Configurator
      */
     private $viewConfigurator;
 
-    public function __construct(Configurator $viewConfigurator, array $infoCollectors)
+    /**
+     * System info collector registry.
+     *
+     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     */
+    private $registry;
+
+    public function __construct(Configurator $viewConfigurator, SystemInfoCollectorRegistry $registry)
     {
-        $this->infoCollectors = $infoCollectors;
         $this->viewConfigurator = $viewConfigurator;
+        $this->registry = $registry;
     }
 
     public function matches($argument)
@@ -47,14 +49,9 @@ class SystemInfoViewBuilder implements ViewBuilder
      * @param string $identifier A SystemInfo collector identifier (php, hardware...)
      *
      * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
-     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
      */
     private function getCollector($identifier)
     {
-        if (!isset($this->infoCollectors[$identifier])) {
-            throw new NotFoundException("A SystemInfo collector could not be found.", $identifier);
-        }
-
-        return $this->infoCollectors[$identifier];
+        return $this->registry->getItem($identifier);
     }
 }

@@ -5,23 +5,26 @@
 namespace EzSystems\EzSupportToolsBundle\Tests\View;
 
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
+use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
 use EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder;
 
 class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $configuratorMock;
 
+    private $registryMock;
+
     private $collectorMock;
 
     public function testMatches()
     {
-        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), []);
+        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
         self::assertTrue($builder->matches('support_tools.view.controller:viewInfoAction'));
     }
 
     public function testNotMatches()
     {
-        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), []);
+        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
         self::assertFalse($builder->matches('service:someAction'));
     }
 
@@ -29,10 +32,15 @@ class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
     {
         $builder = new SystemInfoViewBuilder(
             $this->getConfiguratorMock(),
-            ['test' => $this->getCollectorMock()]
+            $this->getRegistryMock()
         );
 
         $systemInfo = $this->getMock('SystemInfo');
+
+        $this->getRegistryMock()
+            ->method('getItem')
+            ->with('test')
+            ->will($this->returnValue($this->getCollectorMock()));
 
         $this->getCollectorMock()
             ->method('collect')
@@ -41,15 +49,6 @@ class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
         $view = $builder->buildView(['systemInfoIdentifier' => 'test', 'viewType' => 'test']);
         self::assertSame($view->getInfo(), $systemInfo);
         self::assertEquals($view->getViewType(), 'test');
-    }
-
-    /**
-     * @expectedException \eZ\Publish\Core\Base\Exceptions\NotFoundException
-     */
-    public function testBuildViewCollectorNotFound()
-    {
-        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), []);
-        $builder->buildView(['systemInfoIdentifier' => 'test']);
     }
 
     /**
@@ -62,6 +61,18 @@ class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
         }
 
         return $this->configuratorMock;
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     */
+    protected function getRegistryMock()
+    {
+        if (!isset($this->registryMock)) {
+            $this->registryMock = $this->getMock('EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry');
+        }
+
+        return $this->registryMock;
     }
 
     /**
