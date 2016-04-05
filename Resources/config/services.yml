@@ -4,6 +4,7 @@ imports:
 parameters:
     support_tools.command.dump_info.class: EzSystems\EzSupportToolsBundle\Command\SystemInfoDumpCommand
     support_tools.info_collector.registry.class: EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased
+    support_tools.info_collector.system_info.ezc.factory.class: EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoFactory
     support_tools.info_collectors.composer.lock_file.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector
     support_tools.info_collectors.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
     support_tools.info_collectors.hardware.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
@@ -23,7 +24,11 @@ services:
 
     support_tools.info_collector.system_info.ezc:
         class: ezcSystemInfo
-        factory: [EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoFactory, buildEzcSystemInfo]
+        factory: [@support_tools.info_collector.system_info.ezc.factory, buildEzcSystemInfo]
+
+    support_tools.info_collector.system_info.ezc.factory:
+        class: %support_tools.info_collector.system_info.ezc.factory.class%
+        lazy: true
 
     support_tools.info_collectors.composer.lock_file:
         class: %support_tools.info_collectors.composer.lock_file.class%
