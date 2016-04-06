@@ -35,7 +35,7 @@ class SystemInfoViewBuilder implements ViewBuilder
     public function buildView(array $parameters)
     {
         $collector = $this->getCollector($parameters['systemInfoIdentifier']);
-        $view = new SystemInfoView();
+        $view = new SystemInfoView(null, [], $parameters['viewType']);
         $view->setInfo($collector->collect());
 
         $this->viewConfigurator->configure($view);

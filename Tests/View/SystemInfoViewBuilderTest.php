@@ -38,8 +38,9 @@ class SystemInfoViewBuilderTest extends \PHPUnit_Framework_TestCase
             ->method('collect')
             ->will($this->returnValue($systemInfo));
 
-        $view = $builder->buildView(['systemInfoIdentifier' => 'test']);
+        $view = $builder->buildView(['systemInfoIdentifier' => 'test', 'viewType' => 'test']);
         self::assertSame($view->getInfo(), $systemInfo);
+        self::assertEquals($view->getViewType(), 'test');
     }
 
     /**
