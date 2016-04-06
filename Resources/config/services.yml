@@ -3,65 +3,68 @@ imports:
 
 parameters:
     support_tools.command.dump_info.class: EzSystems\EzSupportToolsBundle\Command\SystemInfoDumpCommand
-    support_tools.info_collector.registry.class: EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased
-    support_tools.info_collector.system_info.ezc.factory.class: EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoFactory
-    support_tools.info_collectors.composer.lock_file.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector
-    support_tools.info_collectors.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
-    support_tools.info_collectors.hardware.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
-    support_tools.info_collectors.php.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector
-    support_tools.info_collectors.symfony.kernel.config.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector
+    support_tools.system_info.collector_registry.class: EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased
+    support_tools.system_info.ezc.factory.class: EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoFactory
+    support_tools.system_info.collector.composer.lock_file.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector
+    support_tools.system_info.collector.database.doctrine.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\DoctrineDatabaseSystemInfoCollector
+    support_tools.system_info.collector.hardware.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector
+    support_tools.system_info.collector.php.ezc.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector
+    support_tools.system_info.collector.symfony.kernel.config.class: EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector
 
 services:
     support_tools.command.dump_info:
         class: %support_tools.command.dump_info.class%
         arguments:
-            - @support_tools.info_collector.registry
+            - @support_tools.system_info.collector_registry
         tags:
             - { name: console.command }
 
-    support_tools.info_collector.registry:
-        class: %support_tools.info_collector.registry.class%
+    support_tools.system_info.collector_registry:
+        class: %support_tools.system_info.collector_registry.class%
 
-    support_tools.info_collector.system_info.ezc:
+    support_tools.system_info.ezc:
         class: ezcSystemInfo
-        factory: [@support_tools.info_collector.system_info.ezc.factory, buildEzcSystemInfo]
+        factory: [@support_tools.system_info.ezc.factory, buildEzcSystemInfo]
 
-    support_tools.info_collector.system_info.ezc.factory:
-        class: %support_tools.info_collector.system_info.ezc.factory.class%
+    support_tools.system_info.ezc.factory:
+        class: %support_tools.system_info.ezc.factory.class%
         lazy: true
 
-    support_tools.info_collectors.composer.lock_file:
-        class: %support_tools.info_collectors.composer.lock_file.class%
+
+    # SystemInfoCollectors
+
+    support_tools.system_info.collector.composer.lock_file:
+        class: %support_tools.system_info.collector.composer.lock_file.class%
         arguments:
             - "%kernel.root_dir%/../composer.lock"
         tags:
-            - { name: "support_tools.info_collector", alias: "composer" }
+            - { name: "support_tools.system_info.collector", identifier: "composer" }
 
-    support_tools.info_collectors.database.doctrine:
-        class: %support_tools.info_collectors.database.doctrine.class%
+    support_tools.system_info.collector.database.doctrine:
+        class: %support_tools.system_info.collector.database.doctrine.class%
         arguments:
             - @database_connection
         tags:
-            - { name: "support_tools.info_collector", alias: "database" }
+            - { name: "support_tools.system_info.collector", identifier: "database" }
 
-    support_tools.info_collectors.hardware.ezc:
-        class: %support_tools.info_collectors.hardware.ezc.class%
+    support_tools.system_info.collector.hardware.ezc:
+        class: %support_tools.system_info.collector.hardware.ezc.class%
         arguments:
-            - @support_tools.info_collector.system_info.ezc
+            - @support_tools.system_info.ezc
         tags:
-            - { name: "support_tools.info_collector", alias: "hardware" }
+            - { name: "support_tools.system_info.collector", identifier: "hardware" }
 
-    support_tools.info_collectors.php.ezc:
-        class: %support_tools.info_collectors.php.ezc.class%
+    support_tools.system_info.collector.php.ezc:
+        class: %support_tools.system_info.collector.php.ezc.class%
         arguments:
-            - @support_tools.info_collector.system_info.ezc
+            - @support_tools.system_info.ezc
         tags:
-            - { name: "support_tools.info_collector", alias: "php" }
+            - { name: "support_tools.system_info.collector", identifier: "php" }
 
-    support_tools.info_collectors.symfony.kernel.config:
-        class: %support_tools.info_collectors.symfony.kernel.config.class%
+    support_tools.system_info.collector.symfony.kernel.config:
+        class: %support_tools.system_info.collector.symfony.kernel.config.class%
         arguments:
             - @kernel
             - %kernel.bundles%
         tags:
-            - { name: "support_tools.info_collector", alias: "symfony_kernel" }
+            - { name: "support_tools.system_info.collector", identifier: "symfony_kernel" }

@@ -3,7 +3,7 @@ services:
         class: EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder
         arguments:
             - @ezpublish.view.configurator
-            - @support_tools.info_collector.registry
+            - @support_tools.system_info.collector_registry
 
     support_tools.view.controller:
         class: EzSystems\EzSupportToolsBundle\Controller\SystemInfoController

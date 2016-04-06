@@ -21,20 +21,20 @@ class SystemInfoCollectorPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('support_tools.info_collector.registry')) {
+        if (!$container->has('support_tools.system_info.collector_registry')) {
             return;
         }
 
-        $infoCollectorsTagged = $container->findTaggedServiceIds('support_tools.info_collector');
+        $infoCollectorsTagged = $container->findTaggedServiceIds('support_tools.system_info.collector');
 
         $infoCollectors = [];
         foreach ($infoCollectorsTagged as $id => $tags) {
             foreach ($tags as $attributes) {
-                $infoCollectors[$attributes['alias']] = new Reference($id);
+                $infoCollectors[$attributes['identifier']] = new Reference($id);
             }
         }
 
-        $infoCollectorRegistryDef = $container->findDefinition('support_tools.info_collector.registry');
+        $infoCollectorRegistryDef = $container->findDefinition('support_tools.system_info.collector_registry');
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }
