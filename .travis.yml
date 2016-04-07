@@ -11,10 +11,14 @@ branches:
         - master
 
 before_script:
-    - composer selfupdate
-    - composer install --prefer-dist
+    # re-enable when / if coverage is disabled for faster test runs
+    #- phpenv config-rm xdebug.ini
+    - travis_retry composer selfupdate
+    # Avoid memory issues on composer install
+    - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+    - travis_retry composer install --prefer-dist --no-interaction
 
-script: phpunit --coverage-text
+script: php bin/phpunit --coverage-text
 
 notifications:
     email: false
