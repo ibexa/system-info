@@ -3,10 +3,7 @@ services:
         class: EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder
         arguments:
             - @ezpublish.view.configurator
-            # temporary until we add a service tag (EZP-25598)
-            -
-                hardware: @support_tools.info_collectors.hardware.ezc
-                php: @support_tools.info_collectors.php.ezc
+            - @support_tools.system_info.collector_registry
 
     support_tools.view.controller:
         class: EzSystems\EzSupportToolsBundle\Controller\SystemInfoController
