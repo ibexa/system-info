@@ -1,3 +1,0 @@
-ez_support_tools_system_info_view:
-    path: /ez-support-tools/view/{systemInfoIdentifier}
-    defaults: {_controller: support_tools.view.controller:viewInfoAction}
