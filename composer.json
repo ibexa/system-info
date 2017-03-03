@@ -2,6 +2,7 @@
     "name": "ezsystems/ez-support-tools",
     "description": "Providing information about the system eZ Platform/Studio is running on",
     "license": "GPL-2.0",
+    "type": "ezplatform-bundle",
     "authors": [
         {
             "name": "Gunnstein Lye",
