@@ -21,7 +21,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
      *
      * Needed as long as we don't want to depend on Composer.
      */
-    private $stabilities = [
+    const STABILITIES = [
         0 => 'stable',
         5 => 'RC',
         10 => 'beta',
@@ -33,6 +33,11 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
      * @var string Composer lock file with full path.
      */
     private $lockFile;
+
+    /**
+     * @var Value\ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
+     */
+    private $value;
 
     public function __construct($lockFile)
     {
@@ -48,35 +53,72 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
      */
     public function collect()
     {
+        if ($this->value) {
+            return $this->value;
+        }
+
         if (!file_exists($this->lockFile)) {
             throw new Exception\ComposerLockFileNotFoundException($this->lockFile);
         }
 
         $packages = [];
+        $rootAliases = [];
         $lockData = json_decode(file_get_contents($this->lockFile), true);
+        foreach ($lockData['aliases'] as $alias) {
+            $rootAliases[$alias['package']] = $alias['alias'];
+        }
+
+        // For PHP 5.6, add variable locally to be able to use isset() on it.
+        $stabilities = self::STABILITIES;
         foreach ($lockData['packages'] as $packageData) {
-            $packages[$packageData['name']] = new Value\ComposerPackage([
+            $package = new Value\ComposerPackage([
                 'name' => $packageData['name'],
-                'version' => $packageData['version'],
+                'branch' => $packageData['version'],
                 'dateTime' => isset($packageData['time']) ? new \DateTime($packageData['time']) : null,
                 'homepage' => isset($packageData['homepage']) ? $packageData['homepage'] : '',
                 'reference' => isset($packageData['source']) ? $packageData['source']['reference'] : null,
+                'license' => isset($packageData['license'][0]) ? $packageData['license'][0] : null,
             ]);
 
-            if (isset($lockData['stability-flags'][$packageData['name']])) {
-                $stabilityFlag = (int)$lockData['stability-flags'][$packageData['name']];
+            if (isset($lockData['stability-flags'][$package->name])) {
+                $stabilityFlag = (int)$lockData['stability-flags'][$package->name];
 
-                if (isset($this->stabilities[$stabilityFlag])) {
-                    $packages[$packageData['name']]->stability = $this->stabilities[$stabilityFlag];
+                if (isset($stabilities[$stabilityFlag])) {
+                    $package->stability = $stabilities[$stabilityFlag];
                 }
             }
+
+            if (isset($rootAliases[$package->name])) {
+                $package->alias = $rootAliases[$package->name];
+            } elseif (isset($packageData['extra']['branch-alias'][$package->branch])) {
+                $package->alias = $packageData['extra']['branch-alias'][$package->branch];
+            }
+
+            self::setNormalizedVersion($package);
+
+            $packages[$packageData['name']] = $package;
         }
 
         ksort($packages, SORT_FLAG_CASE | SORT_STRING);
 
-        return new Value\ComposerSystemInfo([
+        return $this->value = new Value\ComposerSystemInfo([
             'packages' => $packages,
             'minimumStability' => isset($lockData['minimum-stability']) ? $lockData['minimum-stability'] : null,
         ]);
+    }
+
+    private static function setNormalizedVersion(Value\ComposerPackage $package)
+    {
+        $version = $package->alias ? $package->alias : $package->branch;
+        if ($version[0] === 'v') {
+            $version = substr($version, 1);
+        }
+
+        if (strpos($version, 'x-dev')) {
+            $version = str_replace('-dev', '', $version);
+            $package->stability = 'dev';
+        }
+
+        $package->version = $version;
     }
 }
