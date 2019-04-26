@@ -55,7 +55,7 @@
             {# In the future with retrival of info from updates.ez.no we can detect missing (public) security fixes and then let this become an error #}
             {% set severity = 1 %}
             <div class="alert alert-warning mb-0 mt-3" role="alert">
-                {{ 'dashboard.ez_version.community_end_of_maintenance'|trans({'%release%': ez.release, '%update_url%': urls['update_url']})
+                {{ 'dashboard.ez_version.community_end_of_maintenance'|trans({'%release%': ez.release, '%update_url%': urls['update']})
                 |desc("Unfortunately %release% open source version has reached end of life, <a target=\"_blank\" href=\"%update_url%\">please upgrade</a>.")}}
                 <em>
                     {{ 'dashboard.ez_version.community_end_of_maintenance_upgrade'|trans({
