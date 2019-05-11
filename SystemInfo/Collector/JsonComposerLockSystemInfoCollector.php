@@ -136,6 +136,10 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     private function extractRepositoryUrls(array $jsonData): array
     {
         $repos = [];
+        if (!isset($jsonData['repositories'])) {
+            return $repos;
+        }
+
         foreach ($jsonData['repositories'] as $composerRepository) {
             if (empty($composerRepository['type']) || $composerRepository['type'] !== 'composer') {
                 continue;
