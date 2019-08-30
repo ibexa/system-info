@@ -95,16 +95,8 @@
         {% set severity = 1 %}
         {% set badge = 'End of Life' %}
         <div class="alert alert-warning mb-0 mt-3" role="alert">
-            {{ 'dashboard.ez_version.end_of_life'|trans({
-                '%release%': urls['license'],
-                '%license_url%': urls['ee_product'],
-                '%gpl_faq_url%': urls['gpl_faq'],
-            })
-            |desc("Welcome to the open source %release% release. Using the community friendly <a target=\"_blank\" href=\"%license_url%\">GPL license</a>,
-                    <a target=\"_blank\" href=\"%gpl_faq_url%\">sharing your code</a> is what it's all about.")
-            |raw }}
             {{ 'dashboard.ez_version.end_of_life_upgrade'|trans({
-                '%release%': urls['license'],
+                '%release%': ez.release,
                 '%service_life_url%': urls['service_life'],
                 '%contact_url%': urls['contact'],
             })
