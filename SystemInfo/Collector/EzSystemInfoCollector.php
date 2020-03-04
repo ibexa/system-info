@@ -165,6 +165,7 @@ class EzSystemInfoCollector implements SystemInfoCollector
         if ($ez->isTrial && isset(self::RELEASES[$ez->release])) {
             $months = (new DateTime(self::RELEASES[$ez->release]))->diff(new DateTime())->m;
             $ez->isEndOfMaintenance = $months > 3;
+            // @todo We need to detect this in a better way, this is temporary until some of the work described in class doc is done.
             $ez->isEndOfLife = $months > 6;
         } else {
             if (isset(self::EOM[$ez->release])) {
