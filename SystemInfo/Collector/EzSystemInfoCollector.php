@@ -167,7 +167,7 @@ class EzSystemInfoCollector implements SystemInfoCollector
             $ez->isEndOfMaintenance = $months > 3;
             // Temporary increased from 6 to 10.
             // @todo We need to detect this in a better way, this is temporary until some of the work described in class doc is done.
-            $ez->isEndOfLife = $months > 10;
+            $ez->isEndOfLife = $months > 12;
         } else {
             if (isset(self::EOM[$ez->release])) {
                 $ez->isEndOfMaintenance = strtotime(self::EOM[$ez->release]) < time();
