@@ -102,6 +102,7 @@ class EzSystemInfoCollector implements SystemInfoCollector
      */
     const COMMERCE_PACKAGES = [
         'silversolutions/silver.e-shop',
+        'ezsystems/ezcommerce-shop',
     ];
 
     /**
