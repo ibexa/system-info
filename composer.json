@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": "^7.3",
-        "ezsystems/ezpublish-kernel": "^8.0@dev",
+        "ezsystems/ezplatform-kernel": "^1.0@dev",
+        "ezsystems/ezplatform-core": "^2.0@dev",
         "ocramius/proxy-manager": "^2.2",
         "symfony/proxy-manager-bridge": "^5.0",
         "zetacomponents/system-information": "^1.1.1",
@@ -20,6 +21,7 @@
     "require-dev": {
         "ezsystems/ezplatform-code-style": "^0.1",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
         "phpunit/phpunit": "^8.2"
     },
     "autoload": {
