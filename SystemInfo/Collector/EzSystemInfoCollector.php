@@ -6,6 +6,7 @@
  */
 namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
 
+use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Value\EzSystemInfo;
 use DateTime;
@@ -138,11 +139,7 @@ class EzSystemInfoCollector implements SystemInfoCollector
             return $ez;
         }
 
-        // The most reliable way to get version is from kernel
-        // future updates should make sure to detect when kernel version selector is wrong compare to other packages
-        if (isset($this->composerInfo->packages['ezsystems/ezpublish-kernel'])) {
-            $ez->release = (string)(((float)$this->composerInfo->packages['ezsystems/ezpublish-kernel']->version) - 5);
-        }
+        $ez->release = EzPlatformCoreBundle::VERSION;
 
         // In case someone switches from TTL to BUL, make sure we only identify install as Trial if this is present,
         // as well as TTL packages
