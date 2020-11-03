@@ -9,16 +9,16 @@ namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
 use eZ\Publish\API\Repository\Values\ValueObject;
 
 /**
- * Value for information about the eZ installation.
+ * Value for information about the Ibexa installation.
  *
  * @internal This class will greatly change in the future and should not be used as an api.
  */
-class EzSystemInfo extends ValueObject implements SystemInfo
+class IbexaSystemInfo extends ValueObject implements SystemInfo
 {
     /**
      * @var string
      */
-    public $name = 'Ibexa Platform';
+    public $name = 'Ibexa Open Source';
 
     /**
      * @var string|null Either string like '2.5' or null if not detected.
@@ -28,7 +28,7 @@ class EzSystemInfo extends ValueObject implements SystemInfo
     /**
      * @var bool
      */
-    public $isEnterpise = false;
+    public $isEnterprise = false;
 
     /**
      * @var bool
@@ -41,9 +41,19 @@ class EzSystemInfo extends ValueObject implements SystemInfo
     public $isEndOfMaintenance = true;
 
     /**
+     * @var \DateTime
+     */
+    public $endOfMaintenanceDate;
+
+    /**
      * @var bool
      */
     public $isEndOfLife = true;
+
+    /**
+     * @var \DateTime
+     */
+    public $endOfLifeDate;
 
     /**
      * @var bool
