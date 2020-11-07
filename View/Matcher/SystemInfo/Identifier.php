@@ -13,6 +13,7 @@ class Identifier implements ViewMatcherInterface
 {
     /**
      * Matched SystemInfo identifier. Example: 'php', 'hardware'...
+     *
      * @var string
      */
     private $identifier;

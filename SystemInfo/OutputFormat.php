@@ -14,6 +14,7 @@ interface OutputFormat
      * Format an array of collected information data, and return it as string.
      *
      * @param array $collectedInfo
+     *
      * @return string
      */
     public function format(array $collectedInfo);
