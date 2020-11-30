@@ -92,8 +92,8 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Commerce".
      */
     const COMMERCE_PACKAGES = [
-        'silversolutions/silver.e-shop',
         'ezsystems/ezcommerce-shop',
+        'silversolutions/silver.e-shop',
     ];
 
     /**
@@ -146,13 +146,13 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         if ($package = $this->getFirstPackage(self::ENTERPRISE_PACKAGES)) {
             $ibexa->isEnterprise = true;
             $ibexa->isTrial = $hasTTLComposerRepo && $package->license === 'TTL-2.0';
-            $ibexa->name = 'Ibexa Experience';
+            $ibexa->name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['experience'];
         }
 
         if ($package = $this->getFirstPackage(self::COMMERCE_PACKAGES)) {
             $ibexa->isCommerce = true;
-            $ibexa->isTrial = $ibexa->isTrial || $hasTTLComposerRepo && $package->license === 'TTL-2.0';
-            $ibexa->name = 'Ibexa Commerce';
+            $ibexa->isTrial = $ibexa->isTrial || ($hasTTLComposerRepo && $package->license === 'TTL-2.0');
+            $ibexa->name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['commerce'];
         }
 
         if ($ibexa->isTrial && isset(self::RELEASES[$ibexaRelease])) {

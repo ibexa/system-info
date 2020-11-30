@@ -6,10 +6,12 @@
  */
 namespace EzSystems\EzSupportToolsBundle;
 
+use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
 use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoCollectorPass;
 use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\OutputFormatPass;
 use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoTabGroupPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class EzSystemsEzSupportToolsBundle extends Bundle
@@ -20,5 +22,13 @@ class EzSystemsEzSupportToolsBundle extends Bundle
         $container->addCompilerPass(new SystemInfoCollectorPass());
         $container->addCompilerPass(new OutputFormatPass());
         $container->addCompilerPass(new SystemInfoTabGroupPass());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension(): ExtensionInterface
+    {
+        return new EzSystemsEzSupportToolsExtension();
     }
 }
