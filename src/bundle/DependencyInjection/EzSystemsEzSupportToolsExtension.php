@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace EzSystems\EzSupportToolsBundle\DependencyInjection;
 
+use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
 use Symfony\Component\Config\FileLocator;
@@ -57,7 +58,7 @@ class EzSystemsEzSupportToolsExtension extends Extension
     private function getPoweredByName(ContainerBuilder $container, ?string $release): string
     {
         // Autodetect product name if configured name is null (default)
-        $vendor = $container->getParameter('kernel.root_dir') . '/../vendor/';
+        $vendor = $container->getParameter('kernel.project_dir') . '/vendor/';
         if (is_dir($vendor . IbexaSystemInfoCollector::COMMERCE_PACKAGES[0])) {
             $name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['commerce'];
         } elseif (is_dir($vendor . IbexaSystemInfoCollector::ENTERPRISE_PACKAGES[0])) {
