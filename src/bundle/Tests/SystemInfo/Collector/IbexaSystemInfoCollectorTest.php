@@ -6,11 +6,12 @@
  */
 declare(strict_types=1);
 
-namespace SystemInfo\Collector;
+namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
 
 use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
+use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
 use PHPUnit\Framework\TestCase;
 
 class IbexaSystemInfoCollectorTest extends TestCase
@@ -23,7 +24,7 @@ class IbexaSystemInfoCollectorTest extends TestCase
 
         $systemInfoCollector = new IbexaSystemInfoCollector($composerCollector);
         $systemInfo = $systemInfoCollector->collect();
-        self::assertSame('Ibexa Open Source', $systemInfo->name);
+        self::assertSame(IbexaSystemInfo::PRODUCT_NAME_OSS, $systemInfo->name);
         self::assertSame(EzPlatformCoreBundle::VERSION, $systemInfo->release);
     }
 }

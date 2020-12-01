@@ -15,10 +15,22 @@ use eZ\Publish\API\Repository\Values\ValueObject;
  */
 class IbexaSystemInfo extends ValueObject implements SystemInfo
 {
+    public const PRODUCT_NAME_OSS = 'Ibexa Open Source';
+    public const PRODUCT_NAME_ENTERPRISE = 'Ibexa DXP';
+    public const PRODUCT_NAME_VARIANTS = [
+        'oss' => self::PRODUCT_NAME_OSS,
+        'content' => 'Ibexa Content',
+        'experience' => 'Ibexa Experience',
+        'commerce' => self::PRODUCT_NAME_COMMERCE,
+    ];
+
+    // @deprecated: use PRODUCT_NAME_VARIANTS
+    public const PRODUCT_NAME_COMMERCE = 'Ibexa Commerce';
+
     /**
      * @var string
      */
-    public $name = 'Ibexa Open Source';
+    public $name = self::PRODUCT_NAME_OSS;
 
     /**
      * @var string|null Either string like '2.5' or null if not detected.
