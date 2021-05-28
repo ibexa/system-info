@@ -96,6 +96,11 @@
         <target state="new">You can read more about Service Life for Ibexa DXP with a business license at</target>
         <note>key: ibexa.read_more</note>
       </trans-unit>
+      <trans-unit id="5a3d301a871855ae4b3809c19b76fcccdb65b8ce" resname="invalid.system_unable_to_fetch">
+        <source>System was unable to fetch corresponding data</source>
+        <target state="new">System was unable to fetch corresponding data</target>
+        <note>key: invalid.system_unable_to_fetch</note>
+      </trans-unit>
       <trans-unit id="608cb271bb7fb52c99a1a8e003e0f80f57fb41e1" resname="hardware">
         <source>Hardware</source>
         <target state="new">Hardware</target>

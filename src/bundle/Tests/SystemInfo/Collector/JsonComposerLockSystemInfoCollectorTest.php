@@ -7,6 +7,7 @@
 namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
 
 use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
+use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerJsonFileNotFoundException;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage;
@@ -18,7 +19,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     /**
      * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $expected = new ComposerSystemInfo([
             'packages' => [
@@ -78,7 +79,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     /**
      * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
-    public function testCollectLockFileNotFound()
+    public function testCollectLockFileNotFound(): void
     {
         $this->expectException(ComposerLockFileNotFoundException::class);
 
@@ -89,11 +90,39 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     /**
      * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
-    public function testCollectJsonFileNotFound()
+    public function testCollectJsonFileNotFound(): void
     {
         $this->expectException(ComposerJsonFileNotFoundException::class);
 
         $composerCollectorNotFound = new JsonComposerLockSystemInfoCollector(__DIR__ . '/_fixtures/composer.lock', __DIR__ . '/_fixtures/snafu.json');
         $composerCollectorNotFound->collect();
+    }
+
+    /**
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     */
+    public function testCollectLockFileCorrupted(): void
+    {
+        $composerCollectorCorrupted = new JsonComposerLockSystemInfoCollector(
+            __DIR__ . '/_fixtures/corrupted_composer.lock',
+            __DIR__ . '/_fixtures/composer.json'
+        );
+
+        $this->expectException(ComposerFileValidationException::class);
+        $composerCollectorCorrupted->collect();
+    }
+
+    /**
+     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     */
+    public function testCollectJsonFileCorrupted(): void
+    {
+        $composerCollectorCorrupted = new JsonComposerLockSystemInfoCollector(
+            __DIR__ . '/_fixtures/composer.lock',
+            __DIR__ . '/_fixtures/corrupted_composer.json'
+        );
+
+        $this->expectException(ComposerFileValidationException::class);
+        $composerCollectorCorrupted->collect();
     }
 }
