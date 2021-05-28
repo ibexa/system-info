@@ -54,6 +54,10 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
      * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo
      *
      * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
+     * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
+     * @throws Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
+     *
+     * @return Value\ComposerSystemInfo
      */
     public function collect(): ComposerSystemInfo
     {
@@ -71,6 +75,15 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 
         $lockData = json_decode(file_get_contents($this->lockFile), true);
         $jsonData = json_decode(file_get_contents($this->jsonFile), true);
+
+        if (!is_array($lockData)) {
+            throw new Exception\ComposerFileValidationException($this->lockFile);
+        }
+
+        if (!is_array($jsonData)) {
+            throw new Exception\ComposerFileValidationException($this->jsonFile);
+        }
+
         $stability = InstalledVersions::isInstalled(self::IBEXA_OSS_PACKAGE)
             ? $this->versionStabilityChecker->getStability(
                 InstalledVersions::getVersion(self::IBEXA_OSS_PACKAGE)
