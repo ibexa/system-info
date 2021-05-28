@@ -1,0 +1,16 @@
+{% trans_default_domain "systeminfo" %}
+
+<section class="ez-fieldgroup">
+    <h2 class="ez-fieldgroup__name">{{ 'invalid.system_unable_to_fetch'|trans|desc('System was unable to fetch corresponding data') }}</h2>
+    <div class="ez-fieldgroup__content">
+        <table class="table ez-table--list">
+            <tbody>
+            <tr class="ez-table__row">
+                <td class="ez-table__cell">
+                    {{ info.errorMessage }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
