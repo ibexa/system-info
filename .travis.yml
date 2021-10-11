@@ -9,12 +9,6 @@ matrix:
     fast_finish: true
     include:
         - php: 7.3
-          name: "Code style"
-          env: CHECK_CS=true
-        - php: 7.3
-          name: "Unit tests"
-          env: UNIT_TESTS=true 
-        - php: 7.3
           name: "System information browser tests"
           env:     
             - APP_ENV=behat
@@ -44,12 +38,10 @@ before_script:
     - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     # Install packages
     - travis_retry composer install --prefer-dist --no-interaction
-    - if [ "${BEHAT_OPTS}" != "" ]; then ./vendor/bin/prepare_project_edition.sh oss ${PROJECT_VERSION} ${COMPOSE_FILE} ; fi
+    - ./vendor/bin/prepare_project_edition.sh oss ${PROJECT_VERSION} ${COMPOSE_FILE}
 
 script:
-    - if [ "${UNIT_TESTS}" != "" ] ; then php vendor/bin/phpunit ; fi
-    - if [ "$CHECK_CS" != "" ]; then ./vendor/bin/check_cs.sh; fi
-    - if [ "${BEHAT_OPTS}" != "" ] ; then cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/ezbehat ${BEHAT_OPTS}" ; fi
+    - cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/ezbehat ${BEHAT_OPTS}"
 
 after_failure:
   # Will show us the last bit of the log of container's main processes
@@ -60,4 +52,4 @@ after_failure:
   - docker ps -s
 
 after_script:
-  - if [ "${BEHAT_OPTS}" != "" ] ; then vendor/bin/ezreport ; fi
+  - vendor/bin/ezreport
