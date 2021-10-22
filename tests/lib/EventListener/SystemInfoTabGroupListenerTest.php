@@ -4,19 +4,19 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportTools\Tests\EventListener;
+namespace Ibexa\Tests\SystemInfo\EventListener;
 
-use EzSystems\EzSupportTools\EventListener\SystemInfoTabGroupListener;
-use EzSystems\EzSupportTools\Tab\SystemInfo\SystemInfoTab;
+use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
+use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use PHPUnit\Framework\TestCase;
 use EzSystems\EzPlatformAdminUi\Tab\Event\TabEvents;
 use EzSystems\EzPlatformAdminUi\Tab\Event\TabGroupEvent;
-use EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory;
+use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use PHPUnit\Framework\MockObject\MockObject;
 
 class SystemInfoTabGroupListenerTest extends TestCase
@@ -113,3 +113,5 @@ class SystemInfoTabGroupListenerTest extends TestCase
         ];
     }
 }
+
+class_alias(SystemInfoTabGroupListenerTest::class, 'EzSystems\EzSupportTools\Tests\EventListener\SystemInfoTabGroupListenerTest');

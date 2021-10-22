@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\EventListener;
+namespace Ibexa\SystemInfo\EventListener;
 
 use eZ\Publish\API\Repository\PermissionResolver;
 use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
@@ -75,3 +75,5 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
         ];
     }
 }
+
+class_alias(ConfigureMainMenuListener::class, 'EzSystems\EzSupportTools\EventListener\ConfigureMainMenuListener');

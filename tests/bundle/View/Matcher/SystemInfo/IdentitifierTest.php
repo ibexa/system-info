@@ -4,12 +4,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\View\Matcher\SystemInfo;
+namespace Ibexa\Tests\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo;
-use EzSystems\EzSupportToolsBundle\View\Matcher\SystemInfo\Identifier;
-use EzSystems\EzSupportToolsBundle\View\SystemInfoView;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
+use Ibexa\Bundle\SystemInfo\View\Matcher\SystemInfo\Identifier;
+use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 use PHPUnit\Framework\TestCase;
 
 class IdentitifierTest extends TestCase
@@ -46,3 +46,5 @@ class IdentitifierTest extends TestCase
         self::assertFalse($matcher->match($view));
     }
 }
+
+class_alias(IdentitifierTest::class, 'EzSystems\EzSupportToolsBundle\Tests\View\Matcher\SystemInfo\IdentitifierTest');

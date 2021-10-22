@@ -6,10 +6,10 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\Connection;
-use EzSystems\EzSupportTools\Storage\Metrics;
+use Ibexa\SystemInfo\Storage\Metrics;
 
 /**
  * @internal
@@ -34,3 +34,5 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
         return $this->connection->getDatabasePlatform()->getCountExpression($columnName);
     }
 }
+
+class_alias(RepositoryConnectionAwareMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\RepositoryConnectionAwareMetrics');

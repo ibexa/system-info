@@ -6,13 +6,13 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
-use EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use PHPUnit\Framework\TestCase;
 
 class IbexaSystemInfoCollectorTest extends TestCase
@@ -41,3 +41,5 @@ class IbexaSystemInfoCollectorTest extends TestCase
         self::assertSame(EzPlatformCoreBundle::VERSION, $systemInfo->release);
     }
 }
+
+class_alias(IbexaSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\IbexaSystemInfoCollectorTest');

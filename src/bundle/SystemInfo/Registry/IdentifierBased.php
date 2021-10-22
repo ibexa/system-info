@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Registry;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Registry;
 
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 
 /**
  * A registry of SystemInfoCollectors that uses an identifier string to identify the collector.
@@ -53,3 +53,5 @@ class IdentifierBased implements SystemInfoCollectorRegistry
         return array_keys($this->registry);
     }
 }
+
+class_alias(IdentifierBased::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased');

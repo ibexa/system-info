@@ -4,12 +4,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use EzSystems\EzSupportTools\Storage\MetricsProvider;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositorySystemInfo;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositoryMetrics;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 
 /**
  * Collects database information using Doctrine.
@@ -68,3 +68,5 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
         ]);
     }
 }
+
+class_alias(RepositorySystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\RepositorySystemInfoCollector');

@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\ParameterType;
 use eZ\Publish\SPI\Persistence\Content\ContentInfo;
@@ -47,3 +47,5 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
+
+class_alias(DraftsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\DraftsCountMetrics');

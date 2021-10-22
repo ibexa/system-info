@@ -4,14 +4,14 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Composer\InstalledVersions;
-use EzSystems\EzSupportTools\Value\Stability;
-use EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage;
+use Ibexa\SystemInfo\Value\Stability;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 
 /**
  * Collects information about installed Composer packages, by reading json from composer.lock.
@@ -194,3 +194,5 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
         return $lockData['minimum-stability'] ?? null;
     }
 }
+
+class_alias(JsonComposerLockSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector');

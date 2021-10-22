@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -55,3 +55,5 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 }
+
+class_alias(Configuration::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Configuration');

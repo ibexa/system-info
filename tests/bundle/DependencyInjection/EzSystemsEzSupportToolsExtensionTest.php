@@ -6,12 +6,12 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\Tests\DependencyInjection;
+namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection;
 
-use EzSystems\EzSupportTools\Storage\AggregateMetricsProvider;
-use EzSystems\EzSupportTools\Storage\Metrics;
-use EzSystems\EzSupportTools\Storage\MetricsProvider;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
+use Ibexa\SystemInfo\Storage\AggregateMetricsProvider;
+use Ibexa\SystemInfo\Storage\Metrics;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
@@ -52,3 +52,5 @@ class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
         }
     }
 }
+
+class_alias(EzSystemsEzSupportToolsExtensionTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\EzSystemsEzSupportToolsExtensionTest');

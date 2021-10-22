@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\SymfonyKernelSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -81,3 +81,5 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 }
+
+class_alias(ConfigurationSymfonyKernelSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollectorTest');

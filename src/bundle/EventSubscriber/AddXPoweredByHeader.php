@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\EventSubscriber;
+namespace Ibexa\Bundle\SystemInfo\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -44,3 +44,5 @@ class AddXPoweredByHeader implements EventSubscriberInterface
         }
     }
 }
+
+class_alias(AddXPoweredByHeader::class, 'EzSystems\EzSupportToolsBundle\EventSubscriber\AddXPoweredByHeader');

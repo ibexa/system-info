@@ -4,11 +4,11 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Command;
+namespace Ibexa\Bundle\SystemInfo\Command;
 
 use eZ\Bundle\EzPublishCoreBundle\Command\BackwardCompatibleCommand;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
-use EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -127,3 +127,5 @@ EOD
         return ['ez-support-tools:dump-info'];
     }
 }
+
+class_alias(SystemInfoDumpCommand::class, 'EzSystems\EzSupportToolsBundle\Command\SystemInfoDumpCommand');

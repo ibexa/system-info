@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\View;
+namespace Ibexa\Bundle\SystemInfo\View;
 
 use eZ\Publish\Core\MVC\Symfony\View\BaseView;
 use eZ\Publish\Core\MVC\Symfony\View\View;
@@ -41,3 +41,5 @@ class SystemInfoView extends BaseView implements View
         return ['info' => $this->info];
     }
 }
+
+class_alias(SystemInfoView::class, 'EzSystems\EzSupportToolsBundle\View\SystemInfoView');
