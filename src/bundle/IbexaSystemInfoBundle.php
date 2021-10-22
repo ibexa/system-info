@@ -29,7 +29,7 @@ class IbexaSystemInfoBundle extends Bundle
      */
     public function getContainerExtension(): ExtensionInterface
     {
-        return new EzSystemsEzSupportToolsExtension();
+        return new IbexaSystemInfoExtension();
     }
 }
 

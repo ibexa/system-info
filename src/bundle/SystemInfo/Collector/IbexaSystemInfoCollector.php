@@ -157,7 +157,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
 
         $ibexa = new IbexaSystemInfo([
             'debug' => $this->debug,
-            'name' => EzSystemsEzSupportToolsExtension::getNameByPackages($vendorDir),
+            'name' => IbexaSystemInfoExtension::getNameByPackages($vendorDir),
         ]);
 
         $this->setReleaseInfo($ibexa);

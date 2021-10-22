@@ -14,11 +14,11 @@ use Ibexa\SystemInfo\Storage\MetricsProvider;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
+class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
     protected function getContainerExtensions(): array
     {
-        return [new EzSystemsEzSupportToolsExtension()];
+        return [new IbexaSystemInfoExtension()];
     }
 
     protected function setUp(): void
@@ -46,11 +46,11 @@ class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
         foreach ($services as $serviceId => $identifier) {
             $this->assertContainerBuilderHasServiceDefinitionWithTag(
                 $serviceId,
-                EzSystemsEzSupportToolsExtension::METRICS_TAG,
+                IbexaSystemInfoExtension::METRICS_TAG,
                 ['identifier' => $identifier]
             );
         }
     }
 }
 
-class_alias(EzSystemsEzSupportToolsExtensionTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\EzSystemsEzSupportToolsExtensionTest');
+class_alias(IbexaSystemInfoExtensionTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\EzSystemsEzSupportToolsExtensionTest');
