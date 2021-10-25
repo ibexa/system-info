@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Tab\SystemInfo;
+namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
 use EzSystems\EzPlatformAdminUi\Tab\AbstractControllerBasedTab;
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
@@ -60,3 +60,5 @@ class SystemInfoTab extends AbstractControllerBasedTab
         return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'systeminfo');
     }
 }
+
+class_alias(SystemInfoTab::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\SystemInfoTab');

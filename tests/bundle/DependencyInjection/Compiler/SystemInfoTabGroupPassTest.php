@@ -6,11 +6,11 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\Compiler;
+namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoTabGroupPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoTabGroupPass;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -44,3 +44,5 @@ class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
         );
     }
 }
+
+class_alias(SystemInfoTabGroupPassTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\Compiler\SystemInfoTabGroupPassTest');

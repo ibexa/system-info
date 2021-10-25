@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
 use eZ\Publish\API\Repository\Values\ValueObject;
 
@@ -89,3 +89,5 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
      */
     public $charset;
 }
+
+class_alias(SymfonyKernelSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\SymfonyKernelSystemInfo');

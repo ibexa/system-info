@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use eZ\Publish\SPI\Persistence\Content\Type;
 
@@ -35,3 +35,5 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
+
+class_alias(ContentTypesCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\ContentTypesCountMetrics');

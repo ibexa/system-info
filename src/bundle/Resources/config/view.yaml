@@ -1,5 +1,5 @@
 services:
-    EzSystems\EzSupportToolsBundle\Controller\SystemInfoController:
+    Ibexa\Bundle\SystemInfo\Controller\SystemInfoController:
         parent: EzSystems\EzPlatformAdminUiBundle\Controller\Controller
         autowire: true
         arguments:
@@ -8,11 +8,11 @@ services:
             - { name: controller.service_arguments }
 
     support_tools.view.controller:
-        alias: EzSystems\EzSupportToolsBundle\Controller\SystemInfoController
+        alias: Ibexa\Bundle\SystemInfo\Controller\SystemInfoController
         public: true
 
     support_tools.view.system_info_view_builder:
-        class: EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder
+        class: Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder
         arguments:
             - "@ezpublish.view.configurator"
             - "@support_tools.system_info.collector_registry"
@@ -23,14 +23,14 @@ services:
         class: "%ezpublish.view_provider.configured.class%"
         arguments: ["@support_tools.view.matcher_factory"]
         tags:
-            - {name: ezpublish.view_provider, type: 'EzSystems\EzSupportToolsBundle\View\SystemInfoView', priority: 10}
+            - {name: ezpublish.view_provider, type: 'Ibexa\Bundle\SystemInfo\View\SystemInfoView', priority: 10}
 
     support_tools.view.matcher_factory:
         class: "%ezpublish.view.matcher_factory.class%"
         arguments:
             - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
             - '@ezpublish.api.repository'
-            - 'EzSystems\EzSupportToolsBundle\View\Matcher'
+            - 'Ibexa\Bundle\SystemInfo\View\Matcher'
 
     support_tools.view.matcher_factory.dynamically_configured:
         class: eZ\Publish\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator

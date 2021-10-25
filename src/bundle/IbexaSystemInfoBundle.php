@@ -4,17 +4,17 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle;
+namespace Ibexa\Bundle\SystemInfo;
 
-use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoCollectorPass;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\OutputFormatPass;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoTabGroupPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoCollectorPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\OutputFormatPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoTabGroupPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class EzSystemsEzSupportToolsBundle extends Bundle
+class IbexaSystemInfoBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
@@ -29,6 +29,8 @@ class EzSystemsEzSupportToolsBundle extends Bundle
      */
     public function getContainerExtension(): ExtensionInterface
     {
-        return new EzSystemsEzSupportToolsExtension();
+        return new IbexaSystemInfoExtension();
     }
 }
+
+class_alias(IbexaSystemInfoBundle::class, 'EzSystems\EzSupportToolsBundle\EzSystemsEzSupportToolsBundle');

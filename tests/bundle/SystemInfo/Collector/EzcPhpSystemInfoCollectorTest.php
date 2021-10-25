@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\PhpSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 use PHPUnit\Framework\TestCase;
 
 class EzcPhpSystemInfoCollectorTest extends TestCase
@@ -67,3 +67,5 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
         );
     }
 }
+
+class_alias(EzcPhpSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\EzcPhpSystemInfoCollectorTest');

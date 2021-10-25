@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
 use eZ\Publish\API\Repository\Values\ValueObject;
 
@@ -20,3 +20,5 @@ final class InvalidSystemInfo extends ValueObject implements SystemInfo
      */
     public $errorMessage;
 }
+
+class_alias(InvalidSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\InvalidSystemInfo');
