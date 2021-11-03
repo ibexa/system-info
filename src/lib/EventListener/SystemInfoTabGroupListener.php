@@ -4,13 +4,13 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportTools\EventListener;
+namespace Ibexa\SystemInfo\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Tab\Event\TabEvents;
 use EzSystems\EzPlatformAdminUi\Tab\Event\TabGroupEvent;
-use EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory;
+use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SystemInfoTabGroupListener implements EventSubscriberInterface
@@ -65,3 +65,5 @@ class SystemInfoTabGroupListener implements EventSubscriberInterface
         }
     }
 }
+
+class_alias(SystemInfoTabGroupListener::class, 'EzSystems\EzSupportTools\EventListener\SystemInfoTabGroupListener');

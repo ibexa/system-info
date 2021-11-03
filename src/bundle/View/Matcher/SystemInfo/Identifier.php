@@ -4,11 +4,11 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\View\Matcher\SystemInfo;
+namespace Ibexa\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
 use eZ\Publish\Core\MVC\Symfony\Matcher\ViewMatcherInterface;
 use eZ\Publish\Core\MVC\Symfony\View\View;
-use EzSystems\EzSupportToolsBundle\View\SystemInfoView;
+use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 
 class Identifier implements ViewMatcherInterface
 {
@@ -71,3 +71,5 @@ class Identifier implements ViewMatcherInterface
         return mb_strtolower($normalized);
     }
 }
+
+class_alias(Identifier::class, 'EzSystems\EzSupportToolsBundle\View\Matcher\SystemInfo\Identifier');

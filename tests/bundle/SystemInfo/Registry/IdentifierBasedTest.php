@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Registry;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use PHPUnit\Framework\TestCase;
 
 class IdentifierBasedTest extends TestCase
@@ -94,3 +94,5 @@ class IdentifierBasedTest extends TestCase
         self::assertEquals($expectedIdentifiers, $actualIdentifiers);
     }
 }
+
+class_alias(IdentifierBasedTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Registry\IdentifierBasedTest');

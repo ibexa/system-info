@@ -6,9 +6,9 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage;
+namespace Ibexa\SystemInfo\Storage;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\MetricsNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\MetricsNotFoundException;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
@@ -37,3 +37,5 @@ final class AggregateMetricsProvider implements MetricsProvider
         }
     }
 }
+
+class_alias(AggregateMetricsProvider::class, 'EzSystems\EzSupportTools\Storage\AggregateMetricsProvider');

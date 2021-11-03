@@ -6,9 +6,9 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\VersionStability;
+namespace Ibexa\SystemInfo\VersionStability;
 
-use EzSystems\EzSupportTools\Value\Stability;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * @internal
@@ -43,3 +43,5 @@ final class ComposerVersionStabilityChecker implements VersionStabilityChecker
             : null;
     }
 }
+
+class_alias(ComposerVersionStabilityChecker::class, 'EzSystems\EzSupportTools\VersionStability\ComposerVersionStabilityChecker');

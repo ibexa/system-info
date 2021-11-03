@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Value;
+namespace Ibexa\SystemInfo\Value;
 
 final class Stability
 {
@@ -23,3 +23,5 @@ final class Stability
         20 => 'dev',
     ];
 }
+
+class_alias(Stability::class, 'EzSystems\EzSupportTools\Value\Stability');

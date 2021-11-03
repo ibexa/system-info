@@ -4,12 +4,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Controller;
+namespace Ibexa\Bundle\SystemInfo\Controller;
 
 use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use EzSystems\EzPlatformAdminUiBundle\Controller\Controller as AdminUiController;
-use EzSystems\EzSupportToolsBundle\View\SystemInfoView;
+use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController
@@ -62,3 +62,5 @@ class SystemInfoController extends AdminUiController
         return $response;
     }
 }
+
+class_alias(SystemInfoController::class, 'EzSystems\EzSupportToolsBundle\Controller\SystemInfoController');

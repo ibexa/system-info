@@ -4,15 +4,15 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerJsonFileNotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerJsonFileNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use PHPUnit\Framework\TestCase;
 
 class JsonComposerLockSystemInfoCollectorTest extends TestCase
@@ -149,3 +149,5 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
         $composerCollectorCorrupted->collect();
     }
 }
+
+class_alias(JsonComposerLockSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\JsonComposerLockSystemInfoCollectorTest');

@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
@@ -36,3 +36,5 @@ class SystemInfoTabGroupPass implements CompilerPassInterface
         $tabRegistry->addMethodCall('addTabGroup', [$tabGroupDefinition]);
     }
 }
+
+class_alias(SystemInfoTabGroupPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoTabGroupPass');

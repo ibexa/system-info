@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -38,3 +38,5 @@ class SystemInfoCollectorPass implements CompilerPassInterface
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }
+
+class_alias(SystemInfoCollectorPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoCollectorPass');

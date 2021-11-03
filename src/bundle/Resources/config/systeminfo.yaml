@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: false
 
-    EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory:
+    Ibexa\SystemInfo\Tab\SystemInfo\TabFactory:
         arguments:
             $httpKernelRuntime: '@twig.runtime.httpkernel'
 

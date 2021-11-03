@@ -6,18 +6,18 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
 use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class EzSystemsEzSupportToolsExtension extends Extension implements PrependExtensionInterface
+class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
 {
     public const METRICS_TAG = 'ibexa.system_info.metrics';
 
@@ -111,3 +111,5 @@ class EzSystemsEzSupportToolsExtension extends Extension implements PrependExten
         return $name;
     }
 }
+
+class_alias(IbexaSystemInfoExtension::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension');

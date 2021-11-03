@@ -1,8 +1,11 @@
 {
-    "name": "ezsystems/ez-support-tools",
-    "description": "Providing information about the system eZ Platform/Enterprise/Commerce is running on, and eZ install itself",
+    "name": "ibexa/system-info",
+    "description": "Providing information about the system Ibexa is running on, and Ibexa install itself",
     "license": "GPL-2.0",
-    "type": "ezplatform-bundle",
+    "type": "ibexa-bundle",
+    "replace": {
+        "ezsystems/ez-support-tools": "*"
+    },
     "authors": [
         {
             "name": "eZ Systems",
@@ -37,12 +40,21 @@
     "autoload": {
         "psr-4": {
             "EzSystems\\EzSupportToolsBundle\\": "src/bundle/",
-            "EzSystems\\EzSupportTools\\": "src/lib/"
+            "EzSystems\\EzSupportTools\\": "src/lib/",
+            "Ibexa\\SystemInfo\\": "src/lib/",
+            "Ibexa\\Bundle\\SystemInfo\\": "src/bundle/",
+            "Ibexa\\Contracts\\SystemInfo\\": "src/contracts/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\SystemInfo\\": "tests/lib/",
+            "Ibexa\\Tests\\Bundle\\SystemInfo\\": "tests/bundle/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-main": "4.0.x-dev"
         }
     },
     "scripts": {

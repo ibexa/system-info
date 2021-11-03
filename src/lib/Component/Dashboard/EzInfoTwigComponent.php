@@ -6,10 +6,10 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Component\Dashboard;
+namespace Ibexa\SystemInfo\Component\Dashboard;
 
 use EzSystems\EzPlatformAdminUi\Component\Renderable;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Twig\Environment;
 
 class EzInfoTwigComponent implements Renderable
@@ -82,3 +82,5 @@ class EzInfoTwigComponent implements Renderable
         return $urls;
     }
 }
+
+class_alias(EzInfoTwigComponent::class, 'EzSystems\EzSupportTools\Component\Dashboard\EzInfoTwigComponent');

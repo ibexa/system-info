@@ -6,19 +6,19 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\Tests\DependencyInjection;
+namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection;
 
-use EzSystems\EzSupportTools\Storage\AggregateMetricsProvider;
-use EzSystems\EzSupportTools\Storage\Metrics;
-use EzSystems\EzSupportTools\Storage\MetricsProvider;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
+use Ibexa\SystemInfo\Storage\AggregateMetricsProvider;
+use Ibexa\SystemInfo\Storage\Metrics;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
+class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
     protected function getContainerExtensions(): array
     {
-        return [new EzSystemsEzSupportToolsExtension()];
+        return [new IbexaSystemInfoExtension()];
     }
 
     protected function setUp(): void
@@ -46,9 +46,11 @@ class EzSystemsEzSupportToolsExtensionTest extends AbstractExtensionTestCase
         foreach ($services as $serviceId => $identifier) {
             $this->assertContainerBuilderHasServiceDefinitionWithTag(
                 $serviceId,
-                EzSystemsEzSupportToolsExtension::METRICS_TAG,
+                IbexaSystemInfoExtension::METRICS_TAG,
                 ['identifier' => $identifier]
             );
         }
     }
 }
+
+class_alias(IbexaSystemInfoExtensionTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\EzSystemsEzSupportToolsExtensionTest');

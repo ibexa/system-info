@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use eZ\Publish\SPI\Persistence\Content\ContentInfo;
 
@@ -35,3 +35,5 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
+
+class_alias(PublishedContentObjectsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\PublishedContentObjectsCountMetrics');

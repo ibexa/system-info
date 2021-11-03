@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\VersionStability;
+namespace Ibexa\SystemInfo\VersionStability;
 
 interface VersionStabilityChecker
 {
@@ -14,3 +14,5 @@ interface VersionStabilityChecker
 
     public function isStableVersion(string $version): bool;
 }
+
+class_alias(VersionStabilityChecker::class, 'EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker');

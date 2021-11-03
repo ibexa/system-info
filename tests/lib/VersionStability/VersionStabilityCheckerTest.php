@@ -6,10 +6,10 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Tests\VersionStability;
+namespace Ibexa\Tests\SystemInfo\VersionStability;
 
-use EzSystems\EzSupportTools\Value\Stability;
-use EzSystems\EzSupportTools\VersionStability\ComposerVersionStabilityChecker;
+use Ibexa\SystemInfo\Value\Stability;
+use Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker;
 use PHPUnit\Framework\TestCase;
 
 final class VersionStabilityCheckerTest extends TestCase
@@ -100,3 +100,5 @@ final class VersionStabilityCheckerTest extends TestCase
         yield ['dev-test_custom', Stability::STABILITIES[20]];
     }
 }
+
+class_alias(VersionStabilityCheckerTest::class, 'EzSystems\EzSupportTools\Tests\VersionStability\VersionStabilityCheckerTest');

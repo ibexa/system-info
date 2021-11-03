@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Tab\SystemInfo;
+namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -57,3 +57,5 @@ class TabFactory
         );
     }
 }
+
+class_alias(TabFactory::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory');

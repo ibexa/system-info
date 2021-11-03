@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\View;
+namespace Ibexa\Tests\Bundle\SystemInfo\View;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo;
-use EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
+use Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoViewBuilderTest extends TestCase
@@ -89,3 +89,5 @@ class SystemInfoViewBuilderTest extends TestCase
         return $this->collectorMock;
     }
 }
+
+class_alias(SystemInfoViewBuilderTest::class, 'EzSystems\EzSupportToolsBundle\Tests\View\SystemInfoViewBuilderTest');

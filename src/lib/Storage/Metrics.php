@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage;
+namespace Ibexa\SystemInfo\Storage;
 
 /**
  * @internal
@@ -15,3 +15,5 @@ interface Metrics
 {
     public function getValue(): int;
 }
+
+class_alias(Metrics::class, 'EzSystems\EzSupportTools\Storage\Metrics');

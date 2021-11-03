@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 /**
  * @internal
@@ -29,3 +29,5 @@ final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
+
+class_alias(UsersCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\UsersCountMetrics');

@@ -4,15 +4,15 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
-use EzSystems\EzSupportTools\Value\Stability;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\SystemInfo\Value\Stability;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use DateTime;
 
 /**
@@ -157,7 +157,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
 
         $ibexa = new IbexaSystemInfo([
             'debug' => $this->debug,
-            'name' => EzSystemsEzSupportToolsExtension::getNameByPackages($vendorDir),
+            'name' => IbexaSystemInfoExtension::getNameByPackages($vendorDir),
         ]);
 
         $this->setReleaseInfo($ibexa);
@@ -266,3 +266,5 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return false;
     }
 }
+
+class_alias(IbexaSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector');

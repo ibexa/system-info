@@ -4,15 +4,15 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector;
+namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use EzSystems\EzSupportTools\Storage\Metrics;
-use EzSystems\EzSupportTools\Storage\MetricsProvider;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Collector\RepositorySystemInfoCollector;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositoryMetrics;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositorySystemInfo;
+use Ibexa\SystemInfo\Storage\Metrics;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use PHPUnit\Framework\TestCase;
 
 class RepositorySystemInfoCollectorTest extends TestCase
@@ -134,3 +134,5 @@ class RepositorySystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 }
+
+class_alias(RepositorySystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\RepositorySystemInfoCollectorTest');
