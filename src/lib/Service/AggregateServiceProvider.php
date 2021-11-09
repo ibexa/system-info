@@ -37,5 +37,3 @@ final class AggregateServiceProvider implements ServiceProviderInterface
         }
     }
 }
-
-class_alias(Service::class, 'EzSystems\EzSupportTools\Service\AggregateServiceProvider');

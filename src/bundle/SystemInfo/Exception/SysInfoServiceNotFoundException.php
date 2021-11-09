@@ -16,5 +16,3 @@ class SysInfoServiceNotFoundException extends BaseNotFoundException
         parent::__construct('Service', $identifier, $previous);
     }
 }
-
-class_alias(SysInfoServiceNotFoundException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\SysInfoServiceNotFoundException');

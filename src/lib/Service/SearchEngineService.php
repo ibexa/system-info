@@ -33,5 +33,3 @@ final class SearchEngineService implements Service
         return $repositoryConfig[self::SEARCH_KEY][self::ENGINE_KEY];
     }
 }
-
-class_alias(PersistenceCacheService::class, 'EzSystems\EzSupportTools\Service\SearchEngineService');

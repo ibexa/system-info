@@ -15,5 +15,3 @@ interface Service
 {
     public function getValue(): string;
 }
-
-class_alias(Service::class, 'EzSystems\EzSupportTools\Service\Service');

@@ -31,5 +31,3 @@ final class ServicesSystemInfoCollector implements SystemInfoCollector
         ]);
     }
 }
-
-class_alias(ServicesSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ServicesSystemInfoCollector');

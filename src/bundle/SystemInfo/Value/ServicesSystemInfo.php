@@ -40,5 +40,3 @@ final class ServicesSystemInfo extends ValueObject implements SystemInfo
      */
     public $persistenceCacheAdapter;
 }
-
-class_alias(ServicesSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\ServicesSystemInfo');

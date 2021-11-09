@@ -30,5 +30,3 @@ final class PersistenceCacheService implements Service
         return $this->configResolver->getParameter(self::PERSISTENCE_CACHE_CONFIG_KEY);
     }
 }
-
-class_alias(PersistenceCacheService::class, 'EzSystems\EzSupportTools\Service\PersistenceCacheService');

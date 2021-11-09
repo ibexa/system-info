@@ -30,5 +30,3 @@ final class HttpCacheService implements Service
         return $this->parameterBag->get(self::HTTP_CACHE_CONFIG_KEY);
     }
 }
-
-class_alias(HttpCacheService::class, 'EzSystems\EzSupportTools\Service\HttpCacheService');

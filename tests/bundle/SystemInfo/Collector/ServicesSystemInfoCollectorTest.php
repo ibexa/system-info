@@ -76,5 +76,3 @@ class ServicesSystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 }
-
-class_alias(ServicesSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\ServicesSystemInfoCollectorTest');

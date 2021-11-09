@@ -15,5 +15,3 @@ interface ServiceProviderInterface
 {
     public function provide(string $identifier): Service;
 }
-
-class_alias(ServiceProviderInterface::class, 'EzSystems\EzSupportTools\Service\ServiceProviderInterface');
