@@ -112,6 +112,11 @@ services:
         tags:
             - { name: "support_tools.system_info.collector", identifier: "symfony_kernel" }
 
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector:
+        autowire: true
+        tags:
+            - { name: "support_tools.system_info.collector", identifier: "services" }
+
     # SystemInfoOutputFormats
     support_tools.system_info.output_format.json:
         class: "%support_tools.system_info.output_format.json.class%"
@@ -167,3 +172,34 @@ services:
             -
               name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::METRICS_TAG
               identifier: content_types
+
+    # Services
+    Ibexa\SystemInfo\Service\ServiceProviderInterface:
+        alias: Ibexa\SystemInfo\Service\AggregateServiceProvider
+
+    Ibexa\SystemInfo\Service\AggregateServiceProvider:
+        arguments:
+            $service: !tagged_locator
+                tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
+                index_by: identifier
+
+    Ibexa\SystemInfo\Service\SearchEngineService:
+        arguments:
+            $repositoryConfigProvider: '@ezpublish.api.repository_configuration_provider'
+        tags:
+            - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
+              identifier: searchEngine
+
+    Ibexa\SystemInfo\Service\HttpCacheService:
+        arguments:
+            $parameterBag: '@parameter_bag'
+        tags:
+            - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
+              identifier: httpCacheProxy
+
+    Ibexa\SystemInfo\Service\PersistenceCacheService:
+        arguments:
+            $configResolver: '@ezpublish.config.resolver'
+        tags:
+            - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
+              identifier: persistenceCacheAdapter

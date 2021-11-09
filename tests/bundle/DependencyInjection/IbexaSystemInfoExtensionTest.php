@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection;
 
+use Ibexa\SystemInfo\Service;
+use Ibexa\SystemInfo\Service\AggregateServiceProvider;
+use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 use Ibexa\SystemInfo\Storage\AggregateMetricsProvider;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
@@ -47,6 +50,28 @@ class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
             $this->assertContainerBuilderHasServiceDefinitionWithTag(
                 $serviceId,
                 IbexaSystemInfoExtension::METRICS_TAG,
+                ['identifier' => $identifier]
+            );
+        }
+    }
+
+    public function testLoadServiceServices(): void
+    {
+        $services = [
+            Service\SearchEngineService::class => 'searchEngine',
+            Service\HttpCacheService::class => 'httpCacheProxy',
+            Service\PersistenceCacheService::class => 'persistenceCacheAdapter',
+        ];
+
+        $this->load([]);
+
+        $this->assertContainerBuilderHasAlias(ServiceProviderInterface::class);
+        $this->assertContainerBuilderHasService(AggregateServiceProvider::class);
+
+        foreach ($services as $serviceId => $identifier) {
+            $this->assertContainerBuilderHasServiceDefinitionWithTag(
+                $serviceId,
+                IbexaSystemInfoExtension::SERVICE_TAG,
                 ['identifier' => $identifier]
             );
         }

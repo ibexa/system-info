@@ -26,6 +26,10 @@ parameters:
                 template: '@@ezdesign/system_info/symfony_kernel.html.twig'
                 match:
                     SystemInfo\Identifier: 'symfony_kernel'
+            services:
+                template: '@@ezdesign/system_info/services.html.twig'
+                match:
+                    SystemInfo\Identifier: 'services'
             invalid:
                 template: '@@ezdesign/system_info/invalid.html.twig'
                 match:

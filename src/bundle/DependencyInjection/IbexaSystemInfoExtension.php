@@ -20,6 +20,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
 {
     public const METRICS_TAG = 'ibexa.system_info.metrics';
+    public const SERVICE_TAG = 'ibexa.system_info.service';
 
     public function getAlias()
     {
