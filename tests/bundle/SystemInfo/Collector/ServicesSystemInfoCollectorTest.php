@@ -46,9 +46,9 @@ final class ServicesSystemInfoCollectorTest extends TestCase
                 ['persistenceCacheAdapter'],
             )
             ->willReturnOnConsecutiveCalls(
-                $expected->searchEngine,
-                $expected->httpCacheProxy,
-                $expected->persistenceCacheAdapter,
+                $expected->getSearchEngine(),
+                $expected->getHttpCacheProxy(),
+                $expected->getPersistenceCacheAdapter(),
             );
 
         $value = $this->serviceCollector->collect();
