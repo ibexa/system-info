@@ -115,7 +115,7 @@ services:
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector:
         autowire: true
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "services" }
+            - { name: support_tools.system_info.collector, identifier: services }
 
     # SystemInfoOutputFormats
     support_tools.system_info.output_format.json:
@@ -183,21 +183,21 @@ services:
                 tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
                 index_by: identifier
 
-    Ibexa\SystemInfo\Service\SearchEngineService:
+    Ibexa\SystemInfo\Service\SearchEngineServiceInfo:
         arguments:
             $repositoryConfigProvider: '@ezpublish.api.repository_configuration_provider'
         tags:
             - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
               identifier: searchEngine
 
-    Ibexa\SystemInfo\Service\HttpCacheService:
+    Ibexa\SystemInfo\Service\HttpCacheServiceInfo:
         arguments:
-            $parameterBag: '@parameter_bag'
+            $purgeType: '%purge_type%'
         tags:
             - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
               identifier: httpCacheProxy
 
-    Ibexa\SystemInfo\Service\PersistenceCacheService:
+    Ibexa\SystemInfo\Service\PersistenceCacheServiceInfo:
         arguments:
             $configResolver: '@ezpublish.config.resolver'
         tags:

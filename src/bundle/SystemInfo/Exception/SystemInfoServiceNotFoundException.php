@@ -9,7 +9,7 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 use Exception;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
-class SysInfoServiceNotFoundException extends BaseNotFoundException
+final class SystemInfoServiceNotFoundException extends BaseNotFoundException
 {
     public function __construct(string $identifier, Exception $previous = null)
     {

@@ -8,63 +8,43 @@ namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ServicesSystemInfo;
-use Ibexa\SystemInfo\Service\Service;
 use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 use PHPUnit\Framework\TestCase;
 
-class ServicesSystemInfoCollectorTest extends TestCase
+final class ServicesSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
+     * @var \Ibexa\SystemInfo\Service\ServiceProviderInterface|\PHPUnit\Framework\MockObject\MockObject
      */
-    private $serviceProviderMock;
-
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private $serviceMock;
+    private ServiceProviderInterface $serviceProviderMock;
 
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector
      */
-    private $serviceCollector;
+    private ServicesSystemInfoCollector $serviceCollector;
 
     protected function setUp(): void
     {
         $this->serviceProviderMock = $this->createMock(ServiceProviderInterface::class);
-        $this->serviceMock = $this->createMock(Service::class);
-
         $this->serviceCollector = new ServicesSystemInfoCollector($this->serviceProviderMock);
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector::collect()
-     */
     public function testCollect(): void
     {
-        $expected = new ServicesSystemInfo([
-            'searchEngine' => 'solr',
-            'httpCacheProxy' => 'varnish',
-            'persistenceCacheAdapter' => 'redis',
-        ]);
+        $expected = new ServicesSystemInfo(
+            'solr',
+            'varnish',
+            'redis'
+        );
 
         $this->serviceProviderMock
             ->expects($this->exactly(3))
-            ->method('provide')
+            ->method('getServiceType')
             ->withConsecutive(
                 ['searchEngine'],
                 ['httpCacheProxy'],
                 ['persistenceCacheAdapter'],
             )
-            ->willReturnOnConsecutiveCalls(
-                $this->serviceMock,
-                $this->serviceMock,
-                $this->serviceMock,
-            );
-
-        $this->serviceMock
-            ->expects($this->exactly(3))
-            ->method('getValue')
             ->willReturnOnConsecutiveCalls(
                 $expected->searchEngine,
                 $expected->httpCacheProxy,

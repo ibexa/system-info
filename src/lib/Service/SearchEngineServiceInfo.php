@@ -13,20 +13,19 @@ use eZ\Bundle\EzPublishCoreBundle\ApiLoader\RepositoryConfigurationProvider;
 /**
  * @internal
  */
-final class SearchEngineService implements Service
+final class SearchEngineServiceInfo implements ServiceInfo
 {
     private const SEARCH_KEY = 'search';
     private const ENGINE_KEY = 'engine';
 
-    /** @var \eZ\Bundle\EzPublishCoreBundle\ApiLoader\RepositoryConfigurationProvider */
-    private $repositoryConfigProvider;
+    private RepositoryConfigurationProvider $repositoryConfigProvider;
 
     public function __construct(RepositoryConfigurationProvider $repositoryConfigProvider)
     {
         $this->repositoryConfigProvider = $repositoryConfigProvider;
     }
 
-    public function getValue(): string
+    public function getServiceType(): string
     {
         $repositoryConfig = $this->repositoryConfigProvider->getRepositoryConfig();
 

@@ -13,5 +13,5 @@ namespace Ibexa\SystemInfo\Service;
  */
 interface ServiceProviderInterface
 {
-    public function provide(string $identifier): Service;
+    public function getServiceType(string $identifier): string;
 }

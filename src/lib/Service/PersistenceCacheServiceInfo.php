@@ -13,19 +13,18 @@ use eZ\Publish\Core\MVC\ConfigResolverInterface;
 /**
  * @internal
  */
-final class PersistenceCacheService implements Service
+final class PersistenceCacheServiceInfo implements ServiceInfo
 {
     private const PERSISTENCE_CACHE_CONFIG_KEY = 'cache_service_name';
 
-    /** @var \eZ\Publish\Core\MVC\ConfigResolverInterface */
-    private $configResolver;
+    private ConfigResolverInterface $configResolver;
 
     public function __construct(ConfigResolverInterface $configResolver)
     {
         $this->configResolver = $configResolver;
     }
 
-    public function getValue(): string
+    public function getServiceType(): string
     {
         return $this->configResolver->getParameter(self::PERSISTENCE_CACHE_CONFIG_KEY);
     }

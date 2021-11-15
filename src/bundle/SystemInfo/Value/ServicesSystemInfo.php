@@ -17,26 +17,36 @@ final class ServicesSystemInfo extends ValueObject implements SystemInfo
      * Search engine.
      *
      * Example: Solr
-     *
-     * @var string
      */
-    public $searchEngine;
+    public string $searchEngine;
 
     /**
      * Reverse proxy handling HTTP caching.
      *
      * Example: Fastly
-     *
-     * @var string
      */
-    public $httpCacheProxy;
+    public string $httpCacheProxy;
 
     /**
      * Persistence cache adapter.
      *
      * Example: Redis
-     *
-     * @var string
      */
-    public $persistenceCacheAdapter;
+    public string $persistenceCacheAdapter;
+
+    public function __construct(
+        string $searchEngine,
+        string $httpCacheProxy,
+        string $persistenceCacheAdapter
+    ) {
+        $this->searchEngine = $searchEngine;
+        $this->httpCacheProxy = $httpCacheProxy;
+        $this->persistenceCacheAdapter = $persistenceCacheAdapter;
+
+        parent::__construct([
+            'searchEngine' => $searchEngine,
+            'httpCacheProxy' => $httpCacheProxy,
+            'persistenceCacheAdapter' => $persistenceCacheAdapter,
+        ]);
+    }
 }

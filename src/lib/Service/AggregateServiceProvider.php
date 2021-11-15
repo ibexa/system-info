@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Service;
 
-use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SysInfoServiceNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoServiceNotFoundException;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
@@ -17,8 +17,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
  */
 final class AggregateServiceProvider implements ServiceProviderInterface
 {
-    /** @var \Symfony\Component\DependencyInjection\ServiceLocator */
-    private $serviceLocator;
+    private ServiceLocator $serviceLocator;
 
     public function __construct(ServiceLocator $service)
     {
@@ -26,14 +25,14 @@ final class AggregateServiceProvider implements ServiceProviderInterface
     }
 
     /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SysInfoServiceNotFoundException
+     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoServiceNotFoundException
      */
-    public function provide(string $identifier): Service
+    public function getServiceType(string $identifier): string
     {
         try {
-            return $this->serviceLocator->get($identifier);
+            return $this->serviceLocator->get($identifier)->getServiceType();
         } catch (ServiceNotFoundException $e) {
-            throw new SysInfoServiceNotFoundException($identifier, $e);
+            throw new SystemInfoServiceNotFoundException($identifier, $e);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Ibexa\SystemInfo\Service;
 /**
  * @internal
  */
-interface Service
+interface ServiceInfo
 {
-    public function getValue(): string;
+    public function getServiceType(): string;
 }

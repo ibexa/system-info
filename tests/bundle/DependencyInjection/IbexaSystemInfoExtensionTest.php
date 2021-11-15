@@ -58,9 +58,9 @@ class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
     public function testLoadServiceServices(): void
     {
         $services = [
-            Service\SearchEngineService::class => 'searchEngine',
-            Service\HttpCacheService::class => 'httpCacheProxy',
-            Service\PersistenceCacheService::class => 'persistenceCacheAdapter',
+            Service\SearchEngineServiceInfo::class => 'searchEngine',
+            Service\HttpCacheServiceInfo::class => 'httpCacheProxy',
+            Service\PersistenceCacheServiceInfo::class => 'persistenceCacheAdapter',
         ];
 
         $this->load([]);

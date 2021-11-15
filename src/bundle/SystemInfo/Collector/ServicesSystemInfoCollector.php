@@ -14,8 +14,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ServicesSystemInfo;
  */
 final class ServicesSystemInfoCollector implements SystemInfoCollector
 {
-    /** @var \Ibexa\SystemInfo\Service\ServiceProviderInterface */
-    private $serviceProvider;
+    private ServiceProviderInterface $serviceProvider;
 
     public function __construct(ServiceProviderInterface $serviceProvider)
     {
@@ -24,10 +23,10 @@ final class ServicesSystemInfoCollector implements SystemInfoCollector
 
     public function collect(): ServicesSystemInfo
     {
-        return new ServicesSystemInfo([
-            'searchEngine' => $this->serviceProvider->provide('searchEngine')->getValue(),
-            'httpCacheProxy' => $this->serviceProvider->provide('httpCacheProxy')->getValue(),
-            'persistenceCacheAdapter' => $this->serviceProvider->provide('persistenceCacheAdapter')->getValue(),
-        ]);
+        return new ServicesSystemInfo(
+            $this->serviceProvider->getServiceType('searchEngine'),
+            $this->serviceProvider->getServiceType('httpCacheProxy'),
+            $this->serviceProvider->getServiceType('persistenceCacheAdapter')
+        );
     }
 }
