@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
-use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Contracts\Core\Ibexa;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -71,9 +71,9 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         $name = self::getNameByPackages($vendor);
 
         if ($release === 'major') {
-            $name .= ' v' . (int)EzPlatformCoreBundle::VERSION;
+            $name .= ' v' . (int)Ibexa::VERSION;
         } elseif ($release === 'minor') {
-            $version = explode('.', EzPlatformCoreBundle::VERSION);
+            $version = explode('.', Ibexa::VERSION);
             $name .= ' v' . $version[0] . '.' . $version[1];
         }
 
