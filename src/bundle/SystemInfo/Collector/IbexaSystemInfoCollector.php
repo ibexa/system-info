@@ -86,11 +86,11 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Content".
      */
     public const CONTENT_PACKAGES = [
-        'ezsystems/ezplatform-workflow',
+        'ibexa/workflow',
     ];
 
     public const EXPERIENCE_PACKAGES = [
-        'ezsystems/ezplatform-page-builder',
+        'ibexa/page-builder',
         'ezsystems/landing-page-fieldtype-bundle',
     ];
 
@@ -101,7 +101,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * or <code>IbexaSystemInfoCollector::CONTENT_PACKAGES</code>.
      */
     public const ENTERPRISE_PACKAGES = [
-        'ezsystems/ezplatform-page-builder',
+        'ibexa/page-builder',
         'ezsystems/flex-workflow',
         'ezsystems/landing-page-fieldtype-bundle',
     ];
@@ -110,7 +110,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Commerce".
      */
     public const COMMERCE_PACKAGES = [
-        'ezsystems/ezcommerce-transaction',
+        'ibexa/commerce-transaction',
     ];
 
     /**
