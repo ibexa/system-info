@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
+use Ibexa\Contracts\Core\Ibexa;
 use Ibexa\SystemInfo\Value\Stability;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
@@ -171,7 +171,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      */
     private function setReleaseInfo(IbexaSystemInfo $ibexa): void
     {
-        $ibexa->release = EzPlatformCoreBundle::VERSION;
+        $ibexa->release = Ibexa::VERSION;
         // try to extract version number, but prepare for unexpected string
         [$majorVersion, $minorVersion] = array_pad(explode('.', $ibexa->release), 2, '');
         $ibexaRelease = "{$majorVersion}.{$minorVersion}";

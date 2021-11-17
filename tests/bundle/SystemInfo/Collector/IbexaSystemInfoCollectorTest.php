@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
+use Ibexa\Contracts\Core\Ibexa;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
@@ -38,7 +38,7 @@ class IbexaSystemInfoCollectorTest extends TestCase
         );
         $systemInfo = $systemInfoCollector->collect();
         self::assertSame(IbexaSystemInfo::PRODUCT_NAME_OSS, $systemInfo->name);
-        self::assertSame(EzPlatformCoreBundle::VERSION, $systemInfo->release);
+        self::assertSame(Ibexa::VERSION, $systemInfo->release);
     }
 }
 
