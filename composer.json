@@ -38,11 +38,11 @@
     },
     "autoload": {
         "psr-4": {
-            "EzSystems\\EzSupportToolsBundle\\": "src/bundle/",
-            "EzSystems\\EzSupportTools\\": "src/lib/",
             "Ibexa\\SystemInfo\\": "src/lib/",
             "Ibexa\\Bundle\\SystemInfo\\": "src/bundle/",
-            "Ibexa\\Contracts\\SystemInfo\\": "src/contracts/"
+            "Ibexa\\Contracts\\SystemInfo\\": "src/contracts/",
+            "EzSystems\\EzSupportToolsBundle\\": "src/bundle/",
+            "EzSystems\\EzSupportTools\\": "src/lib/"
         }
     },
     "autoload-dev": {
