@@ -16,7 +16,6 @@
         "php": "^7.3",
         "ext-json": "*",
         "ezsystems/ezplatform-kernel": "^4.0@dev",
-        "ezsystems/ezplatform-core": "^4.0@dev",
         "ezsystems/ezplatform-admin-ui": "^4.0@dev",
         "ocramius/proxy-manager": "^2.2",
         "symfony/proxy-manager-bridge": "^5.0",
