@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-json": "*",
         "ezsystems/ezplatform-kernel": "^4.0@dev",
         "ezsystems/ezplatform-admin-ui": "^4.0@dev",
