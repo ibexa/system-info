@@ -39,7 +39,7 @@
 
             {% set col_version %}
                 {{ package.version }} {{ package.stability }}
-                <span>({{ package.dateTime|ez_full_datetime }}
+                <span>({{ package.dateTime|ibexa_full_datetime }}
                     , {{ package.reference | slice(0, 5) }})
                 </span>
             {% endset %}
