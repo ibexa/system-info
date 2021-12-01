@@ -36,7 +36,6 @@
         "ibexa/system-info": "^4.0@dev",
         "ibexa/admin-ui": "^4.0@dev",
         "ibexa/admin-ui-assets": "^4.0@dev",
-        "ibexa/core-extensions": "^4.0@dev",
         "ibexa/cron": "^4.0@dev",
         "ibexa/design-engine": "^4.0@dev",
         "ezsystems/ezplatform-ee-installer": "^2.5",
