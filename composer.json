@@ -24,7 +24,7 @@
     "require-dev": {
         "ibexa/ci-scripts": "^0.2@dev",
         "ibexa/code-style": "^1.0",
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "ibexa/doctrine-schema": "^4.0@dev",
         "ibexa/content-forms": "^4.0@dev",
         "ibexa/design-engine": "^4.0@dev",
