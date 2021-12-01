@@ -25,7 +25,7 @@
         "ibexa/ci-scripts": "^0.2@dev",
         "ibexa/code-style": "^1.0",
         "friendsofphp/php-cs-fixer": "^2.16",
-        "ibexa/doctrine-dbal-schema": "^4.0@dev",
+        "ibexa/doctrine-schema": "^4.0@dev",
         "ibexa/content-forms": "^4.0@dev",
         "ibexa/design-engine": "^4.0@dev",
         "ibexa/user": "^4.0@dev",

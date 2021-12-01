@@ -32,7 +32,7 @@
         "doctrine/doctrine-bundle": "^1.9.1",
         "doctrine/orm": "^2.6.3",
         "ibexa/scheduler": "^4.0@dev",
-        "ibexa/doctrine-dbal-schema": "^4.0@dev",
+        "ibexa/doctrine-schema": "^4.0@dev",
         "ibexa/system-info": "^4.0@dev",
         "ibexa/admin-ui": "^4.0@dev",
         "ibexa/admin-ui-assets": "^4.0@dev",
