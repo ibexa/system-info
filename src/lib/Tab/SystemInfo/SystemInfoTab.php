@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
-use EzSystems\EzPlatformAdminUi\Tab\AbstractControllerBasedTab;
+use Ibexa\Contracts\AdminUi\Tab\AbstractControllerBasedTab;
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -23,9 +23,9 @@ class SystemInfoTab extends AbstractControllerBasedTab
     protected $collectorIdentifier;
 
     /**
-     * @param Environment $twig
-     * @param TranslatorInterface $translator
-     * @param HttpKernelRuntime $httpKernelRuntime
+     * @param \Twig\Environment $twig
+     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
+     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
      * @param string $tabIdentifier
      * @param string $collectorIdentifier
      */

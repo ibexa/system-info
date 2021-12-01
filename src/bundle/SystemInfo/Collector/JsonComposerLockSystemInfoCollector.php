@@ -20,7 +20,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 {
     public const IBEXA_OSS_PACKAGE = 'ibexa/oss';
 
-    /** @var \EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker */
+    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker */
     private $versionStabilityChecker;
 
     /**
@@ -34,7 +34,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     private $jsonFile;
 
     /**
-     * @var ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
      */
     private $value;
 
@@ -51,7 +51,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * Collects information about installed composer packages.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
      *
      * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
      * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
@@ -100,7 +100,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * @param array $lockData
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage[]
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage[]
      */
     private function extractPackages(array $lockData): array
     {
@@ -172,7 +172,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param ComposerPackage $package
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage $package
      */
     private static function setNormalizedVersion(ComposerPackage $package): void
     {

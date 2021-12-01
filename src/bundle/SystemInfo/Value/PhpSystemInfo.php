@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-use eZ\Publish\API\Repository\Values\ValueObject;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Value for information about the PHP interpreter and accelerator (if any) we are using.

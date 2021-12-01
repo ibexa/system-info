@@ -26,7 +26,7 @@ final class AggregateMetricsProvider implements MetricsProvider
     }
 
     /**
-     * @throws \EzSystems\EzSupportToolsBundle\SystemInfo\Exception\MetricsNotFoundException
+     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\MetricsNotFoundException
      */
     public function provideMetrics(string $identifier): Metrics
     {

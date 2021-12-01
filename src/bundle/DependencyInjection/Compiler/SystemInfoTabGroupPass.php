@@ -6,8 +6,8 @@
  */
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
-use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
-use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
+use Ibexa\AdminUi\Tab\TabGroup;
+use Ibexa\AdminUi\Tab\TabRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -20,10 +20,10 @@ use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 class SystemInfoTabGroupPass implements CompilerPassInterface
 {
     /**
-     * @param ContainerBuilder $container
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      *
-     * @throws InvalidArgumentException
-     * @throws ServiceNotFoundException
+     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      */
     public function process(ContainerBuilder $container)
     {

@@ -15,7 +15,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
 class EzcHardwareSystemInfoCollector implements SystemInfoCollector
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
      */
     private $ezcSystemInfo;
 
@@ -29,7 +29,7 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
      *  - cpu information
      *  - memory size.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo
      */
     public function collect(): HardwareSystemInfo
     {

@@ -8,32 +8,32 @@ namespace Ibexa\Tests\SystemInfo\EventListener;
 
 use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
-use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
+use Ibexa\AdminUi\Tab\TabGroup;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use PHPUnit\Framework\TestCase;
-use EzSystems\EzPlatformAdminUi\Tab\Event\TabEvents;
-use EzSystems\EzPlatformAdminUi\Tab\Event\TabGroupEvent;
+use Ibexa\AdminUi\Tab\Event\TabEvents;
+use Ibexa\AdminUi\Tab\Event\TabGroupEvent;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
-use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
+use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use PHPUnit\Framework\MockObject\MockObject;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {
-    /** @var Request */
+    /** @var \Symfony\Component\HttpFoundation\Request */
     private $request;
 
-    /** @var TabGroupEvent */
+    /** @var \Ibexa\AdminUi\Tab\Event\TabGroupEvent */
     private $event;
 
-    /** @var HttpKernelInterface|MockObject */
+    /** @var \Symfony\Component\HttpKernel\HttpKernelInterface|\PHPUnit\Framework\MockObject\MockObject */
     private $httpKernel;
 
-    /** @var MockObject|TabRegistry */
+    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\AdminUi\Tab\TabRegistry */
     private $tabRegistry;
 
-    /** @var MockObject|TabFactory */
+    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
     private $tabFactory;
 
     protected function setUp(): void

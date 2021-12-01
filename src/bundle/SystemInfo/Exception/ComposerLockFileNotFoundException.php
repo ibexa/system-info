@@ -7,7 +7,7 @@
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 
 use Exception;
-use eZ\Publish\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
+use Ibexa\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
 class ComposerLockFileNotFoundException extends BaseNotFoundException implements SystemInfoException
 {

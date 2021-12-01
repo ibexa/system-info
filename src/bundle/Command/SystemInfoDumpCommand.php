@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\Command;
 
-use eZ\Bundle\EzPublishCoreBundle\Command\BackwardCompatibleCommand;
+use Ibexa\Bundle\Core\Command\BackwardCompatibleCommand;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
 use Symfony\Component\Console\Command\Command;
@@ -20,14 +20,14 @@ class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
     /**
      * System info collector registry.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
     private $systemInfoCollectorRegistry;
 
     /**
      * Output format registry.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry
      */
     private $outputFormatRegistry;
 

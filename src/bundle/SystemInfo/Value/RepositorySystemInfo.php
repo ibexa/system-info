@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-use eZ\Publish\API\Repository\Values\ValueObject;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Value for information about the database we are using.
@@ -52,7 +52,7 @@ class RepositorySystemInfo extends ValueObject implements SystemInfo
     /**
      * RepositoryMetrics contains counts of content objects, users etc.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositoryMetrics
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics
      */
     public $repositoryMetrics;
 }

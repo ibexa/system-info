@@ -6,18 +6,18 @@
  */
 namespace Ibexa\Bundle\SystemInfo\View;
 
-use eZ\Publish\Core\MVC\Symfony\View\BaseView;
-use eZ\Publish\Core\MVC\Symfony\View\View;
+use Ibexa\Core\MVC\Symfony\View\BaseView;
+use Ibexa\Core\MVC\Symfony\View\View;
 
 class SystemInfoView extends BaseView implements View
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo
      */
     private $info;
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo $info
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo $info
      *
      * @return SystemInfoView
      */
@@ -29,7 +29,7 @@ class SystemInfoView extends BaseView implements View
     }
 
     /**
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo
      */
     public function getInfo()
     {

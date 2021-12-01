@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Registry;
 
-use eZ\Publish\Core\Base\Exceptions\NotFoundException;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 
 /**
@@ -14,11 +14,11 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
  */
 class IdentifierBased implements SystemInfoCollectorRegistry
 {
-    /** @var \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[] */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] */
     private $registry = [];
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
      */
     public function __construct(array $items = [])
     {
@@ -30,9 +30,9 @@ class IdentifierBased implements SystemInfoCollectorRegistry
      *
      * @param string $identifier An identifier string.
      *
-     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
+     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
      */
     public function getItem($identifier)
     {

@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-use eZ\Publish\API\Repository\Values\ValueObject;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Value for information about the Symfony kernel we are using.

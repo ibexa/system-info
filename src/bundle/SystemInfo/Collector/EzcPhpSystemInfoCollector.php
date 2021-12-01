@@ -15,7 +15,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 class EzcPhpSystemInfoCollector implements SystemInfoCollector
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
      */
     private $ezcSystemInfo;
 
@@ -29,7 +29,7 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
      *  - php version
      *  - php accelerator info.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\PhpSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo
      */
     public function collect(): PhpSystemInfo
     {

@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class JsonComposerLockSystemInfoCollectorTest extends TestCase
 {
-    /** @var \EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker|\PHPUnit\Framework\MockObject\MockObject */
+    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker|\PHPUnit\Framework\MockObject\MockObject */
     private $versionStabilityChecker;
 
     public function setUp(): void

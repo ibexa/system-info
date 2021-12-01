@@ -38,7 +38,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
     private $metricsMock;
 
     /**
-     * @var RepositorySystemInfoCollector
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector
      */
     private $repositoryCollector;
 

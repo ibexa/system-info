@@ -13,12 +13,12 @@ use PHPUnit\Framework\TestCase;
 class EzcPhpSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
      */
     private $ezcSystemInfoMock;
 
     /**
-     * @var EzcPhpSystemInfoCollector
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector
      */
     private $ezcPhpCollector;
 

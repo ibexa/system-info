@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Component\Dashboard;
 
-use EzSystems\EzPlatformAdminUi\Component\Renderable;
+use Ibexa\Contracts\AdminUi\Component\Renderable;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Twig\Environment;
 
@@ -23,7 +23,7 @@ class EzInfoTwigComponent implements Renderable
     /** @var array */
     protected $parameters;
 
-    /** @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo */
     private $ibexaSystemInfo;
 
     /** @var array */
@@ -32,7 +32,7 @@ class EzInfoTwigComponent implements Renderable
     /**
      * @param \Twig\Environment $twig
      * @param string $template
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo $ibexaSystemInfo
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo $ibexaSystemInfo
      * @param array $urlList
      * @param array $parameters
      */

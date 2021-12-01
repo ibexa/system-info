@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\ParameterType;
-use eZ\Publish\SPI\Persistence\Content\ContentInfo;
+use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
 
 /**
  * @internal

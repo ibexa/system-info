@@ -6,7 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-use eZ\Publish\API\Repository\Values\ValueObject;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Invalid value for system info used in case of any errors occur while collecting data.

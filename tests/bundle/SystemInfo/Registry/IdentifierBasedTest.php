@@ -6,14 +6,14 @@
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
-use eZ\Publish\Core\Base\Exceptions\NotFoundException;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use PHPUnit\Framework\TestCase;
 
 class IdentifierBasedTest extends TestCase
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBasedEzcPhpSystemInfoCollector
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBasedEzcPhpSystemInfoCollector
      */
     private $registry;
 

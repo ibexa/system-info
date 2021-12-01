@@ -26,7 +26,7 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
     /**
      * The metrics provider needed to populate Repository value object consisting of several metrics.
      *
-     * @var \EzSystems\EzSupportTools\Storage\MetricsProvider
+     * @var \Ibexa\SystemInfo\Storage\MetricsProvider
      */
     private $metricsProvider;
 
@@ -44,7 +44,7 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
      *  - username
      *  - repository metrics (containing count of content objects, users, drafts etc.).
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositorySystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo
      */
     public function collect(): RepositorySystemInfo
     {

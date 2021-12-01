@@ -114,7 +114,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo|null
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
      */
     private $composerInfo;
 
@@ -127,7 +127,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     private $kernelProjectDir;
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector $composerCollector
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
      * @param bool $debug
      */
     public function __construct(
@@ -149,7 +149,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @throws \Exception
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo
      */
     public function collect(): IbexaSystemInfo
     {

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Service;
 
-use eZ\Bundle\EzPublishCoreBundle\ApiLoader\RepositoryConfigurationProvider;
+use Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider;
 
 /**
  * @internal

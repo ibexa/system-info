@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
-use eZ\Publish\SPI\Persistence\Content\Type;
+use Ibexa\Contracts\Core\Persistence\Content\Type;
 
 /**
  * @internal

@@ -45,7 +45,7 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
     /**
      * Collects information about the Symfony kernel.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\SymfonyKernelSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo
      */
     public function collect(): SymfonyKernelSystemInfo
     {

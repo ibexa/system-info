@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VersionStabilityCheckerTest extends TestCase
 {
-    /** @var \EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker */
+    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker */
     private $versionStabilityChecker;
 
     public function setUp(): void
