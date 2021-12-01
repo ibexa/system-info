@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Composer\InstalledVersions;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\SystemInfo\Value\Stability;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 
 /**
  * Collects information about installed Composer packages, by reading json from composer.lock.
@@ -57,7 +57,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
      * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
      * @throws Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
      *
-     * @return Value\ComposerSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
      */
     public function collect(): ComposerSystemInfo
     {

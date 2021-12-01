@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ServicesSystemInfo;
+use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 
 /**
  * Collects information about the services used within the project.

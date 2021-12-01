@@ -1,23 +1,22 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Tests\SystemInfo\EventListener;
 
-use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
-use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
-use Ibexa\AdminUi\Tab\TabGroup;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use PHPUnit\Framework\TestCase;
 use Ibexa\AdminUi\Tab\Event\TabEvents;
 use Ibexa\AdminUi\Tab\Event\TabGroupEvent;
-use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
+use Ibexa\AdminUi\Tab\TabGroup;
 use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
-use PHPUnit\Framework\MockObject\MockObject;
+use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
+use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
+use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {

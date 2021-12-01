@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use Ibexa\Contracts\Core\Ibexa;
-use Ibexa\SystemInfo\Value\Stability;
+use DateTime;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
-use DateTime;
+use Ibexa\Contracts\Core\Ibexa;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * Collects information about the Ibexa installation.

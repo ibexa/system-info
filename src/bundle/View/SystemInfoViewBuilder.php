@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\View;
 
-use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
-use Ibexa\Core\MVC\Symfony\View\Configurator;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
+use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
+use Ibexa\Core\MVC\Symfony\View\Configurator;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {

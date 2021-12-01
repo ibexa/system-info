@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use Ibexa\SystemInfo\Storage\MetricsProvider;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
 
 /**
  * Collects database information using Doctrine.

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
+use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 use Ibexa\Core\MVC\Symfony\Matcher\ViewMatcherInterface;
 use Ibexa\Core\MVC\Symfony\View\View;
-use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 
 class Identifier implements ViewMatcherInterface
 {

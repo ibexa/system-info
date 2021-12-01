@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
-use Ibexa\Core\Base\Exceptions\NotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
 class IdentifierBasedTest extends TestCase

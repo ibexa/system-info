@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Tab\Event\TabEvents;
 use Ibexa\AdminUi\Tab\Event\TabGroupEvent;
-use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SystemInfoTabGroupListener implements EventSubscriberInterface

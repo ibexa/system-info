@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\Controller;
 
-use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
-use Ibexa\Contracts\AdminUi\Controller\Controller as AdminUiController;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
+use Ibexa\Contracts\AdminUi\Controller\Controller as AdminUiController;
+use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController

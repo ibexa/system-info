@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
-use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerJsonFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 use PHPUnit\Framework\TestCase;
 
 class JsonComposerLockSystemInfoCollectorTest extends TestCase
