@@ -19,12 +19,13 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
 {
+    public const EXTENSION_NAME = 'ibexa_system_info';
     public const METRICS_TAG = 'ibexa.system_info.metrics';
     public const SERVICE_TAG = 'ibexa.system_info.service';
 
     public function getAlias()
     {
-        return 'ezplatform_support_tools';
+        return self::EXTENSION_NAME;
     }
 
     public function getConfiguration(array $config, ContainerBuilder $container)

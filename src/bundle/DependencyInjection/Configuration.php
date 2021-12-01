@@ -12,7 +12,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Symfony extension configuration definition for ezplatform_support_tools extension.
+ * Symfony extension configuration definition for ibexa_system_info extension.
  *
  * @internal
  */
@@ -23,7 +23,7 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('ezplatform_support_tools');
+        $treeBuilder = new TreeBuilder(IbexaSystemInfoExtension::EXTENSION_NAME);
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
