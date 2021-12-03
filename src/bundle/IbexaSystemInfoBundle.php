@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo;
 
-use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
-use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoCollectorPass;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\OutputFormatPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoCollectorPass;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoTabGroupPass;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use Ibexa\Contracts\Core\Ibexa;
-use Ibexa\SystemInfo\Value\Stability;
+use DateTime;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
-use DateTime;
+use Ibexa\Contracts\Core\Ibexa;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * Collects information about the Ibexa installation.
@@ -114,7 +114,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo|null
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
      */
     private $composerInfo;
 
@@ -127,7 +127,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     private $kernelProjectDir;
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector $composerCollector
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
      * @param bool $debug
      */
     public function __construct(
@@ -149,7 +149,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @throws \Exception
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo
      */
     public function collect(): IbexaSystemInfo
     {

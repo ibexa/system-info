@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
@@ -14,19 +14,19 @@ use Twig\Environment;
 
 class TabFactory
 {
-    /** @var HttpKernelRuntime */
+    /** @var \Symfony\Bridge\Twig\Extension\HttpKernelRuntime */
     protected $httpKernelRuntime;
 
-    /** @var Environment */
+    /** @var \Twig\Environment */
     protected $twig;
 
-    /** @var TranslatorInterface */
+    /** @var \Symfony\Contracts\Translation\TranslatorInterface */
     protected $translator;
 
     /**
-     * @param Environment $twig
-     * @param TranslatorInterface $translator
-     * @param HttpKernelRuntime $httpKernelRuntime
+     * @param \Twig\Environment $twig
+     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
+     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
      */
     public function __construct(
         Environment $twig,

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
@@ -13,12 +13,12 @@ use PHPUnit\Framework\TestCase;
 class EzcPhpSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
      */
     private $ezcSystemInfoMock;
 
     /**
-     * @var EzcPhpSystemInfoCollector
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector
      */
     private $ezcPhpCollector;
 

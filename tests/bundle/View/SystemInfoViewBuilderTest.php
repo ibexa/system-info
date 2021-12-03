@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\View;
@@ -54,7 +54,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\eZ\Publish\Core\MVC\Symfony\View\Configurator
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Core\MVC\Symfony\View\Configurator
      */
     protected function getConfiguratorMock()
     {
@@ -66,7 +66,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
     protected function getRegistryMock()
     {
@@ -78,7 +78,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
      */
     protected function getCollectorMock()
     {

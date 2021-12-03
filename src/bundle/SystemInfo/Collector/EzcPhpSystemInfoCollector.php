@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
@@ -15,7 +15,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 class EzcPhpSystemInfoCollector implements SystemInfoCollector
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
      */
     private $ezcSystemInfo;
 
@@ -29,7 +29,7 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
      *  - php version
      *  - php accelerator info.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\PhpSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo
      */
     public function collect(): PhpSystemInfo
     {

@@ -1,6 +1,6 @@
 services:
     Ibexa\Bundle\SystemInfo\Controller\SystemInfoController:
-        parent: EzSystems\EzPlatformAdminUiBundle\Controller\Controller
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
         autowire: true
         arguments:
             - "@support_tools.system_info.collector_registry"
@@ -28,12 +28,12 @@ services:
     support_tools.view.matcher_factory:
         class: "%ezpublish.view.matcher_factory.class%"
         arguments:
-            - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
+            - '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
             - '@ezpublish.api.repository'
             - 'Ibexa\Bundle\SystemInfo\View\Matcher'
 
     support_tools.view.matcher_factory.dynamically_configured:
-        class: eZ\Publish\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
+        class: Ibexa\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
         decorates: support_tools.view.matcher_factory
         arguments:
             $innerConfigurableMatcherFactory: '@support_tools.view.matcher_factory.dynamically_configured.inner'

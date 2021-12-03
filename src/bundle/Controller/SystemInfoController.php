@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\Controller;
 
-use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
-use EzSystems\EzPlatformAdminUiBundle\Controller\Controller as AdminUiController;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
+use Ibexa\Contracts\AdminUi\Controller\Controller as AdminUiController;
+use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController
 {
-    /** @var SystemInfoCollectorRegistry */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
     protected $collectorRegistry;
 
     /**
-     * @param SystemInfoCollectorRegistry $collectorRegistry
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $collectorRegistry
      */
     public function __construct(SystemInfoCollectorRegistry $collectorRegistry)
     {
@@ -34,7 +34,7 @@ class SystemInfoController extends AdminUiController
     /**
      * Renders the system information page.
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function infoAction(): Response
     {
@@ -51,7 +51,7 @@ class SystemInfoController extends AdminUiController
     /**
      * Renders a PHP info page.
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function phpinfoAction(): Response
     {

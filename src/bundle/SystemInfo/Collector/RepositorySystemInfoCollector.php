@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use Ibexa\SystemInfo\Storage\MetricsProvider;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
+use Ibexa\SystemInfo\Storage\MetricsProvider;
 
 /**
  * Collects database information using Doctrine.
@@ -26,7 +26,7 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
     /**
      * The metrics provider needed to populate Repository value object consisting of several metrics.
      *
-     * @var \EzSystems\EzSupportTools\Storage\MetricsProvider
+     * @var \Ibexa\SystemInfo\Storage\MetricsProvider
      */
     private $metricsProvider;
 
@@ -44,7 +44,7 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
      *  - username
      *  - repository metrics (containing count of content objects, users, drafts etc.).
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositorySystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo
      */
     public function collect(): RepositorySystemInfo
     {

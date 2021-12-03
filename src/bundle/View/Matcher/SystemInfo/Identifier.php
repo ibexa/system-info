@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
-use eZ\Publish\Core\MVC\Symfony\Matcher\ViewMatcherInterface;
-use eZ\Publish\Core\MVC\Symfony\View\View;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
+use Ibexa\Core\MVC\Symfony\Matcher\ViewMatcherInterface;
+use Ibexa\Core\MVC\Symfony\View\View;
 
 class Identifier implements ViewMatcherInterface
 {
@@ -35,7 +35,7 @@ class Identifier implements ViewMatcherInterface
     /**
      * Matches the $view against a set of matchers.
      *
-     * @param \EzSystems\EzSupportToolsBundle\View\SystemInfoView $view
+     * @param \Ibexa\Bundle\SystemInfo\View\SystemInfoView $view
      *
      * @return bool
      */

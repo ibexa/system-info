@@ -1,33 +1,33 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace Ibexa\SystemInfo\EventListener;
 
-use EzSystems\EzPlatformAdminUi\Tab\Event\TabEvents;
-use EzSystems\EzPlatformAdminUi\Tab\Event\TabGroupEvent;
-use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
-use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
+use Ibexa\AdminUi\Tab\Event\TabEvents;
+use Ibexa\AdminUi\Tab\Event\TabGroupEvent;
+use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SystemInfoTabGroupListener implements EventSubscriberInterface
 {
-    /** @var TabRegistry */
+    /** @var \Ibexa\AdminUi\Tab\TabRegistry */
     protected $tabRegistry;
 
-    /** @var TabFactory */
+    /** @var \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
     protected $tabFactory;
 
-    /** @var SystemInfoCollectorRegistry */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
     protected $systeminfoCollectorRegistry;
 
     /**
-     * @param TabRegistry $tabRegistry
-     * @param TabFactory $tabFactory
-     * @param SystemInfoCollectorRegistry $systeminfoCollectorRegistry
+     * @param \Ibexa\AdminUi\Tab\TabRegistry $tabRegistry
+     * @param \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory $tabFactory
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $systeminfoCollectorRegistry
      */
     public function __construct(
         TabRegistry $tabRegistry,
@@ -50,7 +50,7 @@ class SystemInfoTabGroupListener implements EventSubscriberInterface
     }
 
     /**
-     * @param TabGroupEvent $event
+     * @param \Ibexa\AdminUi\Tab\Event\TabGroupEvent $event
      */
     public function onTabGroupPreRender(TabGroupEvent $event)
     {

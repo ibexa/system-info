@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection\Compiler;
 
-use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
-use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
+use Ibexa\AdminUi\Tab\TabGroup;
+use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler\SystemInfoTabGroupPass;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -24,7 +24,7 @@ class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
     }
 
     /**
-     * @param ContainerBuilder $container
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
     protected function registerCompilerPass(ContainerBuilder $container): void
     {
