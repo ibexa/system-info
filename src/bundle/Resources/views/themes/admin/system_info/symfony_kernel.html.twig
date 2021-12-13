@@ -1,49 +1,42 @@
 {% trans_default_domain "systeminfo" %}
 
 <!-- Tab name: {{ 'tab.name.symfony_kernel'|trans|desc('Symfony Kernel') }} -->
-<section class="ez-fieldgroup">
-    <h2 class="ez-fieldgroup__name">{{ 'symfony_kernel'|trans|desc('Symfony Kernel') }}</h2>
-    <div class="ez-fieldgroup__content">
-        <table class="table ez-table--list ez-table--to-left">
-            <tbody>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.environment'|trans|desc('Environment') }}</td>
-                <td class="ez-table__cell">{{ info.environment }}</td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.debugMode'|trans|desc('Debug mode') }}</td>
-                <td class="ez-table__cell">
-                    {% if info.debugMode %}
-                        {{ 'symfony_kernel.debugMode.enabled'|trans|desc('Enabled') }}
-                    {% else %}
-                        {{ 'symfony_kernel.debugMode.disabled'|trans|desc('Disabled') }}
-                    {% endif %}
-                </td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.version'|trans|desc('Version') }}</td>
-                <td class="ez-table__cell">{{ info.version }}</td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.projectDir'|trans|desc('Project directory') }}</td>
-                <td class="ez-table__cell">{{ info.projectDir }}</td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.cacheDir'|trans|desc('Cache directory') }}</td>
-                <td class="ez-table__cell">{{ info.cacheDir }}</td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.logDir'|trans|desc('Log directory') }}</td>
-                <td class="ez-table__cell">{{ info.logDir }}</td>
-            </tr>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'symfony_kernel.charset'|trans|desc('Character set') }}</td>
-                <td class="ez-table__cell">{{ info.charset }}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+
+{% set kernel_items = [
+    {
+        label: 'symfony_kernel.environment'|trans|desc('Environment'),
+        content: info.environment,
+    },
+    {
+        label: 'symfony_kernel.debugMode'|trans|desc('Debug mode'),
+        content: info.debugMode ? 'symfony_kernel.debugMode.enabled'|trans|desc('Enabled') : 'symfony_kernel.debugMode.disabled'|trans|desc('Disabled'),
+    },
+    {
+        label: 'symfony_kernel.version'|trans|desc('Version'),
+        content: info.version,
+    },
+    {
+        label: 'symfony_kernel.projectDir'|trans|desc('Project directory'),
+        content: info.projectDir,
+    },
+    {
+        label: 'symfony_kernel.cacheDir'|trans|desc('Cache directory'),
+        content: info.cacheDir,
+    },
+    {
+        label: 'symfony_kernel.logDir'|trans|desc('Log directory'),
+        content: info.logDir,
+    },
+    {
+        label: 'symfony_kernel.charset'|trans|desc('Character set'),
+        content: info.charset,
+    },
+] %}
+
+{% include '@ibexadesign/ui/component/details/details.html.twig' with {
+    headline: 'symfony_kernel'|trans|desc('Symfony Kernel'),
+    items: kernel_items,
+} only %}
 
 <section class="ez-fieldgroup">
     <h2 class="ez-fieldgroup__name">{{ 'bundles'|trans|desc('Bundles') }}</h2>
