@@ -1,26 +1,16 @@
 {% trans_default_domain "systeminfo" %}
 
-<!-- Tab name: {{ 'tab.name.composer'|trans|desc('Composer') }} -->
+{% set composer_items = [
+    {
+        label: 'composer.minimum_stability'|trans|desc('Minimum stability'),
+        content: info.minimumStability,
+    },
+] %}
 
-<section class="ez-fieldgroup">
-    <h2 class="ez-fieldgroup__name">
-        {% if info.packages is empty %}
-            {{ 'packages.empty'|trans|desc('No packages installed.') }}
-        {% else %}
-            {{ 'composer'|trans|desc('Composer') }}
-        {% endif %}
-    </h2>
-    <div class="ez-fieldgroup__content">
-        <table class="table ez-table--list">
-            <tbody>
-            <tr class="ez-table__row">
-                <td class="ez-table__cell">{{ 'composer.minimum_stability'|trans|desc('Minimum stability') }}</td>
-                <td class="ez-table__cell">{{ info.minimumStability }}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+{% include '@ibexadesign/ui/component/details/details.html.twig' with {
+    headline: info.packages is empty ? 'packages.empty'|trans|desc('No packages installed.') : 'composer'|trans|desc('Composer'),
+    items: composer_items,
+} only %}
 
 <section class="ez-fieldgroup">
     <h2 class="ez-fieldgroup__name">{{ 'packages'|trans|desc('Packages') }}</h2>

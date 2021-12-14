@@ -5,16 +5,20 @@
 {% block body_class %}ez-info-view ez-has-full-width-footer{% endblock %}
 
 {% block breadcrumbs %}
-    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
-        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
-        { value: 'systeminfo'|trans|desc('System Information') }
-    ]} %}
+    <div class="container">
+        {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+            { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+            { value: 'systeminfo'|trans|desc('System Information') }
+        ]} %}
+    </div>
 {% endblock %}
 
 {% block header %}
-    {% include '@ibexadesign/ui/page_title.html.twig' with {
-        title: 'systeminfo'|trans|desc('System Information'),
-    } %}
+    <div class="container">
+        {% include '@ibexadesign/ui/page_title.html.twig' with {
+            title: 'systeminfo'|trans|desc('System Information'),
+        } %}
+    </div>
 {% endblock %}
 
 {% block content %}
