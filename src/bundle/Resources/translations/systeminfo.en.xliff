@@ -271,41 +271,6 @@
         <target state="new">System Information</target>
         <note>key: systeminfo</note>
       </trans-unit>
-      <trans-unit id="a2a92e9d0e41ea4a14c99ab0f702d5df3ea017c3" resname="tab.name.composer">
-        <source>Composer</source>
-        <target state="new">Composer</target>
-        <note>key: tab.name.composer</note>
-      </trans-unit>
-      <trans-unit id="951e3ad18b17f0b2aa96fcb84f6eb25f208e1127" resname="tab.name.hardware">
-        <source>Hardware</source>
-        <target state="new">Hardware</target>
-        <note>key: tab.name.hardware</note>
-      </trans-unit>
-      <trans-unit id="7dd1b2ca71037e00112dfe0297383f47c6904c77" resname="tab.name.ibexa">
-        <source>My Ibexa</source>
-        <target state="new">My Ibexa</target>
-        <note>key: tab.name.ibexa</note>
-      </trans-unit>
-      <trans-unit id="b71f0d567a424182b8c83a6b90a262b29819241b" resname="tab.name.php">
-        <source>PHP</source>
-        <target state="new">PHP</target>
-        <note>key: tab.name.php</note>
-      </trans-unit>
-      <trans-unit id="1d99640a1a35d6f805a048ba701c6b98aed7654b" resname="tab.name.repository">
-        <source>Repository</source>
-        <target state="new">Repository</target>
-        <note>key: tab.name.repository</note>
-      </trans-unit>
-      <trans-unit id="89ee4f613b63015aec82ada871cd895463340db0" resname="tab.name.services">
-        <source>Services</source>
-        <target state="new">Services</target>
-        <note>key: tab.name.services</note>
-      </trans-unit>
-      <trans-unit id="b7989598c01fcae061f7917e563a9c0d66790a84" resname="tab.name.symfony_kernel">
-        <source>Symfony Kernel</source>
-        <target state="new">Symfony Kernel</target>
-        <note>key: tab.name.symfony_kernel</note>
-      </trans-unit>
     </body>
   </file>
 </xliff>
