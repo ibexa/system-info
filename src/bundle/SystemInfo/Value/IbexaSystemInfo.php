@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-use eZ\Publish\API\Repository\Values\ValueObject;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Value for information about the Ibexa installation.
@@ -108,3 +108,5 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
      */
     public $composerInfo;
 }
+
+class_alias(IbexaSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo');

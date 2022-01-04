@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Composer\InstalledVersions;
-use EzSystems\EzSupportTools\Value\Stability;
-use EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\SystemInfo\Value\Stability;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 
 /**
  * Collects information about installed Composer packages, by reading json from composer.lock.
@@ -20,7 +20,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 {
     public const IBEXA_OSS_PACKAGE = 'ibexa/oss';
 
-    /** @var \EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker */
+    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker */
     private $versionStabilityChecker;
 
     /**
@@ -34,7 +34,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     private $jsonFile;
 
     /**
-     * @var ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
      */
     private $value;
 
@@ -51,13 +51,13 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * Collects information about installed composer packages.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
      *
      * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
      * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
      * @throws Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
      *
-     * @return Value\ComposerSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
      */
     public function collect(): ComposerSystemInfo
     {
@@ -100,7 +100,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * @param array $lockData
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage[]
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage[]
      */
     private function extractPackages(array $lockData): array
     {
@@ -172,7 +172,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param ComposerPackage $package
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage $package
      */
     private static function setNormalizedVersion(ComposerPackage $package): void
     {
@@ -194,3 +194,5 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
         return $lockData['minimum-stability'] ?? null;
     }
 }
+
+class_alias(JsonComposerLockSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector');

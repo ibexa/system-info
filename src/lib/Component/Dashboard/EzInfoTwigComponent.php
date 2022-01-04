@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Component\Dashboard;
+namespace Ibexa\SystemInfo\Component\Dashboard;
 
-use EzSystems\EzPlatformAdminUi\Component\Renderable;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Contracts\AdminUi\Component\Renderable;
 use Twig\Environment;
 
 class EzInfoTwigComponent implements Renderable
@@ -23,7 +23,7 @@ class EzInfoTwigComponent implements Renderable
     /** @var array */
     protected $parameters;
 
-    /** @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo */
     private $ibexaSystemInfo;
 
     /** @var array */
@@ -32,7 +32,7 @@ class EzInfoTwigComponent implements Renderable
     /**
      * @param \Twig\Environment $twig
      * @param string $template
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo $ibexaSystemInfo
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo $ibexaSystemInfo
      * @param array $urlList
      * @param array $parameters
      */
@@ -82,3 +82,5 @@ class EzInfoTwigComponent implements Renderable
         return $urls;
     }
 }
+
+class_alias(EzInfoTwigComponent::class, 'EzSystems\EzSupportTools\Component\Dashboard\EzInfoTwigComponent');

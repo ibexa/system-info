@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
 /**
  * A registry of SystemInfoCollectors.
@@ -12,7 +12,7 @@ namespace EzSystems\EzSupportToolsBundle\SystemInfo;
 interface SystemInfoCollectorRegistry
 {
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
      */
     public function __construct(array $items = []);
 
@@ -21,9 +21,9 @@ interface SystemInfoCollectorRegistry
      *
      * @param string $identifier An identifier string.
      *
-     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
+     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
      */
     public function getItem($identifier);
 
@@ -34,3 +34,5 @@ interface SystemInfoCollectorRegistry
      */
     public function getIdentifiers();
 }
+
+class_alias(SystemInfoCollectorRegistry::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry');

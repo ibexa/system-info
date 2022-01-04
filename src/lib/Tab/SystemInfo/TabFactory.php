@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Tab\SystemInfo;
+namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -14,19 +14,19 @@ use Twig\Environment;
 
 class TabFactory
 {
-    /** @var HttpKernelRuntime */
+    /** @var \Symfony\Bridge\Twig\Extension\HttpKernelRuntime */
     protected $httpKernelRuntime;
 
-    /** @var Environment */
+    /** @var \Twig\Environment */
     protected $twig;
 
-    /** @var TranslatorInterface */
+    /** @var \Symfony\Contracts\Translation\TranslatorInterface */
     protected $translator;
 
     /**
-     * @param Environment $twig
-     * @param TranslatorInterface $translator
-     * @param HttpKernelRuntime $httpKernelRuntime
+     * @param \Twig\Environment $twig
+     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
+     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
      */
     public function __construct(
         Environment $twig,
@@ -57,3 +57,5 @@ class TabFactory
         );
     }
 }
+
+class_alias(TabFactory::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory');

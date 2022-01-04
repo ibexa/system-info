@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat as SystemInfoOutputFormat;
+use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat as SystemInfoOutputFormat;
 
 /**
  * Implements the JSON output format.
@@ -18,3 +18,5 @@ class JsonOutputFormat implements SystemInfoOutputFormat
         return json_encode($collectedInfo, JSON_PRETTY_PRINT);
     }
 }
+
+class_alias(JsonOutputFormat::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat\JsonOutputFormat');

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Value;
+namespace Ibexa\SystemInfo\Value;
 
 final class Stability
 {
@@ -23,3 +23,5 @@ final class Stability
         20 => 'dev',
     ];
 }
+
+class_alias(Stability::class, 'EzSystems\EzSupportTools\Value\Stability');

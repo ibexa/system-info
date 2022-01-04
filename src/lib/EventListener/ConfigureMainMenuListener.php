@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\EventListener;
+namespace Ibexa\SystemInfo\EventListener;
 
-use eZ\Publish\API\Repository\PermissionResolver;
-use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
-use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
-use EzSystems\EzPlatformAdminUi\Menu\MenuItemFactory;
+use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
+use Ibexa\AdminUi\Menu\MainMenuBuilder;
+use Ibexa\AdminUi\Menu\MenuItemFactory;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -20,10 +20,10 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
 {
     public const ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
 
-    /** @var \EzSystems\EzPlatformAdminUi\Menu\MenuItemFactory */
+    /** @var \Ibexa\AdminUi\Menu\MenuItemFactory */
     private $menuItemFactory;
 
-    /** @var \eZ\Publish\API\Repository\PermissionResolver */
+    /** @var \Ibexa\Contracts\Core\Repository\PermissionResolver */
     private $permissionResolver;
 
     public function __construct(
@@ -35,7 +35,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
     }
 
     /**
-     * @param \EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent $event
+     * @param \Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent $event
      */
     public function onMenuConfigure(ConfigureMenuEvent $event): void
     {
@@ -75,3 +75,5 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
         ];
     }
 }
+
+class_alias(ConfigureMainMenuListener::class, 'EzSystems\EzSupportTools\EventListener\ConfigureMainMenuListener');
