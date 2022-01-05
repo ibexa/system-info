@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
 /**
  * System information value.
@@ -12,3 +12,5 @@ namespace EzSystems\EzSupportToolsBundle\SystemInfo\Value;
 interface SystemInfo
 {
 }
+
+class_alias(SystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo');

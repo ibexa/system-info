@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -38,3 +38,5 @@ class SystemInfoCollectorPass implements CompilerPassInterface
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }
+
+class_alias(SystemInfoCollectorPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoCollectorPass');

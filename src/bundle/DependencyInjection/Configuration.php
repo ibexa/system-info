@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\DependencyInjection;
+namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Symfony extension configuration definition for ezplatform_support_tools extension.
+ * Symfony extension configuration definition for ibexa_system_info extension.
  *
  * @internal
  */
@@ -23,7 +23,7 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('ezplatform_support_tools');
+        $treeBuilder = new TreeBuilder(IbexaSystemInfoExtension::EXTENSION_NAME);
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -55,3 +55,5 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 }
+
+class_alias(Configuration::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Configuration');

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
 
 /**
  * Collects hardware system information using zetacomponents/sysinfo.
@@ -15,7 +15,7 @@ use EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo;
 class EzcHardwareSystemInfoCollector implements SystemInfoCollector
 {
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
      */
     private $ezcSystemInfo;
 
@@ -29,7 +29,7 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
      *  - cpu information
      *  - memory size.
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo
      */
     public function collect(): HardwareSystemInfo
     {
@@ -41,3 +41,5 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
         ]);
     }
 }
+
+class_alias(EzcHardwareSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector');

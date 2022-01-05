@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Tab\SystemInfo;
+namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
-use EzSystems\EzPlatformAdminUi\Tab\AbstractControllerBasedTab;
+use Ibexa\Contracts\AdminUi\Tab\AbstractControllerBasedTab;
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -23,9 +23,9 @@ class SystemInfoTab extends AbstractControllerBasedTab
     protected $collectorIdentifier;
 
     /**
-     * @param Environment $twig
-     * @param TranslatorInterface $translator
-     * @param HttpKernelRuntime $httpKernelRuntime
+     * @param \Twig\Environment $twig
+     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
+     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
      * @param string $tabIdentifier
      * @param string $collectorIdentifier
      */
@@ -60,3 +60,5 @@ class SystemInfoTab extends AbstractControllerBasedTab
         return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'systeminfo');
     }
 }
+
+class_alias(SystemInfoTab::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\SystemInfoTab');

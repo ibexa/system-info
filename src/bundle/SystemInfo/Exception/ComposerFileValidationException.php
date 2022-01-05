@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Exception;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 
 use Exception;
 
@@ -17,3 +17,5 @@ final class ComposerFileValidationException extends Exception implements SystemI
         parent::__construct($message, $code, $previous);
     }
 }
+
+class_alias(ComposerFileValidationException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException');

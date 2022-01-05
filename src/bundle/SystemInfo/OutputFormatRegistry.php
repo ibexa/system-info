@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
-use eZ\Publish\Core\Base\Exceptions\NotFoundException;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 
 /**
  * A registry of OutputFormats.
  */
 class OutputFormatRegistry
 {
-    /** @var \EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat[] */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] */
     private $registry = [];
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
      */
     public function __construct(array $items = [])
     {
@@ -29,9 +29,9 @@ class OutputFormatRegistry
      *
      * @param string $identifier An identifier string.
      *
-     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
+     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\OutputFormat The OutputFormat given by the identifier.
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\OutputFormat The OutputFormat given by the identifier.
      */
     public function getItem($identifier)
     {
@@ -52,3 +52,5 @@ class OutputFormatRegistry
         return array_keys($this->registry);
     }
 }
+
+class_alias(OutputFormatRegistry::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry');

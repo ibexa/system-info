@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
-use eZ\Publish\SPI\Persistence\Content\ContentInfo;
+use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
 
 /**
  * @internal
@@ -35,3 +35,5 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
+
+class_alias(PublishedContentObjectsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\PublishedContentObjectsCountMetrics');

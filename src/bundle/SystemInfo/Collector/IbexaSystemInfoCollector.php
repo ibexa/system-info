@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Collector;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use EzSystems\EzPlatformCoreBundle\EzPlatformCoreBundle;
-use EzSystems\EzSupportTools\Value\Stability;
-use EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo;
 use DateTime;
+use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
+use Ibexa\Contracts\Core\Ibexa;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * Collects information about the Ibexa installation.
@@ -86,11 +86,11 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Content".
      */
     public const CONTENT_PACKAGES = [
-        'ezsystems/ezplatform-workflow',
+        'ibexa/workflow',
     ];
 
     public const EXPERIENCE_PACKAGES = [
-        'ezsystems/ezplatform-page-builder',
+        'ibexa/page-builder',
         'ezsystems/landing-page-fieldtype-bundle',
     ];
 
@@ -101,7 +101,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * or <code>IbexaSystemInfoCollector::CONTENT_PACKAGES</code>.
      */
     public const ENTERPRISE_PACKAGES = [
-        'ezsystems/ezplatform-page-builder',
+        'ibexa/page-builder',
         'ezsystems/flex-workflow',
         'ezsystems/landing-page-fieldtype-bundle',
     ];
@@ -110,11 +110,11 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Commerce".
      */
     public const COMMERCE_PACKAGES = [
-        'ezsystems/ezcommerce-transaction',
+        'ibexa/commerce-transaction',
     ];
 
     /**
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo|null
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
      */
     private $composerInfo;
 
@@ -127,7 +127,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     private $kernelProjectDir;
 
     /**
-     * @param \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector $composerCollector
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
      * @param bool $debug
      */
     public function __construct(
@@ -149,7 +149,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @throws \Exception
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo
      */
     public function collect(): IbexaSystemInfo
     {
@@ -157,7 +157,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
 
         $ibexa = new IbexaSystemInfo([
             'debug' => $this->debug,
-            'name' => EzSystemsEzSupportToolsExtension::getNameByPackages($vendorDir),
+            'name' => IbexaSystemInfoExtension::getNameByPackages($vendorDir),
         ]);
 
         $this->setReleaseInfo($ibexa);
@@ -171,7 +171,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      */
     private function setReleaseInfo(IbexaSystemInfo $ibexa): void
     {
-        $ibexa->release = EzPlatformCoreBundle::VERSION;
+        $ibexa->release = Ibexa::VERSION;
         // try to extract version number, but prepare for unexpected string
         [$majorVersion, $minorVersion] = array_pad(explode('.', $ibexa->release), 2, '');
         $ibexaRelease = "{$majorVersion}.{$minorVersion}";
@@ -266,3 +266,5 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return false;
     }
 }
+
+class_alias(IbexaSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector');

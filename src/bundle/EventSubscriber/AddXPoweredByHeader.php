@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportToolsBundle\EventSubscriber;
+namespace Ibexa\Bundle\SystemInfo\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -44,3 +44,5 @@ class AddXPoweredByHeader implements EventSubscriberInterface
         }
     }
 }
+
+class_alias(AddXPoweredByHeader::class, 'EzSystems\EzSupportToolsBundle\EventSubscriber\AddXPoweredByHeader');

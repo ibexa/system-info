@@ -4,12 +4,12 @@ services:
         autoconfigure: true
         public: false
 
-    EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory:
+    Ibexa\SystemInfo\Tab\SystemInfo\TabFactory:
         arguments:
             $httpKernelRuntime: '@twig.runtime.httpkernel'
 
     ez.support.tools.systeminfo.tab_groups:
-        parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
+        parent: Ibexa\AdminUi\Component\TabsComponent
         arguments:
             $template: '@@ezdesign/ui/tab/system_info.html.twig'
             $groupIdentifier: 'systeminfo'

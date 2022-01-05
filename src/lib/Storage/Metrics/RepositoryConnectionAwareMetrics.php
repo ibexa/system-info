@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\Storage\Metrics;
+namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\Connection;
-use EzSystems\EzSupportTools\Storage\Metrics;
+use Ibexa\SystemInfo\Storage\Metrics;
 
 /**
  * @internal
@@ -34,3 +34,5 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
         return $this->connection->getDatabasePlatform()->getCountExpression($columnName);
     }
 }
+
+class_alias(RepositoryConnectionAwareMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\RepositoryConnectionAwareMetrics');

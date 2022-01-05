@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\Command;
+namespace Ibexa\Bundle\SystemInfo\Command;
 
-use eZ\Bundle\EzPublishCoreBundle\Command\BackwardCompatibleCommand;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
-use EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry;
+use Ibexa\Bundle\Core\Command\BackwardCompatibleCommand;
+use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
@@ -20,14 +20,14 @@ class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
     /**
      * System info collector registry.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
     private $systemInfoCollectorRegistry;
 
     /**
      * Output format registry.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry
      */
     private $outputFormatRegistry;
 
@@ -52,7 +52,8 @@ class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
                 'ibexa:info',
             ])
             ->setDescription('Collects system information and dumps it.')
-            ->setHelp(<<<'EOD'
+            ->setHelp(
+                <<<'EOD'
 By default it dumps information from all available information collectors.
 You can specify one or more collectors as arguments, e.g. 'php database hardware'.
 To get a list if available collectors, use '--list-info-collectors'
@@ -98,7 +99,7 @@ EOD
 
         $outputFormatter = $this->outputFormatRegistry->getItem(
             $input->getOption('format')
-         );
+        );
 
         if ($input->getArgument('info-collectors')) {
             $identifiers = $input->getArgument('info-collectors');
@@ -127,3 +128,5 @@ EOD
         return ['ez-support-tools:dump-info'];
     }
 }
+
+class_alias(SystemInfoDumpCommand::class, 'EzSystems\EzSupportToolsBundle\Command\SystemInfoDumpCommand');

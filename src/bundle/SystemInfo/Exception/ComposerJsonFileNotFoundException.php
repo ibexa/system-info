@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\SystemInfo\Exception;
+namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 
 use Exception;
-use eZ\Publish\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
+use Ibexa\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
 class ComposerJsonFileNotFoundException extends BaseNotFoundException implements SystemInfoException
 {
@@ -16,3 +16,5 @@ class ComposerJsonFileNotFoundException extends BaseNotFoundException implements
         parent::__construct('Composer.json file', $path, $previous);
     }
 }
+
+class_alias(ComposerJsonFileNotFoundException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerJsonFileNotFoundException');

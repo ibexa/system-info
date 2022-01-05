@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace EzSystems\EzSupportTools\VersionStability;
+namespace Ibexa\SystemInfo\VersionStability;
 
-use EzSystems\EzSupportTools\Value\Stability;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * @internal
@@ -43,3 +43,5 @@ final class ComposerVersionStabilityChecker implements VersionStabilityChecker
             : null;
     }
 }
+
+class_alias(ComposerVersionStabilityChecker::class, 'EzSystems\EzSupportTools\VersionStability\ComposerVersionStabilityChecker');

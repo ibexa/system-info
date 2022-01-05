@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\EzSupportToolsBundle\View;
+namespace Ibexa\Bundle\SystemInfo\View;
 
-use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
-use eZ\Publish\Core\MVC\Symfony\View\Configurator;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Exception\SystemInfoException;
-use EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry;
-use EzSystems\EzSupportToolsBundle\SystemInfo\Value\InvalidSystemInfo;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
+use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
+use Ibexa\Core\MVC\Symfony\View\Configurator;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {
     /**
-     * @var \eZ\Publish\Core\MVC\Symfony\View\Configurator
+     * @var \Ibexa\Core\MVC\Symfony\View\Configurator
      */
     private $viewConfigurator;
 
     /**
      * System info collector registry.
      *
-     * @var \EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
     private $registry;
 
@@ -58,10 +58,12 @@ class SystemInfoViewBuilder implements ViewBuilder
     /**
      * @param string $identifier A SystemInfo collector identifier (php, hardware...)
      *
-     * @return \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector
+     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
      */
     private function getCollector($identifier)
     {
         return $this->registry->getItem($identifier);
     }
 }
+
+class_alias(SystemInfoViewBuilder::class, 'EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder');
