@@ -23,7 +23,7 @@ class OutputFormatPass implements CompilerPassInterface
             return;
         }
 
-        $outputFormattersTagged = $container->findTaggedServiceIds('support_tools.system_info.output_format');
+        $outputFormattersTagged = $container->findTaggedServiceIds('ibexa.system_info.output.format');
 
         $outputFormatters = [];
         foreach ($outputFormattersTagged as $id => $tags) {

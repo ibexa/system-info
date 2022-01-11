@@ -25,7 +25,7 @@ class SystemInfoCollectorPass implements CompilerPassInterface
             return;
         }
 
-        $infoCollectorsTagged = $container->findTaggedServiceIds('support_tools.system_info.collector');
+        $infoCollectorsTagged = $container->findTaggedServiceIds('ibexa.system_info.collector');
 
         $infoCollectors = [];
         foreach ($infoCollectorsTagged as $id => $tags) {
