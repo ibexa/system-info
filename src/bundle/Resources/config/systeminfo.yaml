@@ -14,4 +14,4 @@ services:
             $template: '@@ezdesign/ui/tab/system_info.html.twig'
             $groupIdentifier: 'systeminfo'
         tags:
-            - { name: ezplatform.admin_ui.component, group: 'systeminfo-tab-groups' }
+            - { name: ibexa.admin_ui.component, group: 'systeminfo-tab-groups' }

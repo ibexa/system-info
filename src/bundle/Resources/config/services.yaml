@@ -66,7 +66,7 @@ services:
             $kernelProjectDir: '%kernel.project_dir%'
             $debug: '%kernel.debug%'
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "ibexa" }
+            - { name: ibexa.system_info.collector, identifier: ibexa }
 
     Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker: ~
 
@@ -80,7 +80,7 @@ services:
             $lockFile: "%kernel.project_dir%/composer.lock"
             $jsonFile: "%kernel.project_dir%/composer.json"
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "composer" }
+            - { name: ibexa.system_info.collector, identifier: composer }
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector:
         lazy: true
@@ -88,21 +88,21 @@ services:
         arguments:
             $db: '@ezpublish.persistence.connection'
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "repository" }
+            - { name: ibexa.system_info.collector, identifier: repository }
 
     support_tools.system_info.collector.hardware.ezc:
         class: "%support_tools.system_info.collector.hardware.ezc.class%"
         arguments:
             - "@support_tools.system_info.ezc.wrapper"
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "hardware" }
+            - { name: ibexa.system_info.collector, identifier: hardware }
 
     support_tools.system_info.collector.php.ezc:
         class: "%support_tools.system_info.collector.php.ezc.class%"
         arguments:
             - "@support_tools.system_info.ezc.wrapper"
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "php" }
+            - { name: ibexa.system_info.collector, identifier: php }
 
     support_tools.system_info.collector.symfony.kernel.config:
         class: "%support_tools.system_info.collector.symfony.kernel.config.class%"
@@ -110,18 +110,18 @@ services:
             - "@kernel"
             - "%kernel.bundles%"
         tags:
-            - { name: "support_tools.system_info.collector", identifier: "symfony_kernel" }
+            - { name: ibexa.system_info.collector, identifier: symfony_kernel }
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector:
         autowire: true
         tags:
-            - { name: support_tools.system_info.collector, identifier: services }
+            - { name: ibexa.system_info.collector, identifier: services }
 
     # SystemInfoOutputFormats
     support_tools.system_info.output_format.json:
         class: "%support_tools.system_info.output_format.json.class%"
         tags:
-            - { name: "support_tools.system_info.output_format", format: "json" }
+            - { name: ibexa.system_info.output.format, format: json }
 
     # Gateways
     Ibexa\SystemInfo\Storage\MetricsProvider:
