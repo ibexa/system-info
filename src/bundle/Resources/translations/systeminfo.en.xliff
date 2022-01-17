@@ -56,6 +56,16 @@
         <target state="new">Is Trial</target>
         <note>key: ibexa.is_trial</note>
       </trans-unit>
+      <trans-unit id="44a7ad63689c19af8aa173293e0da9e2055e4df9" resname="ibexa.is_trial.no">
+        <source>No</source>
+        <target state="new">No</target>
+        <note>key: ibexa.is_trial.no</note>
+      </trans-unit>
+      <trans-unit id="46f01867c8e19c56906497818e87863852882fd0" resname="ibexa.is_trial.yes">
+        <source>Yes</source>
+        <target state="new">Yes</target>
+        <note>key: ibexa.is_trial.yes</note>
+      </trans-unit>
       <trans-unit id="b7ffaa791bbf39db2ea700efec5362a0bc4e2021" resname="ibexa.name">
         <source>Name</source>
         <target state="new">Name</target>
