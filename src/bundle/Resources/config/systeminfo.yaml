@@ -8,7 +8,7 @@ services:
         arguments:
             $httpKernelRuntime: '@twig.runtime.httpkernel'
 
-    ez.support.tools.systeminfo.tab_groups:
+    ibexa.support_tools.systeminfo.tab_groups:
         parent: Ibexa\AdminUi\Component\TabsComponent
         arguments:
             $template: '@@ezdesign/ui/tab/system_info.html.twig'

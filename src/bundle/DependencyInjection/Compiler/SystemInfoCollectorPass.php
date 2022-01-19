@@ -21,7 +21,7 @@ class SystemInfoCollectorPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('support_tools.system_info.collector_registry')) {
+        if (!$container->has(\Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::class)) {
             return;
         }
 
@@ -34,7 +34,7 @@ class SystemInfoCollectorPass implements CompilerPassInterface
             }
         }
 
-        $infoCollectorRegistryDef = $container->findDefinition('support_tools.system_info.collector_registry');
+        $infoCollectorRegistryDef = $container->findDefinition(\Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::class);
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }

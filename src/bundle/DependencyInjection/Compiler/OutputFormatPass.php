@@ -19,7 +19,7 @@ class OutputFormatPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('support_tools.system_info.output_registry')) {
+        if (!$container->has(\Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry::class)) {
             return;
         }
 
@@ -32,7 +32,7 @@ class OutputFormatPass implements CompilerPassInterface
             }
         }
 
-        $outputFormatRegistryDef = $container->findDefinition('support_tools.system_info.output_registry');
+        $outputFormatRegistryDef = $container->findDefinition(\Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry::class);
         $outputFormatRegistryDef->setArguments([$outputFormatters]);
     }
 }

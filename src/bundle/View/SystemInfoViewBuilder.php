@@ -34,7 +34,7 @@ class SystemInfoViewBuilder implements ViewBuilder
 
     public function matches($argument)
     {
-        return $argument === 'support_tools.view.controller:viewInfoAction';
+        return $argument === 'ibexa.support_tools.view.controller:viewInfoAction';
     }
 
     public function buildView(array $parameters)
