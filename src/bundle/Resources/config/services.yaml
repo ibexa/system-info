@@ -40,29 +40,29 @@ services:
             - { name: kernel.event_subscriber }
 
     # Console
-    support_tools.command.dump_info:
+    Ibexa\Bundle\SystemInfo\Command\SystemInfoDumpCommand:
         class: "%support_tools.command.dump_info.class%"
         arguments:
-            - "@support_tools.system_info.collector_registry"
-            - "@support_tools.system_info.output_registry"
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry'
         tags:
             - { name: console.command }
 
-    support_tools.system_info.collector_registry:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased:
         class: "%support_tools.system_info.collector_registry.class%"
 
-    support_tools.system_info.output_registry:
+    Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry:
         class: "%support_tools.system_info.output_registry.class%"
 
-    support_tools.system_info.ezc.wrapper:
+    Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper:
         class: "%support_tools.system_info.ezc.wrapper.class%"
         lazy: true
 
     # SystemInfoCollectors
-    support_tools.system_info.collector.system.ibexa:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector:
         class: '%support_tools.system_info.collector.system.ibexa.class%'
         arguments:
-            $composerCollector: "@support_tools.system_info.collector.composer.lock_file"
+            $composerCollector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
             $kernelProjectDir: '%kernel.project_dir%'
             $debug: '%kernel.debug%'
         tags:
@@ -73,7 +73,7 @@ services:
     Ibexa\SystemInfo\VersionStability\VersionStabilityChecker:
         '@Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker'
 
-    support_tools.system_info.collector.composer.lock_file:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector:
         class: "%support_tools.system_info.collector.composer.lock_file.class%"
         arguments:
             $versionStabilityChecker: '@Ibexa\SystemInfo\VersionStability\VersionStabilityChecker'
@@ -86,25 +86,25 @@ services:
         lazy: true
         autowire: true
         arguments:
-            $db: '@ezpublish.persistence.connection'
+            $db: '@ibexa.persistence.connection'
         tags:
             - { name: ibexa.system_info.collector, identifier: repository }
 
-    support_tools.system_info.collector.hardware.ezc:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector:
         class: "%support_tools.system_info.collector.hardware.ezc.class%"
         arguments:
-            - "@support_tools.system_info.ezc.wrapper"
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: hardware }
 
-    support_tools.system_info.collector.php.ezc:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector:
         class: "%support_tools.system_info.collector.php.ezc.class%"
         arguments:
-            - "@support_tools.system_info.ezc.wrapper"
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: php }
 
-    support_tools.system_info.collector.symfony.kernel.config:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector:
         class: "%support_tools.system_info.collector.symfony.kernel.config.class%"
         arguments:
             - "@kernel"
@@ -118,7 +118,7 @@ services:
             - { name: ibexa.system_info.collector, identifier: services }
 
     # SystemInfoOutputFormats
-    support_tools.system_info.output_format.json:
+    Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat\JsonOutputFormat:
         class: "%support_tools.system_info.output_format.json.class%"
         tags:
             - { name: ibexa.system_info.output.format, format: json }
@@ -136,7 +136,7 @@ services:
     Ibexa\SystemInfo\Storage\Metrics\RepositoryConnectionAwareMetrics:
         abstract: true
         arguments:
-            $connection: '@ezpublish.persistence.connection'
+            $connection: '@ibexa.persistence.connection'
 
     Ibexa\SystemInfo\Storage\Metrics\PublishedContentObjectsCountMetrics:
         parent: Ibexa\SystemInfo\Storage\Metrics\RepositoryConnectionAwareMetrics
@@ -185,7 +185,7 @@ services:
 
     Ibexa\SystemInfo\Service\SearchEngineServiceInfo:
         arguments:
-            $repositoryConfigProvider: '@ezpublish.api.repository_configuration_provider'
+            $repositoryConfigProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
         tags:
             - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
               identifier: searchEngine
@@ -199,7 +199,7 @@ services:
 
     Ibexa\SystemInfo\Service\PersistenceCacheServiceInfo:
         arguments:
-            $configResolver: '@ezpublish.config.resolver'
+            $configResolver: '@ibexa.config.resolver'
         tags:
             - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
               identifier: persistenceCacheAdapter

@@ -4,5 +4,5 @@ services:
         autoconfigure: true
         public: true
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry: '@support_tools.system_info.collector_registry'
+    Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry: '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'
     Symfony\Contracts\Translation\TranslatorInterface: '@translator'

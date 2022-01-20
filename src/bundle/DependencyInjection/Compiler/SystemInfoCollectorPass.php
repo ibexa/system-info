@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -21,7 +22,7 @@ class SystemInfoCollectorPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('support_tools.system_info.collector_registry')) {
+        if (!$container->has(IdentifierBased::class)) {
             return;
         }
 
@@ -34,7 +35,7 @@ class SystemInfoCollectorPass implements CompilerPassInterface
             }
         }
 
-        $infoCollectorRegistryDef = $container->findDefinition('support_tools.system_info.collector_registry');
+        $infoCollectorRegistryDef = $container->findDefinition(IdentifierBased::class);
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }

@@ -21,7 +21,7 @@ class SystemInfoViewBuilderTest extends TestCase
     public function testMatches()
     {
         $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
-        self::assertTrue($builder->matches('support_tools.view.controller:viewInfoAction'));
+        self::assertTrue($builder->matches('ibexa.support_tools.view.controller:viewInfoAction'));
     }
 
     public function testNotMatches()

@@ -3,39 +3,39 @@ services:
         parent: Ibexa\Contracts\AdminUi\Controller\Controller
         autowire: true
         arguments:
-            - "@support_tools.system_info.collector_registry"
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'
         tags:
             - { name: controller.service_arguments }
 
-    support_tools.view.controller:
+    ibexa.support_tools.view.controller:
         alias: Ibexa\Bundle\SystemInfo\Controller\SystemInfoController
         public: true
 
-    support_tools.view.system_info_view_builder:
+    Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder:
         class: Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder
         arguments:
-            - "@ezpublish.view.configurator"
-            - "@support_tools.system_info.collector_registry"
+            - '@Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider'
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'
         tags:
             - { name: ibexa.view.builder }
 
-    support_tools.view.system_info.provider:
+    ibexa.support_tools.view.system_info.provider:
         class: "%ezpublish.view_provider.configured.class%"
-        arguments: ["@support_tools.view.matcher_factory"]
+        arguments: ['@ibexa.support_tools.view.matcher_factory']
         tags:
             - {name: ibexa.view.provider, type: 'Ibexa\Bundle\SystemInfo\View\SystemInfoView', priority: 10}
 
-    support_tools.view.matcher_factory:
+    ibexa.support_tools.view.matcher_factory:
         class: "%ezpublish.view.matcher_factory.class%"
         arguments:
             - '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
-            - '@ezpublish.api.repository'
+            - '@ibexa.api.repository'
             - 'Ibexa\Bundle\SystemInfo\View\Matcher'
 
-    support_tools.view.matcher_factory.dynamically_configured:
+    ibexa.support_tools.view.matcher_factory.dynamically_configured:
         class: Ibexa\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
-        decorates: support_tools.view.matcher_factory
+        decorates: ibexa.support_tools.view.matcher_factory
         arguments:
-            $innerConfigurableMatcherFactory: '@support_tools.view.matcher_factory.dynamically_configured.inner'
-            $configResolver: '@ezpublish.config.resolver'
+            $innerConfigurableMatcherFactory: '@ibexa.support_tools.view.matcher_factory.dynamically_configured.inner'
+            $configResolver: '@ibexa.config.resolver'
             $parameterName: system_info_view
