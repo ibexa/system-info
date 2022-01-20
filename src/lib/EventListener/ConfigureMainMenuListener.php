@@ -49,7 +49,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
             $this->menuItemFactory->createItem(
                 self::ITEM_ADMIN__SYSTEMINFO,
                 [
-                    'route' => 'ezplatform.systeminfo',
+                    'route' => 'ibexa.systeminfo',
                     'extras' => [
                         'orderNumber' => 10,
                     ],
