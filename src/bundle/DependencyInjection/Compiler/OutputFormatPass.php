@@ -6,6 +6,7 @@
  */
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -19,7 +20,7 @@ class OutputFormatPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has(\Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry::class)) {
+        if (!$container->has(OutputFormatRegistry::class)) {
             return;
         }
 
@@ -32,7 +33,7 @@ class OutputFormatPass implements CompilerPassInterface
             }
         }
 
-        $outputFormatRegistryDef = $container->findDefinition(\Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry::class);
+        $outputFormatRegistryDef = $container->findDefinition(OutputFormatRegistry::class);
         $outputFormatRegistryDef->setArguments([$outputFormatters]);
     }
 }
