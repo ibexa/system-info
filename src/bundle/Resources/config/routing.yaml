@@ -1,9 +1,9 @@
-ezplatform.systeminfo:
+ibexa.systeminfo:
     path: /systeminfo
     defaults:
         _controller: 'Ibexa\Bundle\SystemInfo\Controller\SystemInfoController::infoAction'
 
-ezplatform.systeminfo.php:
+ibexa.systeminfo.php:
     path: /systeminfo/phpinfo
     defaults:
         _controller: 'Ibexa\Bundle\SystemInfo\Controller\SystemInfoController::phpinfoAction'
