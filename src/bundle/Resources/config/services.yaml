@@ -5,16 +5,6 @@ imports:
     - { resource: events.yaml }
 
 parameters:
-    support_tools.command.dump_info.class: Ibexa\Bundle\SystemInfo\Command\SystemInfoDumpCommand
-    support_tools.system_info.collector_registry.class: Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased
-    support_tools.system_info.output_registry.class: Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry
-    support_tools.system_info.ezc.wrapper.class: Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
-    support_tools.system_info.collector.composer.lock_file.class: Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector
-    support_tools.system_info.collector.system.ibexa.class: Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector
-    support_tools.system_info.collector.hardware.ezc.class: Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector
-    support_tools.system_info.collector.php.ezc.class: Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector
-    support_tools.system_info.collector.symfony.kernel.config.class: Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector
-    support_tools.system_info.output_format.json.class: Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat\JsonOutputFormat
     ezplatform_support_tools.system_info.powered_by.name: ''
     ibexa.system_info.ibexa_url_list:
         contact: "https://www.ibexa.co/about-ibexa/contact-us"
@@ -41,26 +31,21 @@ services:
 
     # Console
     Ibexa\Bundle\SystemInfo\Command\SystemInfoDumpCommand:
-        class: "%support_tools.command.dump_info.class%"
         arguments:
             - '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'
             - '@Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry'
         tags:
             - { name: console.command }
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased:
-        class: "%support_tools.system_info.collector_registry.class%"
+    Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased: ~
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry:
-        class: "%support_tools.system_info.output_registry.class%"
+    Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry: ~
 
     Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper:
-        class: "%support_tools.system_info.ezc.wrapper.class%"
         lazy: true
 
     # SystemInfoCollectors
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector:
-        class: '%support_tools.system_info.collector.system.ibexa.class%'
         arguments:
             $composerCollector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
             $kernelProjectDir: '%kernel.project_dir%'
@@ -74,7 +59,6 @@ services:
         '@Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker'
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector:
-        class: "%support_tools.system_info.collector.composer.lock_file.class%"
         arguments:
             $versionStabilityChecker: '@Ibexa\SystemInfo\VersionStability\VersionStabilityChecker'
             $lockFile: "%kernel.project_dir%/composer.lock"
@@ -91,21 +75,18 @@ services:
             - { name: ibexa.system_info.collector, identifier: repository }
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector:
-        class: "%support_tools.system_info.collector.hardware.ezc.class%"
         arguments:
             - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: hardware }
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector:
-        class: "%support_tools.system_info.collector.php.ezc.class%"
         arguments:
             - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: php }
 
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector:
-        class: "%support_tools.system_info.collector.symfony.kernel.config.class%"
         arguments:
             - "@kernel"
             - "%kernel.bundles%"
@@ -119,7 +100,6 @@ services:
 
     # SystemInfoOutputFormats
     Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat\JsonOutputFormat:
-        class: "%support_tools.system_info.output_format.json.class%"
         tags:
             - { name: ibexa.system_info.output.format, format: json }
 
