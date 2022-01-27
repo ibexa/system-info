@@ -11,7 +11,7 @@ services:
     ibexa.support_tools.systeminfo.tab_groups:
         parent: Ibexa\AdminUi\Component\TabsComponent
         arguments:
-            $template: '@@ezdesign/ui/tab/system_info.html.twig'
+            $template: '@@ibexadesign/ui/tab/system_info.html.twig'
             $groupIdentifier: 'systeminfo'
         tags:
             - { name: ibexa.admin_ui.component, group: 'systeminfo-tab-groups' }
