@@ -20,13 +20,13 @@ services:
             - { name: ibexa.view.builder }
 
     ibexa.support_tools.view.system_info.provider:
-        class: "%ezpublish.view_provider.configured.class%"
+        class: Ibexa\Bundle\Core\View\Provider\Configured
         arguments: ['@ibexa.support_tools.view.matcher_factory']
         tags:
             - {name: ibexa.view.provider, type: 'Ibexa\Bundle\SystemInfo\View\SystemInfoView', priority: 10}
 
     ibexa.support_tools.view.matcher_factory:
-        class: "%ezpublish.view.matcher_factory.class%"
+        class: Ibexa\Bundle\Core\Matcher\ServiceAwareMatcherFactory
         arguments:
             - '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
             - '@ibexa.api.repository'
