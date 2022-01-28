@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
+use Composer\InstalledVersions;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Ibexa\Contracts\Core\Ibexa;
@@ -98,19 +99,22 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         ]);
     }
 
-    public static function getNameByPackages(string $vendor): string
+    public static function getEditionByPackages(): string
     {
-        if (is_dir($vendor . IbexaSystemInfoCollector::COMMERCE_PACKAGES[0])) {
-            $name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['commerce'];
-        } elseif (is_dir($vendor . IbexaSystemInfoCollector::EXPERIENCE_PACKAGES[0])) {
-            $name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['experience'];
-        } elseif (is_dir($vendor . IbexaSystemInfoCollector::CONTENT_PACKAGES[0])) {
-            $name = IbexaSystemInfo::PRODUCT_NAME_VARIANTS['content'];
-        } else {
-            $name = IbexaSystemInfo::PRODUCT_NAME_OSS;
+        if (InstalledVersions::isInstalled(IbexaSystemInfoCollector::COMMERCE_PACKAGES[0])) {
+            return 'commerce';
+        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::EXPERIENCE_PACKAGES[0])) {
+            return 'experience';
+        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::CONTENT_PACKAGES[0])) {
+            return 'content';
         }
 
-        return $name;
+        return 'oss';
+    }
+
+    public static function getNameByPackages(string $vendor = null): string
+    {
+        return IbexaSystemInfo::PRODUCT_NAME_VARIANTS[self::getEditionByPackages()];
     }
 }
 
