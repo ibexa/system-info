@@ -98,17 +98,17 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
             ],
         ]);
     }
-    
+
     public static function getEditionByPackages(): string
     {
         if (InstalledVersions::isInstalled(IbexaSystemInfoCollector::COMMERCE_PACKAGES[0])) {
             return 'commerce';
-        } else if (InstalledVersions::isInstalled(IbexaSystemInfoCollector::EXPERIENCE_PACKAGES[0])) {
+        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::EXPERIENCE_PACKAGES[0])) {
             return 'experience';
-        } else if (InstalledVersions::isInstalled(IbexaSystemInfoCollector::CONTENT_PACKAGES[0])) {
+        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::CONTENT_PACKAGES[0])) {
             return 'content';
         }
-        
+
         return 'oss';
     }
 
