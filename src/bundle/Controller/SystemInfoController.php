@@ -38,7 +38,7 @@ class SystemInfoController extends AdminUiController
      */
     public function infoAction(): Response
     {
-        return $this->render('@ezdesign/system_info/info.html.twig', [
+        return $this->render('@ibexadesign/system_info/info.html.twig', [
             'collector_identifiers' => $this->collectorRegistry->getIdentifiers(),
         ]);
     }
