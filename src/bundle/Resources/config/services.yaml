@@ -5,7 +5,7 @@ imports:
     - { resource: events.yaml }
 
 parameters:
-    ezplatform_support_tools.system_info.powered_by.name: ''
+    ibexa.system_info.powered_by.name: ''
     ibexa.system_info.ibexa_url_list:
         contact: "https://www.ibexa.co/about-ibexa/contact-us"
         license: "https://www.ibexa.co/software-information/licenses-and-agreements"
@@ -20,12 +20,12 @@ parameters:
         update: "https://doc.ibexa.co/en/latest/updating/updating_ez_platform/"
         gpl_faq: "https://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.en.html#GPLModuleLicense"
         support: "https://support.ibexa.co"
-    support_tools.ez_url_list: '%ibexa.system_info.ibexa_url_list%' # BC
+    ibexa.system_info.url_list: '%ibexa.system_info.ibexa_url_list%' # BC
 
 services:
     # EventSubscriber
     Ibexa\Bundle\SystemInfo\EventSubscriber\AddXPoweredByHeader:
-        arguments: ["%ezplatform_support_tools.system_info.powered_by.name%"]
+        arguments: ['%ibexa.system_info.powered_by.name%']
         tags:
             - { name: kernel.event_subscriber }
 

@@ -52,7 +52,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
 
         if (isset($config['system_info']) && $config['system_info']['powered_by']['enabled']) {
             $container->setParameter(
-                'ezplatform_support_tools.system_info.powered_by.name',
+                'ibexa.system_info.powered_by.name',
                 $this->getPoweredByName(
                     $container,
                     $config['system_info']['powered_by']['release']
