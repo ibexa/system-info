@@ -1,6 +1,6 @@
 parameters:
-    ezsettings.default.system_info_view: {}
-    ezsettings.global.system_info_view:
+    ibexa.site_access.config.default.system_info_view: {}
+    ibexa.site_access.config.global.system_info_view:
         pjax_tab:
             ibexa:
                 template: '@@ibexadesign/system_info/my_ibexa.html.twig'
