@@ -6,12 +6,12 @@
     "type": "project",
     "authors": [
         {
-            "name": "eZ dev-team & eZ Community",
+            "name": "eZ dev-team & Ibexa Community",
             "homepage": "https://github.com/ezsystems/ezplatform-ee/contributors"
         }
     ],
     "repositories": [
-        { "type": "composer", "url": "https://updates.ez.no/bul" }
+        { "type": "composer", "url": "https://updates.ibexa.co/bul" }
     ],
     "replace": {
         "ezsystems/ezstudio": "*",

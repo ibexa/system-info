@@ -11,7 +11,7 @@
         }
     ],
     "repositories": [
-        { "type": "composer", "url": "https://updates.ez.no/bul" }
+        { "type": "composer", "url": "https://updates.ibexa.co/bul" }
     ],
     "replace": {
         "ezsystems/ezstudio": "*",
