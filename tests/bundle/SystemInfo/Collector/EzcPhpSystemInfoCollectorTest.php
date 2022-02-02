@@ -47,7 +47,7 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector::collect()
      */
     public function testCollect()
     {

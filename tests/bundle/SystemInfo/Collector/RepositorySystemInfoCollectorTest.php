@@ -56,7 +56,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\RepositorySystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector::collect()
      */
     public function testCollect()
     {

@@ -18,7 +18,7 @@ class IdentifierBasedTest extends TestCase
     private $registry;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject[]|\EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector[]
+     * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
      */
     private $testItems;
 
@@ -35,7 +35,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test adding items to the registry, and getting items from it.
      *
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
      */
     public function testAddAndGetItems()
     {
@@ -48,7 +48,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test exception when registry item is not found.
      *
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
      */
     public function testGetItemNotFound()
     {
@@ -59,7 +59,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test replacing an item in the registry.
      *
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
      */
     public function testReplaceItem()
     {
@@ -78,7 +78,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test getting all registered identifiers.
      *
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased::getIdentifiers()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getIdentifiers()
      * @depends testAddAndGetItems
      */
     public function testGetIdentifiers()
