@@ -26,8 +26,8 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
                 'AppBundle' => 'AppBundle\\AppBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'eZPlatformUIBundle' => 'EzSystems\\PlatformUIBundle\\EzSystemsPlatformUIBundle',
-                'EzPublishCoreBundle' => 'eZ\\Bundle\\EzPublishCoreBundle\\EzPublishCoreBundle',
-                'EzSystemsEzSupportToolsBundle' => 'EzSystems\\EzSupportToolsBundle\\EzSystemsEzSupportToolsBundle',
+                'EzPublishCoreBundle' => 'Ibexa\\Bundle\\Core\\IbexaCoreBundle',
+                'EzSystemsEzSupportToolsBundle' => 'Ibexa\\Bundle\\SystemInfo\\IbexaSystemInfoBundle',
             ],
             'projectDir' => '/srv/www/ezpublish-platform/app',
             'cacheDir' => '/srv/www/ezpublish-platform/app/cache/prod',
@@ -76,7 +76,7 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
 
         $value = $symfonyCollector->collect();
 
-        self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\SymfonyKernelSystemInfo', $value);
+        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\SymfonyKernelSystemInfo', $value);
 
         self::assertEquals($expected, $value);
     }

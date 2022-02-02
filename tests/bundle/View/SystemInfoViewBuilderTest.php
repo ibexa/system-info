@@ -59,7 +59,7 @@ class SystemInfoViewBuilderTest extends TestCase
     protected function getConfiguratorMock()
     {
         if (!isset($this->configuratorMock)) {
-            $this->configuratorMock = $this->createMock('eZ\Publish\Core\MVC\Symfony\View\Configurator');
+            $this->configuratorMock = $this->createMock('Ibexa\\Core\\MVC\\Symfony\\View\\Configurator');
         }
 
         return $this->configuratorMock;
@@ -71,7 +71,7 @@ class SystemInfoViewBuilderTest extends TestCase
     protected function getRegistryMock()
     {
         if (!isset($this->registryMock)) {
-            $this->registryMock = $this->createMock('EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry');
+            $this->registryMock = $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry');
         }
 
         return $this->registryMock;
@@ -83,7 +83,7 @@ class SystemInfoViewBuilderTest extends TestCase
     protected function getCollectorMock()
     {
         if (!isset($this->collectorMock)) {
-            $this->collectorMock = $this->createMock('EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector');
+            $this->collectorMock = $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector');
         }
 
         return $this->collectorMock;

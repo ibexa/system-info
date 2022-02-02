@@ -25,7 +25,7 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->ezcSystemInfoMock = $this
-            ->getMockBuilder('EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper')
+            ->getMockBuilder('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\EzcSystemInfoWrapper')
             ->disableOriginalConstructor()
             ->getMock();
         $this->ezcSystemInfoMock->phpVersion = PHP_VERSION;
@@ -53,7 +53,7 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     {
         $value = $this->ezcPhpCollector->collect();
 
-        self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\PhpSystemInfo', $value);
+        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\PhpSystemInfo', $value);
 
         self::assertEquals(
             new PhpSystemInfo([

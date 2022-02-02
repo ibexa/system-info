@@ -25,8 +25,8 @@ class IdentifierBasedTest extends TestCase
     protected function setUp(): void
     {
         $this->testItems = [
-            'foo' => $this->createMock('EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector'),
-            'bar' => $this->createMock('EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector'),
+            'foo' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
+            'bar' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
         ];
 
         $this->registry = new IdentifierBased();
@@ -66,7 +66,7 @@ class IdentifierBasedTest extends TestCase
         $this->registry = new IdentifierBased($this->testItems);
 
         $replaceItems = [
-            'foo' => $this->createMock('EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector'),
+            'foo' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
         ];
 
         $this->registry = new IdentifierBased($replaceItems);

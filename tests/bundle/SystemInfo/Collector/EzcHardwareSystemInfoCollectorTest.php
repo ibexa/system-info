@@ -25,7 +25,7 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->ezcSystemInfoMock = $this
-            ->getMockBuilder('EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper')
+            ->getMockBuilder('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\EzcSystemInfoWrapper')
             ->disableOriginalConstructor()
             ->getMock();
         $this->ezcSystemInfoMock->cpuType = 'Intel(R) Core(TM) i7-3720QM CPU @ 2.60GHz';
@@ -43,7 +43,7 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     {
         $value = $this->ezcHardware->collect();
 
-        self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo', $value);
+        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\HardwareSystemInfo', $value);
 
         self::assertEquals(
             new HardwareSystemInfo([

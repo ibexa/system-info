@@ -85,7 +85,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
         );
         $value = $composerCollector->collect();
 
-        self::assertInstanceOf('EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo', $value);
+        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\ComposerSystemInfo', $value);
         self::assertEquals($expected, $value);
     }
 
