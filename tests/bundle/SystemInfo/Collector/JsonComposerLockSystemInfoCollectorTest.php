@@ -26,7 +26,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
     public function testCollectWithMinimumStability(): void
     {
@@ -90,7 +90,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
     public function testCollectLockFileNotFound(): void
     {
@@ -105,7 +105,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
     public function testCollectJsonFileNotFound(): void
     {
@@ -120,7 +120,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
     public function testCollectLockFileCorrupted(): void
     {
@@ -135,7 +135,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
      */
     public function testCollectJsonFileCorrupted(): void
     {

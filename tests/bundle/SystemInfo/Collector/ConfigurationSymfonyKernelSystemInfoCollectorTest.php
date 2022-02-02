@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Kernel;
 class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector::collect()
      */
     public function testCollect()
     {

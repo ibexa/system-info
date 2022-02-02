@@ -37,7 +37,7 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     }
 
     /**
-     * @covers \EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector::collect()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector::collect()
      */
     public function testCollect()
     {
