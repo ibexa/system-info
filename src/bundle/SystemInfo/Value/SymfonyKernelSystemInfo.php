@@ -56,7 +56,7 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
     /**
      * Project directory.
      *
-     * Example: /srv/www/ezpublish-platform/app
+     * Example: /srv/www/ibexa-dxp/app
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
     /**
      * Cache directory.
      *
-     * Example: /srv/www/ezpublish-platform/app/cache/prod
+     * Example: /srv/www/ibexa-dxp/app/cache/prod
      *
      * @var string
      */
@@ -74,7 +74,7 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
     /**
      * Log file directory.
      *
-     * Example: /srv/www/ezpublish-platform/app/logs
+     * Example: /srv/www/ibexa-dxp/app/logs
      *
      * @var string
      */

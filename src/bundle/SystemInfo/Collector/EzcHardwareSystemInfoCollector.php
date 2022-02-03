@@ -25,7 +25,7 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Collects information about the hardware eZ Platform is installed on.
+     * Collects information about the hardware Ibexa DXP is installed on.
      *  - cpu information
      *  - memory size.
      *

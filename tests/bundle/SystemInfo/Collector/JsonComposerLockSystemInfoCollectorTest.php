@@ -40,7 +40,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
                     'license' => 'GPL-2.0',
                     'stability' => 'dev',
                     'dateTime' => new \DateTime('2016-02-28 14:30:53'),
-                    'homepage' => 'http://share.ez.no',
+                    'homepage' => 'https://ibexa.co',
                     'reference' => 'ec897baa77c63b745749acf201e85b92bd614723',
                 ]),
                 'doctrine/dbal' => new ComposerPackage([
@@ -75,7 +75,7 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
                 ]),
             ],
             'minimumStability' => 'stable',
-            'repositoryUrls' => ['https://updates.ez.no/bul'],
+            'repositoryUrls' => ['https://updates.ibexa.co/bul'],
         ]);
 
         $composerCollector = new JsonComposerLockSystemInfoCollector(

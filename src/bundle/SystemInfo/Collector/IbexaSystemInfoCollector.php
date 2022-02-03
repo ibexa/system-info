@@ -19,7 +19,7 @@ use Ibexa\SystemInfo\Value\Stability;
  * Collects information about the Ibexa installation.
  *
  * @internal This class will greatly change in the future and should not be used as an API, planned:
- *           - Get most of this information off updates.ez.no
+ *           - Get most of this information off updates.ibexa.co
  *           - Probably run this as a nightly cronjob to gather summary info
  *           - Be able to provide warnings to admins when something (config/system setup) is not optimal
  *           - Be able to give information if important updates are available to the installation

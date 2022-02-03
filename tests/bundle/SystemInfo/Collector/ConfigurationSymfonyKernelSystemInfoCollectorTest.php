@@ -25,13 +25,12 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
             'bundles' => [
                 'AppBundle' => 'AppBundle\\AppBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
-                'eZPlatformUIBundle' => 'EzSystems\\PlatformUIBundle\\EzSystemsPlatformUIBundle',
-                'EzPublishCoreBundle' => 'Ibexa\\Bundle\\Core\\IbexaCoreBundle',
-                'EzSystemsEzSupportToolsBundle' => 'Ibexa\\Bundle\\SystemInfo\\IbexaSystemInfoBundle',
+                'IbexaCoreBundle' => 'Ibexa\\Bundle\\Core\\IbexaCoreBundle',
+                'IbexaSupportToolsBundle' => 'Ibexa\\Bundle\\SystemInfo\\IbexaSystemInfoBundle',
             ],
-            'projectDir' => '/srv/www/ezpublish-platform/app',
-            'cacheDir' => '/srv/www/ezpublish-platform/app/cache/prod',
-            'logDir' => '/srv/www/ezpublish-platform/app/logs',
+            'projectDir' => '/srv/www/ibexa-dxp/app',
+            'cacheDir' => '/srv/www/ibexa-dxp/app/cache/prod',
+            'logDir' => '/srv/www/ibexa-dxp/app/logs',
             'charset' => 'UTF-8',
         ]);
 

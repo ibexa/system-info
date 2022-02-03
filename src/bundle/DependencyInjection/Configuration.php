@@ -33,7 +33,7 @@ final class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->arrayNode('powered_by')
-                            ->info('Control if system should generate a powered by header to promote eZ Platform usage')
+                            ->info('Control if system should generate a powered by header to promote Ibexa DXP usage')
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->booleanNode('enabled')

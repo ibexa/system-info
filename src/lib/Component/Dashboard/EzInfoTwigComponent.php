@@ -61,7 +61,7 @@ class EzInfoTwigComponent implements Renderable
 
         return $this->twig->render(
             $this->template,
-            $parameters + ['urls' => $urls, 'ez' => $this->ibexaSystemInfo] + $this->parameters
+            $parameters + ['urls' => $urls, 'ibexa' => $this->ibexaSystemInfo] + $this->parameters
         );
     }
 
