@@ -154,8 +154,8 @@
             "license": [
                 "GPL-2.0"
             ],
-            "description": "Kernel used by ezsystems/ezplatform and derivatives. Provides the Content Repository, its APIs, and the application's Symfony framework integration.",
-            "homepage": "http://share.ibexa.co",
+            "description": "Kernel used by Ibexa DXP and derivatives. Provides the Content Repository, its APIs, and the application's Symfony framework integration.",
+            "homepage": "http://ibexa.co",
             "time": "2016-02-28 14:30:53"
         },
         {
