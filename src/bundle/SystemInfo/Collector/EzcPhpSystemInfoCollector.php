@@ -25,7 +25,7 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * Collects information about the PHP installation Ibexa is using.
+     * Collects information about the PHP installation Ibexa DXP is using.
      *  - php version
      *  - php accelerator info.
      *
