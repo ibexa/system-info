@@ -17,7 +17,7 @@ parameters:
         ee_product: "https://ibexa.co/products"
         install_ee: "https://doc.ibexa.co/en/{ibexa.release}/getting_started/install_ibexa_dxp/"
         doc: "https://doc.ibexa.co"
-        update: "https://doc.ibexa.co/en/latest/updating/updating_ibexa/"
+        update: "https://doc.ibexa.co/en/latest/updating/update_ibexa_dxp/"
         gpl_faq: "https://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.en.html#GPLModuleLicense"
         support: "https://support.ibexa.co"
     ibexa.system_info.url_list: '%ibexa.system_info.ibexa_url_list%' # BC
