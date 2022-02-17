@@ -51,7 +51,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
                 [
                     'route' => 'ibexa.systeminfo',
                     'extras' => [
-                        'orderNumber' => 10,
+                        'orderNumber' => 80,
                     ],
                 ],
             )
