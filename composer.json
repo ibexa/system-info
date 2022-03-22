@@ -15,8 +15,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
-        "ibexa/core": "~4.0.0@dev",
-        "ibexa/admin-ui": "~4.0.0@dev",
+        "ibexa/core": "~4.1.0@dev",
+        "ibexa/admin-ui": "~4.1.0@dev",
         "ocramius/proxy-manager": "^2.2",
         "symfony/proxy-manager-bridge": "^5.0",
         "zetacomponents/system-information": "^1.1.1"
@@ -31,14 +31,14 @@
         "ezsystems/ezplatform-search": "^1.2@dev",
         "ezsystems/ezplatform-user": "^2.3@dev",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "ibexa/doctrine-schema": "~4.0.0@dev",
-        "ibexa/content-forms": "~4.0.0@dev",
-        "ibexa/design-engine": "~4.0.0@dev",
-        "ibexa/user": "~4.0.0@dev",
-        "ibexa/fieldtype-richtext": "~4.0.0@dev",
-        "ibexa/rest": "~4.0.0@dev",
-        "ibexa/search": "~4.0.0@dev",
-        "ibexa/http-cache": "~4.0.0@dev",
+        "ibexa/doctrine-schema": "~4.1.0@dev",
+        "ibexa/content-forms": "~4.1.0@dev",
+        "ibexa/design-engine": "~4.1.0@dev",
+        "ibexa/user": "~4.1.0@dev",
+        "ibexa/fieldtype-richtext": "~4.1.0@dev",
+        "ibexa/rest": "~4.1.0@dev",
+        "ibexa/search": "~4.1.0@dev",
+        "ibexa/http-cache": "~4.1.0@dev",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0"
     },
@@ -59,7 +59,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "4.0.x-dev"
+            "dev-main": "4.1.x-dev"
         }
     },
     "scripts": {
