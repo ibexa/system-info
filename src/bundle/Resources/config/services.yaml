@@ -183,3 +183,7 @@ services:
         tags:
             - name: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
               identifier: persistenceCacheAdapter
+
+    Ibexa\Bundle\SystemInfo\Twig\EditionExtension:
+        tags:
+            -   name: twig.extension
