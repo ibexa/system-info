@@ -15,21 +15,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
+final class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
 {
-    /**
-     * System info collector registry.
-     *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
-     */
-    private $systemInfoCollectorRegistry;
+    private SystemInfoCollectorRegistry $systemInfoCollectorRegistry;
 
-    /**
-     * Output format registry.
-     *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry
-     */
-    private $outputFormatRegistry;
+    private OutputFormatRegistry $outputFormatRegistry;
 
     public function __construct(SystemInfoCollectorRegistry $systemInfoCollectorRegistry, OutputFormatRegistry $outputFormatRegistry)
     {
@@ -77,7 +67,7 @@ EOD
                 InputArgument::IS_ARRAY,
                 'Which information collector(s) should be used? (separate multiple names with spaces)'
             )
-            ;
+        ;
     }
 
     /**
@@ -86,7 +76,7 @@ EOD
      * @param $input InputInterface
      * @param $output OutputInterface
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('list-info-collectors')) {
             $output->writeln('Available info collectors:', true);
