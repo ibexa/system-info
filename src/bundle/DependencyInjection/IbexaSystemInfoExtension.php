@@ -87,7 +87,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
     {
         $container->prependExtensionConfig('jms_translation', [
             'configs' => [
-                'ibexa_support_tools' => [
+                self::EXTENSION_NAME => [
                     'dirs' => [
                         __DIR__ . '/../../../src/',
                     ],
