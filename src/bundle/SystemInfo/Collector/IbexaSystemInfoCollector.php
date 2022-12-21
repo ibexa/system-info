@@ -117,6 +117,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      */
     public const COMMERCE_PACKAGES = [
         'ibexa/commerce-transaction',
+        'ibexa/cart',
     ];
 
     /**
