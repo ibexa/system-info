@@ -41,6 +41,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         '3.3' => '2021-01-18T23:59:59+00:00',
         '4.2' => '2022-08-09T23:59:59+00:00',
         '4.3' => '2022-11-10T23:59:59+00:00',
+        '4.4' => '2023-02-02T23:59:59+00:00',
     ];
 
     /**
@@ -64,6 +65,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         '3.3' => '2023-12-30T23:59:59+00:00',
         '4.2' => '2022-11-30T23:59:59+00:00',
         '4.3' => '2023-02-28T23:59:59+00:00',
+        '4.4' => '2023-05-31T23:59:59+00:00',
     ];
 
     /**
@@ -81,6 +83,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         '3.3' => '2025-12-30T23:59:59+00:00',
         '4.2' => '2022-12-31T23:59:59+00:00',
         '4.3' => '2023-03-31T23:59:59+00:00',
+        '4.4' => '2023-06-30T23:59:59+00:00',
     ];
 
     /**
@@ -92,11 +95,12 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Content".
      */
     public const CONTENT_PACKAGES = [
-        'ibexa/content',
+        'ibexa/workflow',
     ];
 
     public const EXPERIENCE_PACKAGES = [
-        'ibexa/experience',
+        'ibexa/page-builder',
+        'ezsystems/landing-page-fieldtype-bundle',
     ];
 
     /**
@@ -115,7 +119,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      * Packages that identify installation as "Commerce".
      */
     public const COMMERCE_PACKAGES = [
-        'ibexa/commerce',
+        'ibexa/commerce-transaction',
     ];
 
     /**
