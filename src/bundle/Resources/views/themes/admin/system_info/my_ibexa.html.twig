@@ -25,11 +25,11 @@
     {% set my_ibexa_items = my_ibexa_items|merge([
         {
             label: 'ibexa.eom'|trans|desc('End of Maintenance'),
-            content: info.endOfMaintenanceDate is empty ? '-' : info.endOfMaintenanceDate|date('F Y'),
+            content: info.endOfMaintenanceDate is empty ? '-' : info.endOfMaintenanceDate|date('F Y', false),
         },
         {
             label: 'ibexa.eol'|trans|desc('End of Life'),
-            content: info.endOfLifeDate is empty ? '-' : info.endOfLifeDate|date('F Y'),
+            content: info.endOfLifeDate is empty ? '-' : info.endOfLifeDate|date('F Y', false),
         },
     ]) %}
 {% endif %}
