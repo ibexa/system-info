@@ -77,8 +77,8 @@
         <note>key: ibexa.product</note>
       </trans-unit>
       <trans-unit id="972bcf808b8ce2b0a08a21db7f0f15f520f4b87b" resname="ibexa.read_more">
-        <source>You can read more about Service Life for Ibexa DXP with a business license at</source>
-        <target state="new">You can read more about Service Life for Ibexa DXP with a business license at</target>
+        <source>For more information about Service Life for Ibexa DXP with a business license, see</source>
+        <target state="new">For more information about Service Life for Ibexa DXP with a business license, see</target>
         <note>key: ibexa.read_more</note>
       </trans-unit>
       <trans-unit id="341340ab8c700ad6fe83322ec29cb3977262f5df" resname="ibexa.stability">
