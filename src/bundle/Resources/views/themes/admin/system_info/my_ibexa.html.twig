@@ -44,10 +44,10 @@
         <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
             <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
         </svg>
-        * {{ 'ibexa.read_more'|trans|desc('You can read more about Service Life for Ibexa DXP with a business license at') }}
+        {{ 'ibexa.read_more'|trans|desc('For more information about Service Life for Ibexa DXP with a business license, see') }}
         <a target="_blank" href="https://support.ibexa.co/Public/Service-Life" class="ibexa-system-info-helper-text__link">
-            https://support.ibexa.co/Public/Service-Life
-        </a>
+            {{- "https://support.ibexa.co/Public/Service-Life" -}}
+        </a>.
     </div>
 {% endif %}
 
