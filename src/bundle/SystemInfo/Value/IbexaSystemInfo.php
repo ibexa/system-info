@@ -19,7 +19,7 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
     public const PRODUCT_NAME_ENTERPRISE = 'Ibexa DXP';
     public const PRODUCT_NAME_VARIANTS = [
         'oss' => self::PRODUCT_NAME_OSS,
-        'content' => 'Ibexa Content',
+        'headless' => 'Ibexa Headless',
         'experience' => 'Ibexa Experience',
         'commerce' => self::PRODUCT_NAME_COMMERCE,
     ];
