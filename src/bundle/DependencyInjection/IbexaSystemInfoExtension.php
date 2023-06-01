@@ -105,8 +105,8 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
             return 'commerce';
         } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::EXPERIENCE_PACKAGES[0])) {
             return 'experience';
-        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::CONTENT_PACKAGES[0])) {
-            return 'content';
+        } elseif (InstalledVersions::isInstalled(IbexaSystemInfoCollector::HEADLESS_PACKAGES[0])) {
+            return 'headless';
         }
 
         return 'oss';
