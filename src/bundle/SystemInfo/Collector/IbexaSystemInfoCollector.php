@@ -93,9 +93,18 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
 
     /**
      * Packages that identify installation as "Content".
+     *
+     * @deprecated Since 4.6. Use self::HEADLESS_PACKAGES const instead.
      */
     public const CONTENT_PACKAGES = [
         'ibexa/content',
+    ];
+
+    /**
+     * Packages that identify installation as "Headless".
+     */
+    public const HEADLESS_PACKAGES = [
+        'ibexa/headless',
     ];
 
     public const EXPERIENCE_PACKAGES = [
@@ -206,7 +215,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         $ibexa->composerInfo = ['minimumStability' => $this->composerInfo->minimumStability];
 
         $dxpPackages = array_merge(
-            self::CONTENT_PACKAGES,
+            self::HEADLESS_PACKAGES,
             self::EXPERIENCE_PACKAGES,
             self::COMMERCE_PACKAGES
         );
