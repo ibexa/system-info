@@ -42,18 +42,18 @@
         <note>key: hardware</note>
       </trans-unit>
       <trans-unit id="ed1f723e05fbc74c1c90cfc6f64c2bcda6f4bb9d" resname="ibexa.eol">
-        <source>End of Life</source>
-        <target state="new">End of Life</target>
+        <source>End of life</source>
+        <target state="new">End of life</target>
         <note>key: ibexa.eol</note>
       </trans-unit>
       <trans-unit id="4a9e6f9b28c3203784cb5f01ebe73e67661cc823" resname="ibexa.eom">
-        <source>End of Maintenance</source>
-        <target state="new">End of Maintenance</target>
+        <source>End of maintenance</source>
+        <target state="new">End of maintenance</target>
         <note>key: ibexa.eom</note>
       </trans-unit>
       <trans-unit id="804e14084add4426182add3b4a0a710506ef742b" resname="ibexa.is_trial">
-        <source>Is Trial</source>
-        <target state="new">Is Trial</target>
+        <source>Is trial</source>
+        <target state="new">Is trial</target>
         <note>key: ibexa.is_trial</note>
       </trans-unit>
       <trans-unit id="44a7ad63689c19af8aa173293e0da9e2055e4df9" resname="ibexa.is_trial.no">
@@ -67,8 +67,8 @@
         <note>key: ibexa.is_trial.yes</note>
       </trans-unit>
       <trans-unit id="b7ffaa791bbf39db2ea700efec5362a0bc4e2021" resname="ibexa.name">
-        <source>Name</source>
-        <target state="new">Name</target>
+        <source>Edition</source>
+        <target state="new">Edition</target>
         <note>key: ibexa.name</note>
       </trans-unit>
       <trans-unit id="d87becd0d1497fe04536d2e9291290a8b07e9dfb" resname="ibexa.product">
@@ -147,14 +147,24 @@
         <note>key: repository</note>
       </trans-unit>
       <trans-unit id="ca27c822aa4f52351a6a89150fc5ac970d052fca" resname="repository.content_types_count">
-        <source>Content Types count</source>
-        <target state="new">Content Types count</target>
+        <source>Content type</source>
+        <target state="new">Content type</target>
         <note>key: repository.content_types_count</note>
       </trans-unit>
       <trans-unit id="f17704b4dda4d61ecc379a0960655f35c6abef2d" resname="repository.drafts_count">
-        <source>Drafts count</source>
-        <target state="new">Drafts count</target>
+        <source>Draft</source>
+        <target state="new">Draft</target>
         <note>key: repository.drafts_count</note>
+      </trans-unit>
+      <trans-unit id="5cf8f6236aedc711f36f4ecc00f2366351ec9630" resname="repository.header.label.element">
+        <source>Element</source>
+        <target state="new">Element</target>
+        <note>key: repository.header.label.element</note>
+      </trans-unit>
+      <trans-unit id="10f3b8bca9e42617f9413433d39bffb1f1406c27" resname="repository.header.label.number">
+        <source>Number</source>
+        <target state="new">Number</target>
+        <note>key: repository.header.label.number</note>
       </trans-unit>
       <trans-unit id="b08856f94643075c9a7a13c29010d09165a28015" resname="repository.host">
         <source>Host</source>
@@ -167,8 +177,8 @@
         <note>key: repository.name</note>
       </trans-unit>
       <trans-unit id="5de05c757e2ce051da58581c67074f5fa96fe424" resname="repository.published_content_objects_count">
-        <source>Published content objects count</source>
-        <target state="new">Published content objects count</target>
+        <source>Published content object</source>
+        <target state="new">Published content object</target>
         <note>key: repository.published_content_objects_count</note>
       </trans-unit>
       <trans-unit id="b5b5d12b45fa443c42cf45488d124305c39df1d5" resname="repository.type">
@@ -182,13 +192,13 @@
         <note>key: repository.username</note>
       </trans-unit>
       <trans-unit id="2f9d49c355e4660fbb8cc89c39d048b53edc7e3c" resname="repository.users_count">
-        <source>Users count</source>
-        <target state="new">Users count</target>
+        <source>User</source>
+        <target state="new">User</target>
         <note>key: repository.users_count</note>
       </trans-unit>
       <trans-unit id="6fdeb59a15d4eea938b956273b9944a5c483dd57" resname="repository.versions_count">
-        <source>Versions count</source>
-        <target state="new">Versions count</target>
+        <source>Version</source>
+        <target state="new">Version</target>
         <note>key: repository.versions_count</note>
       </trans-unit>
       <trans-unit id="3e7aaa79601ad9b577f333a67d082c3752b7e357" resname="services">
@@ -277,8 +287,8 @@
         <note>key: symfony_kernel.version</note>
       </trans-unit>
       <trans-unit id="21ef9f0a078dbc4e4c45be12f1cfaf8a3864dfa7" resname="systeminfo">
-        <source>System Information</source>
-        <target state="new">System Information</target>
+        <source>System information</source>
+        <target state="new">System information</target>
         <note>key: systeminfo</note>
       </trans-unit>
       <trans-unit id="a2a92e9d0e41ea4a14c99ab0f702d5df3ea017c3" resname="tab.name.composer">
@@ -292,8 +302,8 @@
         <note>key: tab.name.hardware</note>
       </trans-unit>
       <trans-unit id="7dd1b2ca71037e00112dfe0297383f47c6904c77" resname="tab.name.ibexa">
-        <source>My Ibexa</source>
-        <target state="new">My Ibexa</target>
+        <source>Product</source>
+        <target state="new">Product</target>
         <note>key: tab.name.ibexa</note>
       </trans-unit>
       <trans-unit id="b71f0d567a424182b8c83a6b90a262b29819241b" resname="tab.name.php">
