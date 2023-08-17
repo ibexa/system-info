@@ -57,7 +57,7 @@ class SystemInfoTab extends AbstractControllerBasedTab
 
     public function getName(): string
     {
-        return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'systeminfo');
+        return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'ibexa_systeminfo');
     }
 }
 
