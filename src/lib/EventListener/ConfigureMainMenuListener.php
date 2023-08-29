@@ -71,7 +71,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message(self::ITEM_ADMIN__SYSTEMINFO, 'menu'))->setDesc('System information'),
+            (new Message(self::ITEM_ADMIN__SYSTEMINFO, 'ibexa_menu'))->setDesc('System information'),
         ];
     }
 }
