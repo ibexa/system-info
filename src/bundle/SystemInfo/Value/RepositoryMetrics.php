@@ -41,11 +41,7 @@ class RepositoryMetrics extends ValueObject implements SystemInfo
      */
     public $versionsCount;
 
-    /**
-     * Count of content types.
-     *
-     * @var int
-     */
+    /** @var int */
     public $contentTypesCount;
 }
 
