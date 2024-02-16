@@ -1,7 +1,7 @@
 {
     "name": "ibexa/system-info",
     "description": "Providing information about the system Ibexa is running on, and Ibexa install itself",
-    "license": "GPL-2.0",
+    "license": "(GPL-2.0-only or proprietary)",
     "type": "ibexa-bundle",
     "replace": {
         "ezsystems/ez-support-tools": "*"
