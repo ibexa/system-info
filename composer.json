@@ -24,7 +24,9 @@
         "ibexa/fieldtype-richtext": "~5.0.0@dev",
         "ibexa/rest": "~5.0.0@dev",
         "ibexa/search": "~5.0.0@dev",
+        "ibexa/test-core": "~5.0.x-dev",
         "ibexa/http-cache": "~5.0.0@dev",
+        "ibexa/notifications": "~5.0.x-dev",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0"
     },
@@ -40,6 +42,7 @@
     "autoload-dev": {
         "psr-4": {
             "Ibexa\\Tests\\SystemInfo\\": "tests/lib/",
+            "Ibexa\\Tests\\Integration\\SystemInfo\\": "tests/integration/",
             "Ibexa\\Tests\\Bundle\\SystemInfo\\": "tests/bundle/"
         }
     },
@@ -51,7 +54,8 @@
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
         "check-cs": "@fix-cs --dry-run",
-        "test": "phpunit -c phpunit.xml"
+        "test": "phpunit -c phpunit.xml",
+        "test-integration": "phpunit -c phpunit.integration.xml"
     },
     "config": {
         "allow-plugins": false
