@@ -26,6 +26,7 @@
         "ibexa/search": "~4.6.0@dev",
         "ibexa/test-core": "~4.6.0@dev",
         "ibexa/http-cache": "~4.6.0@dev",
+        "ibexa/notifications": "^4.6.x-dev",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0"
     },
