@@ -96,5 +96,3 @@ class IdentifierBasedTest extends TestCase
         self::assertEquals($expectedIdentifiers, $actualIdentifiers);
     }
 }
-
-class_alias(IdentifierBasedTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Registry\IdentifierBasedTest');

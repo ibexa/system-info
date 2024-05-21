@@ -44,5 +44,3 @@ class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
         );
     }
 }
-
-class_alias(SystemInfoTabGroupPassTest::class, 'EzSystems\EzSupportToolsBundle\Tests\DependencyInjection\Compiler\SystemInfoTabGroupPassTest');

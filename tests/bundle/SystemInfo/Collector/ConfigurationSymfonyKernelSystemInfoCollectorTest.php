@@ -81,5 +81,3 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 }
-
-class_alias(ConfigurationSymfonyKernelSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollectorTest');

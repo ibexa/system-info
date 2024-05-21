@@ -111,5 +111,3 @@ class SystemInfoTabGroupListenerTest extends TestCase
         ];
     }
 }
-
-class_alias(SystemInfoTabGroupListenerTest::class, 'EzSystems\EzSupportTools\Tests\EventListener\SystemInfoTabGroupListenerTest');

@@ -90,5 +90,3 @@ class SystemInfoViewBuilderTest extends TestCase
         return $this->collectorMock;
     }
 }
-
-class_alias(SystemInfoViewBuilderTest::class, 'EzSystems\EzSupportToolsBundle\Tests\View\SystemInfoViewBuilderTest');

@@ -42,5 +42,3 @@ class IbexaSystemInfoCollectorTest extends TestCase
         self::assertSame(Ibexa::VERSION, $systemInfo->release);
     }
 }
-
-class_alias(IbexaSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\IbexaSystemInfoCollectorTest');

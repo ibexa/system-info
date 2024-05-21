@@ -47,5 +47,3 @@ class IdentitifierTest extends TestCase
         self::assertFalse($matcher->match($view));
     }
 }
-
-class_alias(IdentitifierTest::class, 'EzSystems\EzSupportToolsBundle\Tests\View\Matcher\SystemInfo\IdentitifierTest');
