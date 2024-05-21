@@ -33,9 +33,7 @@
         "psr-4": {
             "Ibexa\\SystemInfo\\": "src/lib/",
             "Ibexa\\Bundle\\SystemInfo\\": "src/bundle/",
-            "Ibexa\\Contracts\\SystemInfo\\": "src/contracts/",
-            "EzSystems\\EzSupportToolsBundle\\": "src/bundle/",
-            "EzSystems\\EzSupportTools\\": "src/lib/"
+            "Ibexa\\Contracts\\SystemInfo\\": "src/contracts/"
         }
     },
     "autoload-dev": {
