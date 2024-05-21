@@ -63,5 +63,3 @@ class SystemInfoController extends AdminUiController
         return $response;
     }
 }
-
-class_alias(SystemInfoController::class, 'EzSystems\EzSupportToolsBundle\Controller\SystemInfoController');

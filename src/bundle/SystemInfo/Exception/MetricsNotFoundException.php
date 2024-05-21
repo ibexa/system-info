@@ -17,5 +17,3 @@ class MetricsNotFoundException extends BaseNotFoundException
         parent::__construct('Metrics', $identifier, $previous);
     }
 }
-
-class_alias(MetricsNotFoundException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\MetricsNotFoundException');

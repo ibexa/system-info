@@ -18,5 +18,3 @@ interface OutputFormat
      */
     public function format(array $collectedInfo);
 }
-
-class_alias(OutputFormat::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat');

@@ -82,5 +82,3 @@ class EzInfoTwigComponent implements Renderable
         return $urls;
     }
 }
-
-class_alias(EzInfoTwigComponent::class, 'EzSystems\EzSupportTools\Component\Dashboard\EzInfoTwigComponent');

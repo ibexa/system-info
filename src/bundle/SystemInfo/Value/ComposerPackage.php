@@ -97,5 +97,3 @@ class ComposerPackage extends ValueObject implements SystemInfo
      */
     public $reference;
 }
-
-class_alias(ComposerPackage::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerPackage');

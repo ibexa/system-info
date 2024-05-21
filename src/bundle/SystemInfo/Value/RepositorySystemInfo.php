@@ -57,5 +57,3 @@ class RepositorySystemInfo extends ValueObject implements SystemInfo
      */
     public $repositoryMetrics;
 }
-
-class_alias(RepositorySystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositorySystemInfo');

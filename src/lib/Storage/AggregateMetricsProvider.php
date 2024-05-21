@@ -37,5 +37,3 @@ final class AggregateMetricsProvider implements MetricsProvider
         }
     }
 }
-
-class_alias(AggregateMetricsProvider::class, 'EzSystems\EzSupportTools\Storage\AggregateMetricsProvider');

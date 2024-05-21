@@ -19,5 +19,3 @@ class JsonOutputFormat implements SystemInfoOutputFormat
         return json_encode($collectedInfo, JSON_PRETTY_PRINT);
     }
 }
-
-class_alias(JsonOutputFormat::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat\JsonOutputFormat');

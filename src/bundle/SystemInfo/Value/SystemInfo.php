@@ -13,5 +13,3 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 interface SystemInfo
 {
 }
-
-class_alias(SystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\SystemInfo');

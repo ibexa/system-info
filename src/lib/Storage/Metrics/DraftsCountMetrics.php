@@ -47,5 +47,3 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
-
-class_alias(DraftsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\DraftsCountMetrics');

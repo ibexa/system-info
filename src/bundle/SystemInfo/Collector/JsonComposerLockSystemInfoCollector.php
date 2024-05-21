@@ -195,5 +195,3 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
         return $lockData['minimum-stability'] ?? null;
     }
 }
-
-class_alias(JsonComposerLockSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\JsonComposerLockSystemInfoCollector');

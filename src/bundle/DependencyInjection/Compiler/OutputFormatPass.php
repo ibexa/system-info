@@ -38,5 +38,3 @@ class OutputFormatPass implements CompilerPassInterface
         $outputFormatRegistryDef->setArguments([$outputFormatters]);
     }
 }
-
-class_alias(OutputFormatPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\OutputFormatPass');

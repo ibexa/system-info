@@ -45,5 +45,3 @@ class RepositoryMetrics extends ValueObject implements SystemInfo
     /** @var int */
     public $contentTypesCount;
 }
-
-class_alias(RepositoryMetrics::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\RepositoryMetrics');

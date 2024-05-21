@@ -42,5 +42,3 @@ class SystemInfoView extends BaseView implements View
         return ['info' => $this->info];
     }
 }
-
-class_alias(SystemInfoView::class, 'EzSystems\EzSupportToolsBundle\View\SystemInfoView');

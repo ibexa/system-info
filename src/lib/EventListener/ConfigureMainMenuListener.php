@@ -75,5 +75,3 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
         ];
     }
 }
-
-class_alias(ConfigureMainMenuListener::class, 'EzSystems\EzSupportTools\EventListener\ConfigureMainMenuListener');

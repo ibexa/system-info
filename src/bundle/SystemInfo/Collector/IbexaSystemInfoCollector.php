@@ -286,5 +286,3 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return false;
     }
 }
-
-class_alias(IbexaSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\IbexaSystemInfoCollector');

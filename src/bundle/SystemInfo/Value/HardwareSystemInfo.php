@@ -42,5 +42,3 @@ class HardwareSystemInfo extends ValueObject implements SystemInfo
      */
     public $memorySize;
 }
-
-class_alias(HardwareSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\HardwareSystemInfo');

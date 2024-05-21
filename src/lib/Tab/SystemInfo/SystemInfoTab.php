@@ -60,5 +60,3 @@ class SystemInfoTab extends AbstractControllerBasedTab
         return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'ibexa_systeminfo');
     }
 }
-
-class_alias(SystemInfoTab::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\SystemInfoTab');

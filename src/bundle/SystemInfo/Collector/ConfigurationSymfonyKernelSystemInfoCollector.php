@@ -64,5 +64,3 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
         ]);
     }
 }
-
-class_alias(ConfigurationSymfonyKernelSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector');

@@ -18,5 +18,3 @@ final class ComposerFileValidationException extends Exception implements SystemI
         parent::__construct($message, $code, $previous);
     }
 }
-
-class_alias(ComposerFileValidationException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerFileValidationException');

@@ -17,5 +17,3 @@ class ComposerLockFileNotFoundException extends BaseNotFoundException implements
         parent::__construct('composer.lock file', $path, $previous);
     }
 }
-
-class_alias(ComposerLockFileNotFoundException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerLockFileNotFoundException');

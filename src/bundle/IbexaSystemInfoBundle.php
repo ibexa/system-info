@@ -33,5 +33,3 @@ class IbexaSystemInfoBundle extends Bundle
         return new IbexaSystemInfoExtension();
     }
 }
-
-class_alias(IbexaSystemInfoBundle::class, 'EzSystems\EzSupportToolsBundle\EzSystemsEzSupportToolsBundle');

@@ -57,5 +57,3 @@ class TabFactory
         );
     }
 }
-
-class_alias(TabFactory::class, 'EzSystems\EzSupportTools\Tab\SystemInfo\TabFactory');

@@ -41,5 +41,3 @@ class ComposerSystemInfo extends ValueObject implements SystemInfo
      */
     public $repositoryUrls = [];
 }
-
-class_alias(ComposerSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\ComposerSystemInfo');

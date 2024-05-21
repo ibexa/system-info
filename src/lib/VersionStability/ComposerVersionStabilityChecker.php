@@ -43,5 +43,3 @@ final class ComposerVersionStabilityChecker implements VersionStabilityChecker
             : null;
     }
 }
-
-class_alias(ComposerVersionStabilityChecker::class, 'EzSystems\EzSupportTools\VersionStability\ComposerVersionStabilityChecker');

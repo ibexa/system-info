@@ -66,5 +66,3 @@ class SystemInfoViewBuilder implements ViewBuilder
         return $this->registry->getItem($identifier);
     }
 }
-
-class_alias(SystemInfoViewBuilder::class, 'EzSystems\EzSupportToolsBundle\View\SystemInfoViewBuilder');
