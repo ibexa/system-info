@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Tab\Event\TabEvents;
@@ -42,10 +43,7 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $this->tabRegistry = $this->createMock(TabRegistry::class);
         $this->tabFactory = $this->createMock(TabFactory::class);
 
-        $this->request = $this
-            ->getMockBuilder(Request::class)
-            ->setMethods(['getSession', 'hasSession'])
-            ->getMock();
+        $this->request = $this->createMock(Request::class);
 
         $this->httpKernel = $this->createMock(HttpKernelInterface::class);
         $this->event = new TabGroupEvent();
@@ -70,17 +68,18 @@ class SystemInfoTabGroupListenerTest extends TestCase
      *
      * @param string[] $identifiers
      */
-    public function testOnTabGroupPreRender($identifiers)
+    public function testOnTabGroupPreRender(array $identifiers): void
     {
-        foreach ($identifiers as $i => $identifier) {
-            $tab = $this->createMock(SystemInfoTab::class);
-
-            $this->tabFactory
-                ->expects($this->at($i))
-                ->method('createTab')
-                ->with($identifier)
-                ->willReturn($tab);
-        }
+        $this->tabFactory
+            ->expects(self::exactly(count($identifiers)))
+            ->method('createTab')
+            ->willReturnMap(
+                [
+                    ['identifier_1', null, $this->createMock(SystemInfoTab::class)],
+                    ['identifier_2', null, $this->createMock(SystemInfoTab::class)],
+                ]
+            )
+        ;
 
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
         $systemInfoCollectorRegistry->expects(self::once())
@@ -100,7 +99,7 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener($this->tabRegistry, $this->tabFactory, $systemInfoCollectorRegistry);
 
-        $this->assertSame([TabEvents::TAB_GROUP_PRE_RENDER => ['onTabGroupPreRender', 10]], $systemInfoTabGroupListener::getSubscribedEvents());
+        self::assertSame([TabEvents::TAB_GROUP_PRE_RENDER => ['onTabGroupPreRender', 10]], $systemInfoTabGroupListener::getSubscribedEvents());
     }
 
     public function dataProvider(): array

@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\View;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
@@ -42,11 +43,11 @@ class SystemInfoViewBuilderTest extends TestCase
         $this->getRegistryMock()
             ->method('getItem')
             ->with('test')
-            ->will($this->returnValue($this->getCollectorMock()));
+            ->will(self::returnValue($this->getCollectorMock()));
 
         $this->getCollectorMock()
             ->method('collect')
-            ->will($this->returnValue($systemInfo));
+            ->will(self::returnValue($systemInfo));
 
         $view = $builder->buildView(['systemInfoIdentifier' => 'test', 'viewType' => 'test']);
         self::assertSame($view->getInfo(), $systemInfo);

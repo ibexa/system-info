@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
@@ -75,32 +76,32 @@ class RepositorySystemInfoCollectorTest extends TestCase
         ]);
 
         $this->dbalConnectionMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getDatabasePlatform')
-            ->will($this->returnValue($this->dbalPlatformMock));
+            ->will(self::returnValue($this->dbalPlatformMock));
 
         $this->dbalPlatformMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getName')
-            ->will($this->returnValue($expected->type));
+            ->will(self::returnValue($expected->type));
 
         $this->dbalConnectionMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getDatabase')
-            ->will($this->returnValue($expected->name));
+            ->will(self::returnValue($expected->name));
 
         $this->dbalConnectionMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getHost')
-            ->will($this->returnValue($expected->host));
+            ->will(self::returnValue($expected->host));
 
         $this->dbalConnectionMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getUsername')
-            ->will($this->returnValue($expected->username));
+            ->will(self::returnValue($expected->username));
 
         $this->metricsProviderMock
-            ->expects($this->exactly(5))
+            ->expects(self::exactly(5))
             ->method('provideMetrics')
             ->withConsecutive(
                 ['published'],
@@ -118,7 +119,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
             );
 
         $this->metricsMock
-            ->expects($this->exactly(5))
+            ->expects(self::exactly(5))
             ->method('getValue')
             ->willReturnOnConsecutiveCalls(
                 $expected->repositoryMetrics->publishedCount,

@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector;
@@ -38,7 +39,7 @@ final class ServicesSystemInfoCollectorTest extends TestCase
         );
 
         $this->serviceProviderMock
-            ->expects($this->exactly(3))
+            ->expects(self::exactly(3))
             ->method('getServiceType')
             ->withConsecutive(
                 ['searchEngine'],
