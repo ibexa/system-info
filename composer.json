@@ -28,7 +28,7 @@
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
-        "phpunit/phpunit": "^8.2"
+        "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
