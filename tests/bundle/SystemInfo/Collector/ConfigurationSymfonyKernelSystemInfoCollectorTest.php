@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector;
@@ -39,34 +40,34 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
             ->getMock();
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getEnvironment')
-            ->will($this->returnValue($expected->environment));
+            ->will(self::returnValue($expected->environment));
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('isDebug')
-            ->will($this->returnValue($expected->debugMode));
+            ->will(self::returnValue($expected->debugMode));
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getProjectDir')
-            ->will($this->returnValue($expected->projectDir));
+            ->will(self::returnValue($expected->projectDir));
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getCacheDir')
-            ->will($this->returnValue($expected->cacheDir));
+            ->will(self::returnValue($expected->cacheDir));
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getLogDir')
-            ->will($this->returnValue($expected->logDir));
+            ->will(self::returnValue($expected->logDir));
 
         $kernelMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getCharset')
-            ->will($this->returnValue($expected->charset));
+            ->will(self::returnValue($expected->charset));
 
         $symfonyCollector = new ConfigurationSymfonyKernelSystemInfoCollector(
             $kernelMock,

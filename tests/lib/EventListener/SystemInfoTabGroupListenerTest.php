@@ -99,7 +99,7 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener($this->tabRegistry, $this->tabFactory, $systemInfoCollectorRegistry);
 
-        $this->assertSame([TabEvents::TAB_GROUP_PRE_RENDER => ['onTabGroupPreRender', 10]], $systemInfoTabGroupListener::getSubscribedEvents());
+        self::assertSame([TabEvents::TAB_GROUP_PRE_RENDER => ['onTabGroupPreRender', 10]], $systemInfoTabGroupListener::getSubscribedEvents());
     }
 
     public function dataProvider(): array
