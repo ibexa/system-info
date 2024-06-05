@@ -109,5 +109,3 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
      */
     public $composerInfo;
 }
-
-class_alias(IbexaSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\IbexaSystemInfo');

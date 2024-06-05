@@ -55,5 +55,3 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 }
-
-class_alias(Configuration::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Configuration');

@@ -54,5 +54,3 @@ class IdentifierBased implements SystemInfoCollectorRegistry
         return array_keys($this->registry);
     }
 }
-
-class_alias(IdentifierBased::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Registry\IdentifierBased');

@@ -35,5 +35,3 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
-
-class_alias(ContentTypesCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\ContentTypesCountMetrics');

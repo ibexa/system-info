@@ -54,5 +54,3 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
         return new PhpSystemInfo($properties);
     }
 }
-
-class_alias(EzcPhpSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcPhpSystemInfoCollector');

@@ -57,5 +57,3 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
         );
     }
 }
-
-class_alias(EzcHardwareSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\EzcHardwareSystemInfoCollectorTest');

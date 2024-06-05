@@ -21,5 +21,3 @@ final class InvalidSystemInfo extends ValueObject implements SystemInfo
      */
     public $errorMessage;
 }
-
-class_alias(InvalidSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\InvalidSystemInfo');

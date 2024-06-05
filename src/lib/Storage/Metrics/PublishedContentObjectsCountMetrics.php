@@ -35,5 +35,3 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
-
-class_alias(PublishedContentObjectsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\PublishedContentObjectsCountMetrics');

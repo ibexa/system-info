@@ -135,5 +135,3 @@ class RepositorySystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 }
-
-class_alias(RepositorySystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\RepositorySystemInfoCollectorTest');

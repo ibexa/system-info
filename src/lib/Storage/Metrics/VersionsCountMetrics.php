@@ -29,5 +29,3 @@ final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
-
-class_alias(VersionsCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\VersionsCountMetrics');

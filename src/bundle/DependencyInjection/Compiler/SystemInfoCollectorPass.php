@@ -39,5 +39,3 @@ class SystemInfoCollectorPass implements CompilerPassInterface
         $infoCollectorRegistryDef->setArguments([$infoCollectors]);
     }
 }
-
-class_alias(SystemInfoCollectorPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoCollectorPass');

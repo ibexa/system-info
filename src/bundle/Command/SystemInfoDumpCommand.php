@@ -119,5 +119,3 @@ EOD
         return ['ez-support-tools:dump-info'];
     }
 }
-
-class_alias(SystemInfoDumpCommand::class, 'EzSystems\EzSupportToolsBundle\Command\SystemInfoDumpCommand');

@@ -23,5 +23,3 @@ final class Stability
         20 => 'dev',
     ];
 }
-
-class_alias(Stability::class, 'EzSystems\EzSupportTools\Value\Stability');

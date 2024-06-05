@@ -66,5 +66,3 @@ class EzcSystemInfoWrapper
         }
     }
 }
-
-class_alias(EzcSystemInfoWrapper::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\EzcSystemInfoWrapper');

@@ -42,5 +42,3 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
         ]);
     }
 }
-
-class_alias(EzcHardwareSystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\EzcHardwareSystemInfoCollector');

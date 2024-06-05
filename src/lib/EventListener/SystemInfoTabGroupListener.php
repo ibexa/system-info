@@ -66,5 +66,3 @@ class SystemInfoTabGroupListener implements EventSubscriberInterface
         }
     }
 }
-
-class_alias(SystemInfoTabGroupListener::class, 'EzSystems\EzSupportTools\EventListener\SystemInfoTabGroupListener');

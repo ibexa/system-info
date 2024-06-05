@@ -117,5 +117,3 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return IbexaSystemInfo::PRODUCT_NAME_VARIANTS[self::getEditionByPackages()];
     }
 }
-
-class_alias(IbexaSystemInfoExtension::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\EzSystemsEzSupportToolsExtension');

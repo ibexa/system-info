@@ -35,5 +35,3 @@ interface SystemInfoCollectorRegistry
      */
     public function getIdentifiers();
 }
-
-class_alias(SystemInfoCollectorRegistry::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\SystemInfoCollectorRegistry');

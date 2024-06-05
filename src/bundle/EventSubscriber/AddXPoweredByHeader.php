@@ -44,5 +44,3 @@ class AddXPoweredByHeader implements EventSubscriberInterface
         }
     }
 }
-
-class_alias(AddXPoweredByHeader::class, 'EzSystems\EzSupportToolsBundle\EventSubscriber\AddXPoweredByHeader');

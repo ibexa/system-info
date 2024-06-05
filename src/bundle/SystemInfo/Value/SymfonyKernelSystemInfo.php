@@ -90,5 +90,3 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
      */
     public $charset;
 }
-
-class_alias(SymfonyKernelSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\SymfonyKernelSystemInfo');

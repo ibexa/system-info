@@ -21,5 +21,3 @@ interface SystemInfoCollector
      */
     public function collect();
 }
-
-class_alias(SystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\SystemInfoCollector');

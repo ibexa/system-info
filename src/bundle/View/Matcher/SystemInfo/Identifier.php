@@ -72,5 +72,3 @@ class Identifier implements ViewMatcherInterface
         return mb_strtolower($normalized);
     }
 }
-
-class_alias(Identifier::class, 'EzSystems\EzSupportToolsBundle\View\Matcher\SystemInfo\Identifier');

@@ -53,5 +53,3 @@ class OutputFormatRegistry
         return array_keys($this->registry);
     }
 }
-
-class_alias(OutputFormatRegistry::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormatRegistry');

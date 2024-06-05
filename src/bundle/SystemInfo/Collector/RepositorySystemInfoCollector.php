@@ -69,5 +69,3 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
         ]);
     }
 }
-
-class_alias(RepositorySystemInfoCollector::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Collector\RepositorySystemInfoCollector');

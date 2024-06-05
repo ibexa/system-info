@@ -17,5 +17,3 @@ class ComposerJsonFileNotFoundException extends BaseNotFoundException implements
         parent::__construct('Composer.json file', $path, $previous);
     }
 }
-
-class_alias(ComposerJsonFileNotFoundException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\ComposerJsonFileNotFoundException');

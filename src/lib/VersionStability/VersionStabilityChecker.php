@@ -14,5 +14,3 @@ interface VersionStabilityChecker
 
     public function isStableVersion(string $version): bool;
 }
-
-class_alias(VersionStabilityChecker::class, 'EzSystems\EzSupportTools\VersionStability\VersionStabilityChecker');

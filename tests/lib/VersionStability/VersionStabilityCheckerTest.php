@@ -100,5 +100,3 @@ final class VersionStabilityCheckerTest extends TestCase
         yield ['dev-test_custom', Stability::STABILITIES[20]];
     }
 }
-
-class_alias(VersionStabilityCheckerTest::class, 'EzSystems\EzSupportTools\Tests\VersionStability\VersionStabilityCheckerTest');

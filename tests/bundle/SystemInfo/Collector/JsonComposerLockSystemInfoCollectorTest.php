@@ -150,5 +150,3 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
         $composerCollectorCorrupted->collect();
     }
 }
-
-class_alias(JsonComposerLockSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\JsonComposerLockSystemInfoCollectorTest');

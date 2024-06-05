@@ -29,5 +29,3 @@ final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
         return (int) $queryBuilder->execute()->fetchColumn();
     }
 }
-
-class_alias(UsersCountMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\UsersCountMetrics');

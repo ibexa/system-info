@@ -10,5 +10,3 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 interface SystemInfoException
 {
 }
-
-class_alias(SystemInfoException::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Exception\SystemInfoException');

@@ -34,5 +34,3 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
         return $this->connection->getDatabasePlatform()->getCountExpression($columnName);
     }
 }
-
-class_alias(RepositoryConnectionAwareMetrics::class, 'EzSystems\EzSupportTools\Storage\Metrics\RepositoryConnectionAwareMetrics');

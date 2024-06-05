@@ -15,5 +15,3 @@ interface Metrics
 {
     public function getValue(): int;
 }
-
-class_alias(Metrics::class, 'EzSystems\EzSupportTools\Storage\Metrics');

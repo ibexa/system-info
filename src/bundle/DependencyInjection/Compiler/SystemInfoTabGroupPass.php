@@ -35,5 +35,3 @@ class SystemInfoTabGroupPass implements CompilerPassInterface
         $tabRegistry->addMethodCall('addTabGroup', [$tabGroupDefinition]);
     }
 }
-
-class_alias(SystemInfoTabGroupPass::class, 'EzSystems\EzSupportToolsBundle\DependencyInjection\Compiler\SystemInfoTabGroupPass');

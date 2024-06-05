@@ -68,5 +68,3 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
         );
     }
 }
-
-class_alias(EzcPhpSystemInfoCollectorTest::class, 'EzSystems\EzSupportToolsBundle\Tests\SystemInfo\Collector\EzcPhpSystemInfoCollectorTest');

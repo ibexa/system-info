@@ -57,5 +57,3 @@ class PhpSystemInfo extends ValueObject implements SystemInfo
      */
     public $acceleratorVersion;
 }
-
-class_alias(PhpSystemInfo::class, 'EzSystems\EzSupportToolsBundle\SystemInfo\Value\PhpSystemInfo');
