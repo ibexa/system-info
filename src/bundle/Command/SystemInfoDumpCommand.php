@@ -7,7 +7,6 @@
 
 namespace Ibexa\Bundle\SystemInfo\Command;
 
-use Ibexa\Bundle\Core\Command\BackwardCompatibleCommand;
 use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Symfony\Component\Console\Command\Command;
@@ -16,7 +15,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class SystemInfoDumpCommand extends Command implements BackwardCompatibleCommand
+final class SystemInfoDumpCommand extends Command
 {
     private SystemInfoCollectorRegistry $systemInfoCollectorRegistry;
 
@@ -109,13 +108,5 @@ EOD
         );
 
         return Command::SUCCESS;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getDeprecatedAliases(): array
-    {
-        return ['ez-support-tools:dump-info'];
     }
 }
