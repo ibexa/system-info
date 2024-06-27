@@ -26,6 +26,7 @@
         "ibexa/search": "~5.0.x-dev",
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
+        "hautelook/templated-uri-bundle": "^3.4",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "phpunit/phpunit": "^9.6"
     },
