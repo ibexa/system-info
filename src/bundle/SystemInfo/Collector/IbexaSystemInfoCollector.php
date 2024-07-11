@@ -106,18 +106,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * Packages that identify installation as "Enterprise".
-     *
-     * @deprecated since Ibexa DXP 3.3. Rely either on <code>IbexaSystemInfoCollector::EXPERIENCE_PACKAGES</code>
-     * or <code>IbexaSystemInfoCollector::CONTENT_PACKAGES</code>.
-     */
-    public const ENTERPRISE_PACKAGES = [
-        'ibexa/page-builder',
-        'ezsystems/flex-workflow',
-        'ezsystems/landing-page-fieldtype-bundle',
-    ];
-
-    /**
      * Packages that identify installation as "Commerce".
      */
     public const COMMERCE_PACKAGES = [
