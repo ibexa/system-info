@@ -95,15 +95,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     public const PACKAGE_WATCH_REGEX = '/^(doctrine|ezsystems|silversolutions|symfony)\//';
 
     /**
-     * Packages that identify installation as "Content".
-     *
-     * @deprecated Since 4.6. Use self::HEADLESS_PACKAGES const instead.
-     */
-    public const CONTENT_PACKAGES = [
-        'ibexa/content',
-    ];
-
-    /**
      * Packages that identify installation as "Headless".
      */
     public const HEADLESS_PACKAGES = [
@@ -112,18 +103,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
 
     public const EXPERIENCE_PACKAGES = [
         'ibexa/experience',
-    ];
-
-    /**
-     * Packages that identify installation as "Enterprise".
-     *
-     * @deprecated since Ibexa DXP 3.3. Rely either on <code>IbexaSystemInfoCollector::EXPERIENCE_PACKAGES</code>
-     * or <code>IbexaSystemInfoCollector::CONTENT_PACKAGES</code>.
-     */
-    public const ENTERPRISE_PACKAGES = [
-        'ibexa/page-builder',
-        'ezsystems/flex-workflow',
-        'ezsystems/landing-page-fieldtype-bundle',
     ];
 
     /**
@@ -138,29 +117,22 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      */
     private $composerInfo;
 
-    /**
-     * @var bool
-     */
-    private $debug;
-
     /** @var string */
     private $kernelProjectDir;
 
     /**
      * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
-     * @param bool $debug
      */
     public function __construct(
         SystemInfoCollector $composerCollector,
         string $kernelProjectDir,
-        bool $debug = false
     ) {
         try {
             $this->composerInfo = $composerCollector->collect();
         } catch (ComposerLockFileNotFoundException | ComposerFileValidationException $e) {
             // do nothing
         }
-        $this->debug = $debug;
+
         $this->kernelProjectDir = $kernelProjectDir;
     }
 
@@ -176,7 +148,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         $vendorDir = sprintf('%s/vendor/', $this->kernelProjectDir);
 
         $ibexa = new IbexaSystemInfo([
-            'debug' => $this->debug,
             'name' => IbexaSystemInfoExtension::getNameByPackages($vendorDir),
         ]);
 
@@ -214,16 +185,13 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             return;
         }
 
-        // BC (deprecated property)
-        $ibexa->composerInfo = ['minimumStability' => $this->composerInfo->minimumStability];
-
         $dxpPackages = array_merge(
             self::HEADLESS_PACKAGES,
             self::EXPERIENCE_PACKAGES,
             self::COMMERCE_PACKAGES
         );
         $ibexa->isEnterprise = self::hasAnyPackage($this->composerInfo, $dxpPackages);
-        $ibexa->stability = $ibexa->lowestStability = self::getStability($this->composerInfo);
+        $ibexa->lowestStability = self::getStability($this->composerInfo);
     }
 
     /**

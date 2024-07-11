@@ -22,11 +22,8 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
         'oss' => self::PRODUCT_NAME_OSS,
         'headless' => 'Ibexa Headless',
         'experience' => 'Ibexa Experience',
-        'commerce' => self::PRODUCT_NAME_COMMERCE,
+        'commerce' => 'Ibexa Commerce',
     ];
-
-    // @deprecated: use PRODUCT_NAME_VARIANTS
-    public const PRODUCT_NAME_COMMERCE = 'Ibexa Commerce';
 
     /**
      * @var string
@@ -87,25 +84,4 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
      * @var string One of {@see \Ibexa\SystemInfo\Value\Stability::STABILITIES}.
      */
     public $lowestStability;
-
-    /**
-     * @deprecated Instead use $lowestStability.
-     *
-     * @var string One of {@see \Ibexa\SystemInfo\Value\Stability::STABILITIES}.
-     */
-    public $stability;
-
-    /**
-     * @deprecated Duplicates collected info on symfony
-     *
-     * @var bool
-     */
-    public $debug;
-
-    /**
-     * @deprecated This was duplication of collected info from Composer, now only contains key 'minimumStability'
-     *
-     * @var array|null
-     */
-    public $composerInfo;
 }
