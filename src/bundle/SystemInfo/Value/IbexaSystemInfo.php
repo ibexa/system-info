@@ -22,11 +22,8 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
         'oss' => self::PRODUCT_NAME_OSS,
         'headless' => 'Ibexa Headless',
         'experience' => 'Ibexa Experience',
-        'commerce' => self::PRODUCT_NAME_COMMERCE,
+        'commerce' => 'Ibexa Commerce',
     ];
-
-    // @deprecated: use PRODUCT_NAME_VARIANTS
-    public const PRODUCT_NAME_COMMERCE = 'Ibexa Commerce';
 
     /**
      * @var string
