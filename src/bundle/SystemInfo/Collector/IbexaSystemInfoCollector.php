@@ -95,15 +95,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     public const PACKAGE_WATCH_REGEX = '/^(doctrine|ezsystems|silversolutions|symfony)\//';
 
     /**
-     * Packages that identify installation as "Content".
-     *
-     * @deprecated Since 4.6. Use self::HEADLESS_PACKAGES const instead.
-     */
-    public const CONTENT_PACKAGES = [
-        'ibexa/content',
-    ];
-
-    /**
      * Packages that identify installation as "Headless".
      */
     public const HEADLESS_PACKAGES = [
