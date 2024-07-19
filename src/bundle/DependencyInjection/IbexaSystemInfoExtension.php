@@ -12,6 +12,7 @@ use Composer\InstalledVersions;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Ibexa\Contracts\Core\Ibexa;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -24,12 +25,12 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
     public const METRICS_TAG = 'ibexa.system_info.metrics';
     public const SERVICE_TAG = 'ibexa.system_info.service';
 
-    public function getAlias()
+    public function getAlias(): string
     {
         return self::EXTENSION_NAME;
     }
 
-    public function getConfiguration(array $config, ContainerBuilder $container)
+    public function getConfiguration(array $config, ContainerBuilder $container): ?ConfigurationInterface
     {
         return new Configuration();
     }
