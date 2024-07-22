@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Service;
 
-use Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider;
+use Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface;
 
 /**
  * @internal
@@ -18,9 +18,9 @@ final class SearchEngineServiceInfo implements ServiceInfo
     private const SEARCH_KEY = 'search';
     private const ENGINE_KEY = 'engine';
 
-    private RepositoryConfigurationProvider $repositoryConfigProvider;
+    private RepositoryConfigurationProviderInterface $repositoryConfigProvider;
 
-    public function __construct(RepositoryConfigurationProvider $repositoryConfigProvider)
+    public function __construct(RepositoryConfigurationProviderInterface $repositoryConfigProvider)
     {
         $this->repositoryConfigProvider = $repositoryConfigProvider;
     }
