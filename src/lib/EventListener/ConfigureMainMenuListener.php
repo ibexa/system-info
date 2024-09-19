@@ -10,7 +10,7 @@ namespace Ibexa\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Ibexa\AdminUi\Menu\MainMenuBuilder;
-use Ibexa\AdminUi\Menu\MenuItemFactory;
+use Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
@@ -20,14 +20,14 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
 {
     public const ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
 
-    /** @var \Ibexa\AdminUi\Menu\MenuItemFactory */
+    /** @var \Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface */
     private $menuItemFactory;
 
     /** @var \Ibexa\Contracts\Core\Repository\PermissionResolver */
     private $permissionResolver;
 
     public function __construct(
-        MenuItemFactory $menuItemFactory,
+        MenuItemFactoryInterface $menuItemFactory,
         PermissionResolver $permissionResolver
     ) {
         $this->menuItemFactory = $menuItemFactory;
