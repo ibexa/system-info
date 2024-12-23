@@ -7,6 +7,7 @@
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
 use PHPUnit\Framework\TestCase;
 
@@ -25,13 +26,13 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->ezcSystemInfoMock = $this
-            ->getMockBuilder('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\EzcSystemInfoWrapper')
+            ->getMockBuilder(EzcSystemInfoWrapper::class)
             ->disableOriginalConstructor()
             ->getMock();
         $this->ezcSystemInfoMock->cpuType = 'Intel(R) Core(TM) i7-3720QM CPU @ 2.60GHz';
-        $this->ezcSystemInfoMock->cpuSpeed = '2591.9000000000001';
-        $this->ezcSystemInfoMock->cpuCount = '1';
-        $this->ezcSystemInfoMock->memorySize = '1554632704';
+        $this->ezcSystemInfoMock->cpuSpeed = 2591.9000000000001;
+        $this->ezcSystemInfoMock->cpuCount = 1;
+        $this->ezcSystemInfoMock->memorySize = 1554632704;
 
         $this->ezcHardware = new EzcHardwareSystemInfoCollector($this->ezcSystemInfoMock);
     }
@@ -39,11 +40,11 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $value = $this->ezcHardware->collect();
 
-        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\HardwareSystemInfo', $value);
+        self::assertInstanceOf(HardwareSystemInfo::class, $value);
 
         self::assertEquals(
             new HardwareSystemInfo([

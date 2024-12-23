@@ -133,7 +133,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
+     * @var ComposerSystemInfo|null
      */
     private $composerInfo;
 
@@ -146,7 +146,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     private $kernelProjectDir;
 
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|SystemInfoCollector $composerCollector
      * @param bool $debug
      */
     public function __construct(
@@ -155,7 +155,10 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         bool $debug = false
     ) {
         try {
-            $this->composerInfo = $composerCollector->collect();
+            $composerInfo = $composerCollector->collect();
+            if ($composerInfo instanceof ComposerSystemInfo) {
+                $this->composerInfo = $composerInfo;
+            }
         } catch (ComposerLockFileNotFoundException | ComposerFileValidationException $e) {
             // do nothing
         }
@@ -225,9 +228,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         $ibexa->stability = $ibexa->lowestStability = self::getStability($this->composerInfo);
     }
 
-    /**
-     * @throws \Exception
-     */
     private function getEOMDate(string $ibexaRelease): ?DateTime
     {
         return isset(self::EOM[$ibexaRelease]) ?
@@ -235,9 +235,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             null;
     }
 
-    /**
-     * @throws \Exception
-     */
     private function getEOLDate(string $ibexaRelease): ?DateTime
     {
         return isset(self::EOL[$ibexaRelease]) ?
@@ -254,6 +251,9 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             $stabilityFlags[$composerInfo->minimumStability] :
             $stabilityFlags['stable'];
 
+        if ($composerInfo->packages === null) {
+            return Stability::STABILITIES[$stabilityFlag];
+        }
         // Check if any of the watched packages has lower stability than root
         foreach ($composerInfo->packages as $name => $package) {
             if (!preg_match(self::PACKAGE_WATCH_REGEX, $name)) {
@@ -272,6 +272,9 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return Stability::STABILITIES[$stabilityFlag];
     }
 
+    /**
+     * @param list<string> $packageNames
+     */
     private static function hasAnyPackage(
         ComposerSystemInfo $composerInfo,
         array $packageNames

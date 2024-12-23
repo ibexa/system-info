@@ -14,7 +14,7 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 class OutputFormatRegistry
 {
     /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] */
-    private $registry = [];
+    private array $registry = [];
 
     /**
      * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
@@ -25,15 +25,9 @@ class OutputFormatRegistry
     }
 
     /**
-     * Returns the OutputFormat matching the argument.
-     *
-     * @param string $identifier An identifier string.
-     *
      * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\OutputFormat The OutputFormat given by the identifier.
      */
-    public function getItem($identifier)
+    public function getItem(string $identifier): OutputFormat
     {
         if (isset($this->registry[$identifier])) {
             return $this->registry[$identifier];
@@ -47,7 +41,7 @@ class OutputFormatRegistry
      *
      * @return string[] Array of identifier strings.
      */
-    public function getIdentifiers()
+    public function getIdentifiers(): array
     {
         return array_keys($this->registry);
     }

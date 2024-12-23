@@ -1,0 +1,43 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Binary operation "\." between array\|bool\|float\|int\|string\|null and ''/vendor/'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSystemInfoExtension.php
+
+		-
+			message: '#^Method Ibexa\\Bundle\\SystemInfo\\DependencyInjection\\IbexaSystemInfoExtension\:\:getConfiguration\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSystemInfoExtension.php
+
+		-
+			message: '#^Parameter \#4 \$condition of method Doctrine\\DBAL\\Query\\QueryBuilder\:\:innerJoin\(\) expects string\|null, Doctrine\\DBAL\\Query\\Expression\\CompositeExpression given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/lib/Storage/Metrics/DraftsCountMetrics.php
+
+		-
+			message: '#^Parameter \#1 \$items of class Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Registry\\IdentifierBased constructor expects array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\>, array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\|PHPUnit\\Framework\\MockObject\\MockObject\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/bundle/SystemInfo/Registry/IdentifierBasedTest.php
+
+		-
+			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getCollectorMock\(\) should return Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/bundle/View/SystemInfoViewBuilderTest.php
+
+		-
+			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getConfiguratorMock\(\) should return Ibexa\\Core\\MVC\\Symfony\\View\\Configurator&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Core\\MVC\\Symfony\\View\\Configurator\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/bundle/View/SystemInfoViewBuilderTest.php
+
+		-
+			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getRegistryMock\(\) should return Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/bundle/View/SystemInfoViewBuilderTest.php

@@ -49,11 +49,11 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $value = $this->ezcPhpCollector->collect();
 
-        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\PhpSystemInfo', $value);
+        self::assertInstanceOf(PhpSystemInfo::class, $value);
 
         self::assertEquals(
             new PhpSystemInfo([

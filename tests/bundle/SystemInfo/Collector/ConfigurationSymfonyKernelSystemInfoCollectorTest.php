@@ -16,7 +16,7 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $expected = new SymfonyKernelSystemInfo([
             'environment' => 'dev',
@@ -74,8 +74,6 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
         );
 
         $value = $symfonyCollector->collect();
-
-        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\SymfonyKernelSystemInfo', $value);
 
         self::assertEquals($expected, $value);
     }

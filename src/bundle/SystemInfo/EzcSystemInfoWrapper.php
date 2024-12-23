@@ -7,6 +7,7 @@
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
 use ezcSystemInfo;
+use ezcSystemInfoAccelerator;
 use ezcSystemInfoReaderCantScanOSException;
 
 /**
@@ -15,41 +16,30 @@ use ezcSystemInfoReaderCantScanOSException;
  */
 class EzcSystemInfoWrapper
 {
-    /** @var string */
-    public $osType;
+    public string $osType;
 
-    /** @var string */
-    public $osName;
+    public string $osName;
 
-    /** @var string */
-    public $fileSystemType;
+    public string $fileSystemType;
 
-    /** @var int */
-    public $cpuCount;
+    public int $cpuCount;
 
-    /** @var string */
-    public $cpuType;
+    public string $cpuType;
 
-    /** @var float */
-    public $cpuSpeed;
+    public float $cpuSpeed;
 
     /** @var int */
-    public $memorySize;
+    public int $memorySize;
 
-    /** @var string */
-    public $lineSeparator;
+    public string $lineSeparator;
 
-    /** @var string */
-    public $backupFileName;
+    public string $backupFileName;
 
-    /** @var array */
-    public $phpVersion;
+    public string $phpVersion;
 
-    /** @var \ezcSystemInfoAccelerator */
-    public $phpAccelerator;
+    public ezcSystemInfoAccelerator $phpAccelerator;
 
-    /** @var bool */
-    public $isShellExecution;
+    public bool $isShellExecution;
 
     public function __construct()
     {

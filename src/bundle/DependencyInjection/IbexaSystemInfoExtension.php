@@ -29,6 +29,9 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return self::EXTENSION_NAME;
     }
 
+    /**
+     * @return \Ibexa\Bundle\SystemInfo\DependencyInjection\Configuration
+     */
     public function getConfiguration(array $config, ContainerBuilder $container)
     {
         return new Configuration();
@@ -37,7 +40,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new Loader\YamlFileLoader(
             $container,
@@ -61,7 +64,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         }
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $this->prependJMSTranslation($container);
     }

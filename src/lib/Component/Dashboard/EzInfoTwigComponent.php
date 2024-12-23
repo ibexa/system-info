@@ -14,27 +14,21 @@ use Twig\Environment;
 
 class EzInfoTwigComponent implements Renderable
 {
-    /** @var string */
-    protected $template;
+    protected string $template;
 
-    /** @var \Twig\Environment */
-    protected $twig;
+    protected Environment $twig;
 
-    /** @var array */
-    protected $parameters;
+    /** @var array<string, mixed> */
+    protected array $parameters;
 
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo */
-    private $ibexaSystemInfo;
+    private IbexaSystemInfo $ibexaSystemInfo;
 
-    /** @var array */
-    private $urlList;
+    /** @var array<string, string>  */
+    private array $urlList;
 
     /**
-     * @param \Twig\Environment $twig
-     * @param string $template
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo $ibexaSystemInfo
-     * @param array $urlList
-     * @param array $parameters
+     * @param array<string, string> $urlList
+     * @param array<string, mixed>  $parameters
      */
     public function __construct(
         Environment $twig,
@@ -51,9 +45,7 @@ class EzInfoTwigComponent implements Renderable
     }
 
     /**
-     * @param array $parameters
-     *
-     * @return string
+     * @param array<string, mixed> $parameters
      */
     public function render(array $parameters = []): string
     {
@@ -66,13 +58,13 @@ class EzInfoTwigComponent implements Renderable
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     private function replaceUrlPlaceholders(): array
     {
         $urls = $this->urlList;
         foreach ($this->urlList as $urlName => $url) {
-            foreach ($this->ibexaSystemInfo as $attribute => $value) {
+            foreach (get_object_vars($this->ibexaSystemInfo) as $attribute => $value) {
                 if (\is_string($value) && \strpos($url, '{ez.' . $attribute . '}') !== false) {
                     $urls[$urlName] = \str_replace('{ez.' . $attribute . '}', $value, $url);
                 }
