@@ -12,7 +12,7 @@ interface OutputFormat
     /**
      * Format an array of collected information data, and return it as string.
      *
-     * @param array $collectedInfo
+     * @param array<string, \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo> $collectedInfo
      *
      * @return string
      */

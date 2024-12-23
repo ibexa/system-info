@@ -16,6 +16,11 @@ class JsonOutputFormat implements SystemInfoOutputFormat
 {
     public function format(array $collectedInfo)
     {
-        return json_encode($collectedInfo, JSON_PRETTY_PRINT);
+        $json = json_encode($collectedInfo, JSON_PRETTY_PRINT);
+        if ($json === false) {
+            return '';
+        }
+
+        return $json;
     }
 }

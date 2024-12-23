@@ -50,7 +50,7 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
      *   'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
      * )
      *
-     * @var array
+     * @var array<string, class-string>
      */
     public $bundles;
 

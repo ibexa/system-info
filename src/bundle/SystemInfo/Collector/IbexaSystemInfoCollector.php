@@ -128,7 +128,10 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         string $kernelProjectDir,
     ) {
         try {
-            $this->composerInfo = $composerCollector->collect();
+            $composerInfo = $composerCollector->collect();
+            if ($composerInfo instanceof ComposerSystemInfo) {
+                $this->composerInfo = $composerInfo;
+            }
         } catch (ComposerLockFileNotFoundException | ComposerFileValidationException $e) {
             // do nothing
         }
@@ -194,9 +197,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         $ibexa->lowestStability = self::getStability($this->composerInfo);
     }
 
-    /**
-     * @throws \Exception
-     */
     private function getEOMDate(string $ibexaRelease): ?DateTime
     {
         return isset(self::EOM[$ibexaRelease]) ?
@@ -204,9 +204,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             null;
     }
 
-    /**
-     * @throws \Exception
-     */
     private function getEOLDate(string $ibexaRelease): ?DateTime
     {
         return isset(self::EOL[$ibexaRelease]) ?
@@ -224,7 +221,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             $stabilityFlags['stable'];
 
         // Check if any of the watched packages has lower stability than root
-        foreach ($composerInfo->packages as $name => $package) {
+        foreach ($composerInfo->packages ?? [] as $name => $package) {
             if (!preg_match(self::PACKAGE_WATCH_REGEX, $name)) {
                 continue;
             }
@@ -241,6 +238,9 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return Stability::STABILITIES[$stabilityFlag];
     }
 
+    /**
+     * @param list<string> $packageNames
+     */
     private static function hasAnyPackage(
         ComposerSystemInfo $composerInfo,
         array $packageNames

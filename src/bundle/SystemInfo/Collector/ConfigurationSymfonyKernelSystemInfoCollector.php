@@ -33,10 +33,13 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
      *   'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
      * )
      *
-     * @var array
+     * @var array<string, class-string>
      */
     private $bundles;
 
+    /**
+     * @param array<string, class-string> $bundles
+     */
     public function __construct(Kernel $kernel, array $bundles)
     {
         $this->kernel = $kernel;

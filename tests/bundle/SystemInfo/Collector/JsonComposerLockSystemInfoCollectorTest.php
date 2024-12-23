@@ -86,7 +86,6 @@ class JsonComposerLockSystemInfoCollectorTest extends TestCase
         );
         $value = $composerCollector->collect();
 
-        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\ComposerSystemInfo', $value);
         self::assertEquals($expected, $value);
     }
 

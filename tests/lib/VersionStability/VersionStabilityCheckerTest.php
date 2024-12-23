@@ -32,6 +32,9 @@ final class VersionStabilityCheckerTest extends TestCase
         );
     }
 
+    /**
+     * @return iterable<array{string}>
+     */
     public function provideStableVersions(): iterable
     {
         yield ['1.0.0.0'];
@@ -51,6 +54,9 @@ final class VersionStabilityCheckerTest extends TestCase
         );
     }
 
+    /**
+     * @return iterable<array{string}>
+     */
     public function provideNotStableVersions(): iterable
     {
         yield ['1.0.20'];
@@ -79,6 +85,9 @@ final class VersionStabilityCheckerTest extends TestCase
         );
     }
 
+    /**
+     * @return iterable<array{string, string}>
+     */
     public function provideVersions(): iterable
     {
         yield ['0.1.10.50', Stability::STABILITIES[0]];

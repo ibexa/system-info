@@ -11,7 +11,7 @@ namespace Ibexa\SystemInfo\Value;
 final class Stability
 {
     /**
-     * @var array Hash of stability constant values to human readable stabilities, see Composer\Package\BasePackage.
+     * @var array<int, string> Hash of stability constant values to human readable stabilities, see Composer\Package\BasePackage.
      *
      * Needed as long as we don't want to depend on Composer.
      */

@@ -7,6 +7,7 @@
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
+use DateTime;
 use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
@@ -57,7 +58,7 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
      *
      * @see https://support.ibexa.co/Public/Service-Life
      */
-    public $endOfMaintenanceDate;
+    public ?DateTime $endOfMaintenanceDate;
 
     /**
      * @var bool
@@ -71,7 +72,7 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
      *
      * @see https://support.ibexa.co/Public/Service-Life
      */
-    public $endOfLifeDate;
+    public ?DateTime $endOfLifeDate;
 
     /**
      * @var bool

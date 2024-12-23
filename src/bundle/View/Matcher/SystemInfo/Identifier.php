@@ -15,32 +15,18 @@ class Identifier implements ViewMatcherInterface
 {
     /**
      * Matched SystemInfo identifier. Example: 'php', 'hardware'...
-     *
-     * @var string
      */
-    private $identifier;
+    private string $identifier;
 
-    /**
-     * Registers the matching configuration for the matcher.
-     * It's up to the implementor to validate $matchingConfig since it can be anything configured by the end-developer.
-     *
-     * @param mixed $matchingConfig
-     *
-     * @throws \InvalidArgumentException Should be thrown if $matchingConfig is not valid.
-     */
-    public function setMatchingConfig($matchingConfig)
+    public function setMatchingConfig($matchingConfig): void
     {
         $this->identifier = $matchingConfig;
     }
 
     /**
      * Matches the $view against a set of matchers.
-     *
-     * @param \Ibexa\Bundle\SystemInfo\View\SystemInfoView $view
-     *
-     * @return bool
      */
-    public function match(View $view)
+    public function match(View $view): bool
     {
         if (!$view instanceof SystemInfoView) {
             return false;
@@ -49,7 +35,7 @@ class Identifier implements ViewMatcherInterface
         return $this->toIdentifier($view->getInfo()) === $this->identifier;
     }
 
-    private function toIdentifier($object)
+    private function toIdentifier(object $object): string
     {
         $className = \get_class($object);
         $className = substr($className, strrpos($className, '\\') + 1);

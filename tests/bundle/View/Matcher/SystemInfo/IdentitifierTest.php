@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 class IdentitifierTest extends TestCase
 {
-    public function testMatch()
+    public function testMatch(): void
     {
         $view = new SystemInfoView();
         $view->setInfo(new HardwareSystemInfo());
@@ -26,7 +26,7 @@ class IdentitifierTest extends TestCase
         self::assertTrue($matcher->match($view));
     }
 
-    public function testNoMatch()
+    public function testNoMatch(): void
     {
         $view = new SystemInfoView();
         $view->setInfo(new HardwareSystemInfo());
@@ -37,7 +37,7 @@ class IdentitifierTest extends TestCase
         self::assertFalse($matcher->match($view));
     }
 
-    public function testMatchOtherView()
+    public function testMatchOtherView(): void
     {
         $view = new ContentView();
 

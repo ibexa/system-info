@@ -26,7 +26,7 @@ class SystemInfoController extends AdminUiController
         $this->collectorRegistry = $collectorRegistry;
     }
 
-    public function performAccessCheck()
+    public function performAccessCheck(): void
     {
         parent::performAccessCheck();
         $this->denyAccessUnlessGranted(new Attribute('setup', 'system_info'));
@@ -44,22 +44,19 @@ class SystemInfoController extends AdminUiController
         ]);
     }
 
-    public function viewInfoAction(SystemInfoView $view)
+    public function viewInfoAction(SystemInfoView $view): SystemInfoView
     {
         return $view;
     }
 
     /**
      * Renders a PHP info page.
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function phpinfoAction(): Response
     {
         ob_start();
         phpinfo();
-        $response = new Response(ob_get_clean());
 
-        return $response;
+        return new Response(ob_get_clean() ?: '');
     }
 }

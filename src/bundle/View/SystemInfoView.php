@@ -7,37 +7,30 @@
 
 namespace Ibexa\Bundle\SystemInfo\View;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
 use Ibexa\Core\MVC\Symfony\View\BaseView;
 use Ibexa\Core\MVC\Symfony\View\View;
 
 class SystemInfoView extends BaseView implements View
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo
-     */
-    private $info;
+    private SystemInfo $info;
 
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo $info
-     *
-     * @return SystemInfoView
-     */
-    public function setInfo($info)
+    public function setInfo(SystemInfo $info): self
     {
         $this->info = $info;
 
         return $this;
     }
 
-    /**
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo
-     */
-    public function getInfo()
+    public function getInfo(): SystemInfo
     {
         return $this->info;
     }
 
-    protected function getInternalParameters()
+    /**
+     * @return array{info: \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo}
+     */
+    protected function getInternalParameters(): array
     {
         return ['info' => $this->info];
     }
