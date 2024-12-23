@@ -20,6 +20,7 @@ class SystemInfoView extends BaseView implements View
 
         return $this;
     }
+
     public function getInfo(): SystemInfo
     {
         return $this->info;

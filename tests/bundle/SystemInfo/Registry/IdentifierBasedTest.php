@@ -16,7 +16,7 @@ class IdentifierBasedTest extends TestCase
     private IdentifierBased $registry;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject[]|SystemInfoCollector[]
+     * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
      */
     private array $testItems;
 
@@ -33,7 +33,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test adding items to the registry, and getting items from it.
      *
-     * @covers IdentifierBased::getItem
+     * @covers \IdentifierBased::getItem
      */
     public function testAddAndGetItems(): void
     {
@@ -46,7 +46,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test exception when registry item is not found.
      *
-     * @covers IdentifierBased::getItem
+     * @covers \IdentifierBased::getItem
      */
     public function testGetItemNotFound(): void
     {
@@ -57,7 +57,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test replacing an item in the registry.
      *
-     * @covers IdentifierBased::getItem
+     * @covers \IdentifierBased::getItem
      */
     public function testReplaceItem(): void
     {
@@ -76,7 +76,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test getting all registered identifiers.
      *
-     * @covers IdentifierBased::getIdentifiers
+     * @covers \IdentifierBased::getIdentifiers
      * @depends testAddAndGetItems
      */
     public function testGetIdentifiers(): void

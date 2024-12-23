@@ -133,7 +133,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * @var ComposerSystemInfo|null
+     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
      */
     private $composerInfo;
 

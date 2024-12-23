@@ -10,7 +10,6 @@ use Composer\InstalledVersions;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
-use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
 use Ibexa\SystemInfo\Value\Stability;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 

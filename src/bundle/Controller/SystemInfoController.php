@@ -55,6 +55,7 @@ class SystemInfoController extends AdminUiController
     {
         ob_start();
         phpinfo();
+
         return new Response(ob_get_clean() ?: '');
     }
 }

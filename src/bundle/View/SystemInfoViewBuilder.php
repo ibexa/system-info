@@ -10,7 +10,6 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
-use Ibexa\Core\MVC\Symfony\View\BaseView;
 use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
 use Ibexa\Core\MVC\Symfony\View\View;

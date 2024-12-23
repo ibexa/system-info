@@ -15,8 +15,6 @@ use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {

@@ -23,7 +23,7 @@ class EzInfoTwigComponent implements Renderable
 
     private IbexaSystemInfo $ibexaSystemInfo;
 
-    /** @var array<string, string>  */
+    /** @var array<string, string> */
     private array $urlList;
 
     /**

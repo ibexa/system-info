@@ -16,30 +16,30 @@ use ezcSystemInfoReaderCantScanOSException;
  */
 class EzcSystemInfoWrapper
 {
-    public string $osType;
+    public ?string $osType;
 
-    public string $osName;
+    public ?string $osName;
 
-    public string $fileSystemType;
+    public ?string $fileSystemType;
 
-    public int $cpuCount;
+    public ?int $cpuCount;
 
-    public string $cpuType;
+    public ?string $cpuType;
 
-    public float $cpuSpeed;
+    public ?float $cpuSpeed;
 
     /** @var int */
-    public int $memorySize;
+    public ?int $memorySize;
 
-    public string $lineSeparator;
+    public ?string $lineSeparator;
 
-    public string $backupFileName;
+    public ?string $backupFileName;
 
-    public string $phpVersion;
+    public ?string $phpVersion;
 
-    public ezcSystemInfoAccelerator $phpAccelerator;
+    public ?ezcSystemInfoAccelerator $phpAccelerator;
 
-    public bool $isShellExecution;
+    public ?bool $isShellExecution;
 
     public function __construct()
     {

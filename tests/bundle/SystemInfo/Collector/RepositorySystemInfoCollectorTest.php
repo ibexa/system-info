@@ -23,7 +23,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
     private $dbalConnectionMock;
 
     /**
-     * @var \Doctrine\DBAL\Platforms\AbstractPlatform & \PHPUnit\Framework\MockObject\MockObject
+     * @var \Doctrine\DBAL\Platforms\AbstractPlatform&\PHPUnit\Framework\MockObject\MockObject
      */
     private $dbalPlatformMock;
 

@@ -57,7 +57,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject & \Ibexa\Core\MVC\Symfony\View\Configurator
+     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
      */
     protected function getConfiguratorMock(): Configurator
     {
@@ -69,12 +69,13 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject & \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
     protected function getRegistryMock(): SystemInfoCollectorRegistry
     {
         if (!isset($this->registryMock)) {
-            $this->registryMock = $this->createMock(SystemInfoCollectorRegistry::class
+            $this->registryMock = $this->createMock(
+                SystemInfoCollectorRegistry::class
             );
         }
 

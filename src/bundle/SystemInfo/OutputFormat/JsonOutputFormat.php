@@ -19,6 +19,7 @@ class JsonOutputFormat implements SystemInfoOutputFormat
         if ($json === false) {
             return '';
         }
+
         return $json;
     }
 }
