@@ -29,10 +29,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return self::EXTENSION_NAME;
     }
 
-    /**
-     * @return \Ibexa\Bundle\SystemInfo\DependencyInjection\Configuration
-     */
-    public function getConfiguration(array $config, ContainerBuilder $container)
+    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
         return new Configuration();
     }

@@ -33,7 +33,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test adding items to the registry, and getting items from it.
      *
-     * @covers \IdentifierBased::getItem
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
     public function testAddAndGetItems(): void
     {
@@ -46,7 +46,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test exception when registry item is not found.
      *
-     * @covers \IdentifierBased::getItem
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
     public function testGetItemNotFound(): void
     {
@@ -57,7 +57,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test replacing an item in the registry.
      *
-     * @covers \IdentifierBased::getItem
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
     public function testReplaceItem(): void
     {
@@ -76,7 +76,7 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test getting all registered identifiers.
      *
-     * @covers \IdentifierBased::getIdentifiers
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      * @depends testAddAndGetItems
      */
     public function testGetIdentifiers(): void

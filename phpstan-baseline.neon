@@ -23,21 +23,3 @@ parameters:
 			identifier: argument.type
 			count: 3
 			path: tests/bundle/SystemInfo/Registry/IdentifierBasedTest.php
-
-		-
-			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getCollectorMock\(\) should return Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\.$#'
-			identifier: return.type
-			count: 1
-			path: tests/bundle/View/SystemInfoViewBuilderTest.php
-
-		-
-			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getConfiguratorMock\(\) should return Ibexa\\Core\\MVC\\Symfony\\View\\Configurator&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Core\\MVC\\Symfony\\View\\Configurator\.$#'
-			identifier: return.type
-			count: 1
-			path: tests/bundle/View/SystemInfoViewBuilderTest.php
-
-		-
-			message: '#^Method Ibexa\\Tests\\Bundle\\SystemInfo\\View\\SystemInfoViewBuilderTest\:\:getRegistryMock\(\) should return Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry&PHPUnit\\Framework\\MockObject\\MockObject but returns Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry\.$#'
-			identifier: return.type
-			count: 1
-			path: tests/bundle/View/SystemInfoViewBuilderTest.php

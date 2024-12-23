@@ -145,10 +145,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     /** @var string */
     private $kernelProjectDir;
 
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|SystemInfoCollector $composerCollector
-     * @param bool $debug
-     */
     public function __construct(
         SystemInfoCollector $composerCollector,
         string $kernelProjectDir,
@@ -251,11 +247,8 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
             $stabilityFlags[$composerInfo->minimumStability] :
             $stabilityFlags['stable'];
 
-        if ($composerInfo->packages === null) {
-            return Stability::STABILITIES[$stabilityFlag];
-        }
         // Check if any of the watched packages has lower stability than root
-        foreach ($composerInfo->packages as $name => $package) {
+        foreach ($composerInfo->packages ?? [] as $name => $package) {
             if (!preg_match(self::PACKAGE_WATCH_REGEX, $name)) {
                 continue;
             }
