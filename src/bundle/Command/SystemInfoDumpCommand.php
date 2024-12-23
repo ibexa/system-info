@@ -29,10 +29,7 @@ final class SystemInfoDumpCommand extends Command implements BackwardCompatibleC
         parent::__construct();
     }
 
-    /**
-     * Define command and input options.
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('ibexa:system-info:dump')
@@ -79,9 +76,9 @@ EOD
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('list-info-collectors')) {
-            $output->writeln('Available info collectors:', true);
+            $output->writeln('Available info collectors:', OutputInterface::OUTPUT_NORMAL);
             foreach ($this->systemInfoCollectorRegistry->getIdentifiers() as $identifier) {
-                $output->writeln("  $identifier", true);
+                $output->writeln("  $identifier", OutputInterface::OUTPUT_NORMAL);
             }
 
             return Command::SUCCESS;

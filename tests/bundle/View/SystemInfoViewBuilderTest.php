@@ -6,31 +6,43 @@
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\View;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder;
+use Ibexa\Core\MVC\Symfony\View\Configurator;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoViewBuilderTest extends TestCase
 {
-    private $configuratorMock;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
+     */
+    private Configurator $configuratorMock;
 
-    private $registryMock;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     */
+    private SystemInfoCollectorRegistry $registryMock;
 
-    private $collectorMock;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
+     */
+    private SystemInfoCollector $collectorMock;
 
-    public function testMatches()
+    public function testMatches(): void
     {
         $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
         self::assertTrue($builder->matches('ibexa.support_tools.view.controller:viewInfoAction'));
     }
 
-    public function testNotMatches()
+    public function testNotMatches(): void
     {
         $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
         self::assertFalse($builder->matches('service:someAction'));
     }
 
-    public function testBuildView()
+    public function testBuildView(): void
     {
         $builder = new SystemInfoViewBuilder(
             $this->getConfiguratorMock(),
@@ -54,37 +66,33 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Core\MVC\Symfony\View\Configurator
+     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
      */
-    protected function getConfiguratorMock()
+    protected function getConfiguratorMock(): Configurator
     {
-        if (!isset($this->configuratorMock)) {
-            $this->configuratorMock = $this->createMock('Ibexa\\Core\\MVC\\Symfony\\View\\Configurator');
-        }
+        $this->configuratorMock ??= $this->createMock(Configurator::class);
 
         return $this->configuratorMock;
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
-    protected function getRegistryMock()
+    protected function getRegistryMock(): SystemInfoCollectorRegistry
     {
-        if (!isset($this->registryMock)) {
-            $this->registryMock = $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\SystemInfoCollectorRegistry');
-        }
+        $this->registryMock ??= $this->createMock(
+            SystemInfoCollectorRegistry::class
+        );
 
         return $this->registryMock;
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
+     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
      */
-    protected function getCollectorMock()
+    protected function getCollectorMock(): SystemInfoCollector
     {
-        if (!isset($this->collectorMock)) {
-            $this->collectorMock = $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector');
-        }
+        $this->collectorMock ??= $this->createMock(SystemInfoCollector::class);
 
         return $this->collectorMock;
     }

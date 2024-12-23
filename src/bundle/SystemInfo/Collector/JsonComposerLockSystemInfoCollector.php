@@ -20,28 +20,21 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 {
     public const IBEXA_OSS_PACKAGE = 'ibexa/oss';
 
-    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker */
-    private $versionStabilityChecker;
+    private VersionStabilityChecker $versionStabilityChecker;
+
+    private string $lockFile;
+
+    private string $jsonFile;
 
     /**
-     * @var string Composer lock file with full path.
+     * The collected value, cached in case info is collected by other collectors.
      */
-    private $lockFile;
-
-    /**
-     * @var string Composer json file with full path.
-     */
-    private $jsonFile;
-
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo The collected value, cached in case info is collected by other collectors.
-     */
-    private $value;
+    private ?ComposerSystemInfo $value = null;
 
     public function __construct(
         VersionStabilityChecker $versionStabilityChecker,
-        $lockFile,
-        $jsonFile
+        string $lockFile,
+        string $jsonFile
     ) {
         $this->versionStabilityChecker = $versionStabilityChecker;
         $this->lockFile = $lockFile;
@@ -51,13 +44,9 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * Collects information about installed composer packages.
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
-     *
      * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
      * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
      * @throws Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo
      */
     public function collect(): ComposerSystemInfo
     {
@@ -73,8 +62,8 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
             throw new Exception\ComposerJsonFileNotFoundException($this->jsonFile);
         }
 
-        $lockData = json_decode(file_get_contents($this->lockFile), true);
-        $jsonData = json_decode(file_get_contents($this->jsonFile), true);
+        $lockData = json_decode(file_get_contents($this->lockFile) ?: '', true);
+        $jsonData = json_decode(file_get_contents($this->jsonFile) ?: '', true);
 
         if (!is_array($lockData)) {
             throw new Exception\ComposerFileValidationException($this->lockFile);
@@ -86,7 +75,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 
         $stability = InstalledVersions::isInstalled(self::IBEXA_OSS_PACKAGE)
             ? $this->versionStabilityChecker->getStability(
-                InstalledVersions::getVersion(self::IBEXA_OSS_PACKAGE)
+                InstalledVersions::getVersion(self::IBEXA_OSS_PACKAGE) ?? ''
             )
             : $this->getMinimumStability($lockData);
 
@@ -98,7 +87,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param array $lockData
+     * @param array<string, mixed> $lockData
      *
      * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage[]
      */
@@ -145,7 +134,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param array $jsonData
+     * @param array<string, mixed> $jsonData
      *
      * @return string[]
      */
@@ -189,6 +178,9 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
         $package->version = $version;
     }
 
+    /**
+     * @param array<string, mixed> $lockData
+     */
     private function getMinimumStability(array $lockData): ?string
     {
         return $lockData['minimum-stability'] ?? null;

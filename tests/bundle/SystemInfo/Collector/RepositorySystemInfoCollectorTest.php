@@ -23,7 +23,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
     private $dbalConnectionMock;
 
     /**
-     * @var \Doctrine\DBAL\Platforms\MySqlPlatform|\PHPUnit\Framework\MockObject\MockObject
+     * @var \Doctrine\DBAL\Platforms\AbstractPlatform&\PHPUnit\Framework\MockObject\MockObject
      */
     private $dbalPlatformMock;
 
@@ -58,7 +58,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $expected = new RepositorySystemInfo([
             'type' => 'mysql',

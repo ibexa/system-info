@@ -18,12 +18,10 @@ use Symfony\Component\DependencyInjection\Definition;
 class SystemInfoTabGroupPass implements CompilerPassInterface
 {
     /**
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     *
      * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->hasDefinition(TabRegistry::class)) {
             return;

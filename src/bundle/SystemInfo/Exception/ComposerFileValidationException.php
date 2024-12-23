@@ -10,7 +10,7 @@ use Exception;
 
 final class ComposerFileValidationException extends Exception implements SystemInfoException
 {
-    public function __construct(string $path, $code = 0, Exception $previous = null)
+    public function __construct(string $path, int $code = 0, Exception $previous = null)
     {
         $message = sprintf('Composer file %s is not valid.', $path);
 

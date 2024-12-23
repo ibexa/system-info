@@ -31,7 +31,7 @@ class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
         $container->addCompilerPass(new SystemInfoTabGroupPass());
     }
 
-    public function testProcess()
+    public function testProcess(): void
     {
         $tabGroupDefinition = new Definition(TabGroup::class, ['systeminfo']);
 

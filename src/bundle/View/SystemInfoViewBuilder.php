@@ -6,11 +6,13 @@
  */
 namespace Ibexa\Bundle\SystemInfo\View;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
 use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
+use Ibexa\Core\MVC\Symfony\View\View;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {
@@ -32,12 +34,17 @@ class SystemInfoViewBuilder implements ViewBuilder
         $this->registry = $registry;
     }
 
-    public function matches($argument)
+    public function matches($argument): bool
     {
         return $argument === 'ibexa.support_tools.view.controller:viewInfoAction';
     }
 
-    public function buildView(array $parameters)
+    /**
+     * @param array<string, string> $parameters
+     *
+     * @return \Ibexa\Bundle\SystemInfo\View\SystemInfoView
+     */
+    public function buildView(array $parameters): View
     {
         $collector = $this->getCollector($parameters['systemInfoIdentifier']);
         $view = new SystemInfoView(null, [], $parameters['viewType']);
@@ -57,10 +64,8 @@ class SystemInfoViewBuilder implements ViewBuilder
 
     /**
      * @param string $identifier A SystemInfo collector identifier (php, hardware...)
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
      */
-    private function getCollector($identifier)
+    private function getCollector(string $identifier): SystemInfoCollector
     {
         return $this->registry->getItem($identifier);
     }

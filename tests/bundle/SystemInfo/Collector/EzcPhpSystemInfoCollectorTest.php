@@ -6,7 +6,9 @@
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
+use ezcSystemInfoAccelerator;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector;
+use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 use PHPUnit\Framework\TestCase;
 
@@ -25,13 +27,13 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->ezcSystemInfoMock = $this
-            ->getMockBuilder('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\EzcSystemInfoWrapper')
+            ->getMockBuilder(EzcSystemInfoWrapper::class)
             ->disableOriginalConstructor()
             ->getMock();
         $this->ezcSystemInfoMock->phpVersion = PHP_VERSION;
 
         $this->ezcSystemInfoMock->phpAccelerator = $this
-            ->getMockBuilder('ezcSystemInfoAccelerator')
+            ->getMockBuilder(ezcSystemInfoAccelerator::class)
             ->setConstructorArgs(
                 [
                     'Zend OPcache',
@@ -49,11 +51,12 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector::collect()
      */
-    public function testCollect()
+    public function testCollect(): void
     {
         $value = $this->ezcPhpCollector->collect();
 
-        self::assertInstanceOf('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Value\\PhpSystemInfo', $value);
+        self::assertInstanceOf(PhpSystemInfo::class, $value);
+        self::assertInstanceOf(ezcSystemInfoAccelerator::class, $this->ezcSystemInfoMock->phpAccelerator);
 
         self::assertEquals(
             new PhpSystemInfo([

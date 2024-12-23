@@ -6,27 +6,25 @@
  */
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
 class IdentifierBasedTest extends TestCase
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBasedEzcPhpSystemInfoCollector
-     */
-    private $registry;
+    private IdentifierBased $registry;
 
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
      */
-    private $testItems;
+    private array $testItems;
 
     protected function setUp(): void
     {
         $this->testItems = [
-            'foo' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
-            'bar' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
+            'foo' => $this->createMock(SystemInfoCollector::class),
+            'bar' => $this->createMock(SystemInfoCollector::class),
         ];
 
         $this->registry = new IdentifierBased();
@@ -35,9 +33,9 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test adding items to the registry, and getting items from it.
      *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
-    public function testAddAndGetItems()
+    public function testAddAndGetItems(): void
     {
         $this->registry = new IdentifierBased($this->testItems);
 
@@ -48,9 +46,9 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test exception when registry item is not found.
      *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
-    public function testGetItemNotFound()
+    public function testGetItemNotFound(): void
     {
         $this->expectException(NotFoundException::class);
         $this->registry->getItem('notfound');
@@ -59,9 +57,9 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test replacing an item in the registry.
      *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
-    public function testReplaceItem()
+    public function testReplaceItem(): void
     {
         $this->registry = new IdentifierBased($this->testItems);
 
@@ -78,10 +76,10 @@ class IdentifierBasedTest extends TestCase
     /**
      * Test getting all registered identifiers.
      *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getIdentifiers()
+     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      * @depends testAddAndGetItems
      */
-    public function testGetIdentifiers()
+    public function testGetIdentifiers(): void
     {
         $this->registry = new IdentifierBased($this->testItems);
 

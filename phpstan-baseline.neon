@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Binary operation "\." between array\|bool\|float\|int\|string\|null and ''/vendor/'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSystemInfoExtension.php
+
+		-
+			message: '#^Method Ibexa\\Bundle\\SystemInfo\\DependencyInjection\\IbexaSystemInfoExtension\:\:getConfiguration\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSystemInfoExtension.php
+
+		-
+			message: '#^Parameter \#4 \$condition of method Doctrine\\DBAL\\Query\\QueryBuilder\:\:innerJoin\(\) expects string\|null, Doctrine\\DBAL\\Query\\Expression\\CompositeExpression given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/lib/Storage/Metrics/DraftsCountMetrics.php
+
+		-
+			message: '#^Parameter \#1 \$items of class Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Registry\\IdentifierBased constructor expects array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\>, array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\|PHPUnit\\Framework\\MockObject\\MockObject\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/bundle/SystemInfo/Registry/IdentifierBasedTest.php

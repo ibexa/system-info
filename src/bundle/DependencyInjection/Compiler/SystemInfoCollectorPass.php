@@ -15,12 +15,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class SystemInfoCollectorPass implements CompilerPassInterface
 {
-    /**
-     * Registers the SystemInfoCollector into the system info collector registry.
-     *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(IdentifierBased::class)) {
             return;

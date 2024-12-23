@@ -39,9 +39,6 @@ class SystemInfoTabGroupListener implements EventSubscriberInterface
         $this->systeminfoCollectorRegistry = $systeminfoCollectorRegistry;
     }
 
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -49,10 +46,7 @@ class SystemInfoTabGroupListener implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param \Ibexa\AdminUi\Tab\Event\TabGroupEvent $event
-     */
-    public function onTabGroupPreRender(TabGroupEvent $event)
+    public function onTabGroupPreRender(TabGroupEvent $event): void
     {
         $tabGroup = $event->getData();
 

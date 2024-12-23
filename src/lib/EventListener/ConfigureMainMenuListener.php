@@ -45,7 +45,11 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
             return;
         }
 
-        $menu->getChild(MainMenuBuilder::ITEM_ADMIN)->addChild(
+        $adminMenu = $menu->getChild(MainMenuBuilder::ITEM_ADMIN);
+        if ($adminMenu === null) {
+            return;
+        }
+        $adminMenu->addChild(
             $this->menuItemFactory->createItem(
                 self::ITEM_ADMIN__SYSTEMINFO,
                 [

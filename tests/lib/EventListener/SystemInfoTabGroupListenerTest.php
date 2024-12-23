@@ -15,19 +15,11 @@ use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {
-    /** @var \Symfony\Component\HttpFoundation\Request */
-    private $request;
-
     /** @var \Ibexa\AdminUi\Tab\Event\TabGroupEvent */
     private $event;
-
-    /** @var \Symfony\Component\HttpKernel\HttpKernelInterface|\PHPUnit\Framework\MockObject\MockObject */
-    private $httpKernel;
 
     /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\AdminUi\Tab\TabRegistry */
     private $tabRegistry;
@@ -42,16 +34,10 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $this->tabRegistry = $this->createMock(TabRegistry::class);
         $this->tabFactory = $this->createMock(TabFactory::class);
 
-        $this->request = $this
-            ->getMockBuilder(Request::class)
-            ->setMethods(['getSession', 'hasSession'])
-            ->getMock();
-
-        $this->httpKernel = $this->createMock(HttpKernelInterface::class);
         $this->event = new TabGroupEvent();
     }
 
-    public function testOnTabGroupPreRenderWithNoSystemInfoTabGroup()
+    public function testOnTabGroupPreRenderWithNoSystemInfoTabGroup(): void
     {
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
         $systemInfoCollectorRegistry->expects(self::never())
@@ -70,7 +56,7 @@ class SystemInfoTabGroupListenerTest extends TestCase
      *
      * @param string[] $identifiers
      */
-    public function testOnTabGroupPreRender($identifiers)
+    public function testOnTabGroupPreRender(array $identifiers): void
     {
         foreach ($identifiers as $i => $identifier) {
             $tab = $this->createMock(SystemInfoTab::class);
@@ -95,7 +81,7 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $systemInfoTabGroupListener->onTabGroupPreRender($this->event);
     }
 
-    public function testSubscribedEvents()
+    public function testSubscribedEvents(): void
     {
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener($this->tabRegistry, $this->tabFactory, $systemInfoCollectorRegistry);
@@ -103,6 +89,9 @@ class SystemInfoTabGroupListenerTest extends TestCase
         $this->assertSame([TabEvents::TAB_GROUP_PRE_RENDER => ['onTabGroupPreRender', 10]], $systemInfoTabGroupListener::getSubscribedEvents());
     }
 
+    /**
+     * @return array<string, array<array<string>>>
+     */
     public function dataProvider(): array
     {
         return [
