@@ -28,14 +28,16 @@ class EzcSystemInfoWrapper
 
     public ?float $cpuSpeed;
 
-    /** @var int */
     public ?int $memorySize;
 
     public ?string $lineSeparator;
 
     public ?string $backupFileName;
 
-    public ?string $phpVersion;
+    /**
+     * @var array<int, string>|null
+     */
+    public ?array $phpVersion;
 
     public ?ezcSystemInfoAccelerator $phpAccelerator;
 
@@ -50,7 +52,7 @@ class EzcSystemInfoWrapper
             return;
         }
 
-        foreach (array_keys(get_object_vars($this)) as $var) {
+        foreach (array_keys(get_class_vars(self::class)) as $var) {
             $this->$var = $ezcSystemInfo->$var;
         }
     }
