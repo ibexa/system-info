@@ -34,9 +34,7 @@ class EzcSystemInfoWrapper
 
     public ?string $backupFileName;
 
-    /**
-     * @var array<int, string>|null
-     */
+    /** @var array<int, string>|null */
     public ?array $phpVersion;
 
     public ?ezcSystemInfoAccelerator $phpAccelerator;
