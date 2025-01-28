@@ -31,7 +31,7 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
             ->getMockBuilder(EzcSystemInfoWrapper::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $this->ezcSystemInfoMock->phpVersion = PHP_VERSION;
+        $this->ezcSystemInfoMock->phpVersion = explode('.', PHP_VERSION);
 
         $this->ezcSystemInfoMock->phpAccelerator = $this
             ->getMockBuilder(ezcSystemInfoAccelerator::class)
@@ -61,7 +61,7 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
 
         self::assertEquals(
             new PhpSystemInfo([
-                'version' => $this->ezcSystemInfoMock->phpVersion,
+                'version' => implode('.', $this->ezcSystemInfoMock->phpVersion ?? []),
                 'acceleratorEnabled' => $this->ezcSystemInfoMock->phpAccelerator->isEnabled,
                 'acceleratorName' => $this->ezcSystemInfoMock->phpAccelerator->name,
                 'acceleratorURL' => $this->ezcSystemInfoMock->phpAccelerator->url,
