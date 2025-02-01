@@ -169,14 +169,14 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      */
     public function collect(): IbexaSystemInfo
     {
-        if($this->composerInfo === null) {
+        if ($this->composerInfo === null) {
             try {
                 $composerInfo = $this->systemInfoCollector->collect();
                 if ($composerInfo instanceof ComposerSystemInfo) {
                     $this->composerInfo = $composerInfo;
                 }
             } catch (ComposerLockFileNotFoundException | ComposerFileValidationException $e) {
-            // do nothing
+                // do nothing
             }
         }
 
