@@ -9,12 +9,22 @@ namespace Ibexa\Bundle\SystemInfo\Command;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'ibexa:system-info:dump',
+    description: 'Collects system information and dumps it.',
+    aliases: [
+        'ez-support-tools:dump-info',
+        'ibexa:dump-info',
+        'ibexa:info',
+    ]
+)]
 final class SystemInfoDumpCommand extends Command
 {
     private SystemInfoCollectorRegistry $systemInfoCollectorRegistry;
@@ -32,13 +42,6 @@ final class SystemInfoDumpCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('ibexa:system-info:dump')
-            ->setAliases([
-                'ez-support-tools:dump-info',
-                'ibexa:dump-info',
-                'ibexa:info',
-            ])
-            ->setDescription('Collects system information and dumps it.')
             ->setHelp(
                 <<<'EOD'
 By default it dumps information from all available information collectors.
