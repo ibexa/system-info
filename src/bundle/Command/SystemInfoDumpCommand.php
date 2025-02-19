@@ -18,12 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'ibexa:system-info:dump',
-    description: 'Collects system information and dumps it.',
-    aliases: [
-        'ez-support-tools:dump-info',
-        'ibexa:dump-info',
-        'ibexa:info',
-    ]
+    description: 'Collects system information and dumps it.'
 )]
 final class SystemInfoDumpCommand extends Command
 {
