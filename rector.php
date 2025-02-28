@@ -7,11 +7,14 @@
 declare(strict_types=1);
 
 use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Ibexa\Rector\Rule\ReplaceInterfaceRector;
 use Rector\Config\RectorConfig;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
 use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SymfonySetList;
+use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromCreateMockAssignRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -29,5 +32,8 @@ return RectorConfig::configure()
     ])
     ->withRules([
         TypedPropertyFromAssignsRector::class,
+        ReplaceInterfaceRector::class,
+        TypedPropertyFromStrictSetUpRector::class,
+        TypedPropertyFromCreateMockAssignRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
     ]);

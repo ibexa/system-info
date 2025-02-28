@@ -10,12 +10,12 @@ namespace Ibexa\Tests\SystemInfo\VersionStability;
 
 use Ibexa\SystemInfo\Value\Stability;
 use Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker;
+use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 use PHPUnit\Framework\TestCase;
 
 final class VersionStabilityCheckerTest extends TestCase
 {
-    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker */
-    private $versionStabilityChecker;
+    private VersionStabilityChecker $versionStabilityChecker;
 
     public function setUp(): void
     {
