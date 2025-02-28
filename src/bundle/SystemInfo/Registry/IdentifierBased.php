@@ -7,35 +7,23 @@
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Registry;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
 
 /**
  * A registry of SystemInfoCollectors that uses an identifier string to identify the collector.
  */
-class IdentifierBased implements SystemInfoCollectorRegistry
+readonly class IdentifierBased implements SystemInfoCollectorRegistry
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] */
-    private $registry = [];
-
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $registry Hash of SystemInfoCollectors, with identifier string as key.
      */
-    public function __construct(array $items = [])
+    public function __construct(private array $registry = [])
     {
-        $this->registry = $items;
     }
 
-    /**
-     * Returns the SystemInfoCollector matching the argument.
-     *
-     * @param string $identifier An identifier string.
-     *
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
-     */
-    public function getItem($identifier)
+    public function getItem(string $identifier): SystemInfoCollector
     {
         if (isset($this->registry[$identifier])) {
             return $this->registry[$identifier];
@@ -45,11 +33,9 @@ class IdentifierBased implements SystemInfoCollectorRegistry
     }
 
     /**
-     * Returns the identifiers of all registered SystemInfoCollectors.
-     *
      * @return string[] Array of identifier strings.
      */
-    public function getIdentifiers()
+    public function getIdentifiers(): array
     {
         return array_keys($this->registry);
     }

@@ -7,6 +7,8 @@
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
+
 /**
  * A registry of SystemInfoCollectors.
  */
@@ -17,21 +19,10 @@ interface SystemInfoCollectorRegistry
      */
     public function __construct(array $items = []);
 
-    /**
-     * Returns the SystemInfoCollector matching the argument.
-     *
-     * @param string $identifier An identifier string.
-     *
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
-     */
-    public function getItem($identifier);
+    public function getItem(string $identifier): SystemInfoCollector;
 
     /**
-     * Returns the identifiers of all registered SystemInfoCollectors.
-     *
-     * @return string[] Array of identifier strings.
+     * @return string[] List of system info identifiers.
      */
-    public function getIdentifiers();
+    public function getIdentifiers(): array;
 }

@@ -17,7 +17,7 @@ class IdentifierBasedTest extends TestCase
     private IdentifierBased $registry;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
+     * @var array<string, \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector&\PHPUnit\Framework\MockObject\MockObject>
      */
     private array $testItems;
 

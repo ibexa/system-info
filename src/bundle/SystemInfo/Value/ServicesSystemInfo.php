@@ -10,37 +10,13 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 /**
  * Value for information about services used within the project.
  */
-final class ServicesSystemInfo implements SystemInfo
+final readonly class ServicesSystemInfo implements SystemInfo
 {
-    /**
-     * Search engine.
-     *
-     * Example: Solr
-     */
-    private string $searchEngine;
-
-    /**
-     * Reverse proxy handling HTTP caching.
-     *
-     * Example: Fastly
-     */
-    private string $httpCacheProxy;
-
-    /**
-     * Persistence cache adapter.
-     *
-     * Example: Redis
-     */
-    private string $persistenceCacheAdapter;
-
     public function __construct(
-        string $searchEngine,
-        string $httpCacheProxy,
-        string $persistenceCacheAdapter
+        private string $searchEngine,
+        private string $httpCacheProxy,
+        private string $persistenceCacheAdapter
     ) {
-        $this->searchEngine = $searchEngine;
-        $this->httpCacheProxy = $httpCacheProxy;
-        $this->persistenceCacheAdapter = $persistenceCacheAdapter;
     }
 
     public function getSearchEngine(): string

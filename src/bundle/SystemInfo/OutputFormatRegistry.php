@@ -12,22 +12,15 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 /**
  * A registry of OutputFormats.
  */
-class OutputFormatRegistry
+readonly class OutputFormatRegistry
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] */
-    private array $registry = [];
-
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $registry Hash of OutputFormats, with identifier string as key.
      */
-    public function __construct(array $items = [])
+    public function __construct(private array $registry = [])
     {
-        $this->registry = $items;
     }
 
-    /**
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
-     */
     public function getItem(string $identifier): OutputFormat
     {
         if (isset($this->registry[$identifier])) {
@@ -38,8 +31,6 @@ class OutputFormatRegistry
     }
 
     /**
-     * Returns the identifiers of all registered OutputFormats.
-     *
      * @return string[] Array of identifier strings.
      */
     public function getIdentifiers(): array

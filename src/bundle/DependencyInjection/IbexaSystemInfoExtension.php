@@ -20,9 +20,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
 {
-    public const EXTENSION_NAME = 'ibexa_system_info';
-    public const METRICS_TAG = 'ibexa.system_info.metrics';
-    public const SERVICE_TAG = 'ibexa.system_info.service';
+    public const string EXTENSION_NAME = 'ibexa_system_info';
+    public const string METRICS_TAG = 'ibexa.system_info.metrics';
+    public const string SERVICE_TAG = 'ibexa.system_info.service';
 
     public function getAlias(): string
     {
@@ -34,9 +34,6 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return new Configuration();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new Loader\YamlFileLoader(

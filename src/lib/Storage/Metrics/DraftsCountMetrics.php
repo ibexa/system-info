@@ -16,12 +16,9 @@ use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
  */
 final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_VERSION_TABLE = 'ezcontentobject_version';
-    private const CONTENTOBJECT_TABLE = 'ezcontentobject';
+    private const string CONTENTOBJECT_VERSION_TABLE = 'ezcontentobject_version';
+    private const string CONTENTOBJECT_TABLE = 'ezcontentobject';
 
-    /**
-     * @throws \Doctrine\DBAL\Exception
-     */
     public function getValue(): int
     {
         $queryBuilder = $this->connection->createQueryBuilder();

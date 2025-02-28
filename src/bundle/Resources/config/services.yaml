@@ -69,7 +69,7 @@ services:
         lazy: true
         autowire: true
         arguments:
-            $db: '@ibexa.persistence.connection'
+            $connection: '@ibexa.persistence.connection'
         tags:
             - { name: ibexa.system_info.collector, identifier: repository }
 
@@ -108,7 +108,7 @@ services:
 
     Ibexa\SystemInfo\Storage\AggregateMetricsProvider:
         arguments:
-            $metrics: !tagged_locator
+            $metricsLocator: !tagged_locator
                 tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::METRICS_TAG
                 index_by: identifier
 
@@ -158,7 +158,7 @@ services:
 
     Ibexa\SystemInfo\Service\AggregateServiceProvider:
         arguments:
-            $service: !tagged_locator
+            $serviceLocator: !tagged_locator
                 tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
                 index_by: identifier
 

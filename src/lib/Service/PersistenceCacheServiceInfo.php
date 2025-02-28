@@ -15,13 +15,10 @@ use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
  */
 final class PersistenceCacheServiceInfo implements ServiceInfo
 {
-    private const PERSISTENCE_CACHE_CONFIG_KEY = 'cache_service_name';
+    private const string PERSISTENCE_CACHE_CONFIG_KEY = 'cache_service_name';
 
-    private ConfigResolverInterface $configResolver;
-
-    public function __construct(ConfigResolverInterface $configResolver)
+    public function __construct(private readonly ConfigResolverInterface $configResolver)
     {
-        $this->configResolver = $configResolver;
     }
 
     public function getServiceType(): string

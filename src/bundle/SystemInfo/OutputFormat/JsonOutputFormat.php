@@ -14,7 +14,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat as SystemInfoOutputFormat;
  */
 class JsonOutputFormat implements SystemInfoOutputFormat
 {
-    public function format(array $collectedInfo)
+    public function format(array $collectedInfo): string
     {
         $json = json_encode($collectedInfo, JSON_PRETTY_PRINT);
         if ($json === false) {

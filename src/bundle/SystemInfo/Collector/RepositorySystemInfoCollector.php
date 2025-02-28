@@ -17,24 +17,10 @@ use Ibexa\SystemInfo\Storage\MetricsProvider;
  */
 class RepositorySystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * The database connection, only used to retrieve some information on the database itself.
-     *
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $connection;
-
-    /**
-     * The metrics provider needed to populate Repository value object consisting of several metrics.
-     *
-     * @var \Ibexa\SystemInfo\Storage\MetricsProvider
-     */
-    private $metricsProvider;
-
-    public function __construct(Connection $db, MetricsProvider $metricsProvider)
-    {
-        $this->connection = $db;
-        $this->metricsProvider = $metricsProvider;
+    public function __construct(
+        private readonly Connection $connection,
+        private readonly MetricsProvider $metricsProvider
+    ) {
     }
 
     /**
@@ -44,8 +30,6 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
      *  - host
      *  - username
      *  - repository metrics (containing count of content objects, users, drafts etc.).
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo
      */
     public function collect(): RepositorySystemInfo
     {

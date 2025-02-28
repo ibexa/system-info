@@ -13,24 +13,16 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
 /**
  * Collects hardware system information using zetacomponents/sysinfo.
  */
-class EzcHardwareSystemInfoCollector implements SystemInfoCollector
+readonly class EzcHardwareSystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
-     */
-    private $ezcSystemInfo;
-
-    public function __construct(EzcSystemInfoWrapper $ezcSystemInfo)
+    public function __construct(private EzcSystemInfoWrapper $ezcSystemInfo)
     {
-        $this->ezcSystemInfo = $ezcSystemInfo;
     }
 
     /**
      * Collects information about the hardware Ibexa DXP is installed on.
      *  - cpu information
      *  - memory size.
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo
      */
     public function collect(): HardwareSystemInfo
     {

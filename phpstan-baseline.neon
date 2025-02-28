@@ -17,9 +17,3 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/lib/Storage/Metrics/DraftsCountMetrics.php
-
-		-
-			message: '#^Parameter \#1 \$items of class Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Registry\\IdentifierBased constructor expects array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\>, array\<Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector\|PHPUnit\\Framework\\MockObject\\MockObject\> given\.$#'
-			identifier: argument.type
-			count: 3
-			path: tests/bundle/SystemInfo/Registry/IdentifierBasedTest.php

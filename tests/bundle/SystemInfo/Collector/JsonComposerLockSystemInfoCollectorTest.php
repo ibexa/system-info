@@ -14,12 +14,12 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundExcepti
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class JsonComposerLockSystemInfoCollectorTest extends TestCase
 {
-    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker|\PHPUnit\Framework\MockObject\MockObject */
-    private $versionStabilityChecker;
+    private VersionStabilityChecker&MockObject $versionStabilityChecker;
 
     public function setUp(): void
     {
