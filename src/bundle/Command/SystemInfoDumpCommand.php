@@ -22,15 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class SystemInfoDumpCommand extends Command
 {
-    private SystemInfoCollectorRegistry $systemInfoCollectorRegistry;
-
-    private OutputFormatRegistry $outputFormatRegistry;
-
-    public function __construct(SystemInfoCollectorRegistry $systemInfoCollectorRegistry, OutputFormatRegistry $outputFormatRegistry)
-    {
-        $this->systemInfoCollectorRegistry = $systemInfoCollectorRegistry;
-        $this->outputFormatRegistry = $outputFormatRegistry;
-
+    public function __construct(
+        private readonly SystemInfoCollectorRegistry $systemInfoCollectorRegistry,
+        private readonly OutputFormatRegistry $outputFormatRegistry
+    ) {
         parent::__construct();
     }
 
@@ -65,12 +60,6 @@ EOD
         ;
     }
 
-    /**
-     * Execute the Command.
-     *
-     * @param $input InputInterface
-     * @param $output OutputInterface
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('list-info-collectors')) {

@@ -15,42 +15,13 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * Symfony kernel.
-     *
-     * @var \Symfony\Component\HttpKernel\Kernel
-     */
-    private $kernel;
-
-    /**
-     * Installed bundles.
-     *
-     * A hash containing the active bundles, where the key is the bundle name, and the value is the corresponding namespace.
-     *
-     * Example:
-     * array (
-     *   'AppBundle' => 'AppBundle\\AppBundle',
-     *   'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
-     * )
-     *
-     * @var array<string, class-string>
-     */
-    private $bundles;
-
-    /**
-     * @param array<string, class-string> $bundles
-     */
-    public function __construct(Kernel $kernel, array $bundles)
-    {
-        $this->kernel = $kernel;
-        $this->bundles = $bundles;
+    public function __construct(
+        private readonly Kernel $kernel,
+        /** @var array<string, class-string> */
+        private array $bundles = []
+    ) {
     }
 
-    /**
-     * Collects information about the Symfony kernel.
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo
-     */
     public function collect(): SymfonyKernelSystemInfo
     {
         ksort($this->bundles, SORT_FLAG_CASE | SORT_STRING);

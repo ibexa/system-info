@@ -13,13 +13,10 @@ use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 /**
  * Collects information about the services used within the project.
  */
-final class ServicesSystemInfoCollector implements SystemInfoCollector
+final readonly class ServicesSystemInfoCollector implements SystemInfoCollector
 {
-    private ServiceProviderInterface $serviceProvider;
-
-    public function __construct(ServiceProviderInterface $serviceProvider)
+    public function __construct(private ServiceProviderInterface $serviceProvider)
     {
-        $this->serviceProvider = $serviceProvider;
     }
 
     public function collect(): ServicesSystemInfo

@@ -12,36 +12,19 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Ibexa\Contracts\AdminUi\Component\Renderable;
 use Twig\Environment;
 
-class EzInfoTwigComponent implements Renderable
+readonly class EzInfoTwigComponent implements Renderable
 {
-    protected string $template;
-
-    protected Environment $twig;
-
-    /** @var array<string, mixed> */
-    protected array $parameters;
-
-    private IbexaSystemInfo $ibexaSystemInfo;
-
-    /** @var array<string, string> */
-    private array $urlList;
-
     /**
      * @param array<string, string> $urlList
-     * @param array<string, mixed>  $parameters
+     * @param array<string, mixed> $parameters
      */
     public function __construct(
-        Environment $twig,
-        string $template,
-        IbexaSystemInfo $ibexaSystemInfo,
-        array $urlList,
-        array $parameters = []
+        private Environment $twig,
+        private string $template,
+        private IbexaSystemInfo $ibexaSystemInfo,
+        private array $urlList,
+        private array $parameters = []
     ) {
-        $this->twig = $twig;
-        $this->template = $template;
-        $this->parameters = $parameters;
-        $this->ibexaSystemInfo = $ibexaSystemInfo;
-        $this->urlList = $urlList;
     }
 
     /**

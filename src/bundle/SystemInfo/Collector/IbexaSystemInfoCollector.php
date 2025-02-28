@@ -112,37 +112,14 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         'ibexa/commerce',
     ];
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
-     */
-    private $systemInfoCollector;
+    private ?ComposerSystemInfo $composerInfo = null;
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
-     */
-    private $composerInfo;
-
-    /** @var string */
-    private $kernelProjectDir;
-
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector
-     */
     public function __construct(
-        SystemInfoCollector $composerCollector,
-        string $kernelProjectDir,
+        private readonly SystemInfoCollector $systemInfoCollector,
+        private readonly string $kernelProjectDir
     ) {
-        $this->systemInfoCollector = $composerCollector;
-        $this->kernelProjectDir = $kernelProjectDir;
     }
 
-    /**
-     * Collects information about the Ibexa distribution and version.
-     *
-     * @throws \Exception
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo
-     */
     public function collect(): IbexaSystemInfo
     {
         if ($this->composerInfo === null) {
@@ -168,9 +145,6 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
         return $ibexa;
     }
 
-    /**
-     * @throws \Exception
-     */
     private function setReleaseInfo(IbexaSystemInfo $ibexa): void
     {
         $ibexa->release = Ibexa::VERSION;
@@ -247,7 +221,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param list<string> $packageNames
+     * @param string[] $packageNames List of package names to check.
      */
     private static function hasAnyPackage(
         ComposerSystemInfo $composerInfo,

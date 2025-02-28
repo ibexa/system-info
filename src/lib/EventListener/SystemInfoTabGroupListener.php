@@ -9,35 +9,16 @@ namespace Ibexa\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Tab\Event\TabEvents;
 use Ibexa\AdminUi\Tab\Event\TabGroupEvent;
-use Ibexa\AdminUi\Tab\TabRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class SystemInfoTabGroupListener implements EventSubscriberInterface
+readonly class SystemInfoTabGroupListener implements EventSubscriberInterface
 {
-    /** @var \Ibexa\AdminUi\Tab\TabRegistry */
-    protected $tabRegistry;
-
-    /** @var \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
-    protected $tabFactory;
-
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
-    protected $systeminfoCollectorRegistry;
-
-    /**
-     * @param \Ibexa\AdminUi\Tab\TabRegistry $tabRegistry
-     * @param \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory $tabFactory
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $systeminfoCollectorRegistry
-     */
     public function __construct(
-        TabRegistry $tabRegistry,
-        TabFactory $tabFactory,
-        SystemInfoCollectorRegistry $systeminfoCollectorRegistry
+        private TabFactory $tabFactory,
+        private SystemInfoCollectorRegistry $systeminfoCollectorRegistry
     ) {
-        $this->tabRegistry = $tabRegistry;
-        $this->tabFactory = $tabFactory;
-        $this->systeminfoCollectorRegistry = $systeminfoCollectorRegistry;
     }
 
     public static function getSubscribedEvents(): array

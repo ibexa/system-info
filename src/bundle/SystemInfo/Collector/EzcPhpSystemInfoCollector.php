@@ -13,16 +13,10 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 /**
  * Collects PHP information using zetacomponents/sysinfo.
  */
-class EzcPhpSystemInfoCollector implements SystemInfoCollector
+readonly class EzcPhpSystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
-     */
-    private $ezcSystemInfo;
-
-    public function __construct(EzcSystemInfoWrapper $ezcSystemInfo)
+    public function __construct(private EzcSystemInfoWrapper $ezcSystemInfo)
     {
-        $this->ezcSystemInfo = $ezcSystemInfo;
     }
 
     /**

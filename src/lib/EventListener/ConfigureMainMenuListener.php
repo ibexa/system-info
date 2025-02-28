@@ -18,25 +18,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ConfigureMainMenuListener implements EventSubscriberInterface, TranslationContainerInterface
 {
-    public const ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
-
-    /** @var \Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface */
-    private $menuItemFactory;
-
-    /** @var \Ibexa\Contracts\Core\Repository\PermissionResolver */
-    private $permissionResolver;
+    public const string ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
 
     public function __construct(
-        MenuItemFactoryInterface $menuItemFactory,
-        PermissionResolver $permissionResolver
+        private readonly MenuItemFactoryInterface $menuItemFactory,
+        private readonly PermissionResolver $permissionResolver
     ) {
-        $this->menuItemFactory = $menuItemFactory;
-        $this->permissionResolver = $permissionResolver;
     }
 
-    /**
-     * @param \Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent $event
-     */
     public function onMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
@@ -69,9 +58,6 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function getTranslationMessages(): array
     {
         return [

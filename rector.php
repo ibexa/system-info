@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 use Ibexa\Contracts\Rector\Sets\IbexaSetList;
 use Rector\Config\RectorConfig;
+use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
+use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SymfonySetList;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -16,10 +19,15 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
     ->withSets([
+        SetList::TYPE_DECLARATION,
         IbexaSetList::IBEXA_50->value,
         SymfonySetList::SYMFONY_60,
         SymfonySetList::SYMFONY_61,
         SymfonySetList::SYMFONY_62,
         SymfonySetList::SYMFONY_63,
         SymfonySetList::SYMFONY_64,
+    ])
+    ->withRules([
+        TypedPropertyFromAssignsRector::class,
+        ClassPropertyAssignToConstructorPromotionRector::class,
     ]);

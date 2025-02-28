@@ -15,26 +15,21 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 /**
  * @internal
  */
-final class AggregateServiceProvider implements ServiceProviderInterface
+final readonly class AggregateServiceProvider implements ServiceProviderInterface
 {
-    /** @var \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Service\ServiceInfo> */
-    private ServiceLocator $serviceLocator;
-
     /**
-     * @param \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Service\ServiceInfo> $service
+     * @param ServiceLocator<ServiceProviderInterface> $serviceLocator
      */
-    public function __construct(ServiceLocator $service)
+    public function __construct(private ServiceLocator $serviceLocator)
     {
-        $this->serviceLocator = $service;
     }
 
-    /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoServiceNotFoundException
-     */
     public function getServiceType(string $identifier): string
     {
         try {
-            return $this->serviceLocator->get($identifier)->getServiceType();
+            $service = $this->serviceLocator->get($identifier);
+
+            return $service->getServiceType($identifier);
         } catch (ServiceNotFoundException $e) {
             throw new SystemInfoServiceNotFoundException($identifier, $e);
         }

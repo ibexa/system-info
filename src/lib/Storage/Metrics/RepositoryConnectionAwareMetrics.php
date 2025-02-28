@@ -16,19 +16,12 @@ use Ibexa\SystemInfo\Storage\Metrics;
  */
 abstract class RepositoryConnectionAwareMetrics implements Metrics
 {
-    /** @var \Doctrine\DBAL\Connection */
-    protected $connection;
-
     abstract public function getValue(): int;
 
-    public function __construct(Connection $connection)
+    public function __construct(protected Connection $connection)
     {
-        $this->connection = $connection;
     }
 
-    /**
-     * @throws \Doctrine\DBAL\Exception
-     */
     protected function getCountExpression(string $columnName): string
     {
         return $this->connection->getDatabasePlatform()->getCountExpression($columnName);

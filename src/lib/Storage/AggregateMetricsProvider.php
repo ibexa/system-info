@@ -15,26 +15,21 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 /**
  * @internal
  */
-final class AggregateMetricsProvider implements MetricsProvider
+final readonly class AggregateMetricsProvider implements MetricsProvider
 {
-    /** @var \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Storage\Metrics> */
-    private ServiceLocator $metricsLocator;
-
     /**
-     * @param \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Storage\Metrics> $metrics
+     * @param ServiceLocator<Metrics> $metricsLocator
      */
-    public function __construct(ServiceLocator $metrics)
+    public function __construct(private ServiceLocator $metricsLocator)
     {
-        $this->metricsLocator = $metrics;
     }
 
-    /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\MetricsNotFoundException
-     */
     public function provideMetrics(string $identifier): Metrics
     {
         try {
-            return $this->metricsLocator->get($identifier);
+            $metrics = $this->metricsLocator->get($identifier);
+
+            return $metrics;
         } catch (ServiceNotFoundException $e) {
             throw new MetricsNotFoundException($identifier, $e);
         }

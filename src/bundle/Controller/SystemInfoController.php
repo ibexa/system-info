@@ -15,15 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
-    protected $collectorRegistry;
-
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $collectorRegistry
-     */
-    public function __construct(SystemInfoCollectorRegistry $collectorRegistry)
-    {
-        $this->collectorRegistry = $collectorRegistry;
+    public function __construct(
+        private readonly SystemInfoCollectorRegistry $collectorRegistry
+    ) {
     }
 
     public function performAccessCheck(): void
@@ -49,9 +43,6 @@ class SystemInfoController extends AdminUiController
         return $view;
     }
 
-    /**
-     * Renders a PHP info page.
-     */
     public function phpinfoAction(): Response
     {
         ob_start();

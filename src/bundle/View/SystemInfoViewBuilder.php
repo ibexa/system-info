@@ -13,26 +13,13 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
 use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
-use Ibexa\Core\MVC\Symfony\View\View;
 
-class SystemInfoViewBuilder implements ViewBuilder
+readonly class SystemInfoViewBuilder implements ViewBuilder
 {
-    /**
-     * @var \Ibexa\Core\MVC\Symfony\View\Configurator
-     */
-    private $viewConfigurator;
-
-    /**
-     * System info collector registry.
-     *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
-     */
-    private $registry;
-
-    public function __construct(Configurator $viewConfigurator, SystemInfoCollectorRegistry $registry)
-    {
-        $this->viewConfigurator = $viewConfigurator;
-        $this->registry = $registry;
+    public function __construct(
+        private Configurator $viewConfigurator,
+        private SystemInfoCollectorRegistry $registry
+    ) {
     }
 
     public function matches($argument): bool
@@ -41,11 +28,9 @@ class SystemInfoViewBuilder implements ViewBuilder
     }
 
     /**
-     * @param array<string, string> $parameters
-     *
-     * @return \Ibexa\Bundle\SystemInfo\View\SystemInfoView
+     * @param array{systemInfoIdentifier: string, viewType: string} $parameters
      */
-    public function buildView(array $parameters): View
+    public function buildView(array $parameters): SystemInfoView
     {
         $collector = $this->getCollector($parameters['systemInfoIdentifier']);
         $view = new SystemInfoView(null, [], $parameters['viewType']);
@@ -63,9 +48,6 @@ class SystemInfoViewBuilder implements ViewBuilder
         return $view;
     }
 
-    /**
-     * @param string $identifier A SystemInfo collector identifier (php, hardware...)
-     */
     private function getCollector(string $identifier): SystemInfoCollector
     {
         return $this->registry->getItem($identifier);
