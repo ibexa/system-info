@@ -20,8 +20,8 @@ class SystemInfoTab extends AbstractControllerBasedTab
         Environment $twig,
         TranslatorInterface $translator,
         HttpKernelRuntime $httpKernelRuntime,
-        protected string $tabIdentifier,
-        protected string $collectorIdentifier
+        protected readonly string $tabIdentifier,
+        protected readonly string $collectorIdentifier
     ) {
         parent::__construct($twig, $translator, $httpKernelRuntime);
     }

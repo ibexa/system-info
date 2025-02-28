@@ -47,7 +47,7 @@ services:
     # SystemInfoCollectors
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector:
         arguments:
-            $systemInfoCollector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
+            $composerCollector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
             $kernelProjectDir: '%kernel.project_dir%'
         tags:
             - { name: ibexa.system_info.collector, identifier: ibexa }

@@ -15,9 +15,11 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollector
 {
+    /**
+     * @param array<string, class-string> $bundles
+     */
     public function __construct(
         private readonly Kernel $kernel,
-        /** @var array<string, class-string> */
         private array $bundles = []
     ) {
     }

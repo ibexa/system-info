@@ -34,7 +34,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * Mainly for usage for trial to calculate TTL expiry.
      */
-    public const RELEASES = [
+    public const array RELEASES = [
         '2.5' => '2019-03-29T16:59:59+00:00',
         '3.0' => '2020-04-02T23:59:59+00:00',
         '3.1' => '2020-07-15T23:59:59+00:00',
@@ -58,7 +58,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @see: https://support.ibexa.co/Public/Service-Life
      */
-    public const EOM = [
+    public const array EOM = [
         '2.5' => '2022-03-29T23:59:59+00:00',
         '3.0' => '2020-07-10T23:59:59+00:00',
         '3.1' => '2020-11-30T23:59:59+00:00',
@@ -77,7 +77,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @see: https://support.ibexa.co/Public/Service-Life
      */
-    public const EOL = [
+    public const array EOL = [
         '2.5' => '2024-03-29T23:59:59+00:00',
         '3.0' => '2020-08-31T23:59:59+00:00',
         '3.1' => '2021-01-30T23:59:59+00:00',
@@ -92,30 +92,30 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     /**
      * Vendors we watch for stability (and potentially more).
      */
-    public const PACKAGE_WATCH_REGEX = '/^(doctrine|ezsystems|silversolutions|symfony)\//';
+    public const string PACKAGE_WATCH_REGEX = '/^(doctrine|ezsystems|silversolutions|symfony)\//';
 
     /**
      * Packages that identify installation as "Headless".
      */
-    public const HEADLESS_PACKAGES = [
+    public const array HEADLESS_PACKAGES = [
         'ibexa/headless',
     ];
 
-    public const EXPERIENCE_PACKAGES = [
+    public const array EXPERIENCE_PACKAGES = [
         'ibexa/experience',
     ];
 
     /**
      * Packages that identify installation as "Commerce".
      */
-    public const COMMERCE_PACKAGES = [
+    public const array COMMERCE_PACKAGES = [
         'ibexa/commerce',
     ];
 
     private ?ComposerSystemInfo $composerInfo = null;
 
     public function __construct(
-        private readonly SystemInfoCollector $systemInfoCollector,
+        private readonly SystemInfoCollector $composerCollector,
         private readonly string $kernelProjectDir
     ) {
     }
@@ -124,7 +124,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     {
         if ($this->composerInfo === null) {
             try {
-                $composerInfo = $this->systemInfoCollector->collect();
+                $composerInfo = $this->composerCollector->collect();
                 if ($composerInfo instanceof ComposerSystemInfo) {
                     $this->composerInfo = $composerInfo;
                 }
@@ -221,7 +221,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param string[] $packageNames List of package names to check.
+     * @param string[] $packageNames
      */
     private static function hasAnyPackage(
         ComposerSystemInfo $composerInfo,
