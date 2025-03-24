@@ -15,18 +15,19 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {
     /** @var \Ibexa\AdminUi\Tab\Event\TabGroupEvent */
-    private $event;
+    private TabGroupEvent $event;
 
     /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\AdminUi\Tab\TabRegistry */
-    private $tabRegistry;
+    private MockObject $tabRegistry;
 
     /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
-    private $tabFactory;
+    private MockObject $tabFactory;
 
     protected function setUp(): void
     {

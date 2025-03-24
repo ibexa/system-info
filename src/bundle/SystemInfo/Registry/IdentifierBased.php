@@ -16,7 +16,7 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 class IdentifierBased implements SystemInfoCollectorRegistry
 {
     /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] */
-    private $registry = [];
+    private array $registry;
 
     /**
      * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.

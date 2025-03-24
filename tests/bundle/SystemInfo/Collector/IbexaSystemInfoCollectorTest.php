@@ -13,12 +13,13 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoColle
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Ibexa\Contracts\Core\Ibexa;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class IbexaSystemInfoCollectorTest extends TestCase
 {
     /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker|\PHPUnit\Framework\MockObject\MockObject */
-    private $versionStabilityChecker;
+    private MockObject $versionStabilityChecker;
 
     public function setUp(): void
     {

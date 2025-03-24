@@ -15,8 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
-    protected $collectorRegistry;
+    protected SystemInfoCollectorRegistry $collectorRegistry;
 
     /**
      * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $collectorRegistry

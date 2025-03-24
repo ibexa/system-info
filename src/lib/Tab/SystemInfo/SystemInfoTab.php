@@ -16,11 +16,9 @@ use Twig\Environment;
 
 class SystemInfoTab extends AbstractControllerBasedTab
 {
-    /** @var string */
-    protected $tabIdentifier;
+    protected string $tabIdentifier;
 
-    /** @var string */
-    protected $collectorIdentifier;
+    protected string $collectorIdentifier;
 
     /**
      * @param \Twig\Environment $twig

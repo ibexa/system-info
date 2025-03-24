@@ -115,15 +115,14 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
      */
-    private $systemInfoCollector;
+    private SystemInfoCollector $systemInfoCollector;
 
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
      */
-    private $composerInfo;
+    private ?ComposerSystemInfo $composerInfo = null;
 
-    /** @var string */
-    private $kernelProjectDir;
+    private string $kernelProjectDir;
 
     /**
      * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector $composerCollector

@@ -11,6 +11,7 @@ use ezcSystemInfoAccelerator;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class EzcPhpSystemInfoCollectorTest extends TestCase
@@ -18,12 +19,12 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
      */
-    private $ezcSystemInfoMock;
+    private MockObject $ezcSystemInfoMock;
 
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector
      */
-    private $ezcPhpCollector;
+    private EzcPhpSystemInfoCollector $ezcPhpCollector;
 
     protected function setUp(): void
     {

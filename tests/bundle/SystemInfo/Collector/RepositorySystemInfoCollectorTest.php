@@ -14,6 +14,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class RepositorySystemInfoCollectorTest extends TestCase
@@ -21,27 +22,27 @@ class RepositorySystemInfoCollectorTest extends TestCase
     /**
      * @var \Doctrine\DBAL\Connection|\PHPUnit\Framework\MockObject\MockObject
      */
-    private $dbalConnectionMock;
+    private MockObject $dbalConnectionMock;
 
     /**
      * @var \Doctrine\DBAL\Platforms\AbstractPlatform&\PHPUnit\Framework\MockObject\MockObject
      */
-    private $dbalPlatformMock;
+    private MockObject $dbalPlatformMock;
 
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject
      */
-    private $metricsProviderMock;
+    private MockObject $metricsProviderMock;
 
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject
      */
-    private $metricsMock;
+    private MockObject $metricsMock;
 
     /**
      * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector
      */
-    private $repositoryCollector;
+    private RepositorySystemInfoCollector $repositoryCollector;
 
     protected function setUp(): void
     {
