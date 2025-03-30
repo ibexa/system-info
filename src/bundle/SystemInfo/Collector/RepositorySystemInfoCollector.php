@@ -19,17 +19,13 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
 {
     /**
      * The database connection, only used to retrieve some information on the database itself.
-     *
-     * @var \Doctrine\DBAL\Connection
      */
-    private $connection;
+    private Connection $connection;
 
     /**
      * The metrics provider needed to populate Repository value object consisting of several metrics.
-     *
-     * @var \Ibexa\SystemInfo\Storage\MetricsProvider
      */
-    private $metricsProvider;
+    private MetricsProvider $metricsProvider;
 
     public function __construct(Connection $db, MetricsProvider $metricsProvider)
     {

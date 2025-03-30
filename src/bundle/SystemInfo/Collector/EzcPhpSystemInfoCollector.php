@@ -15,10 +15,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
  */
 class EzcPhpSystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
-     */
-    private $ezcSystemInfo;
+    private EzcSystemInfoWrapper $ezcSystemInfo;
 
     public function __construct(EzcSystemInfoWrapper $ezcSystemInfo)
     {

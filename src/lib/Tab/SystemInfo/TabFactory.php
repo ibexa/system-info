@@ -14,14 +14,11 @@ use Twig\Environment;
 
 class TabFactory
 {
-    /** @var \Symfony\Bridge\Twig\Extension\HttpKernelRuntime */
-    protected $httpKernelRuntime;
+    protected HttpKernelRuntime $httpKernelRuntime;
 
-    /** @var \Twig\Environment */
-    protected $twig;
+    protected Environment $twig;
 
-    /** @var \Symfony\Contracts\Translation\TranslatorInterface */
-    protected $translator;
+    protected TranslatorInterface $translator;
 
     /**
      * @param \Twig\Environment $twig

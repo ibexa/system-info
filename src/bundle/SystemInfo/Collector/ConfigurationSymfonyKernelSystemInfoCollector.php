@@ -17,10 +17,8 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
 {
     /**
      * Symfony kernel.
-     *
-     * @var \Symfony\Component\HttpKernel\Kernel
      */
-    private $kernel;
+    private Kernel $kernel;
 
     /**
      * Installed bundles.
@@ -35,7 +33,7 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
      *
      * @var array<string, class-string>
      */
-    private $bundles;
+    private array $bundles;
 
     /**
      * @param array<string, class-string> $bundles

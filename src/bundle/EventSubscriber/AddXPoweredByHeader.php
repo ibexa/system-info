@@ -20,7 +20,7 @@ class AddXPoweredByHeader implements EventSubscriberInterface
     /**
      * @var string If empty, this powered by header is skipped.
      */
-    private $installationName;
+    private string $installationName;
 
     public function __construct(string $installationName)
     {

@@ -16,8 +16,7 @@ use Ibexa\SystemInfo\Storage\Metrics;
  */
 abstract class RepositoryConnectionAwareMetrics implements Metrics
 {
-    /** @var \Doctrine\DBAL\Connection */
-    protected $connection;
+    protected Connection $connection;
 
     abstract public function getValue(): int;
 

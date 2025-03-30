@@ -17,17 +17,12 @@ use Ibexa\Core\MVC\Symfony\View\View;
 
 class SystemInfoViewBuilder implements ViewBuilder
 {
-    /**
-     * @var \Ibexa\Core\MVC\Symfony\View\Configurator
-     */
-    private $viewConfigurator;
+    private Configurator $viewConfigurator;
 
     /**
      * System info collector registry.
-     *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
      */
-    private $registry;
+    private SystemInfoCollectorRegistry $registry;
 
     public function __construct(Configurator $viewConfigurator, SystemInfoCollectorRegistry $registry)
     {

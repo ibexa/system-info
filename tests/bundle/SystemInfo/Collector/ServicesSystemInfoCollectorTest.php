@@ -10,18 +10,13 @@ namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ServicesSystemInfo;
 use Ibexa\SystemInfo\Service\ServiceProviderInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class ServicesSystemInfoCollectorTest extends TestCase
 {
-    /**
-     * @var \Ibexa\SystemInfo\Service\ServiceProviderInterface|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private ServiceProviderInterface $serviceProviderMock;
+    private ServiceProviderInterface&MockObject $serviceProviderMock;
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector
-     */
     private ServicesSystemInfoCollector $serviceCollector;
 
     protected function setUp(): void

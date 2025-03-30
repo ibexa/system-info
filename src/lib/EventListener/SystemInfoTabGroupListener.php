@@ -16,14 +16,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SystemInfoTabGroupListener implements EventSubscriberInterface
 {
-    /** @var \Ibexa\AdminUi\Tab\TabRegistry */
-    protected $tabRegistry;
+    protected TabRegistry $tabRegistry;
 
-    /** @var \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
-    protected $tabFactory;
+    protected TabFactory $tabFactory;
 
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
-    protected $systeminfoCollectorRegistry;
+    protected SystemInfoCollectorRegistry $systeminfoCollectorRegistry;
 
     /**
      * @param \Ibexa\AdminUi\Tab\TabRegistry $tabRegistry

@@ -14,6 +14,7 @@
         "zetacomponents/system-information": "^1.1.1"
     },
     "require-dev": {
+        "hautelook/templated-uri-bundle": "^3.4",
         "ibexa/code-style": "~2.0.0",
         "ibexa/content-forms": "~5.0.x-dev",
         "ibexa/design-engine": "~5.0.x-dev",
@@ -27,12 +28,11 @@
         "ibexa/search": "~5.0.x-dev",
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
-        "hautelook/templated-uri-bundle": "^3.4",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
-        "phpunit/phpunit": "^9.6",
-        "phpstan/phpstan": "^1.12",
-        "phpstan/phpstan-phpunit": "^1.4",
-        "phpstan/phpstan-symfony": "^1.4"
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
