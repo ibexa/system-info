@@ -16,14 +16,8 @@ use PHPUnit\Framework\TestCase;
 
 class EzcPhpSystemInfoCollectorTest extends TestCase
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $ezcSystemInfoMock;
+    private EzcSystemInfoWrapper&MockObject $ezcSystemInfoMock;
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector
-     */
     private EzcPhpSystemInfoCollector $ezcPhpCollector;
 
     protected function setUp(): void
@@ -57,7 +51,6 @@ class EzcPhpSystemInfoCollectorTest extends TestCase
     {
         $value = $this->ezcPhpCollector->collect();
 
-        self::assertInstanceOf(PhpSystemInfo::class, $value);
         self::assertInstanceOf(ezcSystemInfoAccelerator::class, $this->ezcSystemInfoMock->phpAccelerator);
 
         self::assertEquals(

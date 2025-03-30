@@ -12,24 +12,16 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoViewBuilderTest extends TestCase
 {
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
-     */
-    private Configurator $configuratorMock;
+    private Configurator&MockObject $configuratorMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
-     */
-    private SystemInfoCollectorRegistry $registryMock;
+    private SystemInfoCollectorRegistry&MockObject $registryMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
-     */
-    private SystemInfoCollector $collectorMock;
+    private SystemInfoCollector&MockObject $collectorMock;
 
     public function testMatches(): void
     {
@@ -76,10 +68,7 @@ class SystemInfoViewBuilderTest extends TestCase
         return $this->configuratorMock;
     }
 
-    /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
-     */
-    protected function getRegistryMock(): SystemInfoCollectorRegistry
+    protected function getRegistryMock(): SystemInfoCollectorRegistry&MockObject
     {
         $this->registryMock ??= $this->createMock(
             SystemInfoCollectorRegistry::class
@@ -88,10 +77,7 @@ class SystemInfoViewBuilderTest extends TestCase
         return $this->registryMock;
     }
 
-    /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
-     */
-    protected function getCollectorMock(): SystemInfoCollector
+    protected function getCollectorMock(): SystemInfoCollector&MockObject
     {
         $this->collectorMock ??= $this->createMock(SystemInfoCollector::class);
 

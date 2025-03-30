@@ -19,29 +19,14 @@ use PHPUnit\Framework\TestCase;
 
 class RepositorySystemInfoCollectorTest extends TestCase
 {
-    /**
-     * @var \Doctrine\DBAL\Connection|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $dbalConnectionMock;
+    private Connection&MockObject $dbalConnectionMock;
 
-    /**
-     * @var \Doctrine\DBAL\Platforms\AbstractPlatform&\PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $dbalPlatformMock;
+    private AbstractPlatform&MockObject $dbalPlatformMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $metricsProviderMock;
+    private MetricsProvider&MockObject $metricsProviderMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $metricsMock;
+    private Metrics&MockObject $metricsMock;
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector
-     */
     private RepositorySystemInfoCollector $repositoryCollector;
 
     protected function setUp(): void
@@ -132,7 +117,6 @@ class RepositorySystemInfoCollectorTest extends TestCase
 
         $value = $this->repositoryCollector->collect();
 
-        self::assertInstanceOf(RepositorySystemInfo::class, $value);
         self::assertEquals($expected, $value);
     }
 }

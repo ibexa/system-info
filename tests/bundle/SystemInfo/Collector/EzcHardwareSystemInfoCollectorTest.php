@@ -15,14 +15,8 @@ use PHPUnit\Framework\TestCase;
 
 class EzcHardwareSystemInfoCollectorTest extends TestCase
 {
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private MockObject $ezcSystemInfoMock;
+    private EzcSystemInfoWrapper&MockObject $ezcSystemInfoMock;
 
-    /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector
-     */
     private EzcHardwareSystemInfoCollector $ezcHardware;
 
     protected function setUp(): void
@@ -45,8 +39,6 @@ class EzcHardwareSystemInfoCollectorTest extends TestCase
     public function testCollect(): void
     {
         $value = $this->ezcHardware->collect();
-
-        self::assertInstanceOf(HardwareSystemInfo::class, $value);
 
         self::assertEquals(
             new HardwareSystemInfo([

@@ -20,14 +20,11 @@ use PHPUnit\Framework\TestCase;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {
-    /** @var \Ibexa\AdminUi\Tab\Event\TabGroupEvent */
     private TabGroupEvent $event;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\AdminUi\Tab\TabRegistry */
-    private MockObject $tabRegistry;
+    private TabRegistry&MockObject $tabRegistry;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
-    private MockObject $tabFactory;
+    private TabFactory&MockObject $tabFactory;
 
     protected function setUp(): void
     {
