@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Component\Dashboard;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
-use Ibexa\Contracts\AdminUi\Component\Renderable;
+use Ibexa\Contracts\TwigComponents\ComponentInterface;
 use Twig\Environment;
 
-class EzInfoTwigComponent implements Renderable
+class EzInfoTwigComponent implements ComponentInterface
 {
     protected string $template;
 
