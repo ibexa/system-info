@@ -48,8 +48,8 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
         return new RepositorySystemInfo([
             'type' => $this->connection->getDatabasePlatform()->getName(),
             'name' => $this->connection->getDatabase(),
-            'host' => $this->connection->getHost(),
-            'username' => $this->connection->getUsername(),
+            'host' => $this->connection->getParams()['host'],
+            'username' => $this->connection->getParams()['user'],
             'repositoryMetrics' => $this->populateRepositoryMetricsData(),
         ]);
     }
