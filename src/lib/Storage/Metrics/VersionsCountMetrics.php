@@ -26,6 +26,6 @@ final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
             ->select($this->getCountExpression(self::ID_COLUMN))
             ->from(self::CONTENTOBJECT_VERSION_TABLE);
 
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
     }
 }

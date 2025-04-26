@@ -26,6 +26,6 @@ final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
             ->select($this->getCountExpression(self::CONTENTOBJECT_ID_COLUMN))
             ->from(self::USER_TABLE);
 
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
     }
 }
