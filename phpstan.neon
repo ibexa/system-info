@@ -10,6 +10,3 @@ parameters:
         - src
         - tests
     treatPhpDocTypesAsCertain: false
-    ignoreErrors:
-        -
-            message: "#^Cannot call method (fetchOne|fetchColumn|fetchAllAssociative|fetchAssociative|fetchAllKeyValue|fetchFirstColumn)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
