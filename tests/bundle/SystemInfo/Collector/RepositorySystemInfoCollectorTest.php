@@ -64,17 +64,17 @@ class RepositorySystemInfoCollectorTest extends TestCase
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getDatabasePlatform')
-            ->will(self::returnValue($this->dbalPlatformMock));
+            ->willReturn($this->dbalPlatformMock);
 
         $this->dbalPlatformMock
             ->expects(self::once())
             ->method('getName')
-            ->will(self::returnValue($expected->type));
+            ->willReturn($expected->type);
 
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getDatabase')
-            ->will(self::returnValue($expected->name));
+            ->willReturn($expected->name);
 
         $this->dbalConnectionMock
             ->expects(self::once())
@@ -82,7 +82,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
             ->willReturn([
                 'host' => $expected->host,
                 'user' => $expected->username,
-            ]));
+            ]);
 
         $this->metricsProviderMock
             ->expects(self::exactly(5))
