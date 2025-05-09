@@ -79,7 +79,7 @@ class RepositorySystemInfoCollectorTest extends TestCase
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getParams')
-            ->will(self::returnValue([
+            ->willReturn([
                 'host' => $expected->host,
                 'user' => $expected->username,
             ]));
