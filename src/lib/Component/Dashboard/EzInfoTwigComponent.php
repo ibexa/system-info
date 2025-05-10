@@ -12,6 +12,9 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Ibexa\Contracts\AdminUi\Component\Renderable;
 use Twig\Environment;
 
+/**
+ * @deprecated Since ibexa/system-info 4.6: The "EzInfoTwigComponent" class is deprecated, will be removed in 5.0.
+ */
 class EzInfoTwigComponent implements Renderable
 {
     protected string $template;
