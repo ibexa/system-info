@@ -44,6 +44,6 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
             )
             ->setParameter('status', ContentInfo::STATUS_DRAFT, ParameterType::INTEGER);
 
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
     }
 }

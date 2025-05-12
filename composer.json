@@ -28,7 +28,7 @@
         "ibexa/search": "~5.0.x-dev",
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
-        "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^5.0",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",

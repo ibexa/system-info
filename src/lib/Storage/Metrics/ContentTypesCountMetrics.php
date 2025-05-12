@@ -32,6 +32,6 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
                 $queryBuilder->expr()->eq(self::VERSION_COLUMN, Type::STATUS_DEFINED)
             );
 
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
     }
 }

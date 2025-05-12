@@ -64,27 +64,25 @@ class RepositorySystemInfoCollectorTest extends TestCase
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getDatabasePlatform')
-            ->will(self::returnValue($this->dbalPlatformMock));
+            ->willReturn($this->dbalPlatformMock);
 
         $this->dbalPlatformMock
             ->expects(self::once())
             ->method('getName')
-            ->will(self::returnValue($expected->type));
+            ->willReturn($expected->type);
 
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getDatabase')
-            ->will(self::returnValue($expected->name));
+            ->willReturn($expected->name);
 
         $this->dbalConnectionMock
             ->expects(self::once())
-            ->method('getHost')
-            ->will(self::returnValue($expected->host));
-
-        $this->dbalConnectionMock
-            ->expects(self::once())
-            ->method('getUsername')
-            ->will(self::returnValue($expected->username));
+            ->method('getParams')
+            ->willReturn([
+                'host' => $expected->host,
+                'user' => $expected->username,
+            ]);
 
         $this->metricsProviderMock
             ->expects(self::exactly(5))

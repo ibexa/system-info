@@ -32,6 +32,6 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
                 $queryBuilder->expr()->eq(self::STATUS_COLUMN, ContentInfo::STATUS_PUBLISHED)
             );
 
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
     }
 }
