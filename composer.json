@@ -14,7 +14,7 @@
         "zetacomponents/system-information": "^1.1.1"
     },
     "require-dev": {
-        "hautelook/templated-uri-bundle": "^3.4",
+        "ibexa/templated-uri-bundle": "^4.0",
         "ibexa/code-style": "~2.0.0",
         "ibexa/content-forms": "~5.0.x-dev",
         "ibexa/design-engine": "~5.0.x-dev",
