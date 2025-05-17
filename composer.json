@@ -11,6 +11,7 @@
         "ext-json": "*",
         "ibexa/admin-ui": "~5.0.x-dev",
         "ibexa/core": "~5.0.x-dev",
+        "ibexa/twig-components": "~5.0.x-dev",
         "zetacomponents/system-information": "^1.1.1"
     },
     "require-dev": {
