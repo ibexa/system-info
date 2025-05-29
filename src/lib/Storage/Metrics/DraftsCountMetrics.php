@@ -10,14 +10,15 @@ namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\ParameterType;
 use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
+use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
 
 /**
  * @internal
  */
 final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_VERSION_TABLE = 'ezcontentobject_version';
-    private const CONTENTOBJECT_TABLE = 'ezcontentobject';
+    private const CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
+    private const CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
 
     /**
      * @throws \Doctrine\DBAL\Exception

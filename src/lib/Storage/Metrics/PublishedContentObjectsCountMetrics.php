@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
+use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
 
 /**
  * @internal
  */
 final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_TABLE = 'ezcontentobject';
+    private const CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
     private const ID_COLUMN = 'id';
     private const STATUS_COLUMN = 'status';
 

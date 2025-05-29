@@ -8,12 +8,14 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Ibexa\Core\Persistence\Legacy\User\Gateway as UserGateway;
+
 /**
  * @internal
  */
 final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const USER_TABLE = 'ezuser';
+    private const USER_TABLE = UserGateway::USER_TABLE;
     private const CONTENTOBJECT_ID_COLUMN = 'contentobject_id';
 
     /**
