@@ -8,12 +8,14 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
+
 /**
  * @internal
  */
 final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_VERSION_TABLE = 'ezcontentobject_version';
+    private const CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
     private const ID_COLUMN = 'id';
 
     /**
