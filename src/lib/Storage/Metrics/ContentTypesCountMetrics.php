@@ -16,9 +16,9 @@ use Ibexa\Core\Persistence\Legacy\Content\Type\Gateway as ContentTypeGateway;
  */
 final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENT_TYPE_TABLE = ContentTypeGateway::CONTENT_TYPE_TABLE;
-    private const ID_COLUMN = 'id';
-    private const VERSION_COLUMN = 'version';
+    private const string CONTENT_TYPE_TABLE = ContentTypeGateway::CONTENT_TYPE_TABLE;
+    private const string ID_COLUMN = 'id';
+    private const string VERSION_COLUMN = 'version';
 
     /**
      * @throws \Doctrine\DBAL\Exception
