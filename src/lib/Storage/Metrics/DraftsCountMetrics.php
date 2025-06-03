@@ -17,8 +17,8 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
  */
 final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
-    private const CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
+    private const string CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
+    private const string CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
 
     /**
      * @throws \Doctrine\DBAL\Exception

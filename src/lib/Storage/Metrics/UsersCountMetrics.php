@@ -15,8 +15,8 @@ use Ibexa\Core\Persistence\Legacy\User\Gateway as UserGateway;
  */
 final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const USER_TABLE = UserGateway::USER_TABLE;
-    private const CONTENTOBJECT_ID_COLUMN = 'contentobject_id';
+    private const string USER_TABLE = UserGateway::USER_TABLE;
+    private const string CONTENTOBJECT_ID_COLUMN = 'contentobject_id';
 
     /**
      * @throws \Doctrine\DBAL\Exception

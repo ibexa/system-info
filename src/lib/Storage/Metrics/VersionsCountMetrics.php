@@ -15,8 +15,8 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
  */
 final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
-    private const ID_COLUMN = 'id';
+    private const string CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
+    private const string ID_COLUMN = 'id';
 
     /**
      * @throws \Doctrine\DBAL\Exception
