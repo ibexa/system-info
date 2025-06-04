@@ -18,7 +18,7 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
 {
     private const string CONTENT_TYPE_TABLE = ContentTypeGateway::CONTENT_TYPE_TABLE;
     private const string ID_COLUMN = 'id';
-    private const string VERSION_COLUMN = 'version';
+    private const string STATUS_COLUMN = 'status';
 
     /**
      * @throws \Doctrine\DBAL\Exception
@@ -30,7 +30,7 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
             ->select($this->getCountExpression(self::ID_COLUMN))
             ->from(self::CONTENT_TYPE_TABLE)
             ->where(
-                $queryBuilder->expr()->eq(self::VERSION_COLUMN, Type::STATUS_DEFINED)
+                $queryBuilder->expr()->eq(self::STATUS_COLUMN, Type::STATUS_DEFINED)
             );
 
         return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
