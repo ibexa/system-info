@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
@@ -12,7 +13,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Kernel;
 
-class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
+final class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
 {
     /**
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector::collect()
@@ -35,39 +36,42 @@ class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
             'charset' => 'UTF-8',
         ]);
 
-        $kernelMock = $this->getMockBuilder('Symfony\Component\HttpKernel\Kernel')
-            ->setConstructorArgs([$expected->environment, $expected->debugMode])
+        $kernelMock = $this->getMockBuilder(Kernel::class)
+            ->setConstructorArgs([
+                $expected->environment,
+                $expected->debugMode,
+            ])
             ->getMock();
 
         $kernelMock
             ->expects(self::once())
             ->method('getEnvironment')
-            ->will(self::returnValue($expected->environment));
+            ->willReturn($expected->environment);
 
         $kernelMock
             ->expects(self::once())
             ->method('isDebug')
-            ->will(self::returnValue($expected->debugMode));
+            ->willReturn($expected->debugMode);
 
         $kernelMock
             ->expects(self::once())
             ->method('getProjectDir')
-            ->will(self::returnValue($expected->projectDir));
+            ->willReturn($expected->projectDir);
 
         $kernelMock
             ->expects(self::once())
             ->method('getCacheDir')
-            ->will(self::returnValue($expected->cacheDir));
+            ->willReturn($expected->cacheDir);
 
         $kernelMock
             ->expects(self::once())
             ->method('getLogDir')
-            ->will(self::returnValue($expected->logDir));
+            ->willReturn($expected->logDir);
 
         $kernelMock
             ->expects(self::once())
             ->method('getCharset')
-            ->will(self::returnValue($expected->charset));
+            ->willReturn($expected->charset);
 
         $symfonyCollector = new ConfigurationSymfonyKernelSystemInfoCollector(
             $kernelMock,

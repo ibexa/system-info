@@ -16,7 +16,6 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
  */
 final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const string CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
     private const string ID_COLUMN = 'id';
     private const string STATUS_COLUMN = 'status';
 
@@ -28,11 +27,11 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select($this->getCountExpression(self::ID_COLUMN))
-            ->from(self::CONTENTOBJECT_TABLE)
+            ->from(ContentGateway::CONTENT_ITEM_TABLE)
             ->where(
                 $queryBuilder->expr()->eq(self::STATUS_COLUMN, ContentInfo::STATUS_PUBLISHED)
             );
 
-        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
+        return (int)$queryBuilder->executeQuery()->fetchOne();
     }
 }

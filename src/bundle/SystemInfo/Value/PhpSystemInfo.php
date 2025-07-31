@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
@@ -12,48 +13,25 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 /**
  * Value for information about the PHP interpreter and accelerator (if any) we are using.
  */
-class PhpSystemInfo extends ValueObject implements SystemInfo
+final class PhpSystemInfo extends ValueObject implements SystemInfo
 {
-    /**
-     * PHP version.
-     *
-     * Example: 5.6.7-1
-     *
-     * @var string
-     */
-    public $version;
+    public string $version;
 
-    /**
-     * True if an accelerator is enabled.
-     *
-     * @var bool
-     */
-    public $acceleratorEnabled;
+    public bool $acceleratorEnabled;
 
-    /**
-     * PHP accelerator name, or null if no accelerator is enabled.
-     *
-     * Example: Zend OPcache
-     *
-     * @var string|null
-     */
-    public $acceleratorName;
+    public ?string $acceleratorName;
 
     /**
      * PHP accelerator URL, or null if no accelerator is enabled.
      *
      * Example: http://www.php.net/opcache
-     *
-     * @var string|null
      */
-    public $acceleratorURL;
+    public ?string $acceleratorURL;
 
     /**
      * PHP accelerator version, or null if no accelerator is enabled.
      *
      * Example: 7.0.4-devFE
-     *
-     * @var string|null
      */
-    public $acceleratorVersion;
+    public ?string $acceleratorVersion;
 }

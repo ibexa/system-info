@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\View;
 
@@ -15,7 +16,7 @@ use Ibexa\Core\MVC\Symfony\View\Configurator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class SystemInfoViewBuilderTest extends TestCase
+final class SystemInfoViewBuilderTest extends TestCase
 {
     private Configurator&MockObject $configuratorMock;
 
@@ -25,13 +26,23 @@ class SystemInfoViewBuilderTest extends TestCase
 
     public function testMatches(): void
     {
-        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
-        self::assertTrue($builder->matches('ibexa.support_tools.view.controller::viewInfoAction'));
+        $builder = new SystemInfoViewBuilder(
+            $this->getConfiguratorMock(),
+            $this->getRegistryMock()
+        );
+
+        self::assertTrue(
+            $builder->matches('ibexa.support_tools.view.controller::viewInfoAction')
+        );
     }
 
     public function testNotMatches(): void
     {
-        $builder = new SystemInfoViewBuilder($this->getConfiguratorMock(), $this->getRegistryMock());
+        $builder = new SystemInfoViewBuilder(
+            $this->getConfiguratorMock(),
+            $this->getRegistryMock()
+        );
+
         self::assertFalse($builder->matches('service::someAction'));
     }
 
@@ -54,14 +65,12 @@ class SystemInfoViewBuilderTest extends TestCase
             ->will(self::returnValue($systemInfo));
 
         $view = $builder->buildView(['systemInfoIdentifier' => 'test', 'viewType' => 'test']);
+
         self::assertSame($view->getInfo(), $systemInfo);
-        self::assertEquals($view->getViewType(), 'test');
+        self::assertEquals('test', $view->getViewType());
     }
 
-    /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
-     */
-    protected function getConfiguratorMock(): Configurator
+    protected function getConfiguratorMock(): MockObject&Configurator
     {
         $this->configuratorMock ??= $this->createMock(Configurator::class);
 

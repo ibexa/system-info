@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Value;
 
-final class Stability
+final readonly class Stability
 {
     /**
      * @var array<int, string> Hash of stability constant values to human readable stabilities, see Composer\Package\BasePackage.
      *
      * Needed as long as we don't want to depend on Composer.
      */
-    public const STABILITIES = [
+    public const array STABILITIES = [
         0 => 'stable',
         5 => 'RC',
         10 => 'beta',

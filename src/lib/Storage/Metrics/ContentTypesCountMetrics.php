@@ -16,7 +16,6 @@ use Ibexa\Core\Persistence\Legacy\Content\Type\Gateway as ContentTypeGateway;
  */
 final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const string CONTENT_TYPE_TABLE = ContentTypeGateway::CONTENT_TYPE_TABLE;
     private const string ID_COLUMN = 'id';
     private const string STATUS_COLUMN = 'status';
 
@@ -28,11 +27,11 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select($this->getCountExpression(self::ID_COLUMN))
-            ->from(self::CONTENT_TYPE_TABLE)
+            ->from(ContentTypeGateway::CONTENT_TYPE_TABLE)
             ->where(
                 $queryBuilder->expr()->eq(self::STATUS_COLUMN, Type::STATUS_DEFINED)
             );
 
-        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
+        return (int)$queryBuilder->executeQuery()->fetchOne();
     }
 }

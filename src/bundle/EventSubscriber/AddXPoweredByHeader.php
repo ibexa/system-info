@@ -15,16 +15,10 @@ use Symfony\Component\HttpKernel\KernelEvents;
 /**
  * Sets X-Powered-By header to promote use of Platform.
  */
-class AddXPoweredByHeader implements EventSubscriberInterface
+final readonly class AddXPoweredByHeader implements EventSubscriberInterface
 {
-    /**
-     * @var string If empty, this powered by header is skipped.
-     */
-    private string $installationName;
-
-    public function __construct(string $installationName)
+    public function __construct(private string $installationName)
     {
-        $this->installationName = $installationName;
     }
 
     public static function getSubscribedEvents(): array

@@ -18,17 +18,20 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 
-class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
+final class IbexaSystemInfoExtension extends Extension implements PrependExtensionInterface
 {
-    public const EXTENSION_NAME = 'ibexa_system_info';
-    public const METRICS_TAG = 'ibexa.system_info.metrics';
-    public const SERVICE_TAG = 'ibexa.system_info.service';
+    public const string EXTENSION_NAME = 'ibexa_system_info';
+    public const string METRICS_TAG = 'ibexa.system_info.metrics';
+    public const string SERVICE_TAG = 'ibexa.system_info.service';
 
     public function getAlias(): string
     {
         return self::EXTENSION_NAME;
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
         return new Configuration();
@@ -54,7 +57,6 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
             $container->setParameter(
                 'ibexa.system_info.powered_by.name',
                 $this->getPoweredByName(
-                    $container,
                     $config['system_info']['powered_by']['release']
                 )
             );
@@ -66,12 +68,10 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         $this->prependJMSTranslation($container);
     }
 
-    private function getPoweredByName(ContainerBuilder $container, ?string $release): string
+    private function getPoweredByName(?string $release): string
     {
-        $vendor = $container->getParameter('kernel.project_dir') . '/vendor/';
-
         // Autodetect product name
-        $name = self::getNameByPackages($vendor);
+        $name = self::getNameByPackages();
 
         if ($release === 'major') {
             $name .= ' v' . (int)Ibexa::VERSION;
@@ -112,8 +112,10 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return 'oss';
     }
 
-    public static function getNameByPackages(string $vendor = null): string
+    public static function getNameByPackages(): string
     {
-        return IbexaSystemInfo::PRODUCT_NAME_VARIANTS[self::getEditionByPackages()];
+        return IbexaSystemInfo::PRODUCT_NAME_VARIANTS[
+            self::getEditionByPackages()
+        ];
     }
 }

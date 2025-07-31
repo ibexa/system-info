@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\Command;
 
@@ -22,15 +23,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class SystemInfoDumpCommand extends Command
 {
-    private SystemInfoCollectorRegistry $systemInfoCollectorRegistry;
-
-    private OutputFormatRegistry $outputFormatRegistry;
-
-    public function __construct(SystemInfoCollectorRegistry $systemInfoCollectorRegistry, OutputFormatRegistry $outputFormatRegistry)
-    {
-        $this->systemInfoCollectorRegistry = $systemInfoCollectorRegistry;
-        $this->outputFormatRegistry = $outputFormatRegistry;
-
+    public function __construct(
+        private readonly SystemInfoCollectorRegistry $systemInfoCollectorRegistry,
+        private readonly OutputFormatRegistry $outputFormatRegistry
+    ) {
         parent::__construct();
     }
 
@@ -39,10 +35,10 @@ final class SystemInfoDumpCommand extends Command
         $this
             ->setHelp(
                 <<<'EOD'
-By default it dumps information from all available information collectors.
-You can specify one or more collectors as arguments, e.g. 'php database hardware'.
-To get a list if available collectors, use '--list-info-collectors'
-EOD
+                    By default it dumps information from all available information collectors.
+                    You can specify one or more collectors as arguments, e.g. 'php database hardware'.
+                    To get a list if available collectors, use '--list-info-collectors'
+                EOD
             )
             ->addOption(
                 'list-info-collectors',
@@ -65,16 +61,11 @@ EOD
         ;
     }
 
-    /**
-     * Execute the Command.
-     *
-     * @param $input InputInterface
-     * @param $output OutputInterface
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('list-info-collectors')) {
             $output->writeln('Available info collectors:', OutputInterface::OUTPUT_NORMAL);
+
             foreach ($this->systemInfoCollectorRegistry->getIdentifiers() as $identifier) {
                 $output->writeln("  $identifier", OutputInterface::OUTPUT_NORMAL);
             }

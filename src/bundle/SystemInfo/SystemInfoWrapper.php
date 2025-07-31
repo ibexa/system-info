@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
@@ -15,7 +16,7 @@ use ezcSystemInfoReaderCantScanOSException;
  * This wraps zetacomponents/sysinfo, exposing its magic properties as public properties.
  * Used here to allow lazy loading.
  */
-class EzcSystemInfoWrapper
+class SystemInfoWrapper
 {
     public ?string $osType;
 

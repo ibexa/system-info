@@ -4,10 +4,12 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Composer\InstalledVersions;
+use DateTime;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
@@ -17,15 +19,9 @@ use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 /**
  * Collects information about installed Composer packages, by reading json from composer.lock.
  */
-class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
+final class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
 {
-    public const IBEXA_OSS_PACKAGE = 'ibexa/oss';
-
-    private VersionStabilityChecker $versionStabilityChecker;
-
-    private string $lockFile;
-
-    private string $jsonFile;
+    public const string IBEXA_OSS_PACKAGE = 'ibexa/oss';
 
     /**
      * The collected value, cached in case info is collected by other collectors.
@@ -33,21 +29,18 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     private ?ComposerSystemInfo $value = null;
 
     public function __construct(
-        VersionStabilityChecker $versionStabilityChecker,
-        string $lockFile,
-        string $jsonFile
+        private readonly VersionStabilityChecker $versionStabilityChecker,
+        private readonly string $lockFile,
+        private readonly string $jsonFile
     ) {
-        $this->versionStabilityChecker = $versionStabilityChecker;
-        $this->lockFile = $lockFile;
-        $this->jsonFile = $jsonFile;
     }
 
     /**
      * Collects information about installed composer packages.
      *
-     * @throws Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
-     * @throws Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
-     * @throws Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
+     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException if the composer.lock file was not found.
+     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerJsonFileNotFoundException if the composer.json file was not found.
+     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException if composer.lock of composer.json are not valid.
      */
     public function collect(): ComposerSystemInfo
     {
@@ -104,18 +97,18 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
             $package = new ComposerPackage([
                 'name' => $packageData['name'],
                 'branch' => $packageData['version'],
-                'dateTime' => isset($packageData['time']) ? new \DateTime($packageData['time']) : null,
-                'homepage' => isset($packageData['homepage']) ? $packageData['homepage'] : '',
+                'dateTime' => isset($packageData['time']) ? new DateTime($packageData['time']) : null,
+                'homepage' => $packageData['homepage'] ?? '',
                 'reference' => isset($packageData['source']) ? $packageData['source']['reference'] : null,
-                'license' => isset($packageData['license'][0]) ? $packageData['license'][0] : null,
+                'license' => $packageData['license'][0] ?? null,
             ]);
 
             if (isset($lockData['stability-flags'][$package->name])) {
                 $stabilityFlag = (int)$lockData['stability-flags'][$package->name];
 
-                if (isset(Stability::STABILITIES[$stabilityFlag])) {
-                    $package->stability = Stability::STABILITIES[$stabilityFlag];
-                }
+                $package->stability = Stability::STABILITIES[$stabilityFlag] ?? null;
+            } else {
+                $package->stability = null;
             }
 
             if (isset($rootAliases[$package->name])) {
@@ -161,12 +154,9 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
         return $repos;
     }
 
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage $package
-     */
     private static function setNormalizedVersion(ComposerPackage $package): void
     {
-        $version = $package->alias ? $package->alias : $package->branch;
+        $version = $package->alias ?: $package->branch;
         if ($version[0] === 'v') {
             $version = substr($version, 1);
         }

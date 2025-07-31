@@ -15,17 +15,13 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 /**
  * @internal
  */
-final class AggregateServiceProvider implements ServiceProviderInterface
+final readonly class AggregateServiceProvider implements ServiceProviderInterface
 {
-    /** @var \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Service\ServiceInfo> */
-    private ServiceLocator $serviceLocator;
-
     /**
-     * @param \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Service\ServiceInfo> $service
+     * @param \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Service\ServiceInfo> $serviceLocator
      */
-    public function __construct(ServiceLocator $service)
+    public function __construct(private ServiceLocator $serviceLocator)
     {
-        $this->serviceLocator = $service;
     }
 
     /**

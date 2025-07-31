@@ -4,96 +4,33 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
+use DateTimeInterface;
 use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 
 /**
  * Value for information about a Composer package.
  */
-class ComposerPackage extends ValueObject implements SystemInfo
+final class ComposerPackage extends ValueObject implements SystemInfo
 {
-    /**
-     * Name.
-     *
-     * Example: ezsystems/ezpublish-kernel
-     *
-     * @var string
-     */
-    public $name;
+    public string $name;
 
-    /**
-     * Tag or Branch.
-     *
-     * Examples: v2.7.10, dev-master
-     *
-     * @var string
-     */
-    public $branch;
+    public string $branch;
 
-    /**
-     * Alias.
-     *
-     * Examples: v2.7.x-dev
-     *
-     * @var string|null
-     */
-    public $alias = null;
+    public string $version;
 
-    /**
-     * Normilized version number.
-     *
-     * Uses root-alias or package-aliases if present to try to provide a version number even on branches.
-     *
-     * Examples: 2.7.10, 2.8.x
-     *
-     * @var string
-     */
-    public $version;
+    public ?string $alias = null;
 
-    /**
-     * License string.
-     *
-     * Only contains the first license on the package, if set.
-     *
-     * Examples: 'TTL-2.0', 'GPL-2.0-only'
-     *
-     * @var string|null
-     */
-    public $license = null;
+    public ?string $license = null;
 
-    /**
-     * Stability.
-     *
-     * One of: stable, RC, beta, alpha, dev, or null if not set.
-     *
-     * @var string|null
-     */
-    public $stability;
+    public ?string $stability;
 
-    /**
-     * Date and time.
-     *
-     * @var \DateTime
-     */
-    public $dateTime;
+    public ?DateTimeInterface $dateTime;
 
-    /**
-     * Homepage URL, or null of not set.
-     *
-     * Example: https://symfony.com
-     *
-     * @var string|null
-     */
-    public $homepage;
+    public ?string $homepage;
 
-    /**
-     * Reference.
-     *
-     * Example: 9a3b6bf6ebee49370aaf15abc1bdeb4b1986a67d
-     *
-     * @var string
-     */
-    public $reference;
+    public ?string $reference;
 }

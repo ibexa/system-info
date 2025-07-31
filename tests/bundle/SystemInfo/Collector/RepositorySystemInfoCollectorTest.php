@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
@@ -17,7 +18,7 @@ use Ibexa\SystemInfo\Storage\MetricsProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class RepositorySystemInfoCollectorTest extends TestCase
+final class RepositorySystemInfoCollectorTest extends TestCase
 {
     private Connection&MockObject $dbalConnectionMock;
 
@@ -31,8 +32,8 @@ class RepositorySystemInfoCollectorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->dbalConnectionMock = $this->getMockBuilder(Connection::class)->disableOriginalConstructor()->getMock();
-        $this->dbalPlatformMock = $this->getMockBuilder(AbstractPlatform::class)->getMock();
+        $this->dbalConnectionMock = $this->createMock(Connection::class);
+        $this->dbalPlatformMock = $this->createMock(AbstractPlatform::class);
         $this->metricsProviderMock = $this->createMock(MetricsProvider::class);
         $this->metricsMock = $this->createMock(Metrics::class);
 
@@ -49,9 +50,9 @@ class RepositorySystemInfoCollectorTest extends TestCase
     {
         $expected = new RepositorySystemInfo([
             'type' => 'mysql',
-            'name' => 'ezp_platform',
+            'name' => 'ibexa_db',
             'host' => 'localhost',
-            'username' => 'ezp_user',
+            'username' => 'ibexa_user',
             'repositoryMetrics' => new RepositoryMetrics([
                 'publishedCount' => 10,
                 'usersCount' => 5,

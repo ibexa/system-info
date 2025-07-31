@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
@@ -12,13 +13,11 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
-class IdentifierBasedTest extends TestCase
+final class IdentifierBasedTest extends TestCase
 {
     private IdentifierBased $registry;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
-     */
+    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] */
     private array $testItems;
 
     protected function setUp(): void
@@ -35,6 +34,8 @@ class IdentifierBasedTest extends TestCase
      * Test adding items to the registry, and getting items from it.
      *
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
+     *
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
     public function testAddAndGetItems(): void
     {

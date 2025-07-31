@@ -79,16 +79,16 @@
             "time": "2016-01-05 22:11:12"
         },
         {
-            "name": "ezsystems/ezpublish-kernel",
+            "name": "ibexa/core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ezsystems/ezpublish-kernel.git",
+                "url": "https://github.com/ibexa/ibexa/core.git",
                 "reference": "ec897baa77c63b745749acf201e85b92bd614723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/ec897baa77c63b745749acf201e85b92bd614723",
+                "url": "https://api.github.com/repos/ibexa/core/zipball/ec897baa77c63b745749acf201e85b92bd614723",
                 "reference": "ec897baa77c63b745749acf201e85b92bd614723",
                 "shasum": ""
             },
@@ -355,13 +355,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ezsystems/ezpublish-kernel": 20,
-        "ezsystems/repository-forms": 20,
-        "ezsystems/ezplatform-solr-search-engine": 20,
-        "ezsystems/platform-ui-bundle": 20,
-        "ezsystems/platform-ui-assets-bundle": 15,
-        "ezsystems/ez-support-tools": 20,
-        "ezsystems/behatbundle": 20
+        "ibexa/core": 20,
+        "ibexa/content-forms": 20,
+        "ibexa/solr": 20,
+        "ibexa/behat": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

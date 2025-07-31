@@ -4,20 +4,13 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
-/**
- * Collects system information.
- */
 interface SystemInfoCollector
 {
-    /**
-     * Collects system information.
-     *
-     * @return Value\SystemInfo
-     */
-    public function collect();
+    public function collect(): Value\SystemInfo;
 }

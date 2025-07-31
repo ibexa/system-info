@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
@@ -12,17 +13,13 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 /**
  * A registry of OutputFormats.
  */
-class OutputFormatRegistry
+final readonly class OutputFormatRegistry
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] */
-    private array $registry = [];
-
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
+     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $registry Hash of OutputFormats, with identifier string as key.
      */
-    public function __construct(array $items = [])
+    public function __construct(private array $registry = [])
     {
-        $this->registry = $items;
     }
 
     /**
@@ -38,9 +35,7 @@ class OutputFormatRegistry
     }
 
     /**
-     * Returns the identifiers of all registered OutputFormats.
-     *
-     * @return string[] Array of identifier strings.
+     * @return string[]
      */
     public function getIdentifiers(): array
     {

@@ -13,7 +13,6 @@ services:
         public: true
 
     Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder:
-        class: Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder
         arguments:
             - '@Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider'
             - '@Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased'

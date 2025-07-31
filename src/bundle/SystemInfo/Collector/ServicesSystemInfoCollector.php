@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
@@ -13,13 +14,10 @@ use Ibexa\SystemInfo\Service\ServiceProviderInterface;
 /**
  * Collects information about the services used within the project.
  */
-final class ServicesSystemInfoCollector implements SystemInfoCollector
+final readonly class ServicesSystemInfoCollector implements SystemInfoCollector
 {
-    private ServiceProviderInterface $serviceProvider;
-
-    public function __construct(ServiceProviderInterface $serviceProvider)
+    public function __construct(private ServiceProviderInterface $serviceProvider)
     {
-        $this->serviceProvider = $serviceProvider;
     }
 
     public function collect(): ServicesSystemInfo

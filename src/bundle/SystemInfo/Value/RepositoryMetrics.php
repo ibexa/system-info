@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
@@ -12,36 +13,15 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 /**
  * Value for various repository metrics (content object count, user count etc.).
  */
-class RepositoryMetrics extends ValueObject implements SystemInfo
+final class RepositoryMetrics extends ValueObject implements SystemInfo
 {
-    /**
-     * Count of all published content objects.
-     *
-     * @var int
-     */
-    public $publishedCount;
+    public int $publishedCount;
 
-    /**
-     * Count of users.
-     *
-     * @var int
-     */
-    public $usersCount;
+    public int $usersCount;
 
-    /**
-     * Count of drafts.
-     *
-     * @var int
-     */
-    public $draftsCount;
+    public int $draftsCount;
 
-    /**
-     * Total count of versions.
-     *
-     * @var int
-     */
-    public $versionsCount;
+    public int $versionsCount;
 
-    /** @var int */
-    public $contentTypesCount;
+    public int $contentTypesCount;
 }
