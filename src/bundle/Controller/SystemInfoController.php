@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\Controller;
 
@@ -13,29 +14,20 @@ use Ibexa\Contracts\AdminUi\Controller\Controller as AdminUiController;
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Symfony\Component\HttpFoundation\Response;
 
-class SystemInfoController extends AdminUiController
+final class SystemInfoController extends AdminUiController
 {
-    protected SystemInfoCollectorRegistry $collectorRegistry;
-
-    /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $collectorRegistry
-     */
-    public function __construct(SystemInfoCollectorRegistry $collectorRegistry)
-    {
-        $this->collectorRegistry = $collectorRegistry;
+    public function __construct(
+        private readonly SystemInfoCollectorRegistry $collectorRegistry
+    ) {
     }
 
     public function performAccessCheck(): void
     {
         parent::performAccessCheck();
+
         $this->denyAccessUnlessGranted(new Attribute('setup', 'system_info'));
     }
 
-    /**
-     * Renders the system information page.
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function infoAction(): Response
     {
         return $this->render('@ibexadesign/system_info/info.html.twig', [
@@ -48,9 +40,6 @@ class SystemInfoController extends AdminUiController
         return $view;
     }
 
-    /**
-     * Renders a PHP info page.
-     */
     public function phpinfoAction(): Response
     {
         ob_start();

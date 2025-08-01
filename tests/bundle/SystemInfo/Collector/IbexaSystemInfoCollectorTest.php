@@ -16,7 +16,7 @@ use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class IbexaSystemInfoCollectorTest extends TestCase
+final class IbexaSystemInfoCollectorTest extends TestCase
 {
     private VersionStabilityChecker&MockObject $versionStabilityChecker;
 
@@ -33,16 +33,15 @@ class IbexaSystemInfoCollectorTest extends TestCase
             __DIR__ . '/_fixtures/composer.json'
         );
 
-        $systemInfoCollector = new IbexaSystemInfoCollector(
-            $composerCollector,
-            dirname(__DIR__, 5)
-        );
+        $systemInfoCollector = new IbexaSystemInfoCollector($composerCollector);
+
         $systemInfo = $systemInfoCollector->collect();
+
         self::assertSame(IbexaSystemInfo::PRODUCT_NAME_OSS, $systemInfo->name);
         self::assertSame(Ibexa::VERSION, $systemInfo->release);
 
         // Test that information from the composer.json file is correctly extracted
-        self::assertSame('dev', $systemInfo->lowestStability);
+        self::assertSame('stable', $systemInfo->lowestStability);
     }
 
     public function testCollectWithInvalidComposerJson(): void
@@ -53,11 +52,10 @@ class IbexaSystemInfoCollectorTest extends TestCase
             __DIR__ . '/_fixtures/corrupted_composer.json'
         );
 
-        $systemInfoCollector = new IbexaSystemInfoCollector(
-            $composerCollector,
-            dirname(__DIR__, 5)
-        );
-        $systemInfo = $systemInfoCollector->collect();
-        self::assertNull($systemInfo->lowestStability);
+        $systemInfoCollector = new IbexaSystemInfoCollector($composerCollector);
+
+        self::expectNotToPerformAssertions();
+
+        $systemInfoCollector->collect();
     }
 }

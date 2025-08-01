@@ -17,9 +17,6 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
  */
 final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const string CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
-    private const string CONTENTOBJECT_TABLE = ContentGateway::CONTENT_ITEM_TABLE;
-
     /**
      * @throws \Doctrine\DBAL\Exception
      */
@@ -30,10 +27,10 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 
         $queryBuilder
             ->select($this->getCountExpression('v.id'))
-            ->from(self::CONTENTOBJECT_VERSION_TABLE, 'v')
+            ->from(ContentGateway::CONTENT_VERSION_TABLE, 'v')
             ->innerJoin(
                 'v',
-                self::CONTENTOBJECT_TABLE,
+                ContentGateway::CONTENT_ITEM_TABLE,
                 'c',
                 $expr->and(
                     $expr->eq('c.id', 'v.contentobject_id'),
@@ -45,6 +42,6 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
             )
             ->setParameter('status', ContentInfo::STATUS_DRAFT, ParameterType::INTEGER);
 
-        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
+        return (int)$queryBuilder->executeQuery()->fetchOne();
     }
 }

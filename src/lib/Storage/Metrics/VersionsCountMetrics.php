@@ -15,7 +15,6 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
  */
 final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const string CONTENTOBJECT_VERSION_TABLE = ContentGateway::CONTENT_VERSION_TABLE;
     private const string ID_COLUMN = 'id';
 
     /**
@@ -26,8 +25,8 @@ final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select($this->getCountExpression(self::ID_COLUMN))
-            ->from(self::CONTENTOBJECT_VERSION_TABLE);
+            ->from(ContentGateway::CONTENT_VERSION_TABLE);
 
-        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
+        return (int)$queryBuilder->executeQuery()->fetchOne();
     }
 }

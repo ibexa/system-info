@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Tab\SystemInfo;
 
 use Ibexa\Contracts\AdminUi\Tab\AbstractControllerBasedTab;
+use JMS\TranslationBundle\Annotation\Ignore;
 use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -16,28 +17,14 @@ use Twig\Environment;
 
 class SystemInfoTab extends AbstractControllerBasedTab
 {
-    protected string $tabIdentifier;
-
-    protected string $collectorIdentifier;
-
-    /**
-     * @param \Twig\Environment $twig
-     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
-     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
-     * @param string $tabIdentifier
-     * @param string $collectorIdentifier
-     */
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,
         HttpKernelRuntime $httpKernelRuntime,
-        string $tabIdentifier,
-        string $collectorIdentifier
+        protected string $tabIdentifier,
+        protected string $collectorIdentifier
     ) {
         parent::__construct($twig, $translator, $httpKernelRuntime);
-
-        $this->tabIdentifier = $tabIdentifier;
-        $this->collectorIdentifier = $collectorIdentifier;
     }
 
     public function getControllerReference(array $parameters): ControllerReference
@@ -55,6 +42,10 @@ class SystemInfoTab extends AbstractControllerBasedTab
 
     public function getName(): string
     {
-        return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'ibexa_systeminfo');
+        return /** @Ignore */$this->translator->trans(
+            sprintf('tab.name.%s', $this->tabIdentifier),
+            [],
+            'ibexa_systeminfo'
+        );
     }
 }

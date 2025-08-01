@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Tests\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
@@ -13,7 +14,7 @@ use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 use Ibexa\Core\MVC\Symfony\View\ContentView;
 use PHPUnit\Framework\TestCase;
 
-class IdentitifierTest extends TestCase
+final class IdentifierTest extends TestCase
 {
     public function testMatch(): void
     {

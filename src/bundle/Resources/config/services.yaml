@@ -41,14 +41,13 @@ services:
 
     Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry: ~
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper:
+    Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper:
         lazy: true
 
     # SystemInfoCollectors
     Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector:
         arguments:
-            $composerCollector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
-            $kernelProjectDir: '%kernel.project_dir%'
+            $collector: '@Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector'
         tags:
             - { name: ibexa.system_info.collector, identifier: ibexa }
 
@@ -69,19 +68,19 @@ services:
         lazy: true
         autowire: true
         arguments:
-            $db: '@ibexa.persistence.connection'
+            $connection: '@ibexa.persistence.connection'
         tags:
             - { name: ibexa.system_info.collector, identifier: repository }
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\HardwareSystemInfoCollector:
         arguments:
-            - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: hardware }
 
-    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector:
+    Ibexa\Bundle\SystemInfo\SystemInfo\Collector\PhpSystemInfoCollector:
         arguments:
-            - '@Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper'
+            - '@Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper'
         tags:
             - { name: ibexa.system_info.collector, identifier: php }
 
@@ -108,7 +107,7 @@ services:
 
     Ibexa\SystemInfo\Storage\AggregateMetricsProvider:
         arguments:
-            $metrics: !tagged_locator
+            $metricsLocator: !tagged_locator
                 tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::METRICS_TAG
                 index_by: identifier
 
@@ -158,7 +157,7 @@ services:
 
     Ibexa\SystemInfo\Service\AggregateServiceProvider:
         arguments:
-            $service: !tagged_locator
+            $serviceLocator: !tagged_locator
                 tag: !php/const \Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension::SERVICE_TAG
                 index_by: identifier
 

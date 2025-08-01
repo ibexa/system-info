@@ -15,7 +15,6 @@ use Ibexa\Core\Persistence\Legacy\User\Gateway as UserGateway;
  */
 final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
 {
-    private const string USER_TABLE = UserGateway::USER_TABLE;
     private const string CONTENTOBJECT_ID_COLUMN = 'contentobject_id';
 
     /**
@@ -26,8 +25,8 @@ final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select($this->getCountExpression(self::CONTENTOBJECT_ID_COLUMN))
-            ->from(self::USER_TABLE);
+            ->from(UserGateway::USER_TABLE);
 
-        return (int) $queryBuilder->executeQuery()->fetchFirstColumn();
+        return (int)$queryBuilder->executeQuery()->fetchOne();
     }
 }

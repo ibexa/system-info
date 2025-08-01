@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
@@ -12,33 +13,13 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 /**
  * Value for information about the hardware we are running on.
  */
-class HardwareSystemInfo extends ValueObject implements SystemInfo
+final class HardwareSystemInfo extends ValueObject implements SystemInfo
 {
-    /**
-     * CPU type.
-     *
-     * @var string
-     */
-    public $cpuType;
+    public ?string $cpuType;
 
-    /**
-     * CPU speed.
-     *
-     * @var string
-     */
-    public $cpuSpeed;
+    public ?string $cpuSpeed;
 
-    /**
-     * CPU count.
-     *
-     * @var int
-     */
-    public $cpuCount;
+    public ?int $cpuCount;
 
-    /**
-     * Memory size.
-     *
-     * @var float
-     */
-    public $memorySize;
+    public ?float $memorySize;
 }

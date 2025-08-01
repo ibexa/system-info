@@ -16,25 +16,16 @@ use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class ConfigureMainMenuListener implements EventSubscriberInterface, TranslationContainerInterface
+final readonly class ConfigureMainMenuListener implements EventSubscriberInterface, TranslationContainerInterface
 {
-    public const ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
-
-    private MenuItemFactoryInterface $menuItemFactory;
-
-    private PermissionResolver $permissionResolver;
+    public const string ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
 
     public function __construct(
-        MenuItemFactoryInterface $menuItemFactory,
-        PermissionResolver $permissionResolver
+        private MenuItemFactoryInterface $menuItemFactory,
+        private PermissionResolver $permissionResolver
     ) {
-        $this->menuItemFactory = $menuItemFactory;
-        $this->permissionResolver = $permissionResolver;
     }
 
-    /**
-     * @param \Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent $event
-     */
     public function onMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
@@ -47,6 +38,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
         if ($adminMenu === null) {
             return;
         }
+
         $adminMenu->addChild(
             $this->menuItemFactory->createItem(
                 self::ITEM_ADMIN__SYSTEMINFO,

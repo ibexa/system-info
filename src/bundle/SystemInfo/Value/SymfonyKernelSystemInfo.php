@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
@@ -12,32 +13,13 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 /**
  * Value for information about the Symfony kernel we are using.
  */
-class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
+final class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
 {
-    /**
-     * Symfony environment.
-     *
-     * "dev" or "prod".
-     *
-     * @var string
-     */
-    public $environment;
+    public string $environment;
 
-    /**
-     * True if Symfony is in debug mode.
-     *
-     * @var bool
-     */
-    public $debugMode;
+    public bool $debugMode;
 
-    /**
-     * Symfony version.
-     *
-     * Example: 2.7.10
-     *
-     * @var string
-     */
-    public $version;
+    public string $version;
 
     /**
      * Installed bundles.
@@ -52,41 +34,13 @@ class SymfonyKernelSystemInfo extends ValueObject implements SystemInfo
      *
      * @var array<string, class-string>
      */
-    public $bundles;
+    public array $bundles;
 
-    /**
-     * Project directory.
-     *
-     * Example: /srv/www/ibexa-dxp/app
-     *
-     * @var string
-     */
-    public $projectDir;
+    public string $projectDir;
 
-    /**
-     * Cache directory.
-     *
-     * Example: /srv/www/ibexa-dxp/app/cache/prod
-     *
-     * @var string
-     */
-    public $cacheDir;
+    public string $cacheDir;
 
-    /**
-     * Log file directory.
-     *
-     * Example: /srv/www/ibexa-dxp/app/logs
-     *
-     * @var string
-     */
-    public $logDir;
+    public string $logDir;
 
-    /**
-     * Character set.
-     *
-     * Example: UTF-8
-     *
-     * @var string
-     */
-    public $charset;
+    public string $charset;
 }

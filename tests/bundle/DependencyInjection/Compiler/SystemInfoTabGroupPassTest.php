@@ -15,7 +15,7 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
+final class SystemInfoTabGroupPassTest extends AbstractCompilerPassTestCase
 {
     protected function setUp(): void
     {

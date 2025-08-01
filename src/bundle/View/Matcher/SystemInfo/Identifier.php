@@ -4,21 +4,23 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\View\Matcher\SystemInfo;
 
 use Ibexa\Bundle\SystemInfo\View\SystemInfoView;
 use Ibexa\Core\MVC\Symfony\Matcher\ViewMatcherInterface;
 use Ibexa\Core\MVC\Symfony\View\View;
+use RuntimeException;
 
-class Identifier implements ViewMatcherInterface
+final class Identifier implements ViewMatcherInterface
 {
     /**
      * Matched SystemInfo identifier. Example: 'php', 'hardware'...
      */
     private string $identifier;
 
-    public function setMatchingConfig($matchingConfig): void
+    public function setMatchingConfig(mixed $matchingConfig): void
     {
         $this->identifier = $matchingConfig;
     }
@@ -37,7 +39,7 @@ class Identifier implements ViewMatcherInterface
 
     private function toIdentifier(object $object): string
     {
-        $className = \get_class($object);
+        $className = get_class($object);
         $className = substr($className, strrpos($className, '\\') + 1);
         $className = str_replace('SystemInfo', '', $className);
 
@@ -49,7 +51,7 @@ class Identifier implements ViewMatcherInterface
         $normalized = preg_replace('~(?<=\\w)([A-Z])~u', '_$1', $name);
 
         if ($normalized === null) {
-            throw new \RuntimeException(sprintf(
+            throw new RuntimeException(sprintf(
                 'preg_replace returned null for value "%s"',
                 $name
             ));

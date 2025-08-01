@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
@@ -15,22 +16,12 @@ use Ibexa\SystemInfo\Storage\MetricsProvider;
 /**
  * Collects database information using Doctrine.
  */
-class RepositorySystemInfoCollector implements SystemInfoCollector
+readonly class RepositorySystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * The database connection, only used to retrieve some information on the database itself.
-     */
-    private Connection $connection;
-
-    /**
-     * The metrics provider needed to populate Repository value object consisting of several metrics.
-     */
-    private MetricsProvider $metricsProvider;
-
-    public function __construct(Connection $db, MetricsProvider $metricsProvider)
-    {
-        $this->connection = $db;
-        $this->metricsProvider = $metricsProvider;
+    public function __construct(
+        private Connection $connection,
+        private MetricsProvider $metricsProvider
+    ) {
     }
 
     /**
@@ -40,8 +31,6 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
      *  - host
      *  - username
      *  - repository metrics (containing count of content objects, users, drafts etc.).
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo
      */
     public function collect(): RepositorySystemInfo
     {

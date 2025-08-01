@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
@@ -13,10 +14,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-/**
- * {@inheritdoc}
- */
-class SystemInfoTabGroupPass implements CompilerPassInterface
+final readonly class SystemInfoTabGroupPass implements CompilerPassInterface
 {
     /**
      * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException

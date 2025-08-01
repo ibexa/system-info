@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
@@ -13,13 +14,8 @@ use Symfony\Component\HttpKernel\Kernel;
 /**
  * Collects information about the Symfony kernel we are using.
  */
-class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollector
+final class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollector
 {
-    /**
-     * Symfony kernel.
-     */
-    private Kernel $kernel;
-
     /**
      * Installed bundles.
      *
@@ -31,24 +27,14 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
      *   'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
      * )
      *
-     * @var array<string, class-string>
-     */
-    private array $bundles;
-
-    /**
      * @param array<string, class-string> $bundles
      */
-    public function __construct(Kernel $kernel, array $bundles)
-    {
-        $this->kernel = $kernel;
-        $this->bundles = $bundles;
+    public function __construct(
+        private readonly Kernel $kernel,
+        private array $bundles
+    ) {
     }
 
-    /**
-     * Collects information about the Symfony kernel.
-     *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo
-     */
     public function collect(): SymfonyKernelSystemInfo
     {
         ksort($this->bundles, SORT_FLAG_CASE | SORT_STRING);

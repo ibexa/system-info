@@ -15,16 +15,17 @@ use Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInte
  */
 final class SearchEngineServiceInfo implements ServiceInfo
 {
-    private const SEARCH_KEY = 'search';
-    private const ENGINE_KEY = 'engine';
+    private const string SEARCH_KEY = 'search';
+    private const string ENGINE_KEY = 'engine';
 
-    private RepositoryConfigurationProviderInterface $repositoryConfigProvider;
-
-    public function __construct(RepositoryConfigurationProviderInterface $repositoryConfigProvider)
-    {
-        $this->repositoryConfigProvider = $repositoryConfigProvider;
+    public function __construct(
+        private RepositoryConfigurationProviderInterface $repositoryConfigProvider
+    ) {
     }
 
+    /**
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
+     */
     public function getServiceType(): string
     {
         $repositoryConfig = $this->repositoryConfigProvider->getRepositoryConfig();

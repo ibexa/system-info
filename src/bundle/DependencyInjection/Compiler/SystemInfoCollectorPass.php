@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class SystemInfoCollectorPass implements CompilerPassInterface
+final readonly class SystemInfoCollectorPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
     {

@@ -4,22 +4,20 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
-use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
+use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
 
 /**
  * Collects PHP information using zetacomponents/sysinfo.
  */
-class EzcPhpSystemInfoCollector implements SystemInfoCollector
+final readonly class PhpSystemInfoCollector implements SystemInfoCollector
 {
-    private EzcSystemInfoWrapper $ezcSystemInfo;
-
-    public function __construct(EzcSystemInfoWrapper $ezcSystemInfo)
+    public function __construct(private SystemInfoWrapper $wrapper)
     {
-        $this->ezcSystemInfo = $ezcSystemInfo;
     }
 
     /**
@@ -34,14 +32,14 @@ class EzcPhpSystemInfoCollector implements SystemInfoCollector
             'acceleratorEnabled' => false,
         ];
 
-        if ($this->ezcSystemInfo->phpAccelerator) {
+        if ($this->wrapper->phpAccelerator) {
             $properties = array_merge(
                 $properties,
                 [
-                    'acceleratorEnabled' => $this->ezcSystemInfo->phpAccelerator->isEnabled,
-                    'acceleratorName' => $this->ezcSystemInfo->phpAccelerator->name,
-                    'acceleratorURL' => $this->ezcSystemInfo->phpAccelerator->url,
-                    'acceleratorVersion' => $this->ezcSystemInfo->phpAccelerator->versionString,
+                    'acceleratorEnabled' => $this->wrapper->phpAccelerator->isEnabled,
+                    'acceleratorName' => $this->wrapper->phpAccelerator->name,
+                    'acceleratorURL' => $this->wrapper->phpAccelerator->url,
+                    'acceleratorVersion' => $this->wrapper->phpAccelerator->versionString,
                 ]
             );
         }
