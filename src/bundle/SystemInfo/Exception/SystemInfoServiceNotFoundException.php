@@ -11,7 +11,7 @@ use Ibexa\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
 final class SystemInfoServiceNotFoundException extends BaseNotFoundException
 {
-    public function __construct(string $identifier, Exception $previous = null)
+    public function __construct(string $identifier, ?Exception $previous = null)
     {
         parent::__construct('Service', $identifier, $previous);
     }

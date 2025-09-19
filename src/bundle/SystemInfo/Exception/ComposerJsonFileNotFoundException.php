@@ -11,7 +11,7 @@ use Ibexa\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
 class ComposerJsonFileNotFoundException extends BaseNotFoundException implements SystemInfoException
 {
-    public function __construct(string $path, Exception $previous = null)
+    public function __construct(string $path, ?Exception $previous = null)
     {
         parent::__construct('Composer.json file', $path, $previous);
     }
