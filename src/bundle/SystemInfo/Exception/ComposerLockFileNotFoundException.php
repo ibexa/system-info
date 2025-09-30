@@ -13,7 +13,7 @@ use Ibexa\Core\Base\Exceptions\NotFoundException as BaseNotFoundException;
 
 final class ComposerLockFileNotFoundException extends BaseNotFoundException implements SystemInfoException
 {
-    public function __construct(string $path, Exception $previous = null)
+    public function __construct(string $path, ?Exception $previous = null)
     {
         parent::__construct('composer.lock file', $path, $previous);
     }
