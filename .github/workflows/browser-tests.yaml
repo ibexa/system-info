@@ -16,3 +16,4 @@ jobs:
             test-suite:  '--profile=browser --suite=admin-ui --tags=@systemInformation'
         secrets:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            AUTOMATION_CLIENT_SECRET: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
