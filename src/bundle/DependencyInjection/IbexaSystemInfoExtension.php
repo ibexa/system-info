@@ -112,7 +112,7 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return 'oss';
     }
 
-    public static function getNameByPackages(string $vendor = null): string
+    public static function getNameByPackages(?string $vendor = null): string
     {
         return IbexaSystemInfo::PRODUCT_NAME_VARIANTS[self::getEditionByPackages()];
     }
