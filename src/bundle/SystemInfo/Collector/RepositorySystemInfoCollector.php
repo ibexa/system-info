@@ -9,6 +9,9 @@ declare(strict_types=1);
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
+use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
+use Doctrine\DBAL\Platforms\SqlitePlatform;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
@@ -37,12 +40,24 @@ readonly class RepositorySystemInfoCollector implements SystemInfoCollector
         $params = $this->connection->getParams();
 
         return new RepositorySystemInfo([
-            'type' => $this->connection->getDatabasePlatform()->getName(),
+            'type' => $this->getDatabasePlatformName(),
             'name' => $this->connection->getDatabase(),
             'host' => $params['host'] ?? '',
             'username' => $params['user'] ?? '',
             'repositoryMetrics' => $this->populateRepositoryMetricsData(),
         ]);
+    }
+
+    private function getDatabasePlatformName(): string
+    {
+        $platform = $this->connection->getDatabasePlatform();
+
+        return match (true) {
+            $platform instanceof AbstractMySQLPlatform => 'mysql',
+            $platform instanceof PostgreSQLPlatform => 'postgresql',
+            $platform instanceof SqlitePlatform => 'sqlite',
+            default => $platform::class,
+        };
     }
 
     private function populateRepositoryMetricsData(): RepositoryMetrics
