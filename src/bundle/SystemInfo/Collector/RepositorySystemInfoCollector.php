@@ -9,11 +9,10 @@ declare(strict_types=1);
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
-use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
-use Doctrine\DBAL\Platforms\SqlitePlatform;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
+use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
+use Ibexa\Core\Persistence\Doctrine\DatabasePlatform;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
 
 /**
@@ -52,12 +51,11 @@ readonly class RepositorySystemInfoCollector implements SystemInfoCollector
     {
         $platform = $this->connection->getDatabasePlatform();
 
-        return match (true) {
-            $platform instanceof AbstractMySQLPlatform => 'mysql',
-            $platform instanceof PostgreSQLPlatform => 'postgresql',
-            $platform instanceof SqlitePlatform => 'sqlite',
-            default => $platform::class,
-        };
+        try {
+            return DatabasePlatform::resolveName($platform);
+        } catch (InvalidArgumentException) {
+            return $platform::class;
+        }
     }
 
     private function populateRepositoryMetricsData(): RepositoryMetrics
