@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
@@ -22,7 +22,7 @@ final class RepositorySystemInfoCollectorTest extends TestCase
 {
     private Connection&MockObject $dbalConnectionMock;
 
-    private AbstractPlatform&MockObject $dbalPlatformMock;
+    private AbstractMySQLPlatform&MockObject $dbalPlatformMock;
 
     private MetricsProvider&MockObject $metricsProviderMock;
 
@@ -33,7 +33,7 @@ final class RepositorySystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->dbalConnectionMock = $this->createMock(Connection::class);
-        $this->dbalPlatformMock = $this->createMock(AbstractPlatform::class);
+        $this->dbalPlatformMock = $this->createMock(AbstractMySQLPlatform::class);
         $this->metricsProviderMock = $this->createMock(MetricsProvider::class);
         $this->metricsMock = $this->createMock(Metrics::class);
 
@@ -66,11 +66,6 @@ final class RepositorySystemInfoCollectorTest extends TestCase
             ->expects(self::once())
             ->method('getDatabasePlatform')
             ->willReturn($this->dbalPlatformMock);
-
-        $this->dbalPlatformMock
-            ->expects(self::once())
-            ->method('getName')
-            ->willReturn($expected->type);
 
         $this->dbalConnectionMock
             ->expects(self::once())
