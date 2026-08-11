@@ -5,7 +5,6 @@ imports:
     - { resource: events.yaml }
 
 parameters:
-    ibexa.system_info.powered_by.name: ''
     ibexa.system_info.ibexa_url_list:
         contact: "https://www.ibexa.co/about-ibexa/contact-us"
         license: "https://www.ibexa.co/software-information/licenses-and-agreements"

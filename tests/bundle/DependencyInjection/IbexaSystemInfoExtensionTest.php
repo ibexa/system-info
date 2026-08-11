@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection;
 
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
+use Ibexa\Bundle\SystemInfo\EventSubscriber\AddXPoweredByHeader;
 use Ibexa\SystemInfo\Service;
 use Ibexa\SystemInfo\Service\AggregateServiceProvider;
 use Ibexa\SystemInfo\Service\ServiceProviderInterface;
@@ -70,11 +71,11 @@ final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    public function testPoweredByNameIsNotSetWhenHeaderIsDisabled(): void
+    public function testPoweredBySubscriberIsRemovedWhenHeaderIsDisabled(): void
     {
         $this->load(['system_info' => ['powered_by' => ['enabled' => false]]]);
 
-        self::assertSame('', $this->container->getParameter(self::POWERED_BY_NAME_PARAMETER));
+        $this->assertContainerBuilderNotHasService(AddXPoweredByHeader::class);
     }
 
     public function testLoadServiceServices(): void

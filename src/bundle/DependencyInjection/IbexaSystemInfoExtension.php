@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
 use Composer\InstalledVersions;
+use Ibexa\Bundle\SystemInfo\EventSubscriber\AddXPoweredByHeader;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
 use Symfony\Component\Config\FileLocator;
@@ -62,6 +63,8 @@ final class IbexaSystemInfoExtension extends Extension implements PrependExtensi
                 'ibexa.system_info.powered_by.name',
                 self::POWERED_BY_PRODUCT_NAME
             );
+        } else {
+            $container->removeDefinition(AddXPoweredByHeader::class);
         }
     }
 
