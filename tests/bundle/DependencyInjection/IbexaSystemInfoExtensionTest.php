@@ -19,6 +19,8 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
+    private const string POWERED_BY_NAME_PARAMETER = 'ibexa.system_info.powered_by.name';
+
     /**
      * @return \Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface[]
      */
@@ -56,6 +58,23 @@ final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
                 ['identifier' => $identifier]
             );
         }
+    }
+
+    public function testPoweredByName(): void
+    {
+        $this->load([]);
+
+        $this->assertContainerBuilderHasParameter(
+            self::POWERED_BY_NAME_PARAMETER,
+            'Cohesivo CMS'
+        );
+    }
+
+    public function testPoweredByNameIsNotSetWhenHeaderIsDisabled(): void
+    {
+        $this->load(['system_info' => ['powered_by' => ['enabled' => false]]]);
+
+        self::assertSame('', $this->container->getParameter(self::POWERED_BY_NAME_PARAMETER));
     }
 
     public function testLoadServiceServices(): void
