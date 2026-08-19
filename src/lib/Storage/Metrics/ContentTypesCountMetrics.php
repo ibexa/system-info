@@ -29,7 +29,7 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
             ->select($this->getCountExpression(self::ID_COLUMN))
             ->from(ContentTypeGateway::CONTENT_TYPE_TABLE)
             ->where(
-                $queryBuilder->expr()->eq(self::STATUS_COLUMN, Type::STATUS_DEFINED)
+                $queryBuilder->expr()->eq(self::STATUS_COLUMN, (string)Type::STATUS_DEFINED)
             );
 
         return (int)$queryBuilder->executeQuery()->fetchOne();

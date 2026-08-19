@@ -29,7 +29,7 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
             ->select($this->getCountExpression(self::ID_COLUMN))
             ->from(ContentGateway::CONTENT_ITEM_TABLE)
             ->where(
-                $queryBuilder->expr()->eq(self::STATUS_COLUMN, ContentInfo::STATUS_PUBLISHED)
+                $queryBuilder->expr()->eq(self::STATUS_COLUMN, (string)ContentInfo::STATUS_PUBLISHED)
             );
 
         return (int)$queryBuilder->executeQuery()->fetchOne();
