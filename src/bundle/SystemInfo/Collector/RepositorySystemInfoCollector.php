@@ -11,8 +11,7 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 use Doctrine\DBAL\Connection;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
-use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
-use Ibexa\Core\Persistence\Doctrine\DatabasePlatformResolver;
+use Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformResolver;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
 
 /**
@@ -51,11 +50,8 @@ readonly class RepositorySystemInfoCollector implements SystemInfoCollector
     {
         $platform = $this->connection->getDatabasePlatform();
 
-        try {
-            return DatabasePlatformResolver::resolveName($platform)->value;
-        } catch (InvalidArgumentException) {
-            return $platform::class;
-        }
+        // The resolver returns null for a platform it does not recognise rather than throwing.
+        return DatabasePlatformResolver::resolveName($platform)->value ?? $platform::class;
     }
 
     private function populateRepositoryMetricsData(): RepositoryMetrics
