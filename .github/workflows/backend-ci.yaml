@@ -18,14 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Setup PHP Action
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
-          extensions: 'pdo_sqlite, gd'
-          tools: cs2pr
-
       - uses: ibexa/gh-workflows/actions/composer-install@main
         with:
           php-version: ${{ matrix.php }}
@@ -55,14 +47,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-
-      - name: Setup PHP Action
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
-          extensions: pdo_sqlite, gd
-          tools: cs2pr
 
       - uses: ibexa/gh-workflows/actions/composer-install@main
         with:
@@ -97,14 +81,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-
-      - name: Setup PHP Action
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
-          extensions: pdo_sqlite, gd
-          tools: cs2pr
 
       - uses: ibexa/gh-workflows/actions/composer-install@main
         with:
