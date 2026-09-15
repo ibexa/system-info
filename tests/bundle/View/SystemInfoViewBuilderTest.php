@@ -53,16 +53,16 @@ final class SystemInfoViewBuilderTest extends TestCase
             $this->getRegistryMock()
         );
 
-        $systemInfo = $this->createMock(SystemInfo::class);
+        $systemInfo = $this->createStub(SystemInfo::class);
 
         $this->getRegistryMock()
             ->method('getItem')
             ->with('test')
-            ->will(self::returnValue($this->getCollectorMock()));
+            ->willReturn($this->getCollectorMock());
 
         $this->getCollectorMock()
             ->method('collect')
-            ->will(self::returnValue($systemInfo));
+            ->willReturn($systemInfo);
 
         $view = $builder->buildView(['systemInfoIdentifier' => 'test', 'viewType' => 'test']);
 

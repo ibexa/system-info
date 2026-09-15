@@ -10,14 +10,13 @@ namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Kernel;
 
+#[CoversMethod(ConfigurationSymfonyKernelSystemInfoCollector::class, 'collect')]
 final class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
 {
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ConfigurationSymfonyKernelSystemInfoCollector::collect()
-     */
     public function testCollect(): void
     {
         $expected = new SymfonyKernelSystemInfo([
