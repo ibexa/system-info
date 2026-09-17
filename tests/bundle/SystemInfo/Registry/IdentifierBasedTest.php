@@ -11,8 +11,11 @@ namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
+#[CoversMethod(IdentifierBased::class, 'getItem')]
 final class IdentifierBasedTest extends TestCase
 {
     private IdentifierBased $registry;
@@ -23,8 +26,8 @@ final class IdentifierBasedTest extends TestCase
     protected function setUp(): void
     {
         $this->testItems = [
-            'foo' => $this->createMock(SystemInfoCollector::class),
-            'bar' => $this->createMock(SystemInfoCollector::class),
+            'foo' => $this->createStub(SystemInfoCollector::class),
+            'bar' => $this->createStub(SystemInfoCollector::class),
         ];
 
         $this->registry = new IdentifierBased();
@@ -32,8 +35,6 @@ final class IdentifierBasedTest extends TestCase
 
     /**
      * Test adding items to the registry, and getting items from it.
-     *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      *
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
@@ -47,8 +48,6 @@ final class IdentifierBasedTest extends TestCase
 
     /**
      * Test exception when registry item is not found.
-     *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
     public function testGetItemNotFound(): void
     {
@@ -58,15 +57,13 @@ final class IdentifierBasedTest extends TestCase
 
     /**
      * Test replacing an item in the registry.
-     *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
      */
     public function testReplaceItem(): void
     {
         $this->registry = new IdentifierBased($this->testItems);
 
         $replaceItems = [
-            'foo' => $this->createMock('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
+            'foo' => $this->createStub('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
         ];
 
         $this->registry = new IdentifierBased($replaceItems);
@@ -77,11 +74,8 @@ final class IdentifierBasedTest extends TestCase
 
     /**
      * Test getting all registered identifiers.
-     *
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
-     *
-     * @depends testAddAndGetItems
      */
+    #[Depends('testAddAndGetItems')]
     public function testGetIdentifiers(): void
     {
         $this->registry = new IdentifierBased($this->testItems);

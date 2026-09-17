@@ -16,21 +16,20 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundExcepti
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
+#[CoversMethod(JsonComposerLockSystemInfoCollector::class, 'collect')]
 final class JsonComposerLockSystemInfoCollectorTest extends TestCase
 {
-    private VersionStabilityChecker&MockObject $versionStabilityChecker;
+    private VersionStabilityChecker&Stub $versionStabilityChecker;
 
     public function setUp(): void
     {
-        $this->versionStabilityChecker = $this->createMock(VersionStabilityChecker::class);
+        $this->versionStabilityChecker = $this->createStub(VersionStabilityChecker::class);
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
-     */
     public function testCollectWithMinimumStability(): void
     {
         $expected = new ComposerSystemInfo([
@@ -94,9 +93,6 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
         self::assertEquals($expected, $value);
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
-     */
     public function testCollectLockFileNotFound(): void
     {
         $this->expectException(ComposerLockFileNotFoundException::class);
@@ -110,9 +106,6 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
         $composerCollectorNotFound->collect();
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
-     */
     public function testCollectJsonFileNotFound(): void
     {
         $this->expectException(ComposerJsonFileNotFoundException::class);
@@ -126,9 +119,6 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
         $composerCollectorNotFound->collect();
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
-     */
     public function testCollectLockFileCorrupted(): void
     {
         $composerCollectorCorrupted = new JsonComposerLockSystemInfoCollector(
@@ -141,9 +131,6 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
         $composerCollectorCorrupted->collect();
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector::collect()
-     */
     public function testCollectJsonFileCorrupted(): void
     {
         $composerCollectorCorrupted = new JsonComposerLockSystemInfoCollector(

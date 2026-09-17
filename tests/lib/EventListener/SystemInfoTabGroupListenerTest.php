@@ -15,6 +15,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -47,10 +48,9 @@ final class SystemInfoTabGroupListenerTest extends TestCase
     }
 
     /**
-     * @dataProvider dataProvider
-     *
      * @param string[] $identifiers
      */
+    #[DataProvider('dataProvider')]
     public function testOnTabGroupPreRender(array $identifiers): void
     {
         $this->tabFactory
@@ -58,8 +58,8 @@ final class SystemInfoTabGroupListenerTest extends TestCase
             ->method('createTab')
             ->willReturnMap(
                 [
-                    ['identifier_1', null, $this->createMock(SystemInfoTab::class)],
-                    ['identifier_2', null, $this->createMock(SystemInfoTab::class)],
+                    ['identifier_1', null, $this->createStub(SystemInfoTab::class)],
+                    ['identifier_2', null, $this->createStub(SystemInfoTab::class)],
                 ]
             )
         ;
@@ -82,7 +82,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
 
     public function testSubscribedEvents(): void
     {
-        $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
+        $systemInfoCollectorRegistry = $this->createStub(SystemInfoCollectorRegistry::class);
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener(
             $this->tabFactory,
             $systemInfoCollectorRegistry
@@ -97,7 +97,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
     /**
      * @return array<string, array<array<string>>>
      */
-    public function dataProvider(): array
+    public static function dataProvider(): array
     {
         return [
             'two_identifiers' => [['identifier_1', 'identifier_2']],

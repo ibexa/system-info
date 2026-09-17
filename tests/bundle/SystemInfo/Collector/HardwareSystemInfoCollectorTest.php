@@ -11,9 +11,11 @@ namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\HardwareSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversMethod(HardwareSystemInfoCollector::class, 'collect')]
 final class HardwareSystemInfoCollectorTest extends TestCase
 {
     private SystemInfoWrapper&MockObject $systemInfoMock;
@@ -35,9 +37,6 @@ final class HardwareSystemInfoCollectorTest extends TestCase
         $this->ezcHardware = new HardwareSystemInfoCollector($this->systemInfoMock);
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector::collect()
-     */
     public function testCollect(): void
     {
         $value = $this->ezcHardware->collect();
