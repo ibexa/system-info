@@ -26,8 +26,8 @@ final class IdentifierBasedTest extends TestCase
     protected function setUp(): void
     {
         $this->testItems = [
-            'foo' => $this->createStub(SystemInfoCollector::class),
-            'bar' => $this->createStub(SystemInfoCollector::class),
+            'foo' => self::createStub(SystemInfoCollector::class),
+            'bar' => self::createStub(SystemInfoCollector::class),
         ];
 
         $this->registry = new IdentifierBased();
@@ -63,7 +63,7 @@ final class IdentifierBasedTest extends TestCase
         $this->registry = new IdentifierBased($this->testItems);
 
         $replaceItems = [
-            'foo' => $this->createStub('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
+            'foo' => self::createStub('Ibexa\\Bundle\\SystemInfo\\SystemInfo\\Collector\\SystemInfoCollector'),
         ];
 
         $this->registry = new IdentifierBased($replaceItems);

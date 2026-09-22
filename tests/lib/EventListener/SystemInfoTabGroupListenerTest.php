@@ -58,8 +58,8 @@ final class SystemInfoTabGroupListenerTest extends TestCase
             ->method('createTab')
             ->willReturnMap(
                 [
-                    ['identifier_1', null, $this->createStub(SystemInfoTab::class)],
-                    ['identifier_2', null, $this->createStub(SystemInfoTab::class)],
+                    ['identifier_1', null, self::createStub(SystemInfoTab::class)],
+                    ['identifier_2', null, self::createStub(SystemInfoTab::class)],
                 ]
             )
         ;
@@ -82,7 +82,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
 
     public function testSubscribedEvents(): void
     {
-        $systemInfoCollectorRegistry = $this->createStub(SystemInfoCollectorRegistry::class);
+        $systemInfoCollectorRegistry = self::createStub(SystemInfoCollectorRegistry::class);
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener(
             $this->tabFactory,
             $systemInfoCollectorRegistry

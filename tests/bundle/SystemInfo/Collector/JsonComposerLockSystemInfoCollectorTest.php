@@ -27,7 +27,7 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
 
     public function setUp(): void
     {
-        $this->versionStabilityChecker = $this->createStub(VersionStabilityChecker::class);
+        $this->versionStabilityChecker = self::createStub(VersionStabilityChecker::class);
     }
 
     public function testCollectWithMinimumStability(): void
