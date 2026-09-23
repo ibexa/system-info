@@ -36,7 +36,7 @@ final class RepositorySystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->dbalConnectionMock = $this->createMock(Connection::class);
-        $this->dbalPlatformMock = $this->createStub(AbstractMySQLPlatform::class);
+        $this->dbalPlatformMock = self::createStub(AbstractMySQLPlatform::class);
         $this->metricsProviderMock = $this->createMock(MetricsProvider::class);
         $this->metricsMock = $this->createMock(Metrics::class);
 

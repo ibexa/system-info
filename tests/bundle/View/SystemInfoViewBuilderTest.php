@@ -53,7 +53,7 @@ final class SystemInfoViewBuilderTest extends TestCase
             $this->getRegistryMock()
         );
 
-        $systemInfo = $this->createStub(SystemInfo::class);
+        $systemInfo = self::createStub(SystemInfo::class);
 
         $this->getRegistryMock()
             ->method('getItem')
