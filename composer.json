@@ -7,7 +7,7 @@
         "ezsystems/ez-support-tools": "*"
     },
     "require": {
-        "php": " >=8.3",
+        "php": ">=8.5",
         "ext-json": "*",
         "ibexa/admin-ui": "~6.0.x-dev",
         "ibexa/core": "~6.0.x-dev",
