@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Composer\InstalledVersions;
@@ -89,7 +90,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     /**
      * @param array<string, mixed> $lockData
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage[]
+     * @return ComposerPackage[]
      */
     private function extractPackages(array $lockData): array
     {
@@ -161,7 +162,7 @@ class JsonComposerLockSystemInfoCollector implements SystemInfoCollector
     }
 
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage $package
+     * @param ComposerPackage $package
      */
     private static function setNormalizedVersion(ComposerPackage $package): void
     {

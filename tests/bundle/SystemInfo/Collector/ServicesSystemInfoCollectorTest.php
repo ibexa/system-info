@@ -4,22 +4,24 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ServicesSystemInfo;
 use Ibexa\SystemInfo\Service\ServiceProviderInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class ServicesSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \Ibexa\SystemInfo\Service\ServiceProviderInterface|\PHPUnit\Framework\MockObject\MockObject
+     * @var ServiceProviderInterface|MockObject
      */
     private ServiceProviderInterface $serviceProviderMock;
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\ServicesSystemInfoCollector
+     * @var ServicesSystemInfoCollector
      */
     private ServicesSystemInfoCollector $serviceCollector;
 

@@ -29,16 +29,20 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         return self::EXTENSION_NAME;
     }
 
-    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
-    {
+    public function getConfiguration(
+        array $config,
+        ContainerBuilder $container
+    ): Configuration {
         return new Configuration();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container): void
-    {
+    public function load(
+        array $configs,
+        ContainerBuilder $container
+    ): void {
         $loader = new Loader\YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
@@ -66,8 +70,10 @@ class IbexaSystemInfoExtension extends Extension implements PrependExtensionInte
         $this->prependJMSTranslation($container);
     }
 
-    private function getPoweredByName(ContainerBuilder $container, ?string $release): string
-    {
+    private function getPoweredByName(
+        ContainerBuilder $container,
+        ?string $release
+    ): string {
         $vendor = $container->getParameter('kernel.project_dir') . '/vendor/';
 
         // Autodetect product name

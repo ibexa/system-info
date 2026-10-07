@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo;
@@ -17,7 +18,7 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
     /**
      * Symfony kernel.
      *
-     * @var \Symfony\Component\HttpKernel\Kernel
+     * @var Kernel
      */
     private $kernel;
 
@@ -39,8 +40,10 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
     /**
      * @param array<string, class-string> $bundles
      */
-    public function __construct(Kernel $kernel, array $bundles)
-    {
+    public function __construct(
+        Kernel $kernel,
+        array $bundles
+    ) {
         $this->kernel = $kernel;
         $this->bundles = $bundles;
     }
@@ -48,7 +51,7 @@ class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoCollect
     /**
      * Collects information about the Symfony kernel.
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SymfonyKernelSystemInfo
+     * @return SymfonyKernelSystemInfo
      */
     public function collect(): SymfonyKernelSystemInfo
     {

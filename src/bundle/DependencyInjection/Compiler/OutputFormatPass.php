@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormatRegistry;
@@ -16,7 +17,7 @@ class OutputFormatPass implements CompilerPassInterface
     /**
      * Registers the OutputFormat tagged services into the output format registry.
      *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param ContainerBuilder $container
      */
     public function process(ContainerBuilder $container): void
     {

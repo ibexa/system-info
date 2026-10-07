@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
 use Ibexa\Core\Base\Exceptions\NotFoundException;
@@ -13,11 +14,11 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
  */
 class OutputFormatRegistry
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] */
+    /** @var OutputFormat[] */
     private array $registry = [];
 
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
+     * @param OutputFormat[] $items Hash of OutputFormats, with identifier string as key.
      */
     public function __construct(array $items = [])
     {
@@ -25,7 +26,7 @@ class OutputFormatRegistry
     }
 
     /**
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
+     * @throws NotFoundException If no OutputFormat exists with this identifier
      */
     public function getItem(string $identifier): OutputFormat
     {
