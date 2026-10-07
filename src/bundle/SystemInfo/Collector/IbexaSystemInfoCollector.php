@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use DateTime;
@@ -137,12 +138,12 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
     ];
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
+     * @var SystemInfoCollector
      */
     private $systemInfoCollector;
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo|null
+     * @var ComposerSystemInfo|null
      */
     private $composerInfo;
 
@@ -169,7 +170,7 @@ class IbexaSystemInfoCollector implements SystemInfoCollector
      *
      * @throws \Exception
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo
+     * @return IbexaSystemInfo
      */
     public function collect(): IbexaSystemInfo
     {

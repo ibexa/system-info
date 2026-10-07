@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\View;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
@@ -27,7 +28,7 @@ class SystemInfoView extends BaseView implements View
     }
 
     /**
-     * @return array{info: \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo}
+     * @return array{info: SystemInfo}
      */
     protected function getInternalParameters(): array
     {

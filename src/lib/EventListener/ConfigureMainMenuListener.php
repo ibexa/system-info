@@ -20,10 +20,10 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
 {
     public const ITEM_ADMIN__SYSTEMINFO = 'main__admin__systeminfo';
 
-    /** @var \Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface */
+    /** @var MenuItemFactoryInterface */
     private $menuItemFactory;
 
-    /** @var \Ibexa\Contracts\Core\Repository\PermissionResolver */
+    /** @var PermissionResolver */
     private $permissionResolver;
 
     public function __construct(
@@ -35,7 +35,7 @@ class ConfigureMainMenuListener implements EventSubscriberInterface, Translation
     }
 
     /**
-     * @param \Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent $event
+     * @param ConfigureMenuEvent $event
      */
     public function onMenuConfigure(ConfigureMenuEvent $event): void
     {

@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\Controller;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
@@ -14,11 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SystemInfoController extends AdminUiController
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
+    /** @var SystemInfoCollectorRegistry */
     protected $collectorRegistry;
 
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $collectorRegistry
+     * @param SystemInfoCollectorRegistry $collectorRegistry
      */
     public function __construct(SystemInfoCollectorRegistry $collectorRegistry)
     {
@@ -34,7 +35,7 @@ class SystemInfoController extends AdminUiController
     /**
      * Renders the system information page.
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function infoAction(): Response
     {

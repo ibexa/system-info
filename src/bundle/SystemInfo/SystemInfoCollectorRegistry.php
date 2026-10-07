@@ -4,7 +4,11 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
+
+use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 
 /**
  * A registry of SystemInfoCollectors.
@@ -12,7 +16,7 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 interface SystemInfoCollectorRegistry
 {
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
+     * @param SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
      */
     public function __construct(array $items = []);
 
@@ -21,9 +25,9 @@ interface SystemInfoCollectorRegistry
      *
      * @param string $identifier An identifier string.
      *
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
+     * @throws NotFoundException If no SystemInfoCollector exists with this identifier
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector The SystemInfoCollector given by the identifier.
+     * @return SystemInfoCollector The SystemInfoCollector given by the identifier.
      */
     public function getItem($identifier);
 

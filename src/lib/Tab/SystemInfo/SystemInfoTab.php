@@ -23,9 +23,9 @@ class SystemInfoTab extends AbstractControllerBasedTab
     protected $collectorIdentifier;
 
     /**
-     * @param \Twig\Environment $twig
-     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
-     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
+     * @param Environment $twig
+     * @param TranslatorInterface $translator
+     * @param HttpKernelRuntime $httpKernelRuntime
      * @param string $tabIdentifier
      * @param string $collectorIdentifier
      */
@@ -57,7 +57,7 @@ class SystemInfoTab extends AbstractControllerBasedTab
 
     public function getName(): string
     {
-        return /** @Ignore */$this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'ibexa_systeminfo');
+        return /** @Ignore */ $this->translator->trans(sprintf('tab.name.%s', $this->tabIdentifier), [], 'ibexa_systeminfo');
     }
 }
 

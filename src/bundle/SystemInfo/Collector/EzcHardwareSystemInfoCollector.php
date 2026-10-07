@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
@@ -15,7 +16,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
 class EzcHardwareSystemInfoCollector implements SystemInfoCollector
 {
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper
+     * @var EzcSystemInfoWrapper
      */
     private $ezcSystemInfo;
 
@@ -29,7 +30,7 @@ class EzcHardwareSystemInfoCollector implements SystemInfoCollector
      *  - cpu information
      *  - memory size.
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo
+     * @return HardwareSystemInfo
      */
     public function collect(): HardwareSystemInfo
     {

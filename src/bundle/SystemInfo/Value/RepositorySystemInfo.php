@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
 use Ibexa\Contracts\Core\Repository\Values\ValueObject;
@@ -52,7 +53,7 @@ class RepositorySystemInfo extends ValueObject implements SystemInfo
     /**
      * RepositoryMetrics contains counts of content objects, users etc.
      *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics
+     * @var RepositoryMetrics
      */
     public $repositoryMetrics;
 }
