@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Exception;
 use Ibexa\SystemInfo\Storage\Metrics;
 
 /**
@@ -16,7 +17,7 @@ use Ibexa\SystemInfo\Storage\Metrics;
  */
 abstract class RepositoryConnectionAwareMetrics implements Metrics
 {
-    /** @var \Doctrine\DBAL\Connection */
+    /** @var Connection */
     protected $connection;
 
     abstract public function getValue(): int;
@@ -27,7 +28,7 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
     }
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     protected function getCountExpression(string $columnName): string
     {

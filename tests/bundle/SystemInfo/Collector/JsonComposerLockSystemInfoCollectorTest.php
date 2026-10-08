@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\JsonComposerLockSystemInfoCollector;
@@ -13,11 +14,12 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundExcepti
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\SystemInfo\VersionStability\VersionStabilityChecker;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class JsonComposerLockSystemInfoCollectorTest extends TestCase
 {
-    /** @var \Ibexa\SystemInfo\VersionStability\VersionStabilityChecker|\PHPUnit\Framework\MockObject\MockObject */
+    /** @var VersionStabilityChecker|MockObject */
     private $versionStabilityChecker;
 
     public function setUp(): void

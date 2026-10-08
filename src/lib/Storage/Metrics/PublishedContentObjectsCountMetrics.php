@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
 use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
 
 /**
@@ -20,7 +21,7 @@ final class PublishedContentObjectsCountMetrics extends RepositoryConnectionAwar
     private const STATUS_COLUMN = 'status';
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {

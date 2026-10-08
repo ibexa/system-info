@@ -4,22 +4,24 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class EzcHardwareSystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\EzcSystemInfoWrapper|\PHPUnit\Framework\MockObject\MockObject
+     * @var EzcSystemInfoWrapper|MockObject
      */
     private $ezcSystemInfoMock;
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcHardwareSystemInfoCollector
+     * @var EzcHardwareSystemInfoCollector
      */
     private $ezcHardware;
 

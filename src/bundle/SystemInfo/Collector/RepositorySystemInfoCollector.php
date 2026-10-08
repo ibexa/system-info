@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
@@ -19,19 +20,21 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
     /**
      * The database connection, only used to retrieve some information on the database itself.
      *
-     * @var \Doctrine\DBAL\Connection
+     * @var Connection
      */
     private $connection;
 
     /**
      * The metrics provider needed to populate Repository value object consisting of several metrics.
      *
-     * @var \Ibexa\SystemInfo\Storage\MetricsProvider
+     * @var MetricsProvider
      */
     private $metricsProvider;
 
-    public function __construct(Connection $db, MetricsProvider $metricsProvider)
-    {
+    public function __construct(
+        Connection $db,
+        MetricsProvider $metricsProvider
+    ) {
         $this->connection = $db;
         $this->metricsProvider = $metricsProvider;
     }
@@ -44,7 +47,7 @@ class RepositorySystemInfoCollector implements SystemInfoCollector
      *  - username
      *  - repository metrics (containing count of content objects, users, drafts etc.).
      *
-     * @return \Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo
+     * @return RepositorySystemInfo
      */
     public function collect(): RepositorySystemInfo
     {

@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\View;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
@@ -17,19 +18,21 @@ use Ibexa\Core\MVC\Symfony\View\View;
 class SystemInfoViewBuilder implements ViewBuilder
 {
     /**
-     * @var \Ibexa\Core\MVC\Symfony\View\Configurator
+     * @var Configurator
      */
     private $viewConfigurator;
 
     /**
      * System info collector registry.
      *
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     * @var SystemInfoCollectorRegistry
      */
     private $registry;
 
-    public function __construct(Configurator $viewConfigurator, SystemInfoCollectorRegistry $registry)
-    {
+    public function __construct(
+        Configurator $viewConfigurator,
+        SystemInfoCollectorRegistry $registry
+    ) {
         $this->viewConfigurator = $viewConfigurator;
         $this->registry = $registry;
     }
@@ -42,7 +45,7 @@ class SystemInfoViewBuilder implements ViewBuilder
     /**
      * @param array<string, string> $parameters
      *
-     * @return \Ibexa\Bundle\SystemInfo\View\SystemInfoView
+     * @return SystemInfoView
      */
     public function buildView(array $parameters): View
     {

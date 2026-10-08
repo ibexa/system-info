@@ -4,11 +4,13 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Registry;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class IdentifierBasedTest extends TestCase
@@ -16,7 +18,7 @@ class IdentifierBasedTest extends TestCase
     private IdentifierBased $registry;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject[]|\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[]
+     * @var MockObject[]|SystemInfoCollector[]
      */
     private array $testItems;
 
@@ -77,6 +79,7 @@ class IdentifierBasedTest extends TestCase
      * Test getting all registered identifiers.
      *
      * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Registry\IdentifierBased::getItem
+     *
      * @depends testAddAndGetItems
      */
     public function testGetIdentifiers(): void

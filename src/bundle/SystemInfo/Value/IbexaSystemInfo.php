@@ -4,10 +4,12 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Value;
 
 use DateTime;
 use Ibexa\Contracts\Core\Repository\Values\ValueObject;
+use Ibexa\SystemInfo\Value\Stability;
 
 /**
  * Value for information about the Ibexa installation.
@@ -56,7 +58,7 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
     public $isEndOfMaintenance = true;
 
     /**
-     * @var \DateTime EOM for the given release, if you have an Ibexa DXP / Enterpise susbscription.
+     * @var DateTime EOM for the given release, if you have an Ibexa DXP / Enterpise susbscription.
      *
      * @see https://support.ibexa.co/Public/Service-Life
      */
@@ -70,7 +72,7 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
     public $isEndOfLife = true;
 
     /**
-     * @var \DateTime EOL for the given release, if you have an Ibexa DXP susbscription.
+     * @var DateTime EOL for the given release, if you have an Ibexa DXP susbscription.
      *
      * @see https://support.ibexa.co/Public/Service-Life
      */
@@ -84,14 +86,14 @@ class IbexaSystemInfo extends ValueObject implements SystemInfo
     /**
      * Lowest stability found in the installation (packages / minimumStability).
      *
-     * @var string One of {@see \Ibexa\SystemInfo\Value\Stability::STABILITIES}.
+     * @var string One of {@see Stability::STABILITIES}.
      */
     public $lowestStability;
 
     /**
      * @deprecated Instead use $lowestStability.
      *
-     * @var string One of {@see \Ibexa\SystemInfo\Value\Stability::STABILITIES}.
+     * @var string One of {@see Stability::STABILITIES}.
      */
     public $stability;
 
