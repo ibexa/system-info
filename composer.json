@@ -29,7 +29,7 @@
         "ibexa/http-cache": "~4.6.0@dev",
         "ibexa/notifications": "^4.6.x-dev",
         "ibexa/twig-components": "~4.6.x-dev",
-        "phpunit/phpunit": "^8.2",
+        "phpunit/phpunit": "^9.6",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
