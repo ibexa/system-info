@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
+
 /**
  * @internal
  */
@@ -17,7 +19,7 @@ final class UsersCountMetrics extends RepositoryConnectionAwareMetrics
     private const CONTENTOBJECT_ID_COLUMN = 'contentobject_id';
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {

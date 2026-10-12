@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
@@ -13,32 +14,33 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class RepositorySystemInfoCollectorTest extends TestCase
 {
     /**
-     * @var \Doctrine\DBAL\Connection|\PHPUnit\Framework\MockObject\MockObject
+     * @var Connection|MockObject
      */
     private $dbalConnectionMock;
 
     /**
-     * @var \Doctrine\DBAL\Platforms\AbstractPlatform&\PHPUnit\Framework\MockObject\MockObject
+     * @var AbstractPlatform&MockObject
      */
     private $dbalPlatformMock;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
+     * @var MockObject
      */
     private $metricsProviderMock;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
+     * @var MockObject
      */
     private $metricsMock;
 
     /**
-     * @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector
+     * @var RepositorySystemInfoCollector
      */
     private $repositoryCollector;
 

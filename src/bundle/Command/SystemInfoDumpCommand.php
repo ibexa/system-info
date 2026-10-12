@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\Command;
 
 use Ibexa\Bundle\Core\Command\BackwardCompatibleCommand;
@@ -21,8 +22,10 @@ final class SystemInfoDumpCommand extends Command implements BackwardCompatibleC
 
     private OutputFormatRegistry $outputFormatRegistry;
 
-    public function __construct(SystemInfoCollectorRegistry $systemInfoCollectorRegistry, OutputFormatRegistry $outputFormatRegistry)
-    {
+    public function __construct(
+        SystemInfoCollectorRegistry $systemInfoCollectorRegistry,
+        OutputFormatRegistry $outputFormatRegistry
+    ) {
         $this->systemInfoCollectorRegistry = $systemInfoCollectorRegistry;
         $this->outputFormatRegistry = $outputFormatRegistry;
 
@@ -73,8 +76,10 @@ EOD
      * @param $input InputInterface
      * @param $output OutputInterface
      */
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         if ($input->getOption('list-info-collectors')) {
             $output->writeln('Available info collectors:', OutputInterface::OUTPUT_NORMAL);
             foreach ($this->systemInfoCollectorRegistry->getIdentifiers() as $identifier) {

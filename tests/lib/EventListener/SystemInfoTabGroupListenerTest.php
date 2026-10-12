@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Tab\Event\TabEvents;
@@ -14,17 +15,18 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\SystemInfo\EventListener\SystemInfoTabGroupListener;
 use Ibexa\SystemInfo\Tab\SystemInfo\SystemInfoTab;
 use Ibexa\SystemInfo\Tab\SystemInfo\TabFactory;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoTabGroupListenerTest extends TestCase
 {
-    /** @var \Ibexa\AdminUi\Tab\Event\TabGroupEvent */
+    /** @var TabGroupEvent */
     private $event;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\AdminUi\Tab\TabRegistry */
+    /** @var MockObject|TabRegistry */
     private $tabRegistry;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|\Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
+    /** @var MockObject|TabFactory */
     private $tabFactory;
 
     protected function setUp(): void
