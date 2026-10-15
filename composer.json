@@ -21,6 +21,7 @@
         "ibexa/content-forms": "~6.0.x-dev",
         "ibexa/design-engine": "~6.0.x-dev",
         "ibexa/design-system-twig": "~6.0.x-dev",
+        "ibexa/doctrine-migrations": "~6.0.x-dev",
         "ibexa/fieldtype-richtext": "~6.0.x-dev",
         "ibexa/http-cache": "~6.0.x-dev",
         "ibexa/notifications": "~6.0.x-dev",
