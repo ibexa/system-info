@@ -1,7 +1,0 @@
-parameters:
-	ignoreErrors:
-		-
-			message: '#^Parameter \#4 \$condition of method Doctrine\\DBAL\\Query\\QueryBuilder\:\:innerJoin\(\) expects string\|null, Doctrine\\DBAL\\Query\\Expression\\CompositeExpression given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/lib/Storage/Metrics/DraftsCountMetrics.php

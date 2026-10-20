@@ -16,6 +16,7 @@ use Ibexa\Bundle\Notifications\IbexaNotificationsBundle;
 use Ibexa\Bundle\Rest\IbexaRestBundle;
 use Ibexa\Bundle\Search\IbexaSearchBundle;
 use Ibexa\Bundle\SystemInfo\IbexaSystemInfoBundle;
+use Ibexa\Bundle\Test\Core\IbexaTestCoreBundle;
 use Ibexa\Bundle\TwigComponents\IbexaTwigComponentsBundle;
 use Ibexa\Bundle\User\IbexaUserBundle;
 use Ibexa\Contracts\Test\Core\IbexaTestKernel;
@@ -24,6 +25,7 @@ use Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\UX\TwigComponent\TwigComponentBundle;
 use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
 
 final class Kernel extends IbexaTestKernel
@@ -31,6 +33,8 @@ final class Kernel extends IbexaTestKernel
     public function registerBundles(): iterable
     {
         yield from parent::registerBundles();
+
+        yield new IbexaTestCoreBundle();
 
         yield new LexikJWTAuthenticationBundle();
         yield new HautelookTemplatedUriBundle();
@@ -44,6 +48,7 @@ final class Kernel extends IbexaTestKernel
         yield new IbexaDesignEngineBundle();
         yield new IbexaAdminUiBundle();
         yield new IbexaNotificationsBundle();
+        yield new TwigComponentBundle();
         yield new IbexaTwigComponentsBundle();
         yield new IbexaSystemInfoBundle();
     }

@@ -10,6 +10,7 @@ namespace Ibexa\Tests\SystemInfo\VersionStability;
 
 use Ibexa\SystemInfo\Value\Stability;
 use Ibexa\SystemInfo\VersionStability\ComposerVersionStabilityChecker;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class VersionStabilityCheckerTest extends TestCase
@@ -21,9 +22,7 @@ final class VersionStabilityCheckerTest extends TestCase
         $this->versionStabilityChecker = new ComposerVersionStabilityChecker();
     }
 
-    /**
-     * @dataProvider provideStableVersions
-     */
+    #[DataProvider('provideStableVersions')]
     public function testIsStableVersion(string $stableVersion): void
     {
         self::assertTrue(
@@ -34,7 +33,7 @@ final class VersionStabilityCheckerTest extends TestCase
     /**
      * @return iterable<array{string}>
      */
-    public function provideStableVersions(): iterable
+    public static function provideStableVersions(): iterable
     {
         yield ['1.0.0.0'];
         yield ['1.1.0.0'];
@@ -43,9 +42,7 @@ final class VersionStabilityCheckerTest extends TestCase
         yield ['15.20.100.1500'];
     }
 
-    /**
-     * @dataProvider provideNotStableVersions
-     */
+    #[DataProvider('provideNotStableVersions')]
     public function testIsNotStableVersion(string $notStableVersion): void
     {
         self::assertFalse(
@@ -56,7 +53,7 @@ final class VersionStabilityCheckerTest extends TestCase
     /**
      * @return iterable<array{string}>
      */
-    public function provideNotStableVersions(): iterable
+    public static function provideNotStableVersions(): iterable
     {
         yield ['1.0.20'];
         yield ['1.0.2-beta'];
@@ -71,9 +68,7 @@ final class VersionStabilityCheckerTest extends TestCase
         yield ['v1.0-rc2'];
     }
 
-    /**
-     * @dataProvider provideVersions
-     */
+    #[DataProvider('provideVersions')]
     public function testGetStability(
         string $version,
         string $expectedStability
@@ -87,7 +82,7 @@ final class VersionStabilityCheckerTest extends TestCase
     /**
      * @return iterable<array{string, string}>
      */
-    public function provideVersions(): iterable
+    public static function provideVersions(): iterable
     {
         yield ['0.1.10.50', Stability::STABILITIES[0]];
         yield ['10.10.10.50', Stability::STABILITIES[0]];

@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection;
 
 use Composer\InstalledVersions;
+use Ibexa\Bundle\SystemInfo\EventSubscriber\AddXPoweredByHeader;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
-use Ibexa\Contracts\Core\Ibexa;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -23,6 +23,11 @@ final class IbexaSystemInfoExtension extends Extension implements PrependExtensi
     public const string EXTENSION_NAME = 'ibexa_system_info';
     public const string METRICS_TAG = 'ibexa.system_info.metrics';
     public const string SERVICE_TAG = 'ibexa.system_info.service';
+
+    /**
+     * Product name exposed in the X-Powered-By header, regardless of the installed edition.
+     */
+    private const string POWERED_BY_PRODUCT_NAME = 'Cohesivo CMS';
 
     public function getAlias(): string
     {
@@ -56,31 +61,16 @@ final class IbexaSystemInfoExtension extends Extension implements PrependExtensi
         if (isset($config['system_info']) && $config['system_info']['powered_by']['enabled']) {
             $container->setParameter(
                 'ibexa.system_info.powered_by.name',
-                $this->getPoweredByName(
-                    $config['system_info']['powered_by']['release']
-                )
+                self::POWERED_BY_PRODUCT_NAME
             );
+        } else {
+            $container->removeDefinition(AddXPoweredByHeader::class);
         }
     }
 
     public function prepend(ContainerBuilder $container): void
     {
         $this->prependJMSTranslation($container);
-    }
-
-    private function getPoweredByName(?string $release): string
-    {
-        // Autodetect product name
-        $name = self::getNameByPackages();
-
-        if ($release === 'major') {
-            $name .= ' v' . (int)Ibexa::VERSION;
-        } elseif ($release === 'minor') {
-            $version = explode('.', Ibexa::VERSION);
-            $name .= ' v' . $version[0] . '.' . $version[1];
-        }
-
-        return $name;
     }
 
     private function prependJMSTranslation(ContainerBuilder $container): void

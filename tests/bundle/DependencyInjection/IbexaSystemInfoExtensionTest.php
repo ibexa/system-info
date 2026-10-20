@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\Tests\Bundle\SystemInfo\DependencyInjection;
 
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
+use Ibexa\Bundle\SystemInfo\EventSubscriber\AddXPoweredByHeader;
 use Ibexa\SystemInfo\Service;
 use Ibexa\SystemInfo\Service\AggregateServiceProvider;
 use Ibexa\SystemInfo\Service\ServiceProviderInterface;
@@ -19,6 +20,8 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
+    private const string POWERED_BY_NAME_PARAMETER = 'ibexa.system_info.powered_by.name';
+
     /**
      * @return \Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface[]
      */
@@ -56,6 +59,23 @@ final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
                 ['identifier' => $identifier]
             );
         }
+    }
+
+    public function testPoweredByName(): void
+    {
+        $this->load([]);
+
+        $this->assertContainerBuilderHasParameter(
+            self::POWERED_BY_NAME_PARAMETER,
+            'Cohesivo CMS'
+        );
+    }
+
+    public function testPoweredBySubscriberIsRemovedWhenHeaderIsDisabled(): void
+    {
+        $this->load(['system_info' => ['powered_by' => ['enabled' => false]]]);
+
+        $this->assertContainerBuilderNotHasService(AddXPoweredByHeader::class);
     }
 
     public function testLoadServiceServices(): void

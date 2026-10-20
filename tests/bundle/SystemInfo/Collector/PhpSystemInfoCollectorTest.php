@@ -12,9 +12,11 @@ use ezcSystemInfoAccelerator;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\PhpSystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoWrapper;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversMethod(PhpSystemInfoCollector::class, 'collect')]
 final class PhpSystemInfoCollectorTest extends TestCase
 {
     private SystemInfoWrapper&MockObject $systemInfoMock;
@@ -45,9 +47,6 @@ final class PhpSystemInfoCollectorTest extends TestCase
         $this->phpCollector = new PhpSystemInfoCollector($this->systemInfoMock);
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\EzcPhpSystemInfoCollector::collect()
-     */
     public function testCollect(): void
     {
         $value = $this->phpCollector->collect();

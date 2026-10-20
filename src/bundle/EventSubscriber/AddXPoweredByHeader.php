@@ -33,8 +33,6 @@ final readonly class AddXPoweredByHeader implements EventSubscriberInterface
             return;
         }
 
-        if ($this->installationName) {
-            $response->headers->set('X-Powered-By', $this->installationName);
-        }
+        $response->headers->set('X-Powered-By', $this->installationName);
     }
 }

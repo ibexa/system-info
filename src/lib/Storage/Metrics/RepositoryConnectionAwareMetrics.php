@@ -24,6 +24,22 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
 
     protected function getCountExpression(string $columnName): string
     {
-        return 'COUNT(' . $this->connection->quoteIdentifier($columnName) . ')';
+        return 'COUNT(' . $this->quoteQualifiedIdentifier($columnName) . ')';
+    }
+
+    /**
+     * Quotes a possibly qualified identifier (e.g. `alias.column`), quoting each dot-separated
+     * part individually, since {@see Connection::quoteIdentifier()} is deprecated in favor of
+     * quoting each part with {@see Connection::quoteSingleIdentifier()}.
+     */
+    private function quoteQualifiedIdentifier(string $columnName): string
+    {
+        return implode(
+            '.',
+            array_map(
+                fn (string $part): string => $this->connection->quoteSingleIdentifier($part),
+                explode('.', $columnName),
+            ),
+        );
     }
 }

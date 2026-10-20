@@ -33,20 +33,25 @@ final class ServicesSystemInfoCollectorTest extends TestCase
             'varnish',
             'redis'
         );
+        $matcher = self::exactly(3);
 
         $this->serviceProviderMock
-            ->expects(self::exactly(3))
-            ->method('getServiceType')
-            ->withConsecutive(
-                ['searchEngine'],
-                ['httpCacheProxy'],
-                ['persistenceCacheAdapter'],
-            )
-            ->willReturnOnConsecutiveCalls(
-                $expected->getSearchEngine(),
-                $expected->getHttpCacheProxy(),
-                $expected->getPersistenceCacheAdapter(),
-            );
+            ->expects($matcher)
+            ->method('getServiceType')->willReturnCallback(static function (...$parameters) use ($matcher, $expected): string {
+                if ($matcher->numberOfInvocations() === 1) {
+                    self::assertSame('searchEngine', $parameters[0]);
+
+                    return $expected->getSearchEngine();
+                }
+                if ($matcher->numberOfInvocations() === 2) {
+                    self::assertSame('httpCacheProxy', $parameters[0]);
+
+                    return $expected->getHttpCacheProxy();
+                }
+                self::assertSame('persistenceCacheAdapter', $parameters[0]);
+
+                return $expected->getPersistenceCacheAdapter();
+            });
 
         $value = $this->serviceCollector->collect();
 

@@ -32,9 +32,9 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
                 'v',
                 ContentGateway::CONTENT_ITEM_TABLE,
                 'c',
-                $expr->and(
+                (string)$expr->and(
                     $expr->eq('c.id', 'v.contentobject_id'),
-                    $expr->neq('c.status', ContentInfo::STATUS_TRASHED)
+                    $expr->neq('c.status', (string)ContentInfo::STATUS_TRASHED)
                 )
             )
             ->where(

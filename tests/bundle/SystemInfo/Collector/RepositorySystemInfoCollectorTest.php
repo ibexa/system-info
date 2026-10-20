@@ -9,20 +9,23 @@ declare(strict_types=1);
 namespace Ibexa\Tests\Bundle\SystemInfo\SystemInfo\Collector;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositoryMetrics;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\RepositorySystemInfo;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
+#[CoversMethod(RepositorySystemInfoCollector::class, 'collect')]
 final class RepositorySystemInfoCollectorTest extends TestCase
 {
     private Connection&MockObject $dbalConnectionMock;
 
-    private AbstractPlatform&MockObject $dbalPlatformMock;
+    private AbstractMySQLPlatform&Stub $dbalPlatformMock;
 
     private MetricsProvider&MockObject $metricsProviderMock;
 
@@ -33,7 +36,7 @@ final class RepositorySystemInfoCollectorTest extends TestCase
     protected function setUp(): void
     {
         $this->dbalConnectionMock = $this->createMock(Connection::class);
-        $this->dbalPlatformMock = $this->createMock(AbstractPlatform::class);
+        $this->dbalPlatformMock = self::createStub(AbstractMySQLPlatform::class);
         $this->metricsProviderMock = $this->createMock(MetricsProvider::class);
         $this->metricsMock = $this->createMock(Metrics::class);
 
@@ -43,9 +46,6 @@ final class RepositorySystemInfoCollectorTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\RepositorySystemInfoCollector::collect()
-     */
     public function testCollect(): void
     {
         $expected = new RepositorySystemInfo([
@@ -67,11 +67,6 @@ final class RepositorySystemInfoCollectorTest extends TestCase
             ->method('getDatabasePlatform')
             ->willReturn($this->dbalPlatformMock);
 
-        $this->dbalPlatformMock
-            ->expects(self::once())
-            ->method('getName')
-            ->willReturn($expected->type);
-
         $this->dbalConnectionMock
             ->expects(self::once())
             ->method('getDatabase')
@@ -84,24 +79,35 @@ final class RepositorySystemInfoCollectorTest extends TestCase
                 'host' => $expected->host,
                 'user' => $expected->username,
             ]);
+        $matcher = self::exactly(5);
 
         $this->metricsProviderMock
-            ->expects(self::exactly(5))
-            ->method('provideMetrics')
-            ->withConsecutive(
-                ['published'],
-                ['users'],
-                ['drafts'],
-                ['versions'],
-                ['content_types']
-            )
-            ->willReturnOnConsecutiveCalls(
-                $this->metricsMock,
-                $this->metricsMock,
-                $this->metricsMock,
-                $this->metricsMock,
-                $this->metricsMock,
-            );
+            ->expects($matcher)
+            ->method('provideMetrics')->willReturnCallback(function (...$parameters) use ($matcher): Metrics {
+                if ($matcher->numberOfInvocations() === 1) {
+                    self::assertSame('published', $parameters[0]);
+
+                    return $this->metricsMock;
+                }
+                if ($matcher->numberOfInvocations() === 2) {
+                    self::assertSame('users', $parameters[0]);
+
+                    return $this->metricsMock;
+                }
+                if ($matcher->numberOfInvocations() === 3) {
+                    self::assertSame('drafts', $parameters[0]);
+
+                    return $this->metricsMock;
+                }
+                if ($matcher->numberOfInvocations() === 4) {
+                    self::assertSame('versions', $parameters[0]);
+
+                    return $this->metricsMock;
+                }
+                self::assertSame('content_types', $parameters[0]);
+
+                return $this->metricsMock;
+            });
 
         $this->metricsMock
             ->expects(self::exactly(5))
