@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversMethod(PhpSystemInfoCollector::class, 'collect')]
 final class PhpSystemInfoCollectorTest extends TestCase
 {
-    private SystemInfoWrapper&MockObject $systemInfoMock;
+    private SystemInfoWrapper & MockObject $systemInfoMock;
 
     private PhpSystemInfoCollector $phpCollector;
 

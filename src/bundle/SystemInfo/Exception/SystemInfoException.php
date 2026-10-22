@@ -8,6 +8,4 @@ declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo\Exception;
 
-interface SystemInfoException
-{
-}
+interface SystemInfoException {}

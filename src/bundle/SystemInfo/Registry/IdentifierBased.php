@@ -18,11 +18,9 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 final readonly class IdentifierBased implements SystemInfoCollectorRegistry
 {
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $registry Hash of SystemInfoCollectors, with identifier string as key.
+     * @param SystemInfoCollector[] $registry Hash of SystemInfoCollectors, with identifier string as key.
      */
-    public function __construct(private array $registry = [])
-    {
-    }
+    public function __construct(private array $registry = []) {}
 
     /**
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException

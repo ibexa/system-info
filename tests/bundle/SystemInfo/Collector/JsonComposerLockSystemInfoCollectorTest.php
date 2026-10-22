@@ -23,7 +23,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversMethod(JsonComposerLockSystemInfoCollector::class, 'collect')]
 final class JsonComposerLockSystemInfoCollectorTest extends TestCase
 {
-    private VersionStabilityChecker&Stub $versionStabilityChecker;
+    private VersionStabilityChecker & Stub $versionStabilityChecker;
 
     public function setUp(): void
     {
@@ -48,7 +48,7 @@ final class JsonComposerLockSystemInfoCollectorTest extends TestCase
                 'doctrine/dbal' => new ComposerPackage([
                     'name' => 'doctrine/dbal',
                     'branch' => 'v2.5.4',
-                     'alias' => null,
+                    'alias' => null,
                     'version' => '2.5.4',
                     'license' => 'MIT',
                     'stability' => null,

@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ServicesSystemInfoCollectorTest extends TestCase
 {
-    private ServiceProviderInterface&MockObject $serviceProviderMock;
+    private ServiceProviderInterface & MockObject $serviceProviderMock;
 
     private ServicesSystemInfoCollector $serviceCollector;
 
@@ -33,7 +33,7 @@ final class ServicesSystemInfoCollectorTest extends TestCase
             'varnish',
             'redis'
         );
-        $matcher = self::exactly(3);
+        $matcher = $this->exactly(3);
 
         $this->serviceProviderMock
             ->expects($matcher)

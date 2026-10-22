@@ -23,7 +23,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
 {
     private TabGroupEvent $event;
 
-    private TabFactory&MockObject $tabFactory;
+    private TabFactory & MockObject $tabFactory;
 
     protected function setUp(): void
     {
@@ -36,7 +36,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
     public function testOnTabGroupPreRenderWithNoSystemInfoTabGroup(): void
     {
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
-        $systemInfoCollectorRegistry->expects(self::never())
+        $systemInfoCollectorRegistry->expects($this->never())
             ->method('getIdentifiers');
 
         $systemInfoTabGroupListener = new SystemInfoTabGroupListener($this->tabFactory, $systemInfoCollectorRegistry);
@@ -54,7 +54,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
     public function testOnTabGroupPreRender(array $identifiers): void
     {
         $this->tabFactory
-            ->expects(self::exactly(count($identifiers)))
+            ->expects($this->exactly(count($identifiers)))
             ->method('createTab')
             ->willReturnMap(
                 [
@@ -65,7 +65,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
         ;
 
         $systemInfoCollectorRegistry = $this->createMock(SystemInfoCollectorRegistry::class);
-        $systemInfoCollectorRegistry->expects(self::once())
+        $systemInfoCollectorRegistry->expects($this->once())
             ->method('getIdentifiers')
             ->willReturn($identifiers);
 

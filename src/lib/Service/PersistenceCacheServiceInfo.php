@@ -19,8 +19,7 @@ final readonly class PersistenceCacheServiceInfo implements ServiceInfo
 
     public function __construct(
         private ConfigResolverInterface $configResolver
-    ) {
-    }
+    ) {}
 
     public function getServiceType(): string
     {

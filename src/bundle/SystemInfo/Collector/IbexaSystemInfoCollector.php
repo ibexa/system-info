@@ -11,6 +11,7 @@ namespace Ibexa\Bundle\SystemInfo\SystemInfo\Collector;
 use DateTime;
 use Ibexa\Bundle\SystemInfo\DependencyInjection\IbexaSystemInfoExtension;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerFileValidationException;
+use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerJsonFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerLockFileNotFoundException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerSystemInfo;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo;
@@ -123,14 +124,13 @@ final class IbexaSystemInfoCollector implements SystemInfoCollector
     private ?ComposerSystemInfo $composerInfo = null;
 
     public function __construct(
-        private readonly SystemInfoCollector|JsonComposerLockSystemInfoCollector $collector
-    ) {
-    }
+        private readonly SystemInfoCollector | JsonComposerLockSystemInfoCollector $collector
+    ) {}
 
     /**
      * Collects information about the Ibexa distribution and version.
      *
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\ComposerJsonFileNotFoundException
+     * @throws ComposerJsonFileNotFoundException
      */
     public function collect(): IbexaSystemInfo
     {

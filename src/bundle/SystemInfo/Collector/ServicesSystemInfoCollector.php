@@ -16,9 +16,7 @@ use Ibexa\SystemInfo\Service\ServiceProviderInterface;
  */
 final readonly class ServicesSystemInfoCollector implements SystemInfoCollector
 {
-    public function __construct(private ServiceProviderInterface $serviceProvider)
-    {
-    }
+    public function __construct(private ServiceProviderInterface $serviceProvider) {}
 
     public function collect(): ServicesSystemInfo
     {

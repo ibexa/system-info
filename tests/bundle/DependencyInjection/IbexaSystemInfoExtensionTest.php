@@ -17,13 +17,14 @@ use Ibexa\SystemInfo\Storage\AggregateMetricsProvider;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
     private const string POWERED_BY_NAME_PARAMETER = 'ibexa.system_info.powered_by.name';
 
     /**
-     * @return \Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface[]
+     * @return PrependExtensionInterface[]
      */
     protected function getContainerExtensions(): array
     {
