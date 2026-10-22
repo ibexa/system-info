@@ -43,32 +43,32 @@ final class ConfigurationSymfonyKernelSystemInfoCollectorTest extends TestCase
             ->getMock();
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getEnvironment')
             ->willReturn($expected->environment);
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('isDebug')
             ->willReturn($expected->debugMode);
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getProjectDir')
             ->willReturn($expected->projectDir);
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getCacheDir')
             ->willReturn($expected->cacheDir);
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getLogDir')
             ->willReturn($expected->logDir);
 
         $kernelMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getCharset')
             ->willReturn($expected->charset);
 

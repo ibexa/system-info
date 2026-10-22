@@ -23,13 +23,13 @@ use PHPUnit\Framework\TestCase;
 #[CoversMethod(RepositorySystemInfoCollector::class, 'collect')]
 final class RepositorySystemInfoCollectorTest extends TestCase
 {
-    private Connection&MockObject $dbalConnectionMock;
+    private Connection & MockObject $dbalConnectionMock;
 
-    private AbstractMySQLPlatform&Stub $dbalPlatformMock;
+    private AbstractMySQLPlatform & Stub $dbalPlatformMock;
 
-    private MetricsProvider&MockObject $metricsProviderMock;
+    private MetricsProvider & MockObject $metricsProviderMock;
 
-    private Metrics&MockObject $metricsMock;
+    private Metrics & MockObject $metricsMock;
 
     private RepositorySystemInfoCollector $repositoryCollector;
 
@@ -63,23 +63,23 @@ final class RepositorySystemInfoCollectorTest extends TestCase
         ]);
 
         $this->dbalConnectionMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getDatabasePlatform')
             ->willReturn($this->dbalPlatformMock);
 
         $this->dbalConnectionMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getDatabase')
             ->willReturn($expected->name);
 
         $this->dbalConnectionMock
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('getParams')
             ->willReturn([
                 'host' => $expected->host,
                 'user' => $expected->username,
             ]);
-        $matcher = self::exactly(5);
+        $matcher = $this->exactly(5);
 
         $this->metricsProviderMock
             ->expects($matcher)
@@ -110,7 +110,7 @@ final class RepositorySystemInfoCollectorTest extends TestCase
             });
 
         $this->metricsMock
-            ->expects(self::exactly(5))
+            ->expects($this->exactly(5))
             ->method('getValue')
             ->willReturnOnConsecutiveCalls(
                 $expected->repositoryMetrics->publishedCount,

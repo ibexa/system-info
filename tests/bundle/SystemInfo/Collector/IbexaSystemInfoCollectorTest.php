@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 final class IbexaSystemInfoCollectorTest extends TestCase
 {
-    private VersionStabilityChecker&Stub $versionStabilityChecker;
+    private VersionStabilityChecker & Stub $versionStabilityChecker;
 
     public function setUp(): void
     {

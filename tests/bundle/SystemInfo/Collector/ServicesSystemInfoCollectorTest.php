@@ -33,7 +33,7 @@ final class ServicesSystemInfoCollectorTest extends TestCase
             'varnish',
             'redis'
         );
-        $matcher = self::exactly(3);
+        $matcher = $this->exactly(3);
 
         $this->serviceProviderMock
             ->expects($matcher)
