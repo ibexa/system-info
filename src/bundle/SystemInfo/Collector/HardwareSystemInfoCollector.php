@@ -16,9 +16,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\HardwareSystemInfo;
  */
 final readonly class HardwareSystemInfoCollector implements SystemInfoCollector
 {
-    public function __construct(private SystemInfoWrapper $systemInfoWrapper)
-    {
-    }
+    public function __construct(private SystemInfoWrapper $systemInfoWrapper) {}
 
     /**
      * Collects information about the hardware Ibexa DXP is installed on.

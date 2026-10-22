@@ -16,9 +16,7 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Value\PhpSystemInfo;
  */
 final readonly class PhpSystemInfoCollector implements SystemInfoCollector
 {
-    public function __construct(private SystemInfoWrapper $wrapper)
-    {
-    }
+    public function __construct(private SystemInfoWrapper $wrapper) {}
 
     /**
      * Collects information about the PHP installation Ibexa DXP is using.

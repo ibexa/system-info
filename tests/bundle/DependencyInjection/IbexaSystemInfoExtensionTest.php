@@ -16,11 +16,12 @@ use Ibexa\SystemInfo\Storage\AggregateMetricsProvider;
 use Ibexa\SystemInfo\Storage\Metrics;
 use Ibexa\SystemInfo\Storage\MetricsProvider;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 final class IbexaSystemInfoExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * @return \Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface[]
+     * @return PrependExtensionInterface[]
      */
     protected function getContainerExtensions(): array
     {

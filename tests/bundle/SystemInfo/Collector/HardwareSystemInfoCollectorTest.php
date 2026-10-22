@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HardwareSystemInfoCollectorTest extends TestCase
 {
-    private SystemInfoWrapper&MockObject $systemInfoMock;
+    private SystemInfoWrapper & MockObject $systemInfoMock;
 
     private HardwareSystemInfoCollector $ezcHardware;
 

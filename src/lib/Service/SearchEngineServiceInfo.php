@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\SystemInfo\Service;
 
 use Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface;
+use Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException;
 
 /**
  * @internal
@@ -20,11 +21,10 @@ final class SearchEngineServiceInfo implements ServiceInfo
 
     public function __construct(
         private RepositoryConfigurationProviderInterface $repositoryConfigProvider
-    ) {
-    }
+    ) {}
 
     /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getServiceType(): string
     {

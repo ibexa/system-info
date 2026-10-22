@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PhpSystemInfoCollectorTest extends TestCase
 {
-    private SystemInfoWrapper&MockObject $systemInfoMock;
+    private SystemInfoWrapper & MockObject $systemInfoMock;
 
     private PhpSystemInfoCollector $phpCollector;
 

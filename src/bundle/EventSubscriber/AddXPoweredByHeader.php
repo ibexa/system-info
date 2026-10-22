@@ -17,9 +17,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 final readonly class AddXPoweredByHeader implements EventSubscriberInterface
 {
-    public function __construct(private string $installationName)
-    {
-    }
+    public function __construct(private string $installationName) {}
 
     public static function getSubscribedEvents(): array
     {
