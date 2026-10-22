@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\SystemInfo\EventListener;
 
 use Ibexa\AdminUi\Tab\Event\TabEvents;
@@ -15,19 +16,19 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SystemInfoTabGroupListener implements EventSubscriberInterface
 {
-    /** @var \Ibexa\AdminUi\Tab\TabRegistry */
+    /** @var TabRegistry */
     protected $tabRegistry;
 
-    /** @var \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory */
+    /** @var TabFactory */
     protected $tabFactory;
 
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry */
+    /** @var SystemInfoCollectorRegistry */
     protected $systeminfoCollectorRegistry;
 
     /**
-     * @param \Ibexa\AdminUi\Tab\TabRegistry $tabRegistry
-     * @param \Ibexa\SystemInfo\Tab\SystemInfo\TabFactory $tabFactory
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry $systeminfoCollectorRegistry
+     * @param TabRegistry $tabRegistry
+     * @param TabFactory $tabFactory
+     * @param SystemInfoCollectorRegistry $systeminfoCollectorRegistry
      */
     public function __construct(
         TabRegistry $tabRegistry,

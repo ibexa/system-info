@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
  */
 final class AggregateMetricsProvider implements MetricsProvider
 {
-    /** @var \Symfony\Component\DependencyInjection\ServiceLocator */
+    /** @var ServiceLocator */
     private $metricsLocator;
 
     public function __construct(ServiceLocator $metrics)
@@ -26,7 +26,7 @@ final class AggregateMetricsProvider implements MetricsProvider
     }
 
     /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\MetricsNotFoundException
+     * @throws MetricsNotFoundException
      */
     public function provideMetrics(string $identifier): Metrics
     {

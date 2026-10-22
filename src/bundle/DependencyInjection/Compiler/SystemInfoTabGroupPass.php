@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\SystemInfo\DependencyInjection\Compiler;
 
 use Ibexa\AdminUi\Tab\TabGroup;
@@ -11,6 +12,8 @@ use Ibexa\AdminUi\Tab\TabRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 /**
  * {@inheritdoc}
@@ -18,8 +21,8 @@ use Symfony\Component\DependencyInjection\Definition;
 class SystemInfoTabGroupPass implements CompilerPassInterface
 {
     /**
-     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
+     * @throws InvalidArgumentException
+     * @throws ServiceNotFoundException
      */
     public function process(ContainerBuilder $container): void
     {

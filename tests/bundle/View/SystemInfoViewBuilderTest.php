@@ -4,6 +4,7 @@
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Tests\Bundle\SystemInfo\View;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
@@ -11,22 +12,23 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
 use Ibexa\Bundle\SystemInfo\View\SystemInfoViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SystemInfoViewBuilderTest extends TestCase
 {
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
+     * @var MockObject&Configurator
      */
     private Configurator $configuratorMock;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     * @var MockObject&SystemInfoCollectorRegistry
      */
     private SystemInfoCollectorRegistry $registryMock;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
+     * @var MockObject&SystemInfoCollector
      */
     private SystemInfoCollector $collectorMock;
 
@@ -66,7 +68,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Core\MVC\Symfony\View\Configurator
+     * @return MockObject&Configurator
      */
     protected function getConfiguratorMock(): Configurator
     {
@@ -76,7 +78,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry
+     * @return MockObject&SystemInfoCollectorRegistry
      */
     protected function getRegistryMock(): SystemInfoCollectorRegistry
     {
@@ -88,7 +90,7 @@ class SystemInfoViewBuilderTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector
+     * @return MockObject&SystemInfoCollector
      */
     protected function getCollectorMock(): SystemInfoCollector
     {

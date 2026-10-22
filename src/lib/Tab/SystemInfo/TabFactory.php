@@ -14,19 +14,19 @@ use Twig\Environment;
 
 class TabFactory
 {
-    /** @var \Symfony\Bridge\Twig\Extension\HttpKernelRuntime */
+    /** @var HttpKernelRuntime */
     protected $httpKernelRuntime;
 
-    /** @var \Twig\Environment */
+    /** @var Environment */
     protected $twig;
 
-    /** @var \Symfony\Contracts\Translation\TranslatorInterface */
+    /** @var TranslatorInterface */
     protected $translator;
 
     /**
-     * @param \Twig\Environment $twig
-     * @param \Symfony\Contracts\Translation\TranslatorInterface $translator
-     * @param \Symfony\Bridge\Twig\Extension\HttpKernelRuntime $httpKernelRuntime
+     * @param Environment $twig
+     * @param TranslatorInterface $translator
+     * @param HttpKernelRuntime $httpKernelRuntime
      */
     public function __construct(
         Environment $twig,
@@ -44,8 +44,10 @@ class TabFactory
      *
      * @return SystemInfoTab
      */
-    public function createTab(string $collectorIdentifier, ?string $tabIdentifier = null): SystemInfoTab
-    {
+    public function createTab(
+        string $collectorIdentifier,
+        ?string $tabIdentifier = null
+    ): SystemInfoTab {
         $tabIdentifier = $tabIdentifier ?? $collectorIdentifier;
 
         return new SystemInfoTab(

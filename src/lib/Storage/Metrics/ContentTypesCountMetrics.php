@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
 use Ibexa\Contracts\Core\Persistence\Content\Type;
 
 /**
@@ -20,7 +21,7 @@ final class ContentTypesCountMetrics extends RepositoryConnectionAwareMetrics
     private const VERSION_COLUMN = 'version';
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {

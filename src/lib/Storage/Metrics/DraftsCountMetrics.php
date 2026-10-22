@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\ParameterType;
 use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
 
@@ -20,7 +21,7 @@ final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
     private const CONTENTOBJECT_TABLE = 'ezcontentobject';
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {
