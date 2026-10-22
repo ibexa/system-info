@@ -7,8 +7,8 @@
     </header>
     <body>
       <trans-unit id="d21d07085caa55b0fee2fc054a6878bbdb24ae78" resname="breadcrumb.admin">
-        <source>Admin</source>
-        <target state="new">Admin</target>
+        <source>Settings</source>
+        <target state="new">Settings</target>
         <note>key: breadcrumb.admin</note>
       </trans-unit>
       <trans-unit id="35e8277cc95cf8aaf1e8e9ffcb5ea39e6502bbd0" resname="bundles">
