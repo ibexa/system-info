@@ -20,13 +20,13 @@ use PHPUnit\Framework\TestCase;
 
 final class RepositorySystemInfoCollectorTest extends TestCase
 {
-    private Connection&MockObject $dbalConnectionMock;
+    private Connection & MockObject $dbalConnectionMock;
 
-    private AbstractPlatform&MockObject $dbalPlatformMock;
+    private AbstractPlatform & MockObject $dbalPlatformMock;
 
-    private MetricsProvider&MockObject $metricsProviderMock;
+    private MetricsProvider & MockObject $metricsProviderMock;
 
-    private Metrics&MockObject $metricsMock;
+    private Metrics & MockObject $metricsMock;
 
     private RepositorySystemInfoCollector $repositoryCollector;
 

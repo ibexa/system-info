@@ -15,8 +15,7 @@
         "zetacomponents/system-information": "^1.1.1"
     },
     "require-dev": {
-        "ibexa/templated-uri-bundle": "^4.0",
-        "ibexa/code-style": "~2.0.0",
+        "ibexa/code-style": "~2.3.1",
         "ibexa/content-forms": "~5.0.x-dev",
         "ibexa/design-engine": "~5.0.x-dev",
         "ibexa/doctrine-migrations": "~5.0.x-dev",
@@ -28,6 +27,7 @@
         "ibexa/rector": "~5.0.x-dev",
         "ibexa/rest": "~5.0.x-dev",
         "ibexa/search": "~5.0.x-dev",
+        "ibexa/templated-uri-bundle": "^4.0",
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
         "matthiasnoback/symfony-dependency-injection-test": "^5.0",

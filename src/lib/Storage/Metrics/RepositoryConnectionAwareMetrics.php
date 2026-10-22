@@ -18,9 +18,7 @@ abstract class RepositoryConnectionAwareMetrics implements Metrics
 {
     abstract public function getValue(): int;
 
-    public function __construct(protected Connection $connection)
-    {
-    }
+    public function __construct(protected Connection $connection) {}
 
     protected function getCountExpression(string $columnName): string
     {

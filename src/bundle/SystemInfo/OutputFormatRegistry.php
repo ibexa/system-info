@@ -16,14 +16,12 @@ use Ibexa\Core\Base\Exceptions\NotFoundException;
 final readonly class OutputFormatRegistry
 {
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\OutputFormat[] $registry Hash of OutputFormats, with identifier string as key.
+     * @param OutputFormat[] $registry Hash of OutputFormats, with identifier string as key.
      */
-    public function __construct(private array $registry = [])
-    {
-    }
+    public function __construct(private array $registry = []) {}
 
     /**
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no OutputFormat exists with this identifier
+     * @throws NotFoundException If no OutputFormat exists with this identifier
      */
     public function getItem(string $identifier): OutputFormat
     {

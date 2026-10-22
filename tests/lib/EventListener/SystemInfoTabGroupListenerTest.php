@@ -22,7 +22,7 @@ final class SystemInfoTabGroupListenerTest extends TestCase
 {
     private TabGroupEvent $event;
 
-    private TabFactory&MockObject $tabFactory;
+    private TabFactory & MockObject $tabFactory;
 
     protected function setUp(): void
     {

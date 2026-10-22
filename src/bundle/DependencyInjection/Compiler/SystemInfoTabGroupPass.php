@@ -13,12 +13,14 @@ use Ibexa\AdminUi\Tab\TabRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 final readonly class SystemInfoTabGroupPass implements CompilerPassInterface
 {
     /**
-     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
+     * @throws InvalidArgumentException
+     * @throws ServiceNotFoundException
      */
     public function process(ContainerBuilder $container): void
     {

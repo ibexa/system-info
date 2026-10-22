@@ -18,14 +18,12 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 final readonly class AggregateMetricsProvider implements MetricsProvider
 {
     /**
-     * @param \Symfony\Component\DependencyInjection\ServiceLocator<\Ibexa\SystemInfo\Storage\Metrics> $metricsLocator
+     * @param ServiceLocator<Metrics> $metricsLocator
      */
-    public function __construct(private ServiceLocator $metricsLocator)
-    {
-    }
+    public function __construct(private ServiceLocator $metricsLocator) {}
 
     /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\MetricsNotFoundException
+     * @throws MetricsNotFoundException
      */
     public function provideMetrics(string $identifier): Metrics
     {

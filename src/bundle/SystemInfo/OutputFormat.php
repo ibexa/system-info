@@ -8,12 +8,14 @@ declare(strict_types=1);
 
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
+use Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo;
+
 interface OutputFormat
 {
     /**
      * Format an array of collected information data, and return it as string.
      *
-     * @param array<string, \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo> $collectedInfo
+     * @param array<string, SystemInfo> $collectedInfo
      */
     public function format(array $collectedInfo): string;
 }

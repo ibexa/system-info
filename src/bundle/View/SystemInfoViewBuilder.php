@@ -12,6 +12,8 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoException;
 use Ibexa\Bundle\SystemInfo\SystemInfo\SystemInfoCollectorRegistry;
 use Ibexa\Bundle\SystemInfo\SystemInfo\Value\InvalidSystemInfo;
+use Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException;
+use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Configurator;
 
@@ -20,8 +22,7 @@ final readonly class SystemInfoViewBuilder implements ViewBuilder
     public function __construct(
         private Configurator $viewConfigurator,
         private SystemInfoCollectorRegistry $registry
-    ) {
-    }
+    ) {}
 
     public function matches(mixed $argument): bool
     {
@@ -31,8 +32,8 @@ final readonly class SystemInfoViewBuilder implements ViewBuilder
     /**
      * @param array<string, string> $parameters
      *
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
+     * @throws InvalidArgumentException
+     * @throws NotFoundException
      */
     public function buildView(array $parameters): SystemInfoView
     {
@@ -53,7 +54,7 @@ final readonly class SystemInfoViewBuilder implements ViewBuilder
     }
 
     /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
+     * @throws NotFoundException
      */
     private function getCollector(string $identifier): SystemInfoCollector
     {

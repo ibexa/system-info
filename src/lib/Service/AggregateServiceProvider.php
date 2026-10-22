@@ -25,7 +25,7 @@ final readonly class AggregateServiceProvider implements ServiceProviderInterfac
     }
 
     /**
-     * @throws \Ibexa\Bundle\SystemInfo\SystemInfo\Exception\SystemInfoServiceNotFoundException
+     * @throws SystemInfoServiceNotFoundException
      */
     public function getServiceType(string $identifier): string
     {

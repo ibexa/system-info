@@ -18,8 +18,7 @@ class TabFactory
         private readonly Environment $twig,
         private readonly TranslatorInterface $translator,
         private readonly HttpKernelRuntime $httpKernelRuntime
-    ) {
-    }
+    ) {}
 
     public function createTab(
         string $collectorIdentifier,

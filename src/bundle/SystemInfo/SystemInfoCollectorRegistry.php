@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\Bundle\SystemInfo\SystemInfo;
 
 use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
+use Ibexa\Core\Base\Exceptions\NotFoundException;
 
 /**
  * A registry of SystemInfoCollectors.
@@ -16,14 +17,14 @@ use Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector;
 interface SystemInfoCollectorRegistry
 {
     /**
-     * @param \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
+     * @param SystemInfoCollector[] $items Hash of SystemInfoCollectors, with identifier string as key.
      */
     public function __construct(array $items = []);
 
     /**
      * Returns the SystemInfoCollector matching the argument.
      *
-     * @throws \Ibexa\Core\Base\Exceptions\NotFoundException If no SystemInfoCollector exists with this identifier
+     * @throws NotFoundException If no SystemInfoCollector exists with this identifier
      */
     public function getItem(string $identifier): SystemInfoCollector;
 

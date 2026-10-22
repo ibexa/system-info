@@ -32,8 +32,7 @@ final class ConfigurationSymfonyKernelSystemInfoCollector implements SystemInfoC
     public function __construct(
         private readonly Kernel $kernel,
         private array $bundles
-    ) {
-    }
+    ) {}
 
     public function collect(): SymfonyKernelSystemInfo
     {

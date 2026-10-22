@@ -61,8 +61,10 @@ final class SystemInfoDumpCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         if ($input->getOption('list-info-collectors')) {
             $output->writeln('Available info collectors:', OutputInterface::OUTPUT_NORMAL);
 

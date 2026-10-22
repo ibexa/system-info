@@ -32,16 +32,20 @@ final class IbexaSystemInfoExtension extends Extension implements PrependExtensi
     /**
      * @param array<string, mixed> $config
      */
-    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
-    {
+    public function getConfiguration(
+        array $config,
+        ContainerBuilder $container
+    ): Configuration {
         return new Configuration();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container): void
-    {
+    public function load(
+        array $configs,
+        ContainerBuilder $container
+    ): void {
         $loader = new Loader\YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')

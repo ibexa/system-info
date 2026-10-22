@@ -17,8 +17,7 @@ final readonly class ServicesSystemInfo implements SystemInfo
         private string $searchEngine,
         private string $httpCacheProxy,
         private string $persistenceCacheAdapter
-    ) {
-    }
+    ) {}
 
     public function getSearchEngine(): string
     {
