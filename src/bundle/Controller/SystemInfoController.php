@@ -18,8 +18,7 @@ final class SystemInfoController extends AdminUiController
 {
     public function __construct(
         private readonly SystemInfoCollectorRegistry $collectorRegistry
-    ) {
-    }
+    ) {}
 
     public function performAccessCheck(): void
     {

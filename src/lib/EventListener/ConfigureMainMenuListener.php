@@ -23,8 +23,7 @@ final readonly class ConfigureMainMenuListener implements EventSubscriberInterfa
     public function __construct(
         private MenuItemFactoryInterface $menuItemFactory,
         private PermissionResolver $permissionResolver
-    ) {
-    }
+    ) {}
 
     public function onMenuConfigure(ConfigureMenuEvent $event): void
     {

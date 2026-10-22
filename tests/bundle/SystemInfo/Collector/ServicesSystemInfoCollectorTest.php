@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ServicesSystemInfoCollectorTest extends TestCase
 {
-    private ServiceProviderInterface&MockObject $serviceProviderMock;
+    private ServiceProviderInterface & MockObject $serviceProviderMock;
 
     private ServicesSystemInfoCollector $serviceCollector;
 

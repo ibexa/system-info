@@ -13,9 +13,7 @@ namespace Ibexa\SystemInfo\Service;
  */
 final readonly class HttpCacheServiceInfo implements ServiceInfo
 {
-    public function __construct(private string $purgeType)
-    {
-    }
+    public function __construct(private string $purgeType) {}
 
     public function getServiceType(): string
     {

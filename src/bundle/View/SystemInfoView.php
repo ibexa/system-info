@@ -29,7 +29,7 @@ final class SystemInfoView extends BaseView implements View
     }
 
     /**
-     * @return array{info: \Ibexa\Bundle\SystemInfo\SystemInfo\Value\SystemInfo}
+     * @return array{info: SystemInfo}
      */
     protected function getInternalParameters(): array
     {

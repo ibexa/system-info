@@ -19,8 +19,7 @@ final readonly class SystemInfoTabGroupListener implements EventSubscriberInterf
     public function __construct(
         private TabFactory $tabFactory,
         private SystemInfoCollectorRegistry $systeminfoCollectorRegistry
-    ) {
-    }
+    ) {}
 
     public static function getSubscribedEvents(): array
     {

@@ -22,8 +22,7 @@ readonly class RepositorySystemInfoCollector implements SystemInfoCollector
     public function __construct(
         private Connection $connection,
         private MetricsProvider $metricsProvider
-    ) {
-    }
+    ) {}
 
     /**
      * Collects information about the database Ibexa DXP is using.

@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversMethod(HardwareSystemInfoCollector::class, 'collect')]
 final class HardwareSystemInfoCollectorTest extends TestCase
 {
-    private SystemInfoWrapper&MockObject $systemInfoMock;
+    private SystemInfoWrapper & MockObject $systemInfoMock;
 
     private HardwareSystemInfoCollector $ezcHardware;
 

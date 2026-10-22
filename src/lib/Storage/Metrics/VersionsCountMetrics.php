@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
 use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
 
 /**
@@ -18,7 +19,7 @@ final class VersionsCountMetrics extends RepositoryConnectionAwareMetrics
     private const string ID_COLUMN = 'id';
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {

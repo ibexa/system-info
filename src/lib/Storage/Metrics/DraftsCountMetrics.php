@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\SystemInfo\Storage\Metrics;
 
+use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\ParameterType;
 use Ibexa\Contracts\Core\Persistence\Content\ContentInfo;
 use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
@@ -18,7 +19,7 @@ use Ibexa\Core\Persistence\Legacy\Content\Gateway as ContentGateway;
 final class DraftsCountMetrics extends RepositoryConnectionAwareMetrics
 {
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function getValue(): int
     {

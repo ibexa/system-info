@@ -18,11 +18,11 @@ use PHPUnit\Framework\TestCase;
 
 final class SystemInfoViewBuilderTest extends TestCase
 {
-    private Configurator&MockObject $configuratorMock;
+    private Configurator & MockObject $configuratorMock;
 
-    private SystemInfoCollectorRegistry&MockObject $registryMock;
+    private SystemInfoCollectorRegistry & MockObject $registryMock;
 
-    private SystemInfoCollector&MockObject $collectorMock;
+    private SystemInfoCollector & MockObject $collectorMock;
 
     public function testMatches(): void
     {
@@ -70,14 +70,14 @@ final class SystemInfoViewBuilderTest extends TestCase
         self::assertEquals('test', $view->getViewType());
     }
 
-    protected function getConfiguratorMock(): MockObject&Configurator
+    protected function getConfiguratorMock(): MockObject & Configurator
     {
         $this->configuratorMock ??= $this->createMock(Configurator::class);
 
         return $this->configuratorMock;
     }
 
-    protected function getRegistryMock(): SystemInfoCollectorRegistry&MockObject
+    protected function getRegistryMock(): SystemInfoCollectorRegistry & MockObject
     {
         $this->registryMock ??= $this->createMock(
             SystemInfoCollectorRegistry::class
@@ -86,7 +86,7 @@ final class SystemInfoViewBuilderTest extends TestCase
         return $this->registryMock;
     }
 
-    protected function getCollectorMock(): SystemInfoCollector&MockObject
+    protected function getCollectorMock(): SystemInfoCollector & MockObject
     {
         $this->collectorMock ??= $this->createMock(SystemInfoCollector::class);
 

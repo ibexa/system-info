@@ -15,7 +15,7 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject;
  */
 final class ComposerSystemInfo extends ValueObject implements SystemInfo
 {
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Value\ComposerPackage[]|null */
+    /** @var ComposerPackage[]|null */
     public ?array $packages;
 
     /**

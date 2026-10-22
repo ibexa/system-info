@@ -20,7 +20,7 @@ final class IdentifierBasedTest extends TestCase
 {
     private IdentifierBased $registry;
 
-    /** @var \Ibexa\Bundle\SystemInfo\SystemInfo\Collector\SystemInfoCollector[] */
+    /** @var SystemInfoCollector[] */
     private array $testItems;
 
     protected function setUp(): void
