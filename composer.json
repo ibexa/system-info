@@ -27,7 +27,7 @@
         "ibexa/rector": "~5.0.x-dev",
         "ibexa/rest": "~5.0.x-dev",
         "ibexa/search": "~5.0.x-dev",
-        "ibexa/templated-uri-bundle": "^4.0",
+        "ibexa/templated-uri-bundle": "~5.0.x-dev",
         "ibexa/test-core": "~5.0.x-dev",
         "ibexa/user": "~5.0.x-dev",
         "matthiasnoback/symfony-dependency-injection-test": "^5.0",
