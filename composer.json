@@ -28,7 +28,6 @@
         "ibexa/rector": "~6.0.x-dev",
         "ibexa/rest": "~6.0.x-dev",
         "ibexa/search": "~6.0.x-dev",
-        "ibexa/templated-uri-bundle": "^6.0",
         "ibexa/test-core": "~6.0.x-dev",
         "ibexa/user": "~6.0.x-dev",
         "matthiasnoback/symfony-dependency-injection-test": "^6.0",
