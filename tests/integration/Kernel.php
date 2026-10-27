@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Integration\SystemInfo;
 
-use Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle;
 use Ibexa\Bundle\AdminUi\IbexaAdminUiBundle;
 use Ibexa\Bundle\ContentForms\IbexaContentFormsBundle;
 use Ibexa\Bundle\DesignEngine\IbexaDesignEngineBundle;
@@ -37,7 +36,6 @@ final class Kernel extends IbexaTestKernel
         yield new IbexaTestCoreBundle();
 
         yield new LexikJWTAuthenticationBundle();
-        yield new HautelookTemplatedUriBundle();
         yield new WebpackEncoreBundle();
         yield new KnpMenuBundle();
 
